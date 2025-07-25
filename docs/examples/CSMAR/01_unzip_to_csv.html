@@ -1,0 +1,2485 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>11&nbsp; CSMAR 数据处理 – Empirical Research with AI</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../examples/web_dangdang_book/case_Dangdang_book.html" rel="next">
+<link href="../../examples/CSMAR/00_intro.html" rel="prev">
+<link href="../../images/book-logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e8fb9d25728d58bfeac61b497e4a6629.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8434d2026ae8291579158df2ad8dfa64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../examples/CSMAR/00_intro.html"><strong>AI+数据分析</strong></a></li><li class="breadcrumb-item"><a href="../../examples/CSMAR/01_unzip_to_csv.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="https://lianxhcn.github.io/research_with_AI/" class="sidebar-logo-link">
+      <img src="../../images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Empirical Research with AI</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lianxhcn/research_with_AI" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据分析</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>简介</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/00_py_with_AI_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">借助 AI 写代码</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/00_py_with_AI_pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/01_1_install-Python-Anocanda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Python：安装和环境配置</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/01_2_install_FAQs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python 安装常见问题</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/01_3_markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Markdown</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>AI+论文推介</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/05_write_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/04_use_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">使用 AI 写论文推介</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>AI+论文解读和研究设计</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/AI_research_design_Erdem_2025.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>AI+数据分析</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/CSMAR/01_unzip_to_csv.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/web_dangdang_book/case_Dangdang_book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#从-camar-数据库下载-excel-数据文件" id="toc-从-camar-数据库下载-excel-数据文件" class="nav-link active" data-scroll-target="#从-camar-数据库下载-excel-数据文件"><span class="header-section-number">11.1</span> 从 CAMAR 数据库下载 Excel 数据文件</a>
+  <ul class="collapse">
+  <li><a href="#数据下载页面" id="toc-数据下载页面" class="nav-link" data-scroll-target="#数据下载页面"><span class="header-section-number">11.1.1</span> 数据下载页面</a></li>
+  </ul></li>
+  <li><a href="#文件夹结构与处理流程说明" id="toc-文件夹结构与处理流程说明" class="nav-link" data-scroll-target="#文件夹结构与处理流程说明"><span class="header-section-number">11.2</span> 文件夹结构与处理流程说明</a>
+  <ul class="collapse">
+  <li><a href="#处理流程" id="toc-处理流程" class="nav-link" data-scroll-target="#处理流程"><span class="header-section-number">11.2.1</span> 处理流程</a></li>
+  </ul></li>
+  <li><a href="#解压-zip-文件到指定文件夹" id="toc-解压-zip-文件到指定文件夹" class="nav-link" data-scroll-target="#解压-zip-文件到指定文件夹"><span class="header-section-number">11.3</span> 解压 zip 文件到指定文件夹</a></li>
+  <li><a href="#更改部分文件夹中的文件名" id="toc-更改部分文件夹中的文件名" class="nav-link" data-scroll-target="#更改部分文件夹中的文件名"><span class="header-section-number">11.4</span> 更改部分文件夹中的文件名</a>
+  <ul class="collapse">
+  <li><a href="#问题说明" id="toc-问题说明" class="nav-link" data-scroll-target="#问题说明"><span class="header-section-number">11.4.1</span> 问题说明</a></li>
+  <li><a href="#查看处理后的文件名" id="toc-查看处理后的文件名" class="nav-link" data-scroll-target="#查看处理后的文件名"><span class="header-section-number">11.4.2</span> 查看处理后的文件名</a></li>
+  </ul></li>
+  <li><a href="#列示-data_raw-文件夹中的-file-tree" id="toc-列示-data_raw-文件夹中的-file-tree" class="nav-link" data-scroll-target="#列示-data_raw-文件夹中的-file-tree"><span class="header-section-number">11.5</span> 列示 ‘data_raw’ 文件夹中的 file tree</a></li>
+  <li><a href="#定义函数以批量读取指定文件夹下的文件" id="toc-定义函数以批量读取指定文件夹下的文件" class="nav-link" data-scroll-target="#定义函数以批量读取指定文件夹下的文件"><span class="header-section-number">11.6</span> 定义函数以批量读取指定文件夹下的文件</a>
+  <ul class="collapse">
+  <li><a href="#文件内容分析" id="toc-文件内容分析" class="nav-link" data-scroll-target="#文件内容分析"><span class="header-section-number">11.6.1</span> 文件内容分析</a></li>
+  <li><a href="#方案-1简化版处理代码" id="toc-方案-1简化版处理代码" class="nav-link" data-scroll-target="#方案-1简化版处理代码"><span class="header-section-number">11.6.2</span> 方案 1：简化版处理代码</a></li>
+  <li><a href="#优化代码" id="toc-优化代码" class="nav-link" data-scroll-target="#优化代码"><span class="header-section-number">11.6.3</span> 优化代码</a></li>
+  </ul></li>
+  <li><a href="#定义函数以批量读取指定文件夹下的文件-1" id="toc-定义函数以批量读取指定文件夹下的文件-1" class="nav-link" data-scroll-target="#定义函数以批量读取指定文件夹下的文件-1"><span class="header-section-number">11.7</span> 定义函数以批量读取指定文件夹下的文件</a></li>
+  <li><a href="#批量处理" id="toc-批量处理" class="nav-link" data-scroll-target="#批量处理"><span class="header-section-number">11.8</span> 批量处理</a>
+  <ul class="collapse">
+  <li><a href="#查看导入结果" id="toc-查看导入结果" class="nav-link" data-scroll-target="#查看导入结果"><span class="header-section-number">11.8.1</span> 查看导入结果</a></li>
+  <li><a href="#查看处理后的单个文件" id="toc-查看处理后的单个文件" class="nav-link" data-scroll-target="#查看处理后的单个文件"><span class="header-section-number">11.8.2</span> 查看处理后的单个文件</a></li>
+  </ul></li>
+  <li><a href="#合并数据" id="toc-合并数据" class="nav-link" data-scroll-target="#合并数据"><span class="header-section-number">11.9</span> 合并数据</a>
+  <ul class="collapse">
+  <li><a href="#纵向合并" id="toc-纵向合并" class="nav-link" data-scroll-target="#纵向合并"><span class="header-section-number">11.9.1</span> 纵向合并</a></li>
+  <li><a href="#横向合并" id="toc-横向合并" class="nav-link" data-scroll-target="#横向合并"><span class="header-section-number">11.9.2</span> 横向合并</a></li>
+  <li><a href="#输出最终数据文件" id="toc-输出最终数据文件" class="nav-link" data-scroll-target="#输出最终数据文件"><span class="header-section-number">11.9.3</span> 输出最终数据文件</a></li>
+  <li><a href="#收尾删除无用文件和过程文件" id="toc-收尾删除无用文件和过程文件" class="nav-link" data-scroll-target="#收尾删除无用文件和过程文件"><span class="header-section-number">11.9.4</span> 收尾：删除无用文件和过程文件</a></li>
+  <li><a href="#呈现项目文档树" id="toc-呈现项目文档树" class="nav-link" data-scroll-target="#呈现项目文档树"><span class="header-section-number">11.9.5</span> 呈现项目文档树</a></li>
+  <li><a href="#保留哪些文件夹" id="toc-保留哪些文件夹" class="nav-link" data-scroll-target="#保留哪些文件夹"><span class="header-section-number">11.9.6</span> 保留哪些文件夹？</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../examples/CSMAR/00_intro.html"><strong>AI+数据分析</strong></a></li><li class="breadcrumb-item"><a href="../../examples/CSMAR/01_unzip_to_csv.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>CSMAR (China Stock Market &amp; Accounting Research) 是一个提供中国上市公司数据的数据库。本文将介绍如何使用 CSMAR 数据库获取上市公司基本信息和财务资料，并经过合并、清洗等处理，得到清洁数据。</p>
+<section id="从-camar-数据库下载-excel-数据文件" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="从-camar-数据库下载-excel-数据文件"><span class="header-section-number">11.1</span> 从 CAMAR 数据库下载 Excel 数据文件</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>.csv</code> 优于 <code>.xlsx</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>我此前对 Python 处理数据的机制了解不足，导致我最初下载的都是 <code>.xlsx</code> 格式的数据。虽然这种 Excel 格式的数据可以使用 <code>pandas</code> 读取，但非常耗时 (一份包含 8w 行观察值的资产负债表大概需要 50s)。相比之下，<code>.csv</code> 格式的数据读取速度更快，通常只需要几秒钟。</p>
+<p>因此，大家从 CSMAR 数据库下载数据时，建议选择 <code>.csv</code> 格式，而不是 <code>.xlsx</code> 格式。</p>
+</div>
+</div>
+<section id="数据下载页面" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="数据下载页面"><span class="header-section-number">11.1.1</span> 数据下载页面</h3>
+<ul>
+<li>网址：<a href="https://data.csmar.com/" class="uri">https://data.csmar.com/</a></li>
+<li>登录：中大 IP 地址范围内自动登录 (机构账号)</li>
+</ul>
+<p><img style="width: 400px" src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250528000207.png"></p>
+<p>主要有两种查询方案：</p>
+<ul>
+<li><strong>单表查询</strong>：直接查询某一张表格的数据。</li>
+<li><strong>多表查询</strong>：可以跨表查询，形成一个新的表格。</li>
+</ul>
+<p>两种模式下的查询流程大致相同：选择子库 &gt;&gt; 选择时间范围 &gt;&gt; 选择代码范围 &gt;&gt; 选择字段范围 &gt;&gt; 下载数据。</p>
+<p>建议尽量选择 <code>.csv</code> 或 <code>.txt</code> 格式下载数据，因为这两种格式的数据读取速度更快。</p>
+<p>下载后的文件通常为 <strong>.zip</strong> 格式，解压后会得到两份文件： - <code>FileName.csv</code>: 数据文件 - <code>FileName[DES][xlsx].txt</code>: 变量说明文件</p>
+<p>数据库说明书：每个子库的右上角都会显示「<strong><a href="https://data.csmar.com/lib/pdfjs/web/viewer.html?file=group1%2FM00%2F3F%2FF2%2FCuIKV2c8MBmASlKhABdnboBfW5s152.pdf&amp;fname=%E8%B4%A2%E5%8A%A1%E6%8A%A5%E8%A1%A8%20%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%B4%E6%98%8E%E4%B9%A6">数据库说明书</a></strong>」，点击后可下载 PDF 格式的说明书，里面包含了该子库的所有表格、字段的详细信息。</p>
+<p><img style="width: 650px" src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250528001925.png"></p>
+<div id="5d19ce3d" class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 文件路径设定{tag}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note：进行后续分析之前，请先执行本 Cell 中的代码，以确保所有路径正确设置。</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 打开 .ipynb 文件的路径记为当前工作目录</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#path = os.getcwd()</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="vs">r'D:\Github\ds_data\data\CSMAR'</span>    <span class="co"># 替换为你的实际路径</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>os.chdir(path)  <span class="co"># 切换工作目录</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Working Directory:'</span>, os.getcwd())</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Folders </span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>zip_folder <span class="op">=</span> os.path.join(path, <span class="st">'data_raw_zip'</span>)       <span class="co"># 原始压缩包存放目录</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>extract_folder <span class="op">=</span> os.path.join(path, <span class="st">'data_raw'</span>)       <span class="co"># 解压后的数据存放目录</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>data_clean_folder <span class="op">=</span> os.path.join(path, <span class="st">'data_clean'</span>)  <span class="co"># 清洗后的数据存放目录</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Working Directory: d:\Github\ds_data\data\CSMAR</code></pre>
+</div>
+</div>
+<div id="b6be3b18" class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 列示 'data_raw_zip' 文件夹中的所有文件</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> os.listdir(zip_folder):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(item)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CSMAR常用变量-2000-2024.zip
+上市公司基本信息变更表2000-2024.zip
+上市公司基本信息年度表.zip
+利润表-现金流量表-2000-2010.zip
+利润表-现金流量表-2011-2024.zip
+资产负债表-2000-2010.zip
+资产负债表-2011-2024.zip</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="文件夹结构与处理流程说明" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="文件夹结构与处理流程说明"><span class="header-section-number">11.2</span> 文件夹结构与处理流程说明</h2>
+<p>本项目的数据处理涉及以下文件夹：</p>
+<ul>
+<li><strong>data_raw_zip</strong>：存放从 CSMAR 下载的原始数据（.zip 压缩包），每个压缩包解压后会生成同名文件夹。</li>
+<li><strong>data_raw</strong>：存放解压后的原始数据文件。</li>
+<li><strong>data_clean</strong>：存放清洗后的数据文件。</li>
+</ul>
+<section id="处理流程" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="处理流程"><span class="header-section-number">11.2.1</span> 处理流程</h3>
+<ol type="1">
+<li>列出 <code>data_raw_zip</code> 文件夹中的所有压缩文件。</li>
+<li>将每个压缩包解压到 <code>data_raw</code> 文件夹下，解压后以压缩包同名文件夹存放。</li>
+<li>为便于后续批量处理，对解压后的文件进行统一重命名。</li>
+<li>编写函数，实现指定文件夹下文件的批量读取。</li>
+</ol>
+</section>
+</section>
+<section id="解压-zip-文件到指定文件夹" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="解压-zip-文件到指定文件夹"><span class="header-section-number">11.3</span> 解压 zip 文件到指定文件夹</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>将当前路径下的 ‘data_raw_zip’ 文件夹中的所有 zip 文件解压到 ‘data_raw’ 文件夹中。</li>
+<li>如果 ‘data_raw’ 文件夹不存在，则创建该文件夹。</li>
+<li>每个 zip 文件解压后生成一个文件夹，文件夹名称与 zip 文件名相同，若有同名文件则覆盖之。</li>
+</ul>
+</div>
+</div>
+<div id="8535a19d" class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shutil</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建 'data_raw' 文件夹（如果不存在）</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(extract_folder):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    os.makedirs(extract_folder)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 遍历 'data_raw_zip' 文件夹中的所有 zip 文件</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> os.listdir(zip_folder):</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> item.endswith(<span class="st">'.zip'</span>):</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        zip_path <span class="op">=</span> os.path.join(zip_folder, item)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        folder_name <span class="op">=</span> os.path.splitext(item)[<span class="dv">0</span>]</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        target_dir <span class="op">=</span> os.path.join(extract_folder, folder_name)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 如果目标文件夹已存在，则先删除</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> os.path.exists(target_dir):</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            shutil.rmtree(target_dir)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 解压 zip 文件到目标文件夹</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> zipfile.ZipFile(zip_path, <span class="st">'r'</span>) <span class="im">as</span> zip_ref:</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>            zip_ref.extractall(target_dir)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"已解压: </span><span class="sc">{</span>zip_path<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>target_dir<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>已解压: D:\Github\ds_data\data\CSMAR\data_raw_zip\CSMAR常用变量-2000-2024.zip -&gt; D:\Github\ds_data\data\CSMAR\data_raw\CSMAR常用变量-2000-2024
+已解压: D:\Github\ds_data\data\CSMAR\data_raw_zip\上市公司基本信息变更表2000-2024.zip -&gt; D:\Github\ds_data\data\CSMAR\data_raw\上市公司基本信息变更表2000-2024
+已解压: D:\Github\ds_data\data\CSMAR\data_raw_zip\上市公司基本信息年度表.zip -&gt; D:\Github\ds_data\data\CSMAR\data_raw\上市公司基本信息年度表
+已解压: D:\Github\ds_data\data\CSMAR\data_raw_zip\利润表-现金流量表-2000-2010.zip -&gt; D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2000-2010
+已解压: D:\Github\ds_data\data\CSMAR\data_raw_zip\利润表-现金流量表-2011-2024.zip -&gt; D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2011-2024
+已解压: D:\Github\ds_data\data\CSMAR\data_raw_zip\资产负债表-2000-2010.zip -&gt; D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2000-2010
+已解压: D:\Github\ds_data\data\CSMAR\data_raw_zip\资产负债表-2011-2024.zip -&gt; D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2011-2024</code></pre>
+</div>
+</div>
+</section>
+<section id="更改部分文件夹中的文件名" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="更改部分文件夹中的文件名"><span class="header-section-number">11.4</span> 更改部分文件夹中的文件名</h2>
+<section id="问题说明" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="问题说明"><span class="header-section-number">11.4.1</span> 问题说明</h3>
+<p>在 <code>data_raw</code> 文件夹中，有些子文件夹中的文件名是由 CSMAR 自动生成的，没有实际意义。为了便于后续处理，需要将这些文件名更改为更有意义的名称。</p>
+<p>此处以 <code>data_raw/资产负债表-??</code> 文件夹为例，可以看出，<code>资产负债表-2000-2010</code> 和 <code>资产负债表-2011-2024</code> 这两个文件夹中包含的文件名完全相同，这会导致随后纵向合并时难以区分数据来源。</p>
+<div id="a410430c" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 提示词：列出 `data_raw` 文件夹中包含关键词 {'资产负债表'} 的子文件夹的 file tree。</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>keywords <span class="op">=</span> <span class="st">'资产负债表'</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_keyword_file_tree(root, keyword, indent<span class="op">=</span><span class="st">""</span>):</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> os.listdir(root):</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        item_path <span class="op">=</span> os.path.join(root, item)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> os.path.isdir(item_path) <span class="kw">and</span> keyword <span class="kw">in</span> item:</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(indent <span class="op">+</span> <span class="st">"|-- "</span> <span class="op">+</span> item)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> subitem <span class="kw">in</span> os.listdir(item_path):</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(indent <span class="op">+</span> <span class="st">"    |-- "</span> <span class="op">+</span> subitem)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>print_keyword_file_tree(extract_folder, keywords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>|-- 资产负债表-2000-2010
+    |-- 版权声明.pdf
+    |-- 跨表查询_沪深京股票(年频).xlsx
+    |-- 跨表查询_沪深京股票(年频)[DES][.xlsx].txt
+|-- 资产负债表-2011-2024
+    |-- 版权声明.pdf
+    |-- 跨表查询_沪深京股票(年频).xlsx
+    |-- 跨表查询_沪深京股票(年频)[DES][.xlsx].txt</code></pre>
+</div>
+</div>
+<p>查看后，发现子文件夹 <code>利润表-现金流量表-??</code> 和 <code>CSMAR常用变量-2000-2024</code> 中的文件名也存在类似问题。</p>
+<p>处理思路是：用文件夹名称作为该文件夹下的文件的文件名。因此，我们可以使用如下提示词生成处理代码：</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>目的：更改 ‘data_raw’ 文件夹中部分子文件夹中的文件的名称。</li>
+<li>子文件夹名称为 ‘sub_folder_name’，其内部包含的文件记为 {Files}</li>
+<li>如果 ‘sub_folder_name’ 中包含关键词 {‘常用变量’, ‘资产负债表’, ‘利润表’}，则把 {Files} 中的 ‘.xlsx’ 和 ‘.txt’ 文件的名称改为 ‘folder_name.xlsx’ 和 ‘folder_name_DES.txt’。</li>
+</ol>
+</div>
+</div>
+<div id="82bbbc1f" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 增加关键词 '常用变量'</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>keywords <span class="op">=</span> [<span class="st">'常用变量'</span>, <span class="st">'资产负债表'</span>, <span class="st">'利润表'</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 检查并重命名文件</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subfolder <span class="kw">in</span> os.listdir(extract_folder):</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    subfolder_path <span class="op">=</span> os.path.join(extract_folder, subfolder)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.isdir(subfolder_path) <span class="kw">and</span> <span class="bu">any</span>(kw <span class="kw">in</span> subfolder <span class="cf">for</span> kw <span class="kw">in</span> keywords):</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> os.listdir(subfolder_path):</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            file_path <span class="op">=</span> os.path.join(subfolder_path, <span class="bu">file</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">file</span>.endswith(<span class="st">'.xlsx'</span>):</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                new_name <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>subfolder<span class="sc">}</span><span class="ss">.xlsx"</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                new_path <span class="op">=</span> os.path.join(subfolder_path, new_name)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                os.rename(file_path, new_path)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"重命名: </span><span class="sc">{</span>file_path<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>new_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="bu">file</span>.endswith(<span class="st">'.txt'</span>):</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                new_name <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>subfolder<span class="sc">}</span><span class="ss">_DES.txt"</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                new_path <span class="op">=</span> os.path.join(subfolder_path, new_name)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                os.rename(file_path, new_path)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"重命名: </span><span class="sc">{</span>file_path<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>new_path<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>重命名: D:\Github\ds_data\data\CSMAR\data_raw\CSMAR常用变量-2000-2024\常用变量查询（年度）.xlsx -&gt; D:\Github\ds_data\data\CSMAR\data_raw\CSMAR常用变量-2000-2024\CSMAR常用变量-2000-2024.xlsx
+重命名: D:\Github\ds_data\data\CSMAR\data_raw\CSMAR常用变量-2000-2024\常用变量查询（年度）[DES][xlsx].txt -&gt; D:\Github\ds_data\data\CSMAR\data_raw\CSMAR常用变量-2000-2024\CSMAR常用变量-2000-2024_DES.txt
+重命名: D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2000-2010\跨表查询_沪深京股票(年频).xlsx -&gt; D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2000-2010\利润表-现金流量表-2000-2010.xlsx
+重命名: D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2000-2010\跨表查询_沪深京股票(年频)[DES][.xlsx].txt -&gt; D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2000-2010\利润表-现金流量表-2000-2010_DES.txt
+重命名: D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2011-2024\跨表查询_沪深京股票(年频).xlsx -&gt; D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2011-2024\利润表-现金流量表-2011-2024.xlsx
+重命名: D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2011-2024\跨表查询_沪深京股票(年频)[DES][.xlsx].txt -&gt; D:\Github\ds_data\data\CSMAR\data_raw\利润表-现金流量表-2011-2024\利润表-现金流量表-2011-2024_DES.txt
+重命名: D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2000-2010\跨表查询_沪深京股票(年频).xlsx -&gt; D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2000-2010\资产负债表-2000-2010.xlsx
+重命名: D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2000-2010\跨表查询_沪深京股票(年频)[DES][.xlsx].txt -&gt; D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2000-2010\资产负债表-2000-2010_DES.txt
+重命名: D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2011-2024\跨表查询_沪深京股票(年频).xlsx -&gt; D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2011-2024\资产负债表-2011-2024.xlsx
+重命名: D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2011-2024\跨表查询_沪深京股票(年频)[DES][.xlsx].txt -&gt; D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2011-2024\资产负债表-2011-2024_DES.txt</code></pre>
+</div>
+</div>
+</section>
+<section id="查看处理后的文件名" class="level3" data-number="11.4.2">
+<h3 data-number="11.4.2" class="anchored" data-anchor-id="查看处理后的文件名"><span class="header-section-number">11.4.2</span> 查看处理后的文件名</h3>
+<div id="c7ce5582" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 提示词：列出 `data_raw` 文件夹中包含关键词 {'资产负债表'} 的子文件夹的 file tree。</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>keyword <span class="op">=</span> <span class="st">'资产负债表'</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_keyword_file_tree(root, keyword, indent<span class="op">=</span><span class="st">""</span>):</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> os.listdir(root):</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        item_path <span class="op">=</span> os.path.join(root, item)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> os.path.isdir(item_path) <span class="kw">and</span> keyword <span class="kw">in</span> item:</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(indent <span class="op">+</span> <span class="st">"|-- "</span> <span class="op">+</span> item)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> subitem <span class="kw">in</span> os.listdir(item_path):</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(indent <span class="op">+</span> <span class="st">"    |-- "</span> <span class="op">+</span> subitem)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>print_keyword_file_tree(extract_folder, keyword)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>|-- 资产负债表-2000-2010
+    |-- 版权声明.pdf
+    |-- 资产负债表-2000-2010.xlsx
+    |-- 资产负债表-2000-2010_DES.txt
+|-- 资产负债表-2011-2024
+    |-- 版权声明.pdf
+    |-- 资产负债表-2011-2024.xlsx
+    |-- 资产负债表-2011-2024_DES.txt</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="列示-data_raw-文件夹中的-file-tree" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="列示-data_raw-文件夹中的-file-tree"><span class="header-section-number">11.5</span> 列示 ‘data_raw’ 文件夹中的 file tree</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>列示 ‘data_raw’ 文件夹中的文件树结构。</li>
+<li>只列示文件夹名称和文件名称，不需要显示文件内容。</li>
+<li>如果文件夹中有子文件夹，则显示子文件夹名称。</li>
+</ul>
+</div>
+</div>
+<div id="b66ad02c" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_file_tree(root, indent<span class="op">=</span><span class="st">""</span>):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> os.listdir(root):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        item_path <span class="op">=</span> os.path.join(root, item)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(indent <span class="op">+</span> <span class="st">"|-- "</span> <span class="op">+</span> item)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> os.path.isdir(item_path):</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            print_file_tree(item_path, indent <span class="op">+</span> <span class="st">"    "</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>print_file_tree(extract_folder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>|-- CSMAR常用变量-2000-2024
+    |-- CSMAR常用变量-2000-2024.xlsx
+    |-- CSMAR常用变量-2000-2024_DES.txt
+    |-- 版权声明.pdf
+|-- 上市公司基本信息变更表2000-2024
+    |-- STK_LISTEDCOINFOCHG.xlsx
+    |-- STK_LISTEDCOINFOCHG[DES][xlsx].txt
+    |-- 版权声明.pdf
+|-- 上市公司基本信息年度表
+    |-- STK_LISTEDCOINFOANL.xlsx
+    |-- STK_LISTEDCOINFOANL[DES][xlsx].txt
+    |-- 上市公司基本信息 数据库说明书.pdf
+|-- 利润表-现金流量表-2000-2010
+    |-- 利润表-现金流量表-2000-2010.xlsx
+    |-- 利润表-现金流量表-2000-2010_DES.txt
+    |-- 版权声明.pdf
+|-- 利润表-现金流量表-2011-2024
+    |-- 利润表-现金流量表-2011-2024.xlsx
+    |-- 利润表-现金流量表-2011-2024_DES.txt
+    |-- 版权声明.pdf
+|-- 资产负债表-2000-2010
+    |-- 版权声明.pdf
+    |-- 资产负债表-2000-2010.xlsx
+    |-- 资产负债表-2000-2010_DES.txt
+|-- 资产负债表-2011-2024
+    |-- 版权声明.pdf
+    |-- 资产负债表-2011-2024.xlsx
+    |-- 资产负债表-2011-2024_DES.txt</code></pre>
+</div>
+</div>
+</section>
+<section id="定义函数以批量读取指定文件夹下的文件" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="定义函数以批量读取指定文件夹下的文件"><span class="header-section-number">11.6</span> 定义函数以批量读取指定文件夹下的文件</h2>
+<section id="文件内容分析" class="level3" data-number="11.6.1">
+<h3 data-number="11.6.1" class="anchored" data-anchor-id="文件内容分析"><span class="header-section-number">11.6.1</span> 文件内容分析</h3>
+<p>观察后发现，每个文件夹下都包含两个文件：</p>
+<ul>
+<li><code>*.xlsx</code>：包含数据的 Excel 文件。</li>
+<li><code>*DES*.txt</code>：包含数据描述的文本文件。</li>
+</ul>
+<p>我们可以查看这两份文件的内容和结构，然后再决定读取方案。这里仍以 [资产负债表-2011-2024] 文件夹为例进行说明。</p>
+<p><strong><code>资产负债表-2011-2024.xlsx</code></strong> 是数据文件，存储结构如下：前 6 列和前 9 行数据如下：</p>
+<p><img style="width: 650px" src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250526115914.png"></p>
+<p>可以看出，从第 5 行开始是具体的观察值，而此前的四行则是表头信息：</p>
+<ul>
+<li>第一行是变量名</li>
+<li>第二行是变量的中文简称 (可以用作变量中文标签)</li>
+<li>第三行是变量的单位</li>
+<li>第四行是变量的其他说明信息。如第 5-6 列显示的是报表类型。</li>
+</ul>
+<p><code>资产负债表-2011-2024_DES.txt</code> 是变量描述文件，主要包含变量的中文名称、单位、数据来源等信息。其原始内容如下：</p>
+<pre class="raw"><code>-------------------- 资产负债表-2011-2024_DES.txt ---------begin--
+本信息:
+code[证券代码] - 
+stknme[证券简称] - 
+listingDate[上市日期] - 
+EndDate[时间] - 
+
+数据库名称：财务报表--&gt; 表名称：资产负债表(FS_Combas)
+A001101000[货币资金] - 公司库存现金、银行结算户存款、……等的合计数。1990年起使用
+A001107000[交易性金融资产] - 交易性金融资产是……的债券投资、股票投资……。2007年起使用。
+……
+-------------------- 资产负债表-2011-2024_DES.txt ---------over--</code></pre>
+<p>可以看出，<code>资产负债表-2011-2024_DES.txt</code> 文件中每行的格式为：</p>
+<p><code>varname</code>[<strong>中文简称</strong>] - <em>变量说明</em></p>
+<ul>
+<li><code>varname</code> 是变量的英文名称。</li>
+<li><code>中文简称</code> 是变量的中文名称，可以作为变量标签。</li>
+<li><code>变量说明</code> 是对该变量的详细描述，包括变量的含义、计算方法、单位、数据来源等信息。</li>
+</ul>
+<p>对比这两份文件，有如下几种处理方案：</p>
+<p><strong>方案 1</strong>：简化版</p>
+<p>如果只需要 <code>varname</code> 和 <code>中文简称</code> (后者可以作为前者的变量标签)，则处理过程为：</p>
+<p><strong>input</strong>：<code>资产负债表-2011-2024.xlsx</code></p>
+<ul>
+<li>提取 <code>资产负债表-2011-2024.xlsx</code> 文件中第 5 行以后的所有数据，定义为数据框 <code>df</code>；</li>
+<li>提取 <code>资产负债表-2011-2024.xlsx</code> 前两行数据，定义为一个字典 <strong>dict</strong> - <code>{varname: 中文简称}</code>；</li>
+<li>将该字典附加到数据框 <code>df</code> 中，作为它的一个属性。</li>
+</ul>
+<p><strong>output</strong>：<code>df</code> 数据框 + <code>dict</code> 字典。</p>
+<p>这种处理方式的好处是只需要数据文件 <code>资产负债表-2011-2024.xlsx</code>，缺陷是使用数据时，如果想知道每个变量详细信息，就需要翻阅 CSMAR 提供的 PDF 说明书，或 <code>资产负债表-2011-2024_DES.txt</code> 文件。</p>
+<p><strong>方案 2</strong>：完整信息版</p>
+<p>此版本的思路是把变量的中文名和变量说明信息都提取出来，制作成两个字典，整合到数据框中。其好处是，我们可以随时在 Python 内部查看变量的中文名称和说明信息，而不需要翻阅 PDF 或其他文件。</p>
+<p>处理过程如下：</p>
+<p><strong>input</strong>：<code>资产负债表-2011-2024.xlsx</code> + <code>资产负债表-2011-2024_DES.txt</code></p>
+<ul>
+<li>提取 <code>资产负债表-2011-2024.xlsx</code> 文件中第 5 行以后的所有数据，定义为数据框 <code>df</code>；</li>
+<li>从 <code>资产负债表-2011-2024_DES.txt</code> 文件中提取信息，定义两个字典：
+<ul>
+<li>字典 1：<code>{varname: 中文简称}</code>，用于将英文变量名与其中文简称对应起来。</li>
+<li>字典 2：<code>{varname: 变量说明}</code>，用于将英文变量名与其详细说明对应起来。</li>
+</ul></li>
+<li>将这两个字典附加到数据框 <code>df</code> 中，作为它的两个属性。</li>
+</ul>
+<p><strong>output</strong>：<code>df</code> 数据框 + <code>dict1</code> 字典 + <code>dict2</code> 字典。</p>
+<p><strong>方案 3</strong>：简化版-中文变量名</p>
+<p>如果已经对变量名有了充分了解，且只需要 <code>中文简称</code>，则处理过程为：</p>
+<p><strong>input</strong>：<code>资产负债表-2011-2024.xlsx</code></p>
+<ul>
+<li>读入 <code>资产负债表-2011-2024.xlsx</code> 文件中第 2 行以后的所有数据，定义为数据框 <code>df</code>；</li>
+<li>删除数据框 <code>df</code> 中的第 2-3 行；</li>
+</ul>
+<p>上述方案的对比：</p>
+<ul>
+<li><strong>方案 1</strong>：只保留英文变量名和中文简称，适用于对 CSMAR 数据库比较熟悉的用户。</li>
+<li><strong>方案 2</strong>：保留英文变量名、中文简称和变量说明，适用于需要详细了解变量含义的用户。</li>
+<li><strong>方案 3</strong>：只保留中文简称，变量含义直观明了。缺陷是，有些变量的中文简称中包含了 <code>(</code>，<code>（</code>，<code></code> 等特殊字符，需要额外转换。因此，不太推荐这种方式。</li>
+</ul>
+<p>下面，我们将实现方案 1 的处理过程。</p>
+</section>
+<section id="方案-1简化版处理代码" class="level3" data-number="11.6.2">
+<h3 data-number="11.6.2" class="anchored" data-anchor-id="方案-1简化版处理代码"><span class="header-section-number">11.6.2</span> 方案 1：简化版处理代码</h3>
+<p>处理思路：</p>
+<p>从 CSMAR 下载下来的每个 .zip 文件解压后，都会生成一个同名文件夹 (记为 <code>'folder_path'</code>)。该文件夹下包含一个 .xlsx 格式的数据文件和一个 .txt 格式的描述文件。因此，我们只需要指定 <code>'folder_path'</code>，便可以让 Python 根据文件后缀自动识别并读取这两个文件。对于 <strong>方案 1</strong>，我们只需要读取 .xlsx 文件，并将该文件的第二行作为变量 (第一行) 的中文标签即可。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>目的：读取指定文件夹下的 Excel 文件，并将其第二行作为变量的中文标签。</p></li>
+<li><p>input：folder = ‘资产负债表-2011-2024’</p>
+<ul>
+<li>folder_path = ‘{path}/data_raw/{folder}’</li>
+<li>{path} 已经在第一个 cell (‘文件路径设定{tag}’) 中定义</li>
+</ul></li>
+<li><p>处理思路：</p>
+<ul>
+<li>检查该文件夹下以 <code>.xlsx</code> 结尾的文件的个数，如果大于 1 个，则报错。</li>
+<li>读入该文件夹下以 <code>.xlsx</code> 结尾的文件。完整文件名为：<code>{filename}.xlsx</code>。</li>
+<li>存入数据框 <code>df_filename</code>。
+<ul>
+<li>打印 forder_path 和 df_filename 的名称</li>
+</ul></li>
+<li>删除 Excel 表格第 3 行和第 4 行</li>
+<li>做一个字典：<code>dict_filename</code>，键为英文变量名，值为中文变量名。
+<ul>
+<li>key: 英文变量名，从 Excel 第 1 行提取。</li>
+<li>value: 中文变量名，从 Excel 第 2 行提取。</li>
+</ul></li>
+<li>将 <code>dict_filename</code> 附加到 <code>df_filename</code> 数据框中，作为它的一个属性。</li>
+<li>删除第 2 行</li>
+</ul></li>
+<li><p>显示处理后的数据框 <code>df_filename</code>.head() 的前 5 列和字典 <code>dict_filename</code> 的全部 {key: value}。</p></li>
+</ul>
+</div>
+</div>
+<div id="aee7d13b" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 构造文件夹路径</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>folder <span class="op">=</span> <span class="st">'资产负债表-2011-2024'</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>folder_path <span class="op">=</span> os.path.join(path, <span class="st">'data_raw'</span>, folder)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 检查 .xlsx 文件数量，排除临时文件（如~$开头的文件）</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>xlsx_files <span class="op">=</span> [f <span class="cf">for</span> f <span class="kw">in</span> os.listdir(folder_path) <span class="cf">if</span> f.endswith(<span class="st">'.xlsx'</span>) <span class="kw">and</span> <span class="kw">not</span> f.startswith(<span class="st">'~$'</span>)]</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(xlsx_files) <span class="op">!=</span> <span class="dv">1</span>:</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>folder_path<span class="sc">}</span><span class="ss"> 下存在 </span><span class="sc">{</span><span class="bu">len</span>(xlsx_files)<span class="sc">}</span><span class="ss"> 个有效 .xlsx 文件，请检查！"</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>xlsx_file <span class="op">=</span> xlsx_files[<span class="dv">0</span>]</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>xlsx_path <span class="op">=</span> os.path.join(folder_path, xlsx_file)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"folder_path: </span><span class="sc">{</span>folder_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"df_filename: </span><span class="sc">{</span>xlsx_file<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">' '</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 读取前4行</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>header <span class="op">=</span> pd.read_excel(xlsx_path, nrows<span class="op">=</span><span class="dv">4</span>, header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 删除第3、4行（索引2、3），再删除第2行（索引1），只保留第0行</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>header_clean <span class="op">=</span> header.drop([<span class="dv">2</span>, <span class="dv">3</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>header_clean <span class="op">=</span> header_clean.drop([<span class="dv">1</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 提取英文变量名和中文变量名</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>en_names <span class="op">=</span> header.iloc[<span class="dv">0</span>]</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>cn_names <span class="op">=</span> header.iloc[<span class="dv">1</span>]</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>dict_filename <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(en_names, cn_names))</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 读取数据，跳过前4行</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>df_filename <span class="op">=</span> pd.read_excel(xlsx_path, skiprows<span class="op">=</span><span class="dv">4</span>, header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>df_filename.columns <span class="op">=</span> en_names</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 附加字典为属性</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>df_filename.varname_cn <span class="op">=</span> dict_filename</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 显示前5列</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filename.iloc[:, :<span class="dv">5</span>].head())</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 显示字典的前10个键值对</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">list</span>(dict_filename.items())[:<span class="dv">10</span>]:</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>folder_path: d:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2011-2024
+df_filename: 资产负债表-2011-2024.xlsx
+ 
+0  code  stknme listingDate  EndDate  FS_Combas-A001101000
+0     1    平安银行  1991-04-03     2011          0.000000e+00
+1     2     万科A  1991-01-29     2011          3.423951e+10
+2     3  PT 金田A  1991-07-03     2011                   NaN
+3     4  *ST 国华  1991-01-14     2011          5.712837e+07
+4     5   ST 星源  1990-12-10     2011          1.629275e+07
+code: 证券代码
+stknme: 证券简称
+listingDate: 上市日期
+EndDate: 时间
+FS_Combas-A001101000: 货币资金
+FS_Combas-A001107000: 交易性金融资产
+FS_Combas-A001109000: 短期投资净额
+FS_Combas-A001123000: 存货净额
+FS_Combas-A001100000: 流动资产合计
+FS_Combas-A001212000: 固定资产净额</code></pre>
+</div>
+</div>
+</section>
+<section id="优化代码" class="level3" data-number="11.6.3">
+<h3 data-number="11.6.3" class="anchored" data-anchor-id="优化代码"><span class="header-section-number">11.6.3</span> 优化代码</h3>
+<p>上述代码可以一次性顺利执行，但耗时为 53s，太慢。于是，我把上述提示词和代码发给了 ChatGPT，请它优化代码。它给出的建议是：pandas 读取 <code>.xlsx</code> 格式本身就比较慢，尤其是数据量大或格式复杂时，速度瓶颈主要在于底层解析 Excel 文件的过程。此外，上述代码读取了两次 Excel 文件，第一次读取是为了获取变量名和中文简称，第二次读取是为了获取数据，这样会导致重复的 I/O 操作，进一步降低速度。</p>
+<p>应对方法是，先使用 <strong>xlsx2csv</strong> 包将 <code>.xlsx</code> 文件快速转换为 <code>.csv</code> 格式，然后再用 <strong>pandas</strong> 的 <code>read_csv</code> 读取数据，这样可以极大提升读取速度。</p>
+<p>优化后的代码只需 1-2 秒即可完成 (<a href="https://chatgpt.com/share/6834a1eb-b8fc-8005-a555-045a3986aeec">ChatGPT 提示词</a>)：</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>目标：定义一个函数 <code>read_files_in_folder(folder_path, Fname=None)</code>，用于批量读取指定文件夹下的 .xlsx 文件，并返回数据框和变量名-中文名字典。</p>
+<p>要求：</p>
+<ol type="1">
+<li>参数说明：
+<ul>
+<li><code>folder_path</code>：字符串，指定要读取的文件夹路径。</li>
+<li><code>Fname</code>：字符串，可选，指定数据框和字典的名称前缀。若为 None，则自动取 .xlsx 文件名（不含扩展名），并将特殊字符替换为下划线。</li>
+</ul></li>
+<li>处理流程：
+<ul>
+<li>检查文件夹下以 <code>.xlsx</code> 结尾且不以 <code>~$</code> 开头的文件，若数量不为 1，则报错。</li>
+<li>将 .xlsx 文件转换为 .csv 文件（如已存在则跳过），转换时编码为 gbk。</li>
+<li>读取 .csv 文件前 4 行，提取英文变量名和中文变量名。</li>
+<li>对英文变量名，若为 ‘A-B’ 结构，则只保留 B 部分。</li>
+<li>构建 {英文变量名: 中文变量名} 的字典。</li>
+<li>跳过前 4 行读取正文数据，列名用处理后的英文变量名。</li>
+<li>返回一个 dict，包含数据框（键名为 <code>df_{Fname}</code>）和变量名字典（键名为 <code>dic_{Fname}</code>）。</li>
+</ul></li>
+<li>代码需包含必要的 import，且不重复导入已在 notebook 其他 cell 导入的模块。</li>
+<li>代码块必须完整、可直接运行。</li>
+</ol>
+</div>
+</div>
+<div id="f36d92e1" class="cell" data-tags="[&quot;read_xlsx_example&quot;]" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># {tag}: 'fcn_read_files_in_folder'</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#%pip install xlsx2csv</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xlsx2csv <span class="im">import</span> Xlsx2csv</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>folder <span class="op">=</span> <span class="st">'资产负债表-2011-2024'</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>folder_path <span class="op">=</span> os.path.join(path, <span class="st">'data_raw'</span>, folder)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ========================================</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 检查文件夹下 .xlsx 文件</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>xlsx_files <span class="op">=</span> [f <span class="cf">for</span> f <span class="kw">in</span> os.listdir(folder_path) <span class="cf">if</span> f.endswith(<span class="st">'.xlsx'</span>) <span class="kw">and</span> <span class="kw">not</span> f.startswith(<span class="st">'~$'</span>)]</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(xlsx_files) <span class="op">!=</span> <span class="dv">1</span>:</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>folder_path<span class="sc">}</span><span class="ss"> 下存在 </span><span class="sc">{</span><span class="bu">len</span>(xlsx_files)<span class="sc">}</span><span class="ss"> 个有效 .xlsx 文件，请检查！"</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>xlsx_file <span class="op">=</span> xlsx_files[<span class="dv">0</span>]</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>xlsx_path <span class="op">=</span> os.path.join(folder_path, xlsx_file)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, <span class="st">'-'</span><span class="op">*</span><span class="dv">20</span>, <span class="st">'文件存储路径和文件名:'</span>, <span class="st">'-'</span><span class="op">*</span><span class="dv">20</span>)</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"folder_path: </span><span class="sc">{</span>folder_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"df_filename: </span><span class="sc">{</span>xlsx_file<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 自动生成 CSV 文件名</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>csv_path <span class="op">=</span> xlsx_path.replace(<span class="st">'.xlsx'</span>, <span class="st">'.csv'</span>)</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 如已存在则跳过，否则转换</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(csv_path):</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    Xlsx2csv(xlsx_path, outputencoding<span class="op">=</span><span class="st">"gbk"</span>).convert(csv_path)</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 读取前4行</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>header <span class="op">=</span> pd.read_csv(csv_path, nrows<span class="op">=</span><span class="dv">4</span>, header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 提取变量名</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>en_names <span class="op">=</span> header.iloc[<span class="dv">0</span>].tolist()</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>cn_names <span class="op">=</span> header.iloc[<span class="dv">1</span>].tolist()</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>dict_filename <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(en_names, cn_names))</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 跳过前4行读取正文</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>df_filename <span class="op">=</span> pd.read_csv(</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    csv_path, skiprows<span class="op">=</span><span class="dv">4</span>, header<span class="op">=</span><span class="va">None</span>, names<span class="op">=</span>en_names, dtype<span class="op">=</span><span class="bu">str</span></span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 附加字典为属性</span></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a><span class="bu">setattr</span>(df_filename, <span class="st">'varname_cn'</span>, dict_filename)</span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 显示前5列</span></span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filename.iloc[:, :<span class="dv">5</span>].head())</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n\n</span><span class="st">'</span>, <span class="st">'-'</span><span class="op">*</span><span class="dv">20</span>, <span class="st">'变量名字典:'</span>, <span class="st">'-'</span><span class="op">*</span><span class="dv">20</span>)</span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">list</span>(dict_filename.items())[:<span class="dv">10</span>]:</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n\n</span><span class="st">'</span>, <span class="st">'-'</span><span class="op">*</span><span class="dv">20</span>, <span class="st">'数据框维度:'</span>, <span class="st">'-'</span><span class="op">*</span><span class="dv">20</span>)</span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_filename.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ -------------------- 文件存储路径和文件名: --------------------
+folder_path: D:\Github\ds_data\data\CSMAR\data_raw\资产负债表-2011-2024
+df_filename: 资产负债表-2011-2024.xlsx
+
+     code  stknme listingDate EndDate FS_Combas-A001101000
+0  000001    平安银行  1991-04-03    2011                    0
+1  000002     万科A  1991-01-29    2011   34239514295.080002
+2  000003  PT 金田A  1991-07-03    2011                  NaN
+3  000004  *ST 国华  1991-01-14    2011      57128374.050000
+4  000005   ST 星源  1990-12-10    2011      16292748.160000
+
+
+ -------------------- 变量名字典: --------------------
+code: 证券代码
+stknme: 证券简称
+listingDate: 上市日期
+EndDate: 时间
+FS_Combas-A001101000: 货币资金
+FS_Combas-A001107000: 交易性金融资产
+FS_Combas-A001109000: 短期投资净额
+FS_Combas-A001123000: 存货净额
+FS_Combas-A001100000: 流动资产合计
+FS_Combas-A001212000: 固定资产净额
+
+
+ -------------------- 数据框维度: --------------------
+(81662, 32)</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="定义函数以批量读取指定文件夹下的文件-1" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="定义函数以批量读取指定文件夹下的文件-1"><span class="header-section-number">11.7</span> 定义函数以批量读取指定文件夹下的文件</h2>
+<p>几个要点：</p>
+<ul>
+<li>这个提示词还需修改：目前的提示词不具有独立性，应该与上一个 Cell 的提示词合并。</li>
+<li>变量名的处理：在 ‘利润表-现金流量表xxx.csv’ 和 ‘资产负债表xxx.csv’ 文件中，变量名的格式为 ‘A-B’，我们需要删除 ‘A-’ 部分，只保留 ‘C’ 部分。
+<ul>
+<li><code>FS_Combas-A001101000: 货币资金</code> 变为 <code>A001101000: 货币资金</code></li>
+<li><code>FS_Comins-B003000000: 基本每股收益</code> 变为 <code>B003000000: 基本每股收益</code></li>
+<li><code>FS_Comscfd-C001021000: 支付的各项税费</code> 变为 <code>C001021000: 支付的各项税费</code></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>以 {tag}: ‘read_xlsx_example’ Cell 中的代码为基础，定义一个函数 <code>read_files_in_folder(folder_path, Fname)</code>，用于批量读取指定文件夹下的所有文件。
+<ul>
+<li>函数参数 <code>folder_path</code> 是一个字符串，表示要读取的文件夹路径。</li>
+<li><code>Fname</code> 是一个字符串，表示文件夹的名称，用于生成数据框和字典的名称。如果用户不指定，则默认使用 <code>.xlsx</code> 文件的名称，特殊字符采用 <code>_</code> 替换，确保符合 Python 命名规则。</li>
+<li>如果变量名为 <code>A-B</code> 结构，则删除 ‘A-’ 部分，只保留 ‘B’ 部分。</li>
+</ul></li>
+<li>函数返回：一个数据框，名称为 <code>df_{Fname}</code>；一个字典，用于存储 {变量名: 变量中文简称}，名称为 <code>dic_{Fname}</code>。</li>
+</ul>
+</div>
+</div>
+<div id="fb982647" class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xlsx2csv <span class="im">import</span> Xlsx2csv</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_files_in_folder(folder_path, Fname<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">    批量读取指定文件夹下的 .xlsx 文件，返回数据框和变量名-中文名字典。</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">    参数:</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">        folder_path: 文件夹路径</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">        Fname: 文件夹名称（可选），用于生成数据框和字典的名称。若为 None，则自动取 .xlsx 文件名（不含扩展名），并将特殊字符替换为下划线。</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">    返回:</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">        df_{Fname}: 数据框</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">        dic_{Fname}: {英文变量名: 中文变量名} 字典</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 查找 .xlsx 文件</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    xlsx_files <span class="op">=</span> [f <span class="cf">for</span> f <span class="kw">in</span> os.listdir(folder_path) <span class="cf">if</span> f.endswith(<span class="st">'.xlsx'</span>) <span class="kw">and</span> <span class="kw">not</span> f.startswith(<span class="st">'~$'</span>)]</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(xlsx_files) <span class="op">!=</span> <span class="dv">1</span>:</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>folder_path<span class="sc">}</span><span class="ss"> 下存在 </span><span class="sc">{</span><span class="bu">len</span>(xlsx_files)<span class="sc">}</span><span class="ss"> 个有效 .xlsx 文件，请检查！"</span>)</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    xlsx_file <span class="op">=</span> xlsx_files[<span class="dv">0</span>]</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    xlsx_path <span class="op">=</span> os.path.join(folder_path, xlsx_file)</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 自动生成 CSV 文件名</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    csv_path <span class="op">=</span> xlsx_path.replace(<span class="st">'.xlsx'</span>, <span class="st">'.csv'</span>)</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> os.path.exists(csv_path):</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        Xlsx2csv(xlsx_path, outputencoding<span class="op">=</span><span class="st">"gbk"</span>).convert(csv_path)  <span class="co"># 若使用 'utf-8' encoding，可能会导致中文乱码问题</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 读取前4行</span></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    header <span class="op">=</span> pd.read_csv(csv_path, nrows<span class="op">=</span><span class="dv">4</span>, header<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>    en_names <span class="op">=</span> header.iloc[<span class="dv">0</span>].tolist()</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    cn_names <span class="op">=</span> header.iloc[<span class="dv">1</span>].tolist()</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 变量名处理：如果为 'A-B' 结构，则只保留 B 部分</span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> clean_varname(name):</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(name, <span class="bu">str</span>) <span class="kw">and</span> <span class="st">'-'</span> <span class="kw">in</span> name:</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>            parts <span class="op">=</span> name.split(<span class="st">'-'</span>)</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(parts) <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> parts[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> name</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>    en_names_clean <span class="op">=</span> [clean_varname(n) <span class="cf">for</span> n <span class="kw">in</span> en_names]</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>    dic <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(en_names_clean, cn_names))</span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 跳过前4行读取正文</span></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(csv_path, skiprows<span class="op">=</span><span class="dv">4</span>, header<span class="op">=</span><span class="va">None</span>, names<span class="op">=</span>en_names_clean, dtype<span class="op">=</span><span class="bu">str</span>)</span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 生成 Fname</span></span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> Fname <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>        Fname <span class="op">=</span> os.path.splitext(xlsx_file)[<span class="dv">0</span>]</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>    Fname <span class="op">=</span> re.sub(<span class="vs">r'\W+'</span>, <span class="st">'_'</span>, Fname)</span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 返回带有指定名称的数据框和字典</span></span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="ss">f'df_</span><span class="sc">{</span>Fname<span class="sc">}</span><span class="ss">'</span>: df, <span class="ss">f'dic_</span><span class="sc">{</span>Fname<span class="sc">}</span><span class="ss">'</span>: dic}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="批量处理" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="批量处理"><span class="header-section-number">11.8</span> 批量处理</h2>
+<p>接下来，我们就可以用上面定义的函数来批量处理 <code>data_raw</code> 文件夹中的所有子文件夹了。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>用 {tag}: ‘fcn_read_files_in_folder’ Cell 中定义的 <code>read_files_in_folder()</code> 函数批量读取 <code>data_raw</code> 文件夹中的所有子文件夹下的文件，并将结果存储到 <code>data_clean</code> 文件夹中。主要步骤如下：</p>
+<ul>
+<li>如果 <code>data_clean</code> 文件夹不存在，则创建该文件夹；如果已经存在，则清空该文件夹中的所有内容。</li>
+<li>遍历 <code>data_raw</code> 文件夹中的所有子文件夹。
+<ul>
+<li>对于每个子文件夹，调用 <code>read_files_in_folder</code> 函数，读取其中的 <code>.xlsx</code> 文件和 <code>.txt</code> 文件。</li>
+<li>将读取到的数据框和字典保存到 <code>data_clean</code> 文件夹中，文件名为 <code>{子文件夹名称}.pkl</code>。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="d51bf61a" class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shutil</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 如果 data_clean_folder 不存在则创建，已存在则清空</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> os.path.exists(data_clean_folder):</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    shutil.rmtree(data_clean_folder)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>os.makedirs(data_clean_folder)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 遍历 data_raw 文件夹下所有子文件夹</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subfolder <span class="kw">in</span> os.listdir(extract_folder):</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    subfolder_path <span class="op">=</span> os.path.join(extract_folder, subfolder)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.isdir(subfolder_path):</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 读取数据和变量名字典</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>            result <span class="op">=</span> read_files_in_folder(subfolder_path, Fname<span class="op">=</span>subfolder)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 统一保存为 {'df': df, 'varname_cn': dic}</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>            df_key <span class="op">=</span> [k <span class="cf">for</span> k <span class="kw">in</span> result <span class="cf">if</span> k.startswith(<span class="st">'df_'</span>)][<span class="dv">0</span>]</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>            dic_key <span class="op">=</span> [k <span class="cf">for</span> k <span class="kw">in</span> result <span class="cf">if</span> k.startswith(<span class="st">'dic_'</span>)][<span class="dv">0</span>]</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>            save_dict <span class="op">=</span> {<span class="st">'df'</span>: result[df_key], <span class="st">'varname_cn'</span>: result[dic_key]}</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 保存为 pkl 文件</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>            save_path <span class="op">=</span> os.path.join(data_clean_folder, <span class="ss">f"</span><span class="sc">{</span>subfolder<span class="sc">}</span><span class="ss">.pkl"</span>)</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> <span class="bu">open</span>(save_path, <span class="st">'wb'</span>) <span class="im">as</span> f:</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>                pickle.dump(save_dict, f)</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"已保存: </span><span class="sc">{</span>save_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"处理 </span><span class="sc">{</span>subfolder<span class="sc">}</span><span class="ss"> 时出错: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>处理 CSMAR常用变量-2000-2024 时出错: 'utf-8' codec can't decode byte 0xb9 in position 457: invalid start byte
+处理 上市公司基本信息变更表2000-2024 时出错: 'gbk' codec can't encode character '\xa0' in position 93: illegal multibyte sequence
+处理 上市公司基本信息年度表 时出错: 'gbk' codec can't encode character '\ufeff' in position 188: illegal multibyte sequence
+处理 利润表-现金流量表-2000-2010 时出错: 'utf-8' codec can't decode byte 0xb4 in position 728: invalid start byte
+处理 利润表-现金流量表-2011-2024 时出错: 'utf-8' codec can't decode byte 0xb4 in position 728: invalid start byte
+处理 资产负债表-2000-2010 时出错: 'utf-8' codec can't decode byte 0xb4 in position 624: invalid start byte
+处理 资产负债表-2011-2024 时出错: 'utf-8' codec can't decode byte 0xb4 in position 624: invalid start byte</code></pre>
+</div>
+</div>
+<section id="查看导入结果" class="level3" data-number="11.8.1">
+<h3 data-number="11.8.1" class="anchored" data-anchor-id="查看导入结果"><span class="header-section-number">11.8.1</span> 查看导入结果</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>列出 <code>data_clean</code> 文件夹中的所有文件，以及每个文件的对应字典的前五个 {key: value}</p>
+</div>
+</div>
+<div id="a2f0c490" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 列出 data_clean 文件夹中每个文件的如下信息：</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   - 文件名</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   - 数据框的维度以及 '前五行+前五列'</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   - 字典的前五个 {key: value} 对</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">&gt;&gt;&gt;&gt; 当前 data_clean 文件夹中的文件："</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> os.listdir(data_clean_folder):</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> item.endswith(<span class="st">'.pkl'</span>):</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>,<span class="st">'-'</span><span class="op">*</span><span class="dv">10</span>, item, <span class="st">'-'</span><span class="op">*</span><span class="dv">10</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, item), <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> pickle.load(f)</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">isinstance</span>(data, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'df'</span> <span class="kw">in</span> data <span class="kw">and</span> <span class="st">'varname_cn'</span> <span class="kw">in</span> data:</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>                df <span class="op">=</span> data[<span class="st">'df'</span>]</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>                var_dict <span class="op">=</span> data[<span class="st">'varname_cn'</span>]</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"数据框 shape: </span><span class="sc">{</span>df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"前五行前五列："</span>)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(df.iloc[:<span class="dv">5</span>, :<span class="dv">5</span>])</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"前五个变量名-中文名："</span>)</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">list</span>(var_dict.items())[:<span class="dv">5</span>]:</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+&gt;&gt;&gt;&gt; 当前 data_clean 文件夹中的文件：
+
+ ---------- CSMAR常用变量-2000-2024.pkl ----------
+数据框 shape: (61455, 33)
+前五行前五列：
+    Stkcd accper stknme AnaAttention       Audittyp
+0  000001   2001   平安银行          NaN        标准无保留意见
+1  000001   2002   平安银行     1.098612        标准无保留意见
+2  000001   2003   平安银行     1.386294        标准无保留意见
+3  000001   2004   平安银行     1.791759  带有解释性说明的无保留意见
+4  000001   2005   平安银行     1.791759        标准无保留意见
+前五个变量名-中文名：
+  Stkcd: 股票代码
+  accper: 会计年度
+  stknme: 股票简称
+  AnaAttention: 分析师关注度
+  Audittyp: 审计意见
+
+ ---------- 上市公司基本信息变更表2000-2024.pkl ----------
+数据框 shape: (160275, 8)
+前五行前五列：
+   Symbol AnnouncementDate ImplementDate ChangedItem    SecurityID
+0  000001              NaN    1991-04-03        所属省份  201000000001
+1  000001              NaN    1991-04-03        注册地址  201000000001
+2  000001              NaN    1991-04-03        公司全称  201000000001
+3  000001              NaN    1991-04-03        证券简称  201000000001
+4  000001              NaN    1991-04-03      公司经营性质  201000000001
+前五个变量名-中文名：
+  Symbol: 股票代码
+  AnnouncementDate: 公告日期
+  ImplementDate: 实施日期
+  ChangedItem: 变更属性
+  SecurityID: 证券ID
+
+ ---------- 上市公司基本信息年度表.pkl ----------
+数据框 shape: (64170, 40)
+前五行前五列：
+   Symbol ShortName     EndDate ListedCoID    SecurityID
+0  000001      深发展A  2001-12-31     101704  201000000001
+1  000001      深发展A  2002-12-31     101704  201000000001
+2  000001      深发展A  2003-12-31     101704  201000000001
+3  000001      深发展A  2004-12-31     101704  201000000001
+4  000001      深发展A  2005-12-31     101704  201000000001
+前五个变量名-中文名：
+  Symbol: 股票代码
+  ShortName: 股票简称
+  EndDate: 统计截止日期
+  ListedCoID: 上市公司ID
+  SecurityID: 证券ID
+
+ ---------- 利润表-现金流量表-2000-2010.pkl ----------
+数据框 shape: (64163, 36)
+前五行前五列：
+     code  stknme listingDate EndDate         B001101000
+0  000001    平安银行  1991-04-03    2000                NaN
+1  000002     万科A  1991-01-29    2000  3783668674.180000
+2  000003  PT 金田A  1991-07-03    2000   464723527.060000
+3  000004  *ST 国华  1991-01-14    2000   131006632.910000
+4  000005   ST 星源  1990-12-10    2000   145947499.350000
+前五个变量名-中文名：
+  code: 证券代码
+  stknme: 证券简称
+  listingDate: 上市日期
+  EndDate: 时间
+  B001101000: 营业收入
+
+ ---------- 利润表-现金流量表-2011-2024.pkl ----------
+数据框 shape: (81662, 36)
+前五行前五列：
+     code  stknme listingDate EndDate          B001101000
+0  000001    平安银行  1991-04-03    2011                 NaN
+1  000002     万科A  1991-01-29    2011  71782749800.679993
+2  000003  PT 金田A  1991-07-03    2011                 NaN
+3  000004  *ST 国华  1991-01-14    2011     74503718.530000
+4  000005   ST 星源  1990-12-10    2011     63534839.010000
+前五个变量名-中文名：
+  code: 证券代码
+  stknme: 证券简称
+  listingDate: 上市日期
+  EndDate: 时间
+  B001101000: 营业收入
+
+ ---------- 资产负债表-2000-2010.pkl ----------
+数据框 shape: (64163, 32)
+前五行前五列：
+     code  stknme listingDate EndDate        A001101000
+0  000001    平安银行  1991-04-03    2000               NaN
+1  000002     万科A  1991-01-29    2000  995745160.050000
+2  000003  PT 金田A  1991-07-03    2000   58018167.850000
+3  000004  *ST 国华  1991-01-14    2000   64780229.730000
+4  000005   ST 星源  1990-12-10    2000   29118049.740000
+前五个变量名-中文名：
+  code: 证券代码
+  stknme: 证券简称
+  listingDate: 上市日期
+  EndDate: 时间
+  A001101000: 货币资金
+
+ ---------- 资产负债表-2011-2024.pkl ----------
+数据框 shape: (81662, 32)
+前五行前五列：
+     code  stknme listingDate EndDate          A001101000
+0  000001    平安银行  1991-04-03    2011                   0
+1  000002     万科A  1991-01-29    2011  34239514295.080002
+2  000003  PT 金田A  1991-07-03    2011                 NaN
+3  000004  *ST 国华  1991-01-14    2011     57128374.050000
+4  000005   ST 星源  1990-12-10    2011     16292748.160000
+前五个变量名-中文名：
+  code: 证券代码
+  stknme: 证券简称
+  listingDate: 上市日期
+  EndDate: 时间
+  A001101000: 货币资金</code></pre>
+</div>
+</div>
+<p>简要分析：</p>
+<p>考虑到随后要将这些文件合并为一个数据框，我们需要重点关注如下几点：</p>
+<ul>
+<li><code>上市公司基本信息变更表2000-2024.pkl</code> 暂时用不到，不予处理。</li>
+<li>哪些文件需要纵向合并 (append)?
+<ul>
+<li><code>利润表-现金流量表-xxx.pkl</code> 和 <code>资产负债表-xxx.pkl</code> 这两类文件需要纵向合并，分别存入数据框 <code>df_profit</code> 和 <code>df_asset</code> 中。</li>
+</ul></li>
+<li>哪些文件需要横向合并 (merge)?
+<ul>
+<li>将 <code>df_profit</code> 和 <code>df_asset</code> 横向合并为一个数据框 <code>df_financial</code>；</li>
+<li>进而与 <code>CSMAR常用变量-2000-2024.pkl</code> 和 <code>上市公司基本信息年度表.pkl</code> 横向合并，得到最终的数据框 <code>df_final</code>。</li>
+</ul></li>
+<li>横向合并时，需要保证两份数据中有相同的变量名 (keys)。由于我们要合并的数据都是 ‘firm-year’ 格式的面板数据，因此需要保证每个数据框中都有 ‘code’ 和 ‘year’ 这两个变量。
+<ul>
+<li>我们需要为 <code>CSMAR常用变量-2000-2024.pkl</code> 和 <code>上市公司基本信息年度表.pkl</code> 这两份文件添加 ‘code’ 和 ‘year’ 变量。二者分别对应这三个数据文件中的 <code>Symbol</code> 和 <code>EndDate</code> 变量。</li>
+<li>对于 <code>利润表-现金流量表-xxx.pkl</code> 和 <code>资产负债表-xxx</code> 文件，需要将 <code>EndDate</code> 变量转换为 <code>year</code> 变量，以便后续合并。</li>
+</ul></li>
+</ul>
+</section>
+<section id="查看处理后的单个文件" class="level3" data-number="11.8.2">
+<h3 data-number="11.8.2" class="anchored" data-anchor-id="查看处理后的单个文件"><span class="header-section-number">11.8.2</span> 查看处理后的单个文件</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>列示 ‘CSMAR常用变量-2000-2024.pkl’ 中的所有对象；</li>
+<li>空一行+分隔线；</li>
+<li>列示 ‘CSMAR常用变量-2000-2024.pkl’ 的 shape；</li>
+<li>空一行+分隔线；</li>
+<li>列示 ‘CSMAR常用变量-2000-2024.pkl’ 数据框中的 ‘前五行+前五列’；</li>
+<li>空一行+分隔线；</li>
+<li>列示字典中的所有 {变量名：中文简称}。</li>
+</ul>
+</div>
+</div>
+<div id="06b16b37" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 载入数据</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>pkl_path <span class="op">=</span> os.path.join(data_clean_folder, <span class="st">'CSMAR常用变量-2000-2024.pkl'</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(pkl_path, <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> pickle.load(f)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 列示所有对象</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"对象列表："</span>, <span class="bu">list</span>(data.keys()))</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="op">+</span> <span class="st">'-'</span><span class="op">*</span><span class="dv">40</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 列示 shape</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>df_csmar <span class="op">=</span> data[<span class="st">'df'</span>]</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"数据框 shape:"</span>, df_csmar.shape)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="op">+</span> <span class="st">'-'</span><span class="op">*</span><span class="dv">40</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 列示前五行前五列</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_csmar.iloc[:<span class="dv">5</span>, :<span class="dv">5</span>])</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="op">+</span> <span class="st">'-'</span><span class="op">*</span><span class="dv">40</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 列示字典中的所有 {变量名：中文简称}</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>varname_cn_csmar <span class="op">=</span> data[<span class="st">'varname_cn'</span>]</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> varname_cn_csmar.items():</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>对象列表： ['df', 'varname_cn']
+
+----------------------------------------
+
+数据框 shape: (61455, 33)
+
+----------------------------------------
+
+    Stkcd accper stknme AnaAttention       Audittyp
+0  000001   2001   平安银行          NaN        标准无保留意见
+1  000001   2002   平安银行     1.098612        标准无保留意见
+2  000001   2003   平安银行     1.386294        标准无保留意见
+3  000001   2004   平安银行     1.791759  带有解释性说明的无保留意见
+4  000001   2005   平安银行     1.791759        标准无保留意见
+
+----------------------------------------
+
+Stkcd: 股票代码
+accper: 会计年度
+stknme: 股票简称
+AnaAttention: 分析师关注度
+Audittyp: 审计意见
+InternationalBig4: 审计师是否来自国际四大
+Ysmvosd: 年个股流通市值
+Ysmvttl: 年个股总市值
+Yretwd: 考虑现金红利再投资的年个股回报率
+PropertyRightsNature: 产权性质
+Seperation: 两权分离度
+ActualControllerNatureID: 实际控制人性质编码
+OwnershipProportion: 实际控制人拥有上市公司所有权比例
+ControlProportion: 实际控制人拥有上市公司控制权比例
+Shrcr1: 股权集中度1
+Shrhfd5: 股权集中度9
+Shrz: 股权集中度5
+FundHoldProportion: 基金持股比例
+QFIIHoldProportion: 合格境外投资者持股比例
+BrokerHoldProportion: 券商持股比例
+BankHoldProportion: 银行持股比例
+NonFinanceHoldProportion: 非金融类上市公司持股比例
+InsInvestorProp: 机构投资者持股比例
+StaffNumber: 员工人数
+ConcurrentPosition: 两职合一
+Boardsize2: 董事会规模A
+ExecutivesNumber: 高管人数
+IndDirector: 独立董事人数
+SumSalary: 管理层薪酬
+TOP3SumSalary: 高管前三名薪酬总额
+Ynshrtrd: 年个股交易股数
+DirectorHoldshares: 董事会持股数量
+ManageHoldshares: 高级管理人员持股数量</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="合并数据" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="合并数据"><span class="header-section-number">11.9</span> 合并数据</h2>
+<section id="纵向合并" class="level3" data-number="11.9.1">
+<h3 data-number="11.9.1" class="anchored" data-anchor-id="纵向合并"><span class="header-section-number">11.9.1</span> 纵向合并</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>== 纵向合并不同年度的同名文件</p>
+<ul>
+<li>纵向合并 <code>data_clean</code> 文件夹中所有以 ‘资产负债表’ 开头的文件。
+<ul>
+<li>将 <code>EndDate</code> 列重命名为 <code>year</code> 列。</li>
+<li>合并后的数据框命名为 <code>df_assets</code>，并保存到 <code>data_clean</code> 文件夹中，文件名为 <code>df_assets.pkl</code>。</li>
+</ul></li>
+<li>纵向合并 <code>data_clean</code> 文件夹中所有以 ‘利润表’ 开头的文件。
+<ul>
+<li>将 <code>EndDate</code> 列重命名为 <code>year</code> 列。</li>
+<li>合并后的数据框命名为 <code>df_profit</code>，并保存到 <code>data_clean</code> 文件夹中，文件名为 <code>df_profit.pkl</code>。</li>
+</ul></li>
+<li>上述合并完成后，打印合并后的数据框的 shape；展示 ‘前三行 + 前五列’。</li>
+</ul>
+</div>
+</div>
+<div id="8e1984d8" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 合并资产负债表</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>assets_dfs <span class="op">=</span> []</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> os.listdir(data_clean_folder):</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> item.startswith(<span class="st">'资产负债表'</span>) <span class="kw">and</span> item.endswith(<span class="st">'.pkl'</span>):</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, item), <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> pickle.load(f)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>            df <span class="op">=</span> data[<span class="st">'df'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(data, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'df'</span> <span class="kw">in</span> data <span class="cf">else</span> data</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="st">'EndDate'</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>                df <span class="op">=</span> df.rename(columns<span class="op">=</span>{<span class="st">'EndDate'</span>: <span class="st">'year'</span>})</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>            assets_dfs.append(df)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> assets_dfs:</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    df_assets <span class="op">=</span> pd.concat(assets_dfs, axis<span class="op">=</span><span class="dv">0</span>, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, <span class="st">'df_assets.pkl'</span>), <span class="st">'wb'</span>) <span class="im">as</span> f:</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>        pickle.dump(df_assets, f)</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"df_assets shape:"</span>, df_assets.shape)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df_assets.iloc[:<span class="dv">3</span>, :<span class="dv">5</span>])</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="op">+</span> <span class="st">'-'</span><span class="op">*</span><span class="dv">40</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 合并利润表</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>profit_dfs <span class="op">=</span> []</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> os.listdir(data_clean_folder):</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> item.startswith(<span class="st">'利润表'</span>) <span class="kw">and</span> item.endswith(<span class="st">'.pkl'</span>):</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, item), <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> pickle.load(f)</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>            df <span class="op">=</span> data[<span class="st">'df'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(data, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'df'</span> <span class="kw">in</span> data <span class="cf">else</span> data</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="st">'EndDate'</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>                df <span class="op">=</span> df.rename(columns<span class="op">=</span>{<span class="st">'EndDate'</span>: <span class="st">'year'</span>})</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>            profit_dfs.append(df)</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> profit_dfs:</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>    df_profit <span class="op">=</span> pd.concat(profit_dfs, axis<span class="op">=</span><span class="dv">0</span>, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, <span class="st">'df_profit.pkl'</span>), <span class="st">'wb'</span>) <span class="im">as</span> f:</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>        pickle.dump(df_profit, f)</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"df_profit shape:"</span>, df_profit.shape)</span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df_profit.iloc[:<span class="dv">3</span>, :<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>df_assets shape: (145825, 32)
+     code  stknme listingDate  year        A001101000
+0  000001    平安银行  1991-04-03  2000               NaN
+1  000002     万科A  1991-01-29  2000  995745160.050000
+2  000003  PT 金田A  1991-07-03  2000   58018167.850000
+
+----------------------------------------
+
+df_profit shape: (145825, 36)
+     code  stknme listingDate  year         B001101000
+0  000001    平安银行  1991-04-03  2000                NaN
+1  000002     万科A  1991-01-29  2000  3783668674.180000
+2  000003  PT 金田A  1991-07-03  2000   464723527.060000</code></pre>
+</div>
+</div>
+</section>
+<section id="横向合并" class="level3" data-number="11.9.2">
+<h3 data-number="11.9.2" class="anchored" data-anchor-id="横向合并"><span class="header-section-number">11.9.2</span> 横向合并</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>== 横向合并不同来源的数据</p>
+<ol type="1">
+<li>一些出现两次以上的功能，可以预先定义函数，确保代码结构清晰</li>
+<li>资产负债表与利润表的合并</li>
+</ol>
+<ul>
+<li>读入 <code>data_clean</code> 文件夹中的 <code>df_assets.pkl</code>。</li>
+<li>按照关键词 ‘{code, year}’ 与 <code>df_profit.pkl</code> 数据框横向合并；
+<ul>
+<li>如果有同名变量，则自动忽略。</li>
+</ul></li>
+<li>合并后的数据存入数据框 <code>df_financial</code>;</li>
+<li>数据框的前两列变量为 ‘code, year’</li>
+</ul>
+<ol start="3" type="1">
+<li>继续与 <code>上市公司基本信息年度表</code>, <code>CSMAR常用变量-2000-2024.pkl</code> 数据框横向合并。</li>
+</ol>
+<ul>
+<li>合并前，先将 <code>上市公司基本信息年度表.pkl</code> 中的 <code>Symbol</code> 列重命名为 <code>code</code>，<code>EndDate</code> 列重命名为 <code>year</code>。</li>
+<li>按照关键词 ‘{code, year}’ 与 <code>df_financial</code> 数据框横向合并；
+<ul>
+<li>如果有同名变量，则自动忽略。</li>
+</ul></li>
+</ul>
+<ol start="4" type="1">
+<li>输出合并后的数据文件</li>
+</ol>
+<ul>
+<li>合并后的数据存入数据框 <code>df_final</code>，
+<ul>
+<li>第一列为 ‘code’，第二列为 ‘year’，是两个独立的变量。</li>
+<li>保存到 <code>data_clean</code> 文件夹中，文件名为 <code>df_final.pkl</code>。</li>
+</ul></li>
+<li>最终数据框 <code>df_final</code> 的前两列变量为 ‘code, year’，并展示其 shape 和 ‘前三行 + 前五列’。</li>
+</ul>
+<ol start="5" type="1">
+<li>合并数据字典。将上述文件的字典合并为一个大字典 <code>dict_CSMAR</code>。</li>
+</ol>
+<ul>
+<li>同名变量的中文简称和说明信息取先进入的文件的。</li>
+</ul>
+<ol start="6" type="1">
+<li>打印数据字典尺寸，以及前十行信息，格式：{变量名: 中文简称}；</li>
+<li>每组打印结果之间空一行，添加标题文字和分割线</li>
+</ol>
+</div>
+</div>
+<div id="8e3f08ac" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 工具函数：按 code, year 横向合并，自动忽略同名变量</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> merge_on_code_year(left, right, suffix<span class="op">=</span><span class="st">'_right'</span>):</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 只保留右表中不与左表重复的列</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    overlap <span class="op">=</span> <span class="bu">set</span>(left.columns) <span class="op">&amp;</span> <span class="bu">set</span>(right.columns)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    overlap <span class="op">-=</span> {<span class="st">'code'</span>, <span class="st">'year'</span>}</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    right_use <span class="op">=</span> right.drop(columns<span class="op">=</span><span class="bu">list</span>(overlap), errors<span class="op">=</span><span class="st">'ignore'</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    merged <span class="op">=</span> pd.merge(left, right_use, on<span class="op">=</span>[<span class="st">'code'</span>, <span class="st">'year'</span>], how<span class="op">=</span><span class="st">'left'</span>, suffixes<span class="op">=</span>(<span class="st">''</span>, suffix))</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> merged</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 资产负债表与利润表的合并</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, <span class="st">'df_assets.pkl'</span>), <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    df_assets <span class="op">=</span> pickle.load(f)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, <span class="st">'df_profit.pkl'</span>), <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    df_profit <span class="op">=</span> pickle.load(f)</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 确保 'code' 和 'year' 列为字符串类型</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>df_assets[<span class="st">'code'</span>] <span class="op">=</span> df_assets[<span class="st">'code'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>df_assets[<span class="st">'year'</span>] <span class="op">=</span> df_assets[<span class="st">'year'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>df_profit[<span class="st">'code'</span>] <span class="op">=</span> df_profit[<span class="st">'code'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>df_profit[<span class="st">'year'</span>] <span class="op">=</span> df_profit[<span class="st">'year'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>df_financial <span class="op">=</span> merge_on_code_year(df_assets, df_profit, suffix<span class="op">=</span><span class="st">'_profit'</span>)</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 继续与 “上市公司基本信息年度表” 和 “CSMAR常用变量-2000-2024.pkl” 合并</span></span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, <span class="st">'上市公司基本信息年度表.pkl'</span>), <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>    data_basic <span class="op">=</span> pickle.load(f)</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>df_basic <span class="op">=</span> data_basic[<span class="st">'df'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(data_basic, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'df'</span> <span class="kw">in</span> data_basic <span class="cf">else</span> data_basic</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>df_basic <span class="op">=</span> df_basic.rename(columns<span class="op">=</span>{<span class="st">'Symbol'</span>: <span class="st">'code'</span>, <span class="st">'EndDate'</span>: <span class="st">'year'</span>})</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>df_basic[<span class="st">'code'</span>] <span class="op">=</span> df_basic[<span class="st">'code'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>df_basic[<span class="st">'year'</span>] <span class="op">=</span> df_basic[<span class="st">'year'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, <span class="st">'CSMAR常用变量-2000-2024.pkl'</span>), <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>    data_csmar <span class="op">=</span> pickle.load(f)</span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>df_csmar <span class="op">=</span> data_csmar[<span class="st">'df'</span>] <span class="cf">if</span> <span class="bu">isinstance</span>(data_csmar, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'df'</span> <span class="kw">in</span> data_csmar <span class="cf">else</span> data_csmar</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>df_csmar[<span class="st">'code'</span>] <span class="op">=</span> df_csmar[<span class="st">'Stkcd'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>df_csmar[<span class="st">'year'</span>] <span class="op">=</span> df_csmar[<span class="st">'accper'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>df_financial <span class="op">=</span> merge_on_code_year(df_financial, df_basic, suffix<span class="op">=</span><span class="st">'_basic'</span>)</span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>df_final <span class="op">=</span> merge_on_code_year(df_financial, df_csmar, suffix<span class="op">=</span><span class="st">'_csmar'</span>)</span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 调整前两列顺序</span></span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> <span class="bu">list</span>(df_final.columns)</span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'code'</span> <span class="kw">in</span> cols <span class="kw">and</span> <span class="st">'year'</span> <span class="kw">in</span> cols:</span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>    cols.remove(<span class="st">'code'</span>)</span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>    cols.remove(<span class="st">'year'</span>)</span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>    df_final <span class="op">=</span> df_final[[<span class="st">'code'</span>, <span class="st">'year'</span>] <span class="op">+</span> cols]</span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a><span class="co"># 保存</span></span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, <span class="st">'df_final.pkl'</span>), <span class="st">'wb'</span>) <span class="im">as</span> f:</span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>    pickle.dump(df_final, f)</span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"==== 合并后数据框 df_final ===="</span>)</span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"df_final shape:"</span>, df_final.shape)</span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_final.iloc[:<span class="dv">3</span>, :<span class="dv">5</span>])</span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'-'</span><span class="op">*</span><span class="dv">40</span>)</span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. 合并数据字典</span></span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>dicts <span class="op">=</span> []</span>
+<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a><span class="co"># 资产负债表</span></span>
+<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(data_clean_folder, <span class="st">'资产负债表-2011-2024.pkl'</span>), <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> pickle.load(f)</span>
+<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(d, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'varname_cn'</span> <span class="kw">in</span> d:</span>
+<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a>        dicts.append(d[<span class="st">'varname_cn'</span>])</span>
+<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a><span class="co"># 利润表</span></span>
+<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fname <span class="kw">in</span> [<span class="st">'利润表-现金流量表-2000-2010.pkl'</span>, <span class="st">'利润表-现金流量表-2011-2024.pkl'</span>]:</span>
+<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a>    pkl_path <span class="op">=</span> os.path.join(data_clean_folder, fname)</span>
+<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.exists(pkl_path):</span>
+<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(pkl_path, <span class="st">'rb'</span>) <span class="im">as</span> f:</span>
+<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a>            d <span class="op">=</span> pickle.load(f)</span>
+<span id="cb29-74"><a href="#cb29-74" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">isinstance</span>(d, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'varname_cn'</span> <span class="kw">in</span> d:</span>
+<span id="cb29-75"><a href="#cb29-75" aria-hidden="true" tabindex="-1"></a>                dicts.append(d[<span class="st">'varname_cn'</span>])</span>
+<span id="cb29-76"><a href="#cb29-76" aria-hidden="true" tabindex="-1"></a><span class="co"># 基本信息</span></span>
+<span id="cb29-77"><a href="#cb29-77" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">isinstance</span>(data_basic, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'varname_cn'</span> <span class="kw">in</span> data_basic:</span>
+<span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a>    dicts.append(data_basic[<span class="st">'varname_cn'</span>])</span>
+<span id="cb29-79"><a href="#cb29-79" aria-hidden="true" tabindex="-1"></a><span class="co"># CSMAR常用变量</span></span>
+<span id="cb29-80"><a href="#cb29-80" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">isinstance</span>(data_csmar, <span class="bu">dict</span>) <span class="kw">and</span> <span class="st">'varname_cn'</span> <span class="kw">in</span> data_csmar:</span>
+<span id="cb29-81"><a href="#cb29-81" aria-hidden="true" tabindex="-1"></a>    dicts.append(data_csmar[<span class="st">'varname_cn'</span>])</span>
+<span id="cb29-82"><a href="#cb29-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-83"><a href="#cb29-83" aria-hidden="true" tabindex="-1"></a>dict_CSMAR <span class="op">=</span> {}</span>
+<span id="cb29-84"><a href="#cb29-84" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d <span class="kw">in</span> dicts:</span>
+<span id="cb29-85"><a href="#cb29-85" aria-hidden="true" tabindex="-1"></a>    dict_CSMAR.update(d)</span>
+<span id="cb29-86"><a href="#cb29-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-87"><a href="#cb29-87" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"==== 合并后数据字典 dict_CSMAR ===="</span>)</span>
+<span id="cb29-88"><a href="#cb29-88" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"字典总变量数: </span><span class="sc">{</span><span class="bu">len</span>(dict_CSMAR)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb29-89"><a href="#cb29-89" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (k, v) <span class="kw">in</span> <span class="bu">enumerate</span>(dict_CSMAR.items()):</span>
+<span id="cb29-90"><a href="#cb29-90" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb29-91"><a href="#cb29-91" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&gt;=</span> <span class="dv">200</span>:</span>
+<span id="cb29-92"><a href="#cb29-92" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb29-93"><a href="#cb29-93" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'-'</span><span class="op">*</span><span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">FileNotFoundError</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[58], line 15</span>
+<span class="ansi-green-fg">     12</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> merged
+<span class="ansi-green-fg">     14</span> <span style="font-style:italic;color:rgb(95,135,135)"># 1. 资产负债表与利润表的合并</span>
+<span class="ansi-green-fg ansi-bold">---&gt; 15</span> <span style="font-weight:bold;color:rgb(0,135,0)">with</span> <span style="color:rgb(0,135,0)">open</span>(os<span style="color:rgb(98,98,98)">.</span>path<span style="color:rgb(98,98,98)">.</span>join(data_clean_folder, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">df_assets.pkl</span><span style="color:rgb(175,0,0)">'</span>), <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">rb</span><span style="color:rgb(175,0,0)">'</span>) <span style="font-weight:bold;color:rgb(0,135,0)">as</span> f:
+<span class="ansi-green-fg">     16</span>     df_assets <span style="color:rgb(98,98,98)">=</span> pickle<span style="color:rgb(98,98,98)">.</span>load(f)
+<span class="ansi-green-fg">     17</span> <span style="font-weight:bold;color:rgb(0,135,0)">with</span> <span style="color:rgb(0,135,0)">open</span>(os<span style="color:rgb(98,98,98)">.</span>path<span style="color:rgb(98,98,98)">.</span>join(data_clean_folder, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">df_profit.pkl</span><span style="color:rgb(175,0,0)">'</span>), <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">rb</span><span style="color:rgb(175,0,0)">'</span>) <span style="font-weight:bold;color:rgb(0,135,0)">as</span> f:
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\IPython\core\interactiveshell.py:324</span>, in <span class="ansi-cyan-fg">_modified_open</span><span class="ansi-blue-fg ansi-bold">(file, *args, **kwargs)</span>
+<span class="ansi-green-fg">    317</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> file <span style="font-weight:bold;color:rgb(175,0,255)">in</span> {<span style="color:rgb(98,98,98)">0</span>, <span style="color:rgb(98,98,98)">1</span>, <span style="color:rgb(98,98,98)">2</span>}:
+<span class="ansi-green-fg">    318</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-fg">    319</span>         <span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">IPython won</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">t let you open fd=</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span>file<span style="font-weight:bold;color:rgb(175,95,135)">}</span><span style="color:rgb(175,0,0)"> by default </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">    320</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">as it is likely to crash IPython. If you know what you are doing, </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">    321</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">you can use builtins</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)"> open.</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">    322</span>     )
+<span class="ansi-green-fg ansi-bold">--&gt; 324</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> io_open(file, <span style="color:rgb(98,98,98)">*</span>args, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwargs)
+
+<span class="ansi-red-fg ansi-bold">FileNotFoundError</span>: [Errno 2] No such file or directory: 'D:\\Github\\ds_data\\data\\CSMAR\\data_clean\\df_assets.pkl'</pre>
+</div>
+</div>
+</div>
+<div id="1b6e42ab" class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 只对数值型变量做统计</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="op">=</span> df_final.select_dtypes(include<span class="op">=</span>[np.number]).columns</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 统计量</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>desc <span class="op">=</span> df_final[numeric_cols].agg([<span class="st">'count'</span>, <span class="st">'mean'</span>, <span class="st">'std'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>]).T</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>desc <span class="op">=</span> desc.rename(columns<span class="op">=</span>{<span class="st">'count'</span>: <span class="st">'N'</span>, <span class="st">'mean'</span>: <span class="st">'Mean'</span>, <span class="st">'std'</span>: <span class="st">'SD'</span>, <span class="st">'min'</span>: <span class="st">'Min'</span>, <span class="st">'max'</span>: <span class="st">'Max'</span>})</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 缺失值统计</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>missing <span class="op">=</span> df_final.isnull().<span class="bu">sum</span>()</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>missing <span class="op">=</span> missing[missing <span class="op">&gt;</span> <span class="dv">0</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"==== 数值型变量基本统计量 (N, Mean, SD, Min, Max) ===="</span>)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>display(desc)</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">==== 各变量缺失值数量 (只显示有缺失的变量) ===="</span>)</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>display(missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[57], line 8</span>
+<span class="ansi-green-fg">      5</span> numeric_cols <span style="color:rgb(98,98,98)">=</span> df_final<span style="color:rgb(98,98,98)">.</span>select_dtypes(include<span style="color:rgb(98,98,98)">=</span>[np<span style="color:rgb(98,98,98)">.</span>number])<span style="color:rgb(98,98,98)">.</span>columns
+<span class="ansi-green-fg">      7</span> <span style="font-style:italic;color:rgb(95,135,135)"># 统计量</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 8</span> desc <span style="color:rgb(98,98,98)">=</span> df_final[numeric_cols]<span style="color:rgb(98,98,98)">.</span>agg([<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">count</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">mean</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">std</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">min</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">max</span><span style="color:rgb(175,0,0)">'</span>])<span style="color:rgb(98,98,98)">.</span>T
+<span class="ansi-green-fg">      9</span> desc <span style="color:rgb(98,98,98)">=</span> desc<span style="color:rgb(98,98,98)">.</span>rename(columns<span style="color:rgb(98,98,98)">=</span>{<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">count</span><span style="color:rgb(175,0,0)">'</span>: <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">N</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">mean</span><span style="color:rgb(175,0,0)">'</span>: <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Mean</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">std</span><span style="color:rgb(175,0,0)">'</span>: <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">SD</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">min</span><span style="color:rgb(175,0,0)">'</span>: <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Min</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">max</span><span style="color:rgb(175,0,0)">'</span>: <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Max</span><span style="color:rgb(175,0,0)">'</span>})
+<span class="ansi-green-fg">     11</span> <span style="font-style:italic;color:rgb(95,135,135)"># 缺失值统计</span>
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\frame.py:10149</span>, in <span class="ansi-cyan-fg">DataFrame.aggregate</span><span class="ansi-blue-fg ansi-bold">(self, func, axis, *args, **kwargs)</span>
+<span class="ansi-green-fg">  10146</span> axis <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_get_axis_number(axis)
+<span class="ansi-green-fg">  10148</span> op <span style="color:rgb(98,98,98)">=</span> frame_apply(<span style="color:rgb(0,135,0)">self</span>, func<span style="color:rgb(98,98,98)">=</span>func, axis<span style="color:rgb(98,98,98)">=</span>axis, args<span style="color:rgb(98,98,98)">=</span>args, kwargs<span style="color:rgb(98,98,98)">=</span>kwargs)
+<span class="ansi-green-fg ansi-bold">&gt; 10149</span> result <span style="color:rgb(98,98,98)">=</span> op<span style="color:rgb(98,98,98)">.</span>agg()
+<span class="ansi-green-fg">  10150</span> result <span style="color:rgb(98,98,98)">=</span> reconstruct_and_relabel_result(result, func, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwargs)
+<span class="ansi-green-fg">  10151</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> result
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\apply.py:928</span>, in <span class="ansi-cyan-fg">FrameApply.agg</span><span class="ansi-blue-fg ansi-bold">(self)</span>
+<span class="ansi-green-fg">    926</span> result <span style="color:rgb(98,98,98)">=</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>
+<span class="ansi-green-fg">    927</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg ansi-bold">--&gt; 928</span>     result <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">super</span>()<span style="color:rgb(98,98,98)">.</span>agg()
+<span class="ansi-green-fg">    929</span> <span style="font-weight:bold;color:rgb(0,135,0)">finally</span>:
+<span class="ansi-green-fg">    930</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>obj <span style="color:rgb(98,98,98)">=</span> obj
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\apply.py:193</span>, in <span class="ansi-cyan-fg">Apply.agg</span><span class="ansi-blue-fg ansi-bold">(self)</span>
+<span class="ansi-green-fg">    190</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>agg_dict_like()
+<span class="ansi-green-fg">    191</span> <span style="font-weight:bold;color:rgb(0,135,0)">elif</span> is_list_like(func):
+<span class="ansi-green-fg">    192</span>     <span style="font-style:italic;color:rgb(95,135,135)"># we require a list, but not a 'str'</span>
+<span class="ansi-green-fg ansi-bold">--&gt; 193</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>agg_list_like()
+<span class="ansi-green-fg">    195</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">callable</span>(func):
+<span class="ansi-green-fg">    196</span>     f <span style="color:rgb(98,98,98)">=</span> com<span style="color:rgb(98,98,98)">.</span>get_cython_func(func)
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\apply.py:326</span>, in <span class="ansi-cyan-fg">Apply.agg_list_like</span><span class="ansi-blue-fg ansi-bold">(self)</span>
+<span class="ansi-green-fg">    318</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">agg_list_like</span>(<span style="color:rgb(0,135,0)">self</span>) <span style="color:rgb(98,98,98)">-</span><span style="color:rgb(98,98,98)">&gt;</span> DataFrame <span style="color:rgb(98,98,98)">|</span> Series:
+<span class="ansi-green-fg">    319</span> <span style="color:rgb(188,188,188)">    </span><span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg">    320</span> <span style="font-style:italic;color:rgb(175,0,0)">    Compute aggregation in the case of a list-like argument.</span>
+<span class="ansi-green-fg">    321</span> 
+<span class="ansi-green-fg ansi-bold">   (...)</span>
+<span class="ansi-green-fg">    324</span> <span style="font-style:italic;color:rgb(175,0,0)">    Result of aggregation.</span>
+<span class="ansi-green-fg">    325</span> <span style="font-style:italic;color:rgb(175,0,0)">    """</span>
+<span class="ansi-green-fg ansi-bold">--&gt; 326</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>agg_or_apply_list_like(op_name<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">agg</span><span style="color:rgb(175,0,0)">"</span>)
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\apply.py:745</span>, in <span class="ansi-cyan-fg">NDFrameApply.agg_or_apply_list_like</span><span class="ansi-blue-fg ansi-bold">(self, op_name)</span>
+<span class="ansi-green-fg">    742</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">NotImplementedError</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">axis other than 0 is not supported</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg">    744</span> keys, results <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>compute_list_like(op_name, obj, kwargs)
+<span class="ansi-green-fg ansi-bold">--&gt; 745</span> result <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>wrap_results_list_like(keys, results)
+<span class="ansi-green-fg">    746</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> result
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\apply.py:402</span>, in <span class="ansi-cyan-fg">Apply.wrap_results_list_like</span><span class="ansi-blue-fg ansi-bold">(self, keys, results)</span>
+<span class="ansi-green-fg">    399</span> obj <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>obj
+<span class="ansi-green-fg">    401</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg ansi-bold">--&gt; 402</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> concat(results, keys<span style="color:rgb(98,98,98)">=</span>keys, axis<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(98,98,98)">1</span>, sort<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">False</span>)
+<span class="ansi-green-fg">    403</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">TypeError</span> <span style="font-weight:bold;color:rgb(0,135,0)">as</span> err:
+<span class="ansi-green-fg">    404</span>     <span style="font-style:italic;color:rgb(95,135,135)"># we are concatting non-NDFrame objects,</span>
+<span class="ansi-green-fg">    405</span>     <span style="font-style:italic;color:rgb(95,135,135)"># e.g. a list of scalars</span>
+<span class="ansi-green-fg">    406</span>     <span style="font-weight:bold;color:rgb(0,135,0)">from</span> <span style="font-weight:bold;color:rgb(0,0,255)">pandas</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span> Series
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\reshape\concat.py:382</span>, in <span class="ansi-cyan-fg">concat</span><span class="ansi-blue-fg ansi-bold">(objs, axis, join, ignore_index, keys, levels, names, verify_integrity, sort, copy)</span>
+<span class="ansi-green-fg">    379</span> <span style="font-weight:bold;color:rgb(0,135,0)">elif</span> copy <span style="font-weight:bold;color:rgb(175,0,255)">and</span> using_copy_on_write():
+<span class="ansi-green-fg">    380</span>     copy <span style="color:rgb(98,98,98)">=</span> <span style="font-weight:bold;color:rgb(0,135,0)">False</span>
+<span class="ansi-green-fg ansi-bold">--&gt; 382</span> op <span style="color:rgb(98,98,98)">=</span> _Concatenator(
+<span class="ansi-green-fg">    383</span>     objs,
+<span class="ansi-green-fg">    384</span>     axis<span style="color:rgb(98,98,98)">=</span>axis,
+<span class="ansi-green-fg">    385</span>     ignore_index<span style="color:rgb(98,98,98)">=</span>ignore_index,
+<span class="ansi-green-fg">    386</span>     join<span style="color:rgb(98,98,98)">=</span>join,
+<span class="ansi-green-fg">    387</span>     keys<span style="color:rgb(98,98,98)">=</span>keys,
+<span class="ansi-green-fg">    388</span>     levels<span style="color:rgb(98,98,98)">=</span>levels,
+<span class="ansi-green-fg">    389</span>     names<span style="color:rgb(98,98,98)">=</span>names,
+<span class="ansi-green-fg">    390</span>     verify_integrity<span style="color:rgb(98,98,98)">=</span>verify_integrity,
+<span class="ansi-green-fg">    391</span>     copy<span style="color:rgb(98,98,98)">=</span>copy,
+<span class="ansi-green-fg">    392</span>     sort<span style="color:rgb(98,98,98)">=</span>sort,
+<span class="ansi-green-fg">    393</span> )
+<span class="ansi-green-fg">    395</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> op<span style="color:rgb(98,98,98)">.</span>get_result()
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\reshape\concat.py:445</span>, in <span class="ansi-cyan-fg">_Concatenator.__init__</span><span class="ansi-blue-fg ansi-bold">(self, objs, axis, join, keys, levels, names, ignore_index, verify_integrity, copy, sort)</span>
+<span class="ansi-green-fg">    442</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>verify_integrity <span style="color:rgb(98,98,98)">=</span> verify_integrity
+<span class="ansi-green-fg">    443</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>copy <span style="color:rgb(98,98,98)">=</span> copy
+<span class="ansi-green-fg ansi-bold">--&gt; 445</span> objs, keys <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_clean_keys_and_objs(objs, keys)
+<span class="ansi-green-fg">    447</span> <span style="font-style:italic;color:rgb(95,135,135)"># figure out what our result ndim is going to be</span>
+<span class="ansi-green-fg">    448</span> ndims <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_get_ndims(objs)
+
+File <span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\reshape\concat.py:507</span>, in <span class="ansi-cyan-fg">_Concatenator._clean_keys_and_objs</span><span class="ansi-blue-fg ansi-bold">(self, objs, keys)</span>
+<span class="ansi-green-fg">    504</span>     objs_list <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">list</span>(objs)
+<span class="ansi-green-fg">    506</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">len</span>(objs_list) <span style="color:rgb(98,98,98)">==</span> <span style="color:rgb(98,98,98)">0</span>:
+<span class="ansi-green-fg ansi-bold">--&gt; 507</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">No objects to concatenate</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg">    509</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> keys <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">    510</span>     objs_list <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">list</span>(com<span style="color:rgb(98,98,98)">.</span>not_none(<span style="color:rgb(98,98,98)">*</span>objs_list))
+
+<span class="ansi-red-fg ansi-bold">ValueError</span>: No objects to concatenate</pre>
+</div>
+</div>
+</div>
+<div id="2c76fb38" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df_final.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg ansi-bold">~\AppData\Local\Temp\ipykernel_53792\2207892642.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">()</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-fg ansi-bold"> </span>df_final<span class="ansi-yellow-fg ansi-bold">.</span>summary<span class="ansi-yellow-fg ansi-bold">(</span><span class="ansi-yellow-fg ansi-bold">)</span>
+
+<span class="ansi-green-fg ansi-bold">c:\ProgramData\anaconda3\Lib\site-packages\pandas\core\generic.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg ansi-bold">(self, name)</span>
+<span class="ansi-green-fg">   6295</span>             <span class="ansi-green-fg ansi-bold">and</span> name <span class="ansi-green-fg ansi-bold">not</span> <span class="ansi-green-fg ansi-bold">in</span> self<span class="ansi-yellow-fg ansi-bold">.</span>_accessors
+<span class="ansi-green-fg">   6296</span>             <span class="ansi-green-fg ansi-bold">and</span> self<span class="ansi-yellow-fg ansi-bold">.</span>_info_axis<span class="ansi-yellow-fg ansi-bold">.</span>_can_hold_identifiers_and_holds_name<span class="ansi-yellow-fg ansi-bold">(</span>name<span class="ansi-yellow-fg ansi-bold">)</span>
+<span class="ansi-green-fg">   6297</span>         <span class="ansi-yellow-fg ansi-bold">)</span><span class="ansi-yellow-fg ansi-bold">:</span>
+<span class="ansi-green-fg">   6298</span>             <span class="ansi-green-fg ansi-bold">return</span> self<span class="ansi-yellow-fg ansi-bold">[</span>name<span class="ansi-yellow-fg ansi-bold">]</span>
+<span class="ansi-green-fg ansi-bold">-&gt; 6299</span><span class="ansi-yellow-fg ansi-bold">         </span><span class="ansi-green-fg ansi-bold">return</span> object<span class="ansi-yellow-fg ansi-bold">.</span>__getattribute__<span class="ansi-yellow-fg ansi-bold">(</span>self<span class="ansi-yellow-fg ansi-bold">,</span> name<span class="ansi-yellow-fg ansi-bold">)</span>
+
+<span class="ansi-red-fg ansi-bold">AttributeError</span>: 'DataFrame' object has no attribute 'summary'</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="输出最终数据文件" class="level3" data-number="11.9.3">
+<h3 data-number="11.9.3" class="anchored" data-anchor-id="输出最终数据文件"><span class="header-section-number">11.9.3</span> 输出最终数据文件</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>== 输出 csv 和 txt 文件到 [data_final] 文件夹</p>
+<ol type="1">
+<li>将 <code>df_final</code> 数据框保存为 <code>CSMAR_final.csv</code> 文件，存储在 [data_final] 文件夹中。</li>
+<li>将 <code>dict_CSMAR</code> 字典保存为 <code>CSMAR_var_label.txt</code> 文件，存储在 [data_final] 文件夹中。每行格式为：<code>变量名: 中文简称</code>。</li>
+</ol>
+</div>
+</div>
+<div id="8384fcd9" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建 data_final 文件夹（如果不存在）</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>data_final_folder <span class="op">=</span> os.path.join(path, <span class="st">'data_final'</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(data_final_folder):</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    os.makedirs(data_final_folder)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 保存 df_final 为 CSV</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>csv_path <span class="op">=</span> os.path.join(data_final_folder, <span class="st">'CSMAR_final.csv'</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>df_final.to_csv(csv_path, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">'utf-8-sig'</span>)</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"已保存数据文件: </span><span class="sc">{</span>csv_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 保存 dict_CSMAR 为 txt</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>txt_path <span class="op">=</span> os.path.join(data_final_folder, <span class="st">'CSMAR_var_label.txt'</span>)</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(txt_path, <span class="st">'w'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> dict_CSMAR.items():</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"已保存变量标签文件: </span><span class="sc">{</span>txt_path<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>已保存数据文件: d:\Github\ds_data\data\CSMAR\data_final\CSMAR_final.csv
+已保存变量标签文件: d:\Github\ds_data\data\CSMAR\data_final\CSMAR_var_label.txt</code></pre>
+</div>
+</div>
+</section>
+<section id="收尾删除无用文件和过程文件" class="level3" data-number="11.9.4">
+<h3 data-number="11.9.4" class="anchored" data-anchor-id="收尾删除无用文件和过程文件"><span class="header-section-number">11.9.4</span> 收尾：删除无用文件和过程文件</h3>
+<blockquote class="blockquote">
+<p>Note：这一步是可选的，主要是为了清理不必要的文件，以节省存储空间和提高数据处理效率。<br>
+建议：确认所有数据处理和合并工作完成后，再执行此步骤。</p>
+</blockquote>
+<p>有些过程文件已经不需要了：</p>
+<ul>
+<li><code>data_raw</code> 文件夹中的 <code>.xlsx</code> 文件已经转换为 <code>.csv</code> 文件，因此可以删除。</li>
+<li><code>data_clean</code> 文件夹中的一些文件也不需要了，如 <code>利润表-现金流量表-xxx.pkl</code> 和 <code>资产负债表-xxx.pkl</code>，因为它们已经被合并为 <code>df_financial.pkl</code>。</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>删除 <code>data_raw</code> 文件夹中所有子文件夹中的 <code>.xlsx</code> 文件。</li>
+<li>删除 <code>data_clean</code> 文件夹中如下文件：
+<ul>
+<li>以 <code>利润表-现金流量表-</code> 开头的文件；</li>
+<li>以 <code>资产负债表-</code> 开头的文件；</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="2c53cf5c" class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 删除 data_raw 文件夹中所有子文件夹中的 .xlsx 文件</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> subfolder <span class="kw">in</span> os.listdir(extract_folder):</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    subfolder_path <span class="op">=</span> os.path.join(extract_folder, subfolder)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.isdir(subfolder_path):</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> fname <span class="kw">in</span> os.listdir(subfolder_path):</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> fname.endswith(<span class="st">'.xlsx'</span>):</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>                file_path <span class="op">=</span> os.path.join(subfolder_path, fname)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>                os.remove(file_path)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"已删除: </span><span class="sc">{</span>file_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 删除 data_clean 文件夹中指定前缀的文件</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>prefixes <span class="op">=</span> [<span class="st">'利润表-现金流量表-'</span>, <span class="st">'资产负债表-'</span>]</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fname <span class="kw">in</span> os.listdir(data_clean_folder):</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">any</span>(fname.startswith(prefix) <span class="cf">for</span> prefix <span class="kw">in</span> prefixes):</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>        file_path <span class="op">=</span> os.path.join(data_clean_folder, fname)</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> os.path.isfile(file_path):</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>            os.remove(file_path)</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"已删除: </span><span class="sc">{</span>file_path<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="呈现项目文档树" class="level3" data-number="11.9.5">
+<h3 data-number="11.9.5" class="anchored" data-anchor-id="呈现项目文档树"><span class="header-section-number">11.9.5</span> 呈现项目文档树</h3>
+<p>要点：</p>
+<ul>
+<li>代码执行后会自动将工作目录切换回项目根目录，确保后续操作路径一致。</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>列示项目文档树结构。</li>
+<li>只列示文件夹名称和文件名称，不需要显示文件内容。</li>
+<li>如果文件夹中有子文件夹，则显示子文件夹名称。</li>
+<li>处理完后，将工作目录切换到项目根目录。</li>
+<li>为此代码块添加标题和合适的注释。</li>
+</ul>
+</div>
+</div>
+<div id="1a1e54ee" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># === 项目文档树结构展示 ===</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 本代码用于递归列示当前项目的文件夹和文件结构，便于快速了解项目目录布局。</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 最后将工作目录切换回项目根目录。</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_project_tree(root, indent<span class="op">=</span><span class="st">""</span>):</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> os.listdir(root):</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>        item_path <span class="op">=</span> os.path.join(root, item)</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(indent <span class="op">+</span> <span class="st">"|-- "</span> <span class="op">+</span> item)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> os.path.isdir(item_path):</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>            print_project_tree(item_path, indent <span class="op">+</span> <span class="st">"    "</span>)</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=== 项目文档树结构 ==="</span>)</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>print_project_tree(path)</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 切换工作目录到项目根目录</span></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>os.chdir(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>=== 项目文档树结构 ===
+|-- 01_read_merge.ipynb
+|-- 02_data_clean.ipynb
+|-- CSMAR_API.md
+|-- CSMAR_firm_basic_infor.ipynb
+|-- data_clean
+    |-- CSMAR常用变量-2000-2024.pkl
+    |-- df_assets.pkl
+    |-- df_final.pkl
+    |-- df_profit.pkl
+    |-- 上市公司基本信息变更表2000-2024.pkl
+    |-- 上市公司基本信息年度表.pkl
+    |-- 利润表-现金流量表-2000-2010.pkl
+    |-- 利润表-现金流量表-2011-2024.pkl
+    |-- 资产负债表-2000-2010.pkl
+    |-- 资产负债表-2011-2024.pkl
+|-- data_final
+    |-- CSMAR_final.csv
+    |-- CSMAR_var_label.txt
+|-- data_raw
+    |-- CSMAR常用变量-2000-2024
+        |-- CSMAR常用变量-2000-2024.csv
+        |-- CSMAR常用变量-2000-2024.xlsx
+        |-- CSMAR常用变量-2000-2024_DES.txt
+        |-- 版权声明.pdf
+    |-- 上市公司基本信息变更表2000-2024
+        |-- STK_LISTEDCOINFOCHG.csv
+        |-- STK_LISTEDCOINFOCHG.xlsx
+        |-- STK_LISTEDCOINFOCHG[DES][xlsx].txt
+        |-- 版权声明.pdf
+    |-- 上市公司基本信息年度表
+        |-- STK_LISTEDCOINFOANL.csv
+        |-- STK_LISTEDCOINFOANL.xlsx
+        |-- STK_LISTEDCOINFOANL[DES][xlsx].txt
+        |-- 上市公司基本信息 数据库说明书.pdf
+    |-- 利润表-现金流量表-2000-2010
+        |-- 利润表-现金流量表-2000-2010.csv
+        |-- 利润表-现金流量表-2000-2010.xlsx
+        |-- 利润表-现金流量表-2000-2010_DES.txt
+        |-- 版权声明.pdf
+    |-- 利润表-现金流量表-2011-2024
+        |-- 利润表-现金流量表-2011-2024.csv
+        |-- 利润表-现金流量表-2011-2024.xlsx
+        |-- 利润表-现金流量表-2011-2024_DES.txt
+        |-- 版权声明.pdf
+    |-- 资产负债表-2000-2010
+        |-- 版权声明.pdf
+        |-- 资产负债表-2000-2010.csv
+        |-- 资产负债表-2000-2010.xlsx
+        |-- 资产负债表-2000-2010_DES.txt
+    |-- 资产负债表-2011-2024
+        |-- 版权声明.pdf
+        |-- 资产负债表-2011-2024.csv
+        |-- 资产负债表-2011-2024.xlsx
+        |-- 资产负债表-2011-2024_DES.txt
+|-- data_raw_zip
+    |-- CSMAR常用变量-2000-2024.zip
+    |-- 上市公司基本信息变更表2000-2024.zip
+    |-- 上市公司基本信息年度表.zip
+    |-- 利润表-现金流量表-2000-2010.zip
+    |-- 利润表-现金流量表-2011-2024.zip
+    |-- 资产负债表-2000-2010.zip
+    |-- 资产负债表-2011-2024.zip
+|-- functions
+    |-- CSMAR_var_label.py</code></pre>
+</div>
+</div>
+</section>
+<section id="保留哪些文件夹" class="level3" data-number="11.9.6">
+<h3 data-number="11.9.6" class="anchored" data-anchor-id="保留哪些文件夹"><span class="header-section-number">11.9.6</span> 保留哪些文件夹？</h3>
+<p>在本地运行完毕后，项目根目录下会包含如下文件夹：</p>
+<ul>
+<li>[1] <code>data_raw_zip</code> 文件夹：<strong>务必保留</strong>，里面存放了从 CSMAR 下载的原始数据压缩包。</li>
+<li>[2] <code>data_raw</code> 文件夹：<strong>可以删除</strong>，里面存放了解压后的 .xlsx 和 .txt 文档</li>
+<li>[3] <code>data_clean</code> 文件夹：<strong>酌情删除</strong>，里面存放了清洗后的 <code>.pkl</code> 文件。</li>
+<li>[4] <code>data_final</code> 文件夹：<strong>建议保留</strong>，里面存放了最终的 <code>.csv</code> 和 <code>.txt</code> 文件。</li>
+</ul>
+<p>可复现文档分享方案：</p>
+<p>一旦确定上述代码无误，在分享时，只需保留 <code>01_read_merge.ipynb</code> 文件和 <code>[data_raw_zip]</code> 文件夹即可。</p>
+<ul>
+<li>完整复现文档：
+<ul>
+<li><code>01_read_merge.ipynb</code> 文件：包含了从数据读取到合并的完整代码。</li>
+<li><code>[data_raw_zip]</code> 文件夹：包含了从 CSMAR 下载的原始数据压缩包。</li>
+</ul></li>
+<li>直接使用最终文档 + 了解处理过程：
+<ul>
+<li><code>data_final</code> 文件夹：包含了最终的 <code>.csv</code> 和 <code>.txt</code> 文件，便于直接使用。</li>
+<li><code>01_read_merge.ipynb</code> 文件：包含了从数据读取到合并的完整代码。</li>
+</ul></li>
+</ul>
+<div id="bb030d44" class="cell" data-vscode="{&quot;languageId&quot;:&quot;markdown&quot;}">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 下一步？</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>接下来，我们会编写：</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>  `<span class="dv">0</span><span class="er">2_data_clean</span>.ipynb` 文件，对 `data_final` 文件夹中的数据做进一步处理，包括：缺失值、文字变量转换为数值变量、生成新的变量、处理离群值等。</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>  `<span class="dv">0</span><span class="er">3_data_analysis</span>.ipynb` 文件，对 `data_final` 文件夹中的数据进行分析，包括：描述性统计、相关性分析、回归分析等。</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/lianxhcn\.github\.io\/research_with_AI\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../examples/CSMAR/00_intro.html" class="pagination-link" aria-label="数据分析案例：CAMAR 数据库合并">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../examples/web_dangdang_book/case_Dangdang_book.html" class="pagination-link" aria-label="案例：当当网 Python 类图书销售数据分析">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

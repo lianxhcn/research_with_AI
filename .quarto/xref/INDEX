@@ -1,0 +1,200 @@
+{
+  "index.qmd": {
+    "index.html": "664febd4"
+  },
+  "body/_home.qmd": {
+    "_home.html": "93c6cf6a"
+  },
+  "body/00-DSFinance-intro.md": {
+    "00-DSFinance-intro.html": "396e0598"
+  },
+  "body/01_1_py_install-Python-Anocanda.md": {
+    "01_1_py_install-Python-Anocanda.html": "b2f14f6e"
+  },
+  "body/01_2_py_FAQs.ipynb": {
+    "01_2_py_FAQs.html": "03761a61"
+  },
+  "body/01_py_basic.ipynb": {
+    "01_py_basic.html": "91fb5c9c"
+  },
+  "body/01_py_grammer.ipynb": {
+    "01_py_grammer.html": "8d5c3b32"
+  },
+  "body/01_py_QuickReference.md": {
+    "01_py_QuickReference.html": "976f57b8"
+  },
+  "body/01_py_Useful_Packages.md": {
+    "01_py_Useful_Packages.html": "8ec9b663"
+  },
+  "body/data_get_data_GMD.ipynb": {
+    "data_get_data_GMD.html": "b834f023"
+  },
+  "body/graph_01_intro.ipynb": {
+    "graph_01_intro.html": "ee63a9e8"
+  },
+  "body/graph_dis_box_violin.ipynb": {
+    "graph_dis_box_violin.html": "a88868ec"
+  },
+  "body/graph_dis_histogram.ipynb": {
+    "graph_dis_histogram.html": "ca6d8922"
+  },
+  "body/graph_dis_kdensity.ipynb": {
+    "graph_dis_kdensity.html": "b036ed41"
+  },
+  "body/TS_asset_return.qmd": {
+    "TS_asset_return.html": "467fc3ef"
+  },
+  "body/TS_man_weight.ipynb": {
+    "TS_man_weight.html": "77f3da2f"
+  },
+  "body/TS_ARMA.ipynb": {
+    "TS_ARMA.html": "cf83cf5f"
+  },
+  "body/TS_FRED_US_unemploy_rate.ipynb": {
+    "TS_FRED_US_unemploy_rate.html": "c325c9ad"
+  },
+  "body/TS_SZ_index.ipynb": {
+    "TS_SZ_index.html": "985291cd"
+  },
+  "body/TS_GARCH_BYD.ipynb": {
+    "TS_GARCH_BYD.html": "51b38419"
+  },
+  "body/05.07-Support-Vector-Machines-CN.ipynb": {
+    "05.07-Support-Vector-Machines-CN.html": "415a7200"
+  },
+  "body/05.08-Random-Forests.ipynb": {
+    "05.08-Random-Forests.html": "17de7070"
+  },
+  "body/Ch09-svm-lab.ipynb": {
+    "Ch09-svm-lab.html": "b50df485"
+  },
+  "body/00_intro.ipynb": {
+    "00_intro.html": "53dd7b6d"
+  },
+  "body/00_py_with_AI_intro.ipynb": {
+    "00_py_with_AI_intro.html": "b42f9744"
+  },
+  "body/00_py_with_AI_pic.ipynb": {
+    "00_py_with_AI_pic.html": "25f97595"
+  },
+  "body/01_1_install-Python-Anocanda.ipynb": {
+    "01_1_install-Python-Anocanda.html": "53ee97a9"
+  },
+  "body/01_2_install_FAQs.ipynb": {
+    "01_2_install_FAQs.html": "771a3ff8"
+  },
+  "body/01_3_markdown.md": {
+    "01_3_markdown.html": "5613c273"
+  },
+  "body/01_py_01_basic.ipynb": {
+    "01_py_01_basic.html": "bbbeb5e7"
+  },
+  "body/01_py_01_basic_01_grammer.ipynb": {
+    "01_py_01_basic_01_grammer.html": "b581360c"
+  },
+  "body/01_py_01_basic_02_QuickReference.md": {
+    "01_py_01_basic_02_QuickReference.html": "c436ad99"
+  },
+  "body/01_py_01_basic_03_Useful_Packages.md": {
+    "01_py_01_basic_03_Useful_Packages.html": "4913de1f"
+  },
+  "body/01_py_01_basic_04_import.md": {
+    "01_py_01_basic_04_import.html": "84d22097"
+  },
+  "body/01_py_02_numpy_scipy.ipynb": {
+    "01_py_02_numpy_scipy.html": "6eeb303a"
+  },
+  "body/data_01_intro.ipynb": {
+    "data_01_intro.html": "e9f07c51"
+  },
+  "body/data_02_get_data_GMD.ipynb": {
+    "data_02_get_data_GMD.html": "1a3237df"
+  },
+  "body/data_02_data_type.ipynb": {
+    "data_02_data_type.html": "160cc7b3"
+  },
+  "body/01_py_01_basic_03_Packages.md": {
+    "01_py_01_basic_03_Packages.html": "4943bd11"
+  },
+  "body/01_py_03_matplotlib.ipynb": {
+    "01_py_03_matplotlib.html": "954768d5"
+  },
+  "body/01_py_04_func_and_module.ipynb": {
+    "01_py_04_func_and_module.html": "50347170"
+  },
+  "body/01_py_05_class.ipynb": {
+    "01_py_05_class.html": "c50265e6"
+  },
+  "body/01_py_01_basic_05_OOP.ipynb": {
+    "01_py_01_basic_05_OOP.html": "662a4a33"
+  },
+  "body/01_py_01_basic_06_filepath.ipynb": {
+    "01_py_01_basic_06_filepath.html": "439ca682"
+  },
+  "body/01_py_02_pandas.ipynb": {
+    "01_py_02_pandas.html": "683f3167"
+  },
+  "body/test_AB_test.ipynb": {
+    "test_AB_test.html": "3df96693"
+  },
+  "body/regress_binscatter.ipynb": {
+    "regress_binscatter.html": "2ea476ab"
+  },
+  "body/regress_01_OLS.ipynb": {
+    "regress_01_OLS.html": "22e861f6"
+  },
+  "body/regress_02_wage.ipynb": {
+    "regress_02_wage.html": "87470ff6"
+  },
+  "body/regress_03_binscatter.ipynb": {
+    "regress_03_binscatter.html": "b6742c34"
+  },
+  "homework/pre/Dangdang_G7_01_data_clean.ipynb": {
+    "Dangdang_G7_01_data_clean.html": "dcec8118"
+  },
+  "homework/pre/Dangdang_G7_02_data_analysis.ipynb": {
+    "Dangdang_G7_02_data_analysis.html": "74b79c2c"
+  },
+  "homework/pre/G8_China_stock_analysis.ipynb": {
+    "G8_China_stock_analysis.html": "3591b02d"
+  },
+  "homework/pre/Stock_G4_01_data_crawler.ipynb": {
+    "Stock_G4_01_data_crawler.html": "4e4430b4"
+  },
+  "homework/pre/Stock_G4_02_data_cleaning.ipynb": {
+    "Stock_G4_02_data_cleaning.html": "251d2a22"
+  },
+  "homework/pre/Stock_G4_03_data_analysis.ipynb": {
+    "Stock_G4_03_data_analysis.html": "613fbbcc"
+  },
+  "homework/pre/_ex02_万诗晴.ipynb": {
+    "_ex02_万诗晴.html": "ebfbf6aa"
+  },
+  "homework/pre/_ex02_吴倩茵.ipynb": {
+    "_ex02_吴倩茵.html": "6e979b00"
+  },
+  "homework/pre/_ex02_朱少荣.ipynb": {
+    "_ex02_朱少荣.html": "a4792327"
+  },
+  "homework/pre/_ex02_黄伊姿.ipynb": {
+    "_ex02_黄伊姿.html": "42ce1428"
+  },
+  "body/05_write_with_AI.md": {
+    "05_write_with_AI.html": "89d4dada"
+  },
+  "body/04_use_AI.md": {
+    "04_use_AI.html": "f7ced7ba"
+  },
+  "examples/AI_research_design_Erdem_2025.ipynb": {
+    "AI_research_design_Erdem_2025.html": "1df48662"
+  },
+  "examples/CSMAR/00_intro.md": {
+    "00_intro.html": "1122c0e3"
+  },
+  "examples/CSMAR/01_unzip_to_csv.ipynb": {
+    "01_unzip_to_csv.html": "29574b7c"
+  },
+  "examples/web_dangdang_book/case_Dangdang_book.ipynb": {
+    "case_Dangdang_book.html": "1c6c4850"
+  }
+}

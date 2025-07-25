@@ -1,0 +1,76 @@
+project:
+  type: book
+  output-dir: docs  # 输出目录, 生成的 HTML 文件会放在 docs 目录下
+
+book:
+  title: "Empirical Research with AI"
+  reader-mode: true 
+  author: "连玉君"
+  date: today
+  date-format: iso
+#  lang: zh  # 不要设置这个，会导致很多问题
+  
+  sidebar:    # 侧边栏配置
+    title: "Empirical Research with AI"
+    logo: images/book-logo.png
+    logo-href: https://lianxhcn.github.io/research_with_AI/
+    style: floating  #docked
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/lianxhcn/research_with_AI
+
+  favicon: images/book-logo.png   # URL logo
+  site-url: https://lianxhcn.github.io/research_with_AI/ # 主页地址, 否则点击右上角链接会乱码
+  editor: source    # 始终采用源代码模式编辑
+
+#----------------------- Chapters ---------------
+  chapters:
+
+    - index.qmd
+
+    - part: "**简介**"
+      chapters: 
+        - body/00_py_with_AI_intro.ipynb
+        - body/00_py_with_AI_pic.ipynb
+        - body/01_1_install-Python-Anocanda.ipynb
+        - body/01_2_install_FAQs.ipynb
+        - body/01_3_markdown.md
+
+    - part: "**AI+论文推介**"
+      chapters: 
+        - body/05_write_with_AI.md
+        - body/04_use_AI.md
+      
+    - part: "**AI+论文解读和研究设计**"
+      chapters: 
+        - examples/AI_research_design_Erdem_2025.ipynb
+
+    - part: "**AI+数据分析**"
+      chapters: 
+        - examples/CSMAR/00_intro.md
+        - examples/CSMAR/01_unzip_to_csv.ipynb
+        - examples/web_dangdang_book/case_Dangdang_book.ipynb
+
+
+
+format:
+  html:
+    toc: true            # 启用目录
+    toc-depth: 3         # 三级以上 sections 才伸缩
+    theme: cosmo         # 可选：cosmo, flatly, litera, litera, yeti 等  主题模版
+    linestretch: 1.6          # 行间距   1.7   
+    fontsize: 11.5pt          # 字号
+    number-sections: true     # 自动章节编号
+    link-external-newwindow: true
+    highlight: true            # 代码高亮
+    highlight-style: atom-one  # 语法高亮, atom-one, breezy, github, tango, solarized-light
+    code-fold: false           # （可选）代码默认不折叠
+    code-line-numbers: false   # （可选）关闭行号
+    code-overflow: wrap        # 控制长代码的换行   
+    css: styles.css
+    callout-appearance: default        # 启用 callout 默认渲染样式
+    md-extensions:
+      - callout                        # 确保 markdown 支持 callout 块语法
+editor: visual
+

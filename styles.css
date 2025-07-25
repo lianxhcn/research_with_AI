@@ -1,0 +1,272 @@
+/*
+    See the JupyterLab Developer Guide for useful CSS Patterns:
+
+    https://jupyterlab.readthedocs.io/en/stable/developer/css.html
+
+ChatGPT 讨论：
+
+*/
+
+/* Title Block */
+
+.quarto-meta-block {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.quarto-meta {
+  margin-bottom: 1.4em;
+}
+
+.quarto-meta-padded {
+  padding-top: .4em;
+}
+
+.quarto-meta p.quarto-meta-title {
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.quarto-meta p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.quarto-orcid {
+  text-decoration: none;
+}
+
+.quarto-orcid i:before {
+  margin-left: 0.25em;
+  height: 1rem;
+  width: 1rem;
+  display: inline-block;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAALVBMVEUAAACmzjmmzjmmzjmmzjmmzjn////0+ebj8MHe7bXT55y82mus0UWmzjmSwCmNJ4LqAAAABnRSTlMAIGC/z+8mlFLTAAAAaElEQVR42k2OsQmAMBRET3CAFG5gbWMv6CBpRT44knM4hU3ESl6bLs5gEUW7x3GPO0k1tJJUAQxS4S3B4VRiCejVcCU2gjosjtO2CyymdSHDOT/A/Eu63NnVZCuoBIBehQc43Df63rgBoFJNFnlCBV4AAAAASUVORK5CYII=");
+}
+
+.quarto-frontmatter {
+  font-size: 0.9em !important;
+  line-height: 0.9em !important;  
+}
+
+pre.quarto-frontmatter-container {
+  border: solid var(--vscode-panel-border) 1px;
+  width: calc(100% - 1.1em);  
+  padding: 0.5em 0 0.5em 0.5em!important;
+  margin-right: 0.6em;
+}
+
+.quarto-abstract {
+  padding-top: 0.5em;
+}
+
+/* Decorated Divs */
+
+pre {
+  padding: 0.5em;
+  border: solid var(--vscode-panel-border) 1px;
+  width: calc(100% - 1.6em)
+}
+
+.quarto-div {
+  border: solid 1px var(--vscode-panel-border);
+  border-radius: 3px;
+  background-color: #EEEEEE11;
+  color: var(--vscode-foreground);
+  padding: 1em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+  width: calc(100% - 0.6em);
+}
+
+.quarto-attribute-decorator + h1,
+.quarto-attribute-decorator + h2,
+.quarto-attribute-decorator + h3,
+.quarto-attribute-decorator + h4,
+.quarto-attribute-decorator + h5,
+.quarto-attribute-decorator + h6,
+.quarto-attribute-decorator + pre {
+  margin-top: 0 !important;
+}
+
+.quarto-attribute-decorator.quarto-heading-attribute-decorator {
+  transform: translateY(2em);
+}
+
+.quarto-attribute-decorator {
+  margin-top: var(--jp-content-heading-margin-top);
+  padding-right: 1em;
+  display: flex;
+  justify-content: right;
+  background-color: transparent;
+  font-size: 0.7em;
+  transform: translateY(1em);
+}
+
+.quarto-attribute-decorator .quarto-attribute-decorator-content {
+  border: solid var(--vscode-panel-border) 1px;
+  background-color: var(--theme-input-background);
+  border-radius: 20px;
+  margin-right: 1.5em;
+  padding-bottom: 2px;
+  padding-left: 7px;
+  padding-right: 7px;
+  white-space: nowrap;
+}
+
+
+/* 控制章节标题与上下元素的间距, Update: 2025/5/19 11:40*/
+h1.title, 
+h1.anchored {
+  margin-top: 0.8em;      /* 与上方的距离 */
+  margin-bottom: 0.7em;   /* 与下方内容（如提示框）的距离 */
+}
+
+
+
+
+/* Cites and Xrefs */
+.jp-RenderedHTMLCommon :not(pre) > code.cite { 
+  color: var(--jp-content-link-color);
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+/* Code Blocks */
+.jp-RenderedHTMLCommon pre,
+.jp-RenderedHTMLCommon > pre {
+  margin-left: .1em;
+  margin-right: 0;
+  padding: 0.2em;
+  border: solid 1px var(--vscode-panel-border);
+  border-radius: 3px;
+}
+
+
+/* Tables */
+.quarto-rendered-md.jp-RenderedHTMLCommon table {
+  margin-left: inherit;
+  margin-right: inherit;
+}
+
+/* Callouts - 提示框，警示框等 */
+/* TODO: Need to automate ingesting this */
+/* */
+
+.callout {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    width: 100%;
+    border-left: 6px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .callout-header {
+    display: flex;
+    align-items: center;
+    padding: 0.6em 1em;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .callout-body {
+    padding: 0.8em 1em;
+    line-height: 1.6;
+  }
+  
+  /* 具体类别样式 */
+  
+  div.callout-important {
+    border-left-color: #d9534f;
+  }
+  div.callout-important .callout-header {
+    background-color: #f7dddc;
+    color: #a94442;
+  }
+  
+  div.callout-note {
+    border-left-color: #4582ec;
+  }
+  div.callout-note .callout-header {
+    background-color: #dae6fb;
+    color: #305fdd;
+  }
+  
+  div.callout-warning {
+    border-left-color: #f0ad4e;
+  }
+  div.callout-warning .callout-header {
+    background-color: #fcefdc;
+    color: #8a6d3b;
+  }
+  
+  div.callout-tip {
+    border-left-color: #02b875;
+  }
+  div.callout-tip .callout-header {
+    background-color: #ccf1e3;
+    color: #1e7e34;
+  }
+  
+  div.callout-caution {
+    border-left-color: #fd7e14;
+  }
+  div.callout-caution .callout-header {
+    background-color: #ffe5d0;
+    color: #995700;
+  }
+  
+  /*提示词对话框*/
+  div.callout-prompt {   
+    border-left-color: #881a86;
+  }
+  div.callout-prompt .callout-header {
+    background-color: #ece6ee;
+    color: #ba17c9;
+  }
+
+/* Shortcodes */
+
+span.shortcode {
+  font-family: var(--jp-code-font-family);
+  line-height: var(--jp-code-line-height);
+  background: var(--vscode-textPreformat-background);
+  color: var(--vscode-textPreformat-foreground);
+  padding-left: 1px;
+  padding-right: 1px;
+  white-space: pre-wrap;
+}
+
+/* Footnotes */
+hr.footnotes-sep {
+  width: calc(100% - 0.6em);
+  
+}
+
+
+/* 控制代码块与输出结果之前的垂直间距 */
+/* Update: 2025/5/19 10:03*/
+div.cell > div.cell-output,
+div.cell > div.cell-output-display,
+div.cell-output-stdout {
+  margin-top: 0.1em !important;
+  margin-bottom: 0.1em !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.cell-output-stdout pre {
+  font-size: 0.95em;
+  line-height: 1.3;
+  margin: 0;
+  padding: 0;
+}
+

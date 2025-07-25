@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>12&nbsp; 案例：当当网 Python 类图书销售数据分析 – Empirical Research with AI</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../examples/CSMAR/01_unzip_to_csv.html" rel="prev">
+<link href="../../images/book-logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e8fb9d25728d58bfeac61b497e4a6629.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8434d2026ae8291579158df2ad8dfa64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../examples/CSMAR/00_intro.html"><strong>AI+数据分析</strong></a></li><li class="breadcrumb-item"><a href="../../examples/web_dangdang_book/case_Dangdang_book.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="https://lianxhcn.github.io/research_with_AI/" class="sidebar-logo-link">
+      <img src="../../images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Empirical Research with AI</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lianxhcn/research_with_AI" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据分析</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>简介</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/00_py_with_AI_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">借助 AI 写代码</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/00_py_with_AI_pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/01_1_install-Python-Anocanda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Python：安装和环境配置</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/01_2_install_FAQs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python 安装常见问题</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/01_3_markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Markdown</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>AI+论文推介</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/05_write_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../body/04_use_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">使用 AI 写论文推介</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>AI+论文解读和研究设计</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/AI_research_design_Erdem_2025.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>AI+数据分析</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/CSMAR/01_unzip_to_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/web_dangdang_book/case_Dangdang_book.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#背景" id="toc-背景" class="nav-link active" data-scroll-target="#背景"><span class="header-section-number">12.1</span> 背景</a></li>
+  <li><a href="#爬取数据" id="toc-爬取数据" class="nav-link" data-scroll-target="#爬取数据"><span class="header-section-number">13.6</span> 爬取数据</a>
+  <ul class="collapse">
+  <li><a href="#技术选择说明" id="toc-技术选择说明" class="nav-link" data-scroll-target="#技术选择说明"><span class="header-section-number">13.6.1</span> 技术选择说明</a></li>
+  <li><a href="#python-代码" id="toc-python-代码" class="nav-link" data-scroll-target="#python-代码"><span class="header-section-number">13.6.2</span> Python 代码</a></li>
+  </ul></li>
+  <li><a href="#后续" id="toc-后续" class="nav-link" data-scroll-target="#后续"><span class="header-section-number">13.7</span> 后续</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../examples/CSMAR/00_intro.html"><strong>AI+数据分析</strong></a></li><li class="breadcrumb-item"><a href="../../examples/web_dangdang_book/case_Dangdang_book.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="背景" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="背景"><span class="header-section-number">12.1</span> 背景</h2>
+<p>我想写一本有关 Python 应用的书。目前我有很多想法，拿不定主意。比如，</p>
+<ul>
+<li>目标读者是谁？经管类博士生，还是中小学生？</li>
+<li>书的内容是什么？是 Python 基础知识，还是 Python 数据分析？亦或是机器学习？</li>
+<li>书的形式是什么？是电子书，还是纸质书？亦或是两者都有？</li>
+<li>书的价格是多少？是 50 元，还是 100 元？亦或是 200 元？</li>
+<li>找哪家出版社？</li>
+</ul>
+<p>在不了解这些信息的情况下，贸然画一年的时间写一本书是一个非常冒险的决定。为了降低风险，我决定先做一些市场调研，看看读者对 Python 书籍的需求。</p>
+<p>我先通过百度搜索和 Google 搜索，了解到当当网是中国最大的图书销售网站之一，拥有丰富的图书数据。我决定从当当网获取一些 Python 类图书的销售数据，进行分析，看看读者对 Python 书籍的需求。</p>
+<p>问题来了，我只有一些非常基础的 Python 知识 (大体上限于能对着课本或帮助文档提供的实例进行一些微小的修改，然后运行)。而且，我目前掌握的 Python 知识基本上进局限于回归分析。对于网络爬虫、数据分析、数据可视化等知识，我几乎一无所知。</p>
+<p>我听说 ChatGPT, DeepSeek 等 AI 工具可以帮助我完成一些复杂的任务，比如网络爬虫、数据分析、数据可视化等。我决定试试这些工具，看看它们能否帮助我完成我的市场调研。</p>
+<p>于是，我写一个提示词，发给了 ChatGPT：</p>
+<blockquote class="blockquote">
+<p><a href="https://chatgpt.com/share/6825d453-524c-8005-b82c-a9530cf983ff">与 ChatGPT 的完整对话</a></p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>目的：从当当网获取Python相关书籍的销售量信息，最终输出一份市场调研报告。</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>语言：Python</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>网站：<span class="co">[</span><span class="ot">https://search.dangdang.com/</span><span class="co">](https://search.dangdang.com/)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>关键词：'python'</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>排序关键词：'销量'</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>排序方式：从高到低</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>信息条数：前 20 条</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>目前搜索结果页面URL：<span class="co">[</span><span class="ot">https://search.dangdang.com/?key=python\&amp;act=input\&amp;sort\_type=sort\_sale\_amt\_desc#J\_tab</span><span class="co">](https://search.dangdang.com/?key=python&amp;act=input&amp;sort_type=sort_sale_amt_desc#J_tab)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>预期输出： </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>书名，作者，年份，出版社，评论数，原价、折后价</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>以上是我目前想到的。</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>请帮我做一个全面的规划，包括分析目标、收集那些变量，分析流程，以及最终的报告形式、核心内容等。</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>以下是 ChatGPT 的回复：</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>好的，以下是一份较为系统的规划方案，适用于以 Python 编写程序从当当网采集“Python”相关书籍的销售量数据，并撰写一份结构完整的市场调研报告。</p>
+<hr>
+<section id="python-相关图书市场调研项目规划" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Python 相关图书市场调研项目规划</h1>
+<section id="一分析目标" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="一分析目标"><span class="header-section-number">13.1</span> 一、分析目标</h2>
+<ul>
+<li><p><strong>核心问题</strong>：当前在当当网上热销的 Python 图书有哪些？主要出版时间集中在哪些年份？哪些出版社主导了市场？</p></li>
+<li><p><strong>业务用途</strong>：</p>
+<ul>
+<li>为出版商、培训机构、书店提供选书参考；</li>
+<li>了解当前市场偏好（入门/进阶、编程/数据分析/人工智能）；</li>
+<li>为课程教材选择提供数据支持。</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="二数据采集计划" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="二数据采集计划"><span class="header-section-number">13.2</span> 二、数据采集计划</h2>
+<section id="数据来源" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="数据来源"><span class="header-section-number">13.2.1</span> 1. 数据来源</h3>
+<ul>
+<li>网址：<a href="https://search.dangdang.com/?key=python&amp;act=input&amp;sort_type=sort_sale_amt_desc#J_tab">https://search.dangdang.com/?key=python&amp;act=input&amp;sort_type=sort_sale_amt_desc#J_tab</a></li>
+<li>请求类型：GET</li>
+<li>页数限制：目前仅采集排序后<strong>前 20 本书</strong></li>
+<li>排序方式：<strong>按销量从高到低</strong></li>
+</ul>
+</section>
+<section id="待采集字段建议" class="level3" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="待采集字段建议"><span class="header-section-number">13.2.2</span> 2. 待采集字段（建议）</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>书名</code></td>
+<td>完整书名</td>
+</tr>
+<tr class="even">
+<td><code>作者</code></td>
+<td>主作者及其他合著者</td>
+</tr>
+<tr class="odd">
+<td><code>出版社</code></td>
+<td>出版机构</td>
+</tr>
+<tr class="even">
+<td><code>出版时间</code></td>
+<td>年份或具体日期</td>
+</tr>
+<tr class="odd">
+<td><code>原价</code></td>
+<td>划线价</td>
+</tr>
+<tr class="even">
+<td><code>折后价</code></td>
+<td>实际售价</td>
+</tr>
+<tr class="odd">
+<td><code>评论数</code></td>
+<td>用户评论数，反映活跃度</td>
+</tr>
+<tr class="even">
+<td><code>星级评分</code></td>
+<td>若有星级则采集</td>
+</tr>
+<tr class="odd">
+<td><code>封面图链接</code></td>
+<td>便于后续可视化展示</td>
+</tr>
+<tr class="even">
+<td><code>图书详情页链接</code></td>
+<td>为后续扩展字段或人工校验提供入口</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="三分析流程" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="三分析流程"><span class="header-section-number">13.3</span> 三、分析流程</h2>
+<section id="step-1数据采集python-编程" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="step-1数据采集python-编程"><span class="header-section-number">13.3.1</span> Step 1：数据采集（Python 编程）</h3>
+<ul>
+<li><p>使用库：</p>
+<ul>
+<li><code>requests</code> 模拟访问</li>
+<li><code>BeautifulSoup</code> 解析 HTML</li>
+<li><code>re</code> 或 <code>lxml</code> 辅助提取字段</li>
+</ul></li>
+<li><p>反爬措施应对：</p>
+<ul>
+<li>合理设置 <code>headers</code>（如模拟浏览器 UA）</li>
+<li>增加 <code>time.sleep()</code> 随机延迟</li>
+<li>如遇 JavaScript 动态加载，可考虑 <code>selenium</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="step-2数据清洗与规范化" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="step-2数据清洗与规范化"><span class="header-section-number">13.3.2</span> Step 2：数据清洗与规范化</h3>
+<ul>
+<li>作者、出版社等字段统一格式</li>
+<li>出版时间转为 <code>datetime</code></li>
+<li>价格字段转换为 float</li>
+<li>评论数转换为整数（去除“条评论”字样）</li>
+</ul>
+</section>
+<section id="step-3数据分析" class="level3" data-number="13.3.3">
+<h3 data-number="13.3.3" class="anchored" data-anchor-id="step-3数据分析"><span class="header-section-number">13.3.3</span> Step 3：数据分析</h3>
+<section id="描述性统计" class="level4" data-number="13.3.3.1">
+<h4 data-number="13.3.3.1" class="anchored" data-anchor-id="描述性统计"><span class="header-section-number">13.3.3.1</span> 3.1 描述性统计</h4>
+<ul>
+<li>平均价格、评论数中位数</li>
+<li>出版年份分布（近几年为主）</li>
+<li>高频作者、出版社统计</li>
+</ul>
+</section>
+<section id="分类分析" class="level4" data-number="13.3.3.2">
+<h4 data-number="13.3.3.2" class="anchored" data-anchor-id="分类分析"><span class="header-section-number">13.3.3.2</span> 3.2 分类分析</h4>
+<ul>
+<li>入门类 vs 进阶类</li>
+<li>数据分析 vs Web 编程 vs 机器学习</li>
+<li>是否为教材或考试参考书</li>
+</ul>
+</section>
+<section id="排行榜可视化" class="level4" data-number="13.3.3.3">
+<h4 data-number="13.3.3.3" class="anchored" data-anchor-id="排行榜可视化"><span class="header-section-number">13.3.3.3</span> 3.3 排行榜可视化</h4>
+<ul>
+<li>前 10 图书销量/评论/价格对比柱状图</li>
+<li>出版时间折线图</li>
+<li>价格 vs 评论数散点图</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="四报告输出格式" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="四报告输出格式"><span class="header-section-number">13.4</span> 四、报告输出格式</h2>
+<section id="技术报告形式推荐" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="技术报告形式推荐"><span class="header-section-number">13.4.1</span> 1. 技术报告形式（推荐）</h3>
+<ul>
+<li><strong>格式</strong>：Markdown / Quarto / PDF（可由 Jupyter Notebook 或 Quarto 生成）</li>
+<li><strong>结构建议</strong>：</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Python 图书销售市场调研报告（当当网）</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. 项目背景与目标</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. 数据采集与字段说明</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. 市场总体概况</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>销售 Top20 图书一览</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>平均价格、评分、评论数等统计</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. 出版特征分析</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>出版社分布、出版时间分布</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>作者贡献度分析</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. 图书类型对比分析</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>入门、进阶分布</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>专业方向分布</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. 结论与建议</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>当前趋势总结</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>出版或选书建议</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="附录部分" class="level3" data-number="13.4.2">
+<h3 data-number="13.4.2" class="anchored" data-anchor-id="附录部分"><span class="header-section-number">13.4.2</span> 2. 附录部分</h3>
+<ul>
+<li>原始数据表格（20 本书）</li>
+<li>数据采集代码（附说明）</li>
+<li>图形可视化汇总图（Matplotlib / Seaborn / Plotly）</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="五可扩展方向可选" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="五可扩展方向可选"><span class="header-section-number">13.5</span> 五、可扩展方向（可选）</h2>
+<ul>
+<li>同步采集京东、淘宝图书频道以对比</li>
+<li>分析定价策略（原价 vs 折扣价规律）</li>
+<li>抽取关键词构建词云图</li>
+<li>构建图书推荐系统雏形</li>
+</ul>
+<hr>
+<p>如你同意，我可以继续为你编写：</p>
+<ol type="1">
+<li>Python 抓取前 20 条当当网图书数据的爬虫脚本；</li>
+<li>可视化分析和 Markdown 报告生成模板；</li>
+<li>教学型讲义或课程材料用版本。</li>
+</ol>
+<p>是否现在开始写代码部分？是否使用 <code>requests + BeautifulSoup</code>，还是你希望使用 <code>selenium</code> 模拟浏览器？</p>
+</section>
+</section>
+</div>
+</div>
+</section>
+<section id="爬取数据" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="爬取数据"><span class="header-section-number">13.6</span> 爬取数据</h2>
+<p>我们让 ChatGPT 执行第一步：</p>
+<p><strong>Step 1：使用 Python 抓取当当网「Python」相关图书销量前 20 名信息</strong> 的完整采集代码。</p>
+<section id="技术选择说明" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="技术选择说明"><span class="header-section-number">13.6.1</span> 技术选择说明</h3>
+<ul>
+<li><p><strong>目标网址</strong>：<a href="https://search.dangdang.com/?key=python&amp;sort_type=sort_sale_amt_desc">https://search.dangdang.com/?key=python&amp;sort_type=sort_sale_amt_desc</a></p></li>
+<li><p><strong>方案</strong>：采用 <code>requests</code> + <code>BeautifulSoup</code> 进行静态页面解析（当当网图书搜索结果页大部分信息在 HTML 中，JS 渲染较少）</p></li>
+<li><p><strong>爬取字段</strong>：</p>
+<ul>
+<li>书名</li>
+<li>作者</li>
+<li>出版社</li>
+<li>出版时间</li>
+<li>原价</li>
+<li>折后价</li>
+<li>评论数</li>
+<li>商品详情页链接</li>
+</ul></li>
+</ul>
+</section>
+<section id="python-代码" class="level3" data-number="13.6.2">
+<h3 data-number="13.6.2" class="anchored" data-anchor-id="python-代码"><span class="header-section-number">13.6.2</span> Python 代码</h3>
+<div id="abb44228" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 设置项目路径</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   [./data]: 存储数据文件</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   [./output]: 存储输出文件</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#---------------- 项目路径，酌情修改 -------------------</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="vs">r'D:\Github\dslian\cases\web_dangdang_book'</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>path_data <span class="op">=</span> os.path.join(path, <span class="st">'data'</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>path_output <span class="op">=</span> os.path.join(path, <span class="st">'output'</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>os.chdir(path)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>os.getcwd()</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>'d:\\Github\\dslian\\cases\\web_dangdang_book'</code></pre>
+</div>
+</div>
+<div id="0469406f" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 设置目标搜索 URL（销量降序排序）</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://search.dangdang.com/?key=python&amp;sort_type=sort_sale_amt_desc"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 设置请求头，模拟浏览器访问</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"User-Agent"</span>: <span class="st">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 </span><span class="ch">\</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="st">                   (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 发送请求并获取页面内容</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, headers<span class="op">=</span>headers)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>response.encoding <span class="op">=</span> <span class="st">"gb2312"</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用 BeautifulSoup 解析 HTML 内容</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>soup <span class="op">=</span> BeautifulSoup(response.text, <span class="st">"html.parser"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 所有图书的信息在 ul.bigimg li 中</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>book_list <span class="op">=</span> soup.select(<span class="st">"ul.bigimg &gt; li"</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 用于保存每本书的信息</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>books_data <span class="op">=</span> []</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 遍历每本书的条目，提取信息</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> book_list:</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        title_tag <span class="op">=</span> item.select_one(<span class="st">"a[name='itemlist-title']"</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> title_tag.get(<span class="st">"title"</span>).strip() <span class="cf">if</span> title_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        link <span class="op">=</span> title_tag.get(<span class="st">"href"</span>) <span class="cf">if</span> title_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        author_tag <span class="op">=</span> item.select_one(<span class="st">"p.name a"</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        author <span class="op">=</span> author_tag.text.strip() <span class="cf">if</span> author_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        pub_info_tag <span class="op">=</span> item.select_one(<span class="st">"p.search_book_author"</span>)</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        pub_info <span class="op">=</span> pub_info_tag.text.strip() <span class="cf">if</span> pub_info_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>        pub_info_parts <span class="op">=</span> pub_info.split(<span class="st">"</span><span class="ch">\xa0\xa0</span><span class="st">"</span>)</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        publisher <span class="op">=</span> pub_info_parts[<span class="dv">1</span>].strip() <span class="cf">if</span> <span class="bu">len</span>(pub_info_parts) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        pubdate <span class="op">=</span> pub_info_parts[<span class="dv">2</span>].strip() <span class="cf">if</span> <span class="bu">len</span>(pub_info_parts) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>        comment_tag <span class="op">=</span> item.select_one(<span class="st">"p.search_star_line a"</span>)</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>        comment <span class="op">=</span> comment_tag.text.strip() <span class="cf">if</span> comment_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>        price_tag <span class="op">=</span> item.select_one(<span class="st">"p.price"</span>)</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>        orig_price_tag <span class="op">=</span> price_tag.select_one(<span class="st">"span.search_pre_price"</span>) <span class="cf">if</span> price_tag <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>        disc_price_tag <span class="op">=</span> price_tag.select_one(<span class="st">"span.search_now_price"</span>) <span class="cf">if</span> price_tag <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>        orig_price <span class="op">=</span> orig_price_tag.text.strip(<span class="st">"¥"</span>) <span class="cf">if</span> orig_price_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>        disc_price <span class="op">=</span> disc_price_tag.text.strip(<span class="st">"¥"</span>) <span class="cf">if</span> disc_price_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>        books_data.append({</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>            <span class="st">"书名"</span>: title,</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>            <span class="st">"作者"</span>: author,</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>            <span class="st">"出版社"</span>: publisher,</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>            <span class="st">"出版时间"</span>: pubdate,</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>            <span class="st">"原价"</span>: orig_price,</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>            <span class="st">"折后价"</span>: disc_price,</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>            <span class="st">"评论数"</span>: comment,</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>            <span class="st">"详情页链接"</span>: link</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="fl">0.5</span>)  <span class="co"># 加入短暂停顿防止访问过快</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"解析失败：</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="co"># 转换为 DataFrame</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>df_books <span class="op">=</span> pd.DataFrame(books_data)</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="co"># 确保保存路径存在</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>output_path <span class="op">=</span> <span class="st">"data"</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>os.makedirs(output_path, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> os.path.join(output_path, <span class="st">"dangdang_python_books_top20.csv"</span>)</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="co"># 保存为 CSV 文件</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>df_books.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">"utf-8-sig"</span>)</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印成功信息</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"已成功下载 </span><span class="sc">{</span><span class="bu">len</span>(df_books)<span class="sc">}</span><span class="ss"> 条数据，</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="er">        点击 </span>[<span class="bu">file</span>:<span class="op">//</span>{os.path.abspath(output_file)}] </span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>        查看 dangdang_python_books_top20.csv 文件<span class="st">")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>已成功下载 60 条数据，点击 [file://d:\Github\dslian\cases\web_dangdang_book\data\dangdang_python_books_top20.csv] 查看 dangdang_python_books_top20.csv 文件</code></pre>
+</div>
+</div>
+<div id="c8fce22b" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://search.dangdang.com/?key=python&amp;sort_type=sort_sale_amt_desc"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"User-Agent"</span>: <span class="st">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 </span><span class="ch">\</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="st">                   (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url, headers<span class="op">=</span>headers)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>response.encoding <span class="op">=</span> <span class="st">"gb2312"</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>soup <span class="op">=</span> BeautifulSoup(response.text, <span class="st">"html.parser"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>book_list <span class="op">=</span> soup.select(<span class="st">"ul.bigimg &gt; li"</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>books_data <span class="op">=</span> []</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> book_list:</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 1. 主标题和简介</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        title_tag <span class="op">=</span> item.select_one(<span class="st">"a[name='itemlist-title']"</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        full_title <span class="op">=</span> title_tag.get(<span class="st">"title"</span>).strip() <span class="cf">if</span> title_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">"："</span> <span class="kw">in</span> full_title:</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>            title, brief <span class="op">=</span> full_title.split(<span class="st">"："</span>, <span class="dv">1</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="st">"（"</span> <span class="kw">in</span> full_title:</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>            title, brief <span class="op">=</span> full_title.split(<span class="st">"（"</span>, <span class="dv">1</span>)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>            brief <span class="op">=</span> <span class="st">"（"</span> <span class="op">+</span> brief</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>            title, brief <span class="op">=</span> full_title, <span class="st">""</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2. 详情页链接</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        link <span class="op">=</span> title_tag.get(<span class="st">"href"</span>) <span class="cf">if</span> title_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 3. 作者 / 出版社 / 出版时间</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        pub_info_tag <span class="op">=</span> item.select_one(<span class="st">"p.search_book_author"</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        pub_info_parts <span class="op">=</span> pub_info_tag.text.strip().split(<span class="st">"</span><span class="ch">\xa0\xa0</span><span class="st">"</span>) <span class="cf">if</span> pub_info_tag <span class="cf">else</span> []</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        author <span class="op">=</span> pub_info_parts[<span class="dv">0</span>].replace(<span class="st">"作者"</span>, <span class="st">""</span>).strip() <span class="cf">if</span> <span class="bu">len</span>(pub_info_parts) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        publisher <span class="op">=</span> pub_info_parts[<span class="dv">1</span>].strip() <span class="cf">if</span> <span class="bu">len</span>(pub_info_parts) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>        pubdate <span class="op">=</span> pub_info_parts[<span class="dv">2</span>].strip() <span class="cf">if</span> <span class="bu">len</span>(pub_info_parts) <span class="op">&gt;</span> <span class="dv">2</span> <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 4. 评论数</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>        comment_tag <span class="op">=</span> item.select_one(<span class="st">"p.search_star_line a"</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>        comment <span class="op">=</span> comment_tag.text.strip() <span class="cf">if</span> comment_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 5. 价格</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>        price_tag <span class="op">=</span> item.select_one(<span class="st">"p.price"</span>)</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>        orig_price_tag <span class="op">=</span> price_tag.select_one(<span class="st">"span.search_pre_price"</span>) <span class="cf">if</span> price_tag <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>        disc_price_tag <span class="op">=</span> price_tag.select_one(<span class="st">"span.search_now_price"</span>) <span class="cf">if</span> price_tag <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>        orig_price <span class="op">=</span> orig_price_tag.text.strip(<span class="st">"¥"</span>) <span class="cf">if</span> orig_price_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>        disc_price <span class="op">=</span> disc_price_tag.text.strip(<span class="st">"¥"</span>) <span class="cf">if</span> disc_price_tag <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>        books_data.append({</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>            <span class="st">"书名"</span>: title,</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>            <span class="st">"简介"</span>: brief,</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>            <span class="st">"作者"</span>: author,</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>            <span class="st">"出版社"</span>: publisher,</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>            <span class="st">"出版时间"</span>: pubdate,</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>            <span class="st">"原价"</span>: orig_price,</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>            <span class="st">"折后价"</span>: disc_price,</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>            <span class="st">"评论数"</span>: comment,</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>            <span class="st">"详情页链接"</span>: link</span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="fl">0.5</span>)  <span class="co"># 加入短暂停顿防止访问过快</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"解析失败：</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>df_books <span class="op">=</span> pd.DataFrame(books_data)</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>output_path <span class="op">=</span> <span class="st">"data"</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>os.makedirs(output_path, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> os.path.join(output_path, <span class="st">"dangdang_python_books_cleaned.csv"</span>)</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>df_books.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">"utf-8-sig"</span>)</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"已成功下载 </span><span class="sc">{</span><span class="bu">len</span>(df_books)<span class="sc">}</span><span class="ss"> 条数据，点击 [file://</span><span class="sc">{</span>os<span class="sc">.</span>path<span class="sc">.</span>abspath(output_file)<span class="sc">}</span><span class="ss">] 查看 dangdang_python_books_cleaned.csv 文件"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>已成功下载 60 条数据，点击 [file://d:\Github\dslian\cases\web_dangdang_book\data\dangdang_python_books_cleaned.csv] 查看 dangdang_python_books_cleaned.csv 文件</code></pre>
+</div>
+</div>
+<div id="a16d7917" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 读入本地数据</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_books <span class="op">=</span> pd.read_csv(<span class="vs">r"data\dangdang_python_books_cleaned.csv"</span>, encoding<span class="op">=</span><span class="st">"utf-8-sig"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 展示前几行结果</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_books.columns)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_books.head(<span class="dv">3</span>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_books.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['书名', '简介', '作者', '出版社', '出版时间', '原价', '折后价', '评论数', '详情页链接'], dtype='object')
+                                                  书名  \
+0                                     Python编程三剑客第3版   
+1                                      小学生Python创意编程   
+2  Python编程从入门到实践 第3版 Python编程入门经典，自学利器，数据分析、网络爬虫...   
+
+                                                  简介  \
+0          Python编程从入门到实践第3版+快速上手第2版+极客项目编程（当当套装共3册）   
+1  （视频教学版） 本书按照入门开发者的思维方式编写，非常适合孩子学习Python编程的基础知识...   
+2                                                NaN   
+
+                                                  作者  出版社  出版时间     原价   折后价  \
+0                                            加入购物车收藏  NaN   NaN  267.8  21.6   
+1              刘凤飞 /2024-01-01  /清华大学出版社加入购物车购买电子书收藏  NaN   NaN   89.0  45.2   
+2  [美]埃里克・马瑟斯（Eric Matthes） /2023-05-01  /人民邮电出版社...  NaN   NaN  109.8  69.8   
+
+         评论数                                    详情页链接  
+0  124999条评论  //product.dangdang.com/12100010244.html  
+1    7157条评论     //product.dangdang.com/29666296.html  
+2   19970条评论     //product.dangdang.com/29564789.html  
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 60 entries, 0 to 59
+Data columns (total 9 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   书名      60 non-null     object 
+ 1   简介      29 non-null     object 
+ 2   作者      60 non-null     object 
+ 3   出版社     0 non-null      float64
+ 4   出版时间    0 non-null      float64
+ 5   原价      57 non-null     float64
+ 6   折后价     60 non-null     float64
+ 7   评论数     60 non-null     object 
+ 8   详情页链接   60 non-null     object 
+dtypes: float64(4), object(5)
+memory usage: 4.3+ KB
+None</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="后续" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="后续"><span class="header-section-number">13.7</span> 后续</h2>
+<p>我花了 30 分钟做到目前的样子，基本上搞懂了使用 Copilot 编写 Python 代码实现爬虫的流程。</p>
+<p>刚好当时在教授「数据分析与 Python 应用」的课程，我索性把这个案例作为课堂作业，要求学生们完成。</p>
+<ul>
+<li>作业要求：<a href="https://github.com/arlionn/ds/blob/main/homework/Topics/T1-%E5%BD%93%E5%BD%93%E7%BD%91Python%E7%B1%BB%E5%9B%BE%E4%B9%A6%E9%94%80%E5%94%AE%E5%88%86%E6%9E%90.md">T1-当当网Python类图书销售分析</a></li>
+<li>学生提交的 Jupyter Notebook：
+<ul>
+<li><a href="https://book.lianxh.cn/ds/homework/pre/Dangdang_G7_01_data_clean.html">当当网-G7-01：爬虫和数据清洗</a></li>
+<li><a href="https://book.lianxh.cn/ds/homework/pre/Dangdang_G7_02_data_analysis.html">当当网-G7-02：数据分析</a></li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/lianxhcn\.github\.io\/research_with_AI\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../examples/CSMAR/01_unzip_to_csv.html" class="pagination-link" aria-label="CSMAR 数据处理">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

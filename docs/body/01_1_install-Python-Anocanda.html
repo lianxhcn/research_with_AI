@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Python：安装和环境配置 – Empirical Research with AI</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../body/01_2_install_FAQs.html" rel="next">
+<link href="../body/00_py_with_AI_pic.html" rel="prev">
+<link href="../images/book-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e8fb9d25728d58bfeac61b497e4a6629.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8434d2026ae8291579158df2ad8dfa64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/00_py_with_AI_intro.html"><strong>简介</strong></a></li><li class="breadcrumb-item"><a href="../body/01_1_install-Python-Anocanda.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Python：安装和环境配置</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="https://lianxhcn.github.io/research_with_AI/" class="sidebar-logo-link">
+      <img src="../images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Empirical Research with AI</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lianxhcn/research_with_AI" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">数据分析</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>简介</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/00_py_with_AI_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">借助 AI 写代码</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/00_py_with_AI_pic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/01_1_install-Python-Anocanda.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Python：安装和环境配置</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/01_2_install_FAQs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python 安装常见问题</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/01_3_markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Markdown</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>AI+论文推介</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/05_write_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/04_use_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">使用 AI 写论文推介</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>AI+论文解读和研究设计</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/AI_research_design_Erdem_2025.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>AI+数据分析</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/CSMAR/01_unzip_to_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/web_dangdang_book/case_Dangdang_book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#安装-anaconda" id="toc-安装-anaconda" class="nav-link active" data-scroll-target="#安装-anaconda"><span class="header-section-number">4.1</span> 安装 Anaconda</a></li>
+  <li><a href="#安装-vscode" id="toc-安装-vscode" class="nav-link" data-scroll-target="#安装-vscode"><span class="header-section-number">4.2</span> 安装 VScode</a>
+  <ul class="collapse">
+  <li><a href="#建议安装的-vscode-插件" id="toc-建议安装的-vscode-插件" class="nav-link" data-scroll-target="#建议安装的-vscode-插件"><span class="header-section-number">4.2.1</span> 建议安装的 VScode 插件</a></li>
+  </ul></li>
+  <li><a href="#jupyter-notebook-的使用" id="toc-jupyter-notebook-的使用" class="nav-link" data-scroll-target="#jupyter-notebook-的使用"><span class="header-section-number">4.3</span> Jupyter Notebook 的使用</a>
+  <ul class="collapse">
+  <li><a href="#简介" id="toc-简介" class="nav-link" data-scroll-target="#简介"><span class="header-section-number">4.3.1</span> 简介</a></li>
+  <li><a href="#安装" id="toc-安装" class="nav-link" data-scroll-target="#安装"><span class="header-section-number">4.3.2</span> 安装</a></li>
+  <li><a href="#新建项目文件结构" id="toc-新建项目文件结构" class="nav-link" data-scroll-target="#新建项目文件结构"><span class="header-section-number">4.3.3</span> 新建项目文件结构</a></li>
+  <li><a href="#使用-jupyter-notebook" id="toc-使用-jupyter-notebook" class="nav-link" data-scroll-target="#使用-jupyter-notebook"><span class="header-section-number">4.3.4</span> 使用 Jupyter Notebook</a></li>
+  <li><a href="#在文档间复制-cell" id="toc-在文档间复制-cell" class="nav-link" data-scroll-target="#在文档间复制-cell"><span class="header-section-number">4.3.5</span> 在文档间复制 cell</a></li>
+  <li><a href="#单个-cell-的复制和粘贴" id="toc-单个-cell-的复制和粘贴" class="nav-link" data-scroll-target="#单个-cell-的复制和粘贴"><span class="header-section-number">4.3.6</span> 单个 cell 的复制和粘贴</a></li>
+  </ul></li>
+  <li><a href="#导出和文档转换" id="toc-导出和文档转换" class="nav-link" data-scroll-target="#导出和文档转换"><span class="header-section-number">4.4</span> 导出和文档转换</a>
+  <ul class="collapse">
+  <li><a href="#安装-pandoc用于文档格式转换" id="toc-安装-pandoc用于文档格式转换" class="nav-link" data-scroll-target="#安装-pandoc用于文档格式转换"><span class="header-section-number">4.4.1</span> 安装 Pandoc（用于文档格式转换）</a></li>
+  <li><a href="#安装-tex-live用于导出-pdf" id="toc-安装-tex-live用于导出-pdf" class="nav-link" data-scroll-target="#安装-tex-live用于导出-pdf"><span class="header-section-number">4.4.2</span> 安装 TeX Live（用于导出 PDF）</a></li>
+  <li><a href="#如何打开终端" id="toc-如何打开终端" class="nav-link" data-scroll-target="#如何打开终端"><span class="header-section-number">4.4.3</span> 如何打开终端？</a></li>
+  <li><a href="#安装完成后即可使用以下方式导出-pdf" id="toc-安装完成后即可使用以下方式导出-pdf" class="nav-link" data-scroll-target="#安装完成后即可使用以下方式导出-pdf"><span class="header-section-number">4.4.4</span> 安装完成后即可使用以下方式导出 PDF</a></li>
+  <li><a href="#高阶用法使用-quarto-导出漂亮-pdf-或制作电子书网站" id="toc-高阶用法使用-quarto-导出漂亮-pdf-或制作电子书网站" class="nav-link" data-scroll-target="#高阶用法使用-quarto-导出漂亮-pdf-或制作电子书网站"><span class="header-section-number">4.4.5</span> 高阶用法：使用 Quarto 导出漂亮 PDF 或制作电子书网站</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/00_py_with_AI_intro.html"><strong>简介</strong></a></li><li class="breadcrumb-item"><a href="../body/01_1_install-Python-Anocanda.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Python：安装和环境配置</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Python：安装和环境配置</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>！<strong>只需安装</strong>：Anaconda + VScode。</p>
+<ul>
+<li>直接使用 Anaconda 中的 Python 环境即可。</li>
+<li>不要单独安装 Python 3.12 / 3.13。</li>
+</ul>
+</div>
+</div>
+<p><br></p>
+<p>对于初学者来讲，建议安装 Anaconda 套装。它是一个开源的 Python 发行版，集成了 Python 解释器、包管理器 Conda 和许多常用的科学计算和数据分析库（如 NumPy、Pandas、Matplotlib 等）。</p>
+<p>虽然 Anaconda 自带的编辑器 Jupyter Notebook 很好用，但如果你平时经常用 VScode 写东西，建议安装 <a href="https://www.lianxh.cn/details/1174.html">VScode</a> 作为编辑器。VScode 支持多种编程语言，可以安装各种插件来增强功能。对于编写 Python 代码而言，仅需安装 <code>python</code> 和 <code>jupyter</code> 插件就可以满足基本需求。</p>
+<p>网上有不少关于 Anaconda 和 VScode 的安装和配置的教程，如：</p>
+<ul>
+<li><a href="https://blog.csdn.net/weixin_43679228/article/details/147256251">Python运行环境之VSCode与Anaconda安装配置</a></li>
+<li><a href="https://blog.csdn.net/m0_51976564/article/details/136141325">Anaconda + VS Code 的安装与使用</a></li>
+</ul>
+<p>根据我的使用经验，基本步骤总结如下：</p>
+<ol type="1">
+<li><strong>安装 Anaconda</strong>。注意勾选 <code>Add Anaconda to my PATH environment variable</code> 和 <code>Register Anaconda as my default Python 3.x</code> 选项。</li>
+<li><strong>安装 VScode</strong>。随后安装 <code>Python</code>, <code>Jupyter</code>, <code>Pylance</code>, <code>gitHub Copilot</code> (或 <code>codeium</code>, 现在更名为 <code>windsurf Plugin</code>), <code>Data Wrangler</code> 插件。</li>
+<li><strong>新建项目文件夹</strong>。打开 VScode，新建一个文件夹，其下新建 <strong>data</strong>, <strong>code</strong>, <strong>output</strong> 等子文件夹，便于分类存放文档。</li>
+<li><strong>新建 Jupyter Notebook 文件</strong>。在主文件夹下新建 <code>xxx.ipynb</code> 文件，就可以开始编写代码了。</li>
+</ol>
+<p>下面，我详细说明每个步骤的操作。</p>
+<p> </p>
+<section id="安装-anaconda" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="安装-anaconda"><span class="header-section-number">4.1</span> 安装 Anaconda</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>对于多数用户，只需看 Step 1-2 即可。</p>
+</div>
+</div>
+<ol type="1">
+<li><p><a href="https://www.anaconda.com/products/distribution#download-section">下载 Anaconda</a>（建议注册一个账号，若不注册，可以点击 <strong>Skip</strong>）。</p></li>
+<li><p>安装 Anaconda。<strong>安装 Anaconda 最重要的事情：</strong></p>
+<ul>
+<li><p><strong>Select Installation Type</strong> 页面，建议选择 <strong>Just Me</strong>，然后点击 <strong>Next</strong>。</p></li>
+<li><p><strong>Choose Install Location</strong> 页面，建议使用默认路径 <code>C:\Users\用户名\Anaconda3</code> 作为 Anaconda 的安装路径，这样可以避免一些潜在的权限和路径问题。<strong>然而，</strong> 如果你的用户名中包含中文字符或空格，建议选择「自定义路径」，并选择一个英文路径，如 <code>C:\myProgram\Anaconda3</code>。</p></li>
+<li><p><strong>Advanced Installation Options</strong> 页面，确保<strong>同时勾选</strong>如下两个选项：</p>
+<ul>
+<li>[√] <code>Add Anaconda to my PATH environment variable</code></li>
+<li>[√] <code>Register Anaconda as my default Python 3.x</code></li>
+</ul>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250513210628.png" class="img-fluid"></p></li>
+<li><p>详情参见：<a href="https://blog.csdn.net/weixin_43679228/article/details/147256251">VSCode与Anaconda安装配置</a></p></li>
+</ul></li>
+<li><p>安装完成后，打开 Anaconda Navigator（在开始菜单或应用程序中找到它）。</p></li>
+<li><p>在 Anaconda Navigator 中，你可以创建和管理虚拟环境、安装包、启动 Jupyter Notebook 等。</p></li>
+<li><p>安装完成后，打开 Anaconda Prompt（命令行界面），输入以下命令检查安装是否成功：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>如果显示版本号，则表示安装成功。</p></li>
+<li><p>在 Anaconda Prompt 中输入以下命令更新 Conda 到最新版本：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>创建一个新的虚拟环境（<strong>可选</strong>）：如果你想在一个独立的环境中工作，比如，你要同时使用 Python 3.8 和 Python 3.12，以便完成不同的项目，你可以创建一个新的虚拟环境。输入以下命令创建一个名为 <code>myenv38</code> 的虚拟环境，并安装 Python 3.8：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> myenv38 python=3.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>同理，如果你想使用 Python 3.12，你可以创建一个名为 <code>myenv312</code> 的虚拟环境，并安装 Python 3.12：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> myenv312 python=3.12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>接下来，你可以激活特定的虚拟环境，比如 <strong>myenv38</strong>，输入以下命令：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate myenv38</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>此时，若执行 <code>canda list</code> 命令，你会看到当前环境中安装的所有包和版本信息；而执行 <code>canda install Stargazer, v = 2.1.1</code>，则会在当前环境中安装 <code>Stargazer</code> 包的 2.1.1 版本。</p></li>
+</ol>
+</section>
+<section id="安装-vscode" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="安装-vscode"><span class="header-section-number">4.2</span> 安装 VScode</h2>
+<ol type="1">
+<li><a href="https://code.visualstudio.com/Download">下载 VScode</a>（选择适合你操作系统的版本）。</li>
+<li>安装 VScode（双击下载的安装包，按照提示完成安装）。</li>
+<li>安装完成后，打开 VScode。</li>
+<li>在 VScode 中，你可以 <a href="https://www.lianxh.cn/details/1490.html">安装各种插件</a> 来增强功能，比如 Python、Jupyter 等。</li>
+</ol>
+<section id="建议安装的-vscode-插件" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="建议安装的-vscode-插件"><span class="header-section-number">4.2.1</span> 建议安装的 VScode 插件</h3>
+<ul>
+<li><p>如果你不了解 VScode，可以先读一下 <a href="https://www.lianxh.cn/details/1174.html">VScode编辑器</a>。</p></li>
+<li><p>有关插件的安装和使用，参见：<a href="https://www.lianxh.cn/details/1490.html">VScode插件：安装、配置和使用</a></p></li>
+<li><p>安装插件很容易：点击图中的 <code>四个小方块</code> 图标，在搜索框中填入插件名称，点击 <code>Install</code> 即可。</p></li>
+</ul>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516181811.png" class="img-fluid"></p>
+<section id="python-插件" class="level4" data-number="4.2.1.1">
+<h4 data-number="4.2.1.1" class="anchored" data-anchor-id="python-插件"><span class="header-section-number">4.2.1.1</span> Python 插件</h4>
+<blockquote class="blockquote">
+<p><a href="https://www.lianxh.cn/details/1489.html">VScode：实用 Python 插件清单</a></p>
+</blockquote>
+<ul>
+<li>Python：必装，运行 Python 代码</li>
+<li>Jupyter：必装，运行 Jupyter Notebook 文件</li>
+<li>Pylance：代码补全和智能提示等功能</li>
+<li>Data Wrangler：表格呈现</li>
+<li>编程助手 (选一个即可，否则可能会有冲突)
+<ul>
+<li>GitHub Copilot (首月免费，后续每月 $10.0，使用 Visa 或 Master 信用卡付款)</li>
+<li>Codeium (Copilot 的替代品，Free，目前已经更名为 <code>Windsurf Plugin</code>)</li>
+<li>Cline / Cline Chinese (Copilot 的替代品，Free)</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>安装编程助手前，请确保能顺畅上网。</li>
+<li>建议预先申请一个 <a href="https://github.com/">GitHub</a> 账号，使用 Copilot 时，可以用 GitHub 账号进行关联和登录。</li>
+<li>我个人使用 Copilot，觉得效果还不错。Codeium 据说不错，甚至在 VScode 中的安装量比 Copilot 还要多。Cline 是最近新出的，大家也可以测试一下。</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="markdown-插件" class="level4" data-number="4.2.1.2">
+<h4 data-number="4.2.1.2" class="anchored" data-anchor-id="markdown-插件"><span class="header-section-number">4.2.1.2</span> Markdown 插件</h4>
+<blockquote class="blockquote">
+<p><a href="https://www.lianxh.cn/details/1390.html">VScode：实用 Markdown 插件推荐</a></p>
+</blockquote>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one">Markdown All in One</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced">Markdown Preview Enhanced</a></li>
+<li>Marp (制作<a href="https://www.lianxh.cn/search.html?s=marp">幻灯片</a>)</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="jupyter-notebook-的使用" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="jupyter-notebook-的使用"><span class="header-section-number">4.3</span> Jupyter Notebook 的使用</h2>
+<section id="简介" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="简介"><span class="header-section-number">4.3.1</span> 简介</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>这里介绍的 Jupyter Notebook 是指在 VScode 中使用的 Jupyter Notebook，而不是 Anaconda 自带的 Jupyter Notebook。VScode 中的 Jupyter Notebook 更加灵活和强大，支持多种编程语言和插件。</li>
+<li>在 VScode 中安装了 <code>Jupyter</code> 插件后，就已经完成了 Jupyter Notebook 的安装和配置。</li>
+</ol>
+</div>
+</div>
+<p>顾名思义，Jupyter Notebook 就是一个文本编辑器。如果你使用过 Stata，那么它类似于 Stata 的 Do 文件；如果你使用过 RStudio，那么它类似于 RStudio 的 R Markdown 文件。Jupyter Notebook 的一个重要特点就是它是一个交互式的计算环境，允许你在一个文档中编写和运行代码、可视化数据、撰写文本和公式等。</p>
+<p>简言之，你可以把你的分析目的 (文本块)，分析过程 (代码块)，分析结果 (表格或图形) 都整合到一个文档中，形成一个完整的分析报告。</p>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516180903.png" class="img-fluid"></p>
+</section>
+<section id="安装" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="安装"><span class="header-section-number">4.3.2</span> 安装</h3>
+<p>在 VSCode 中使用 Jupyter Notebook，你需要安装以下软件：</p>
+<ul>
+<li>Python：Jupyter Notebook 是基于 Python 的，因此你需要安装 Python。你可以从 <a href="https://www.python.org/downloads/">Python 官网</a> 下载并安装最新版本的 Python。</li>
+<li>VSCode：你需要安装 Visual Studio Code。你可以从 <a href="https://code.visualstudio.com/">VSCode 官网</a> 下载并安装最新版本的 VSCode。</li>
+<li>Jupyter 扩展：在 VSCode 中使用 Jupyter Notebook，你需要安装 Jupyter 扩展。你可以在 VSCode 的扩展市场中搜索 “Jupyter” 并安装它。</li>
+<li>Python 扩展：你还需要安装 Python 扩展。你可以在 VSCode 的扩展市场中搜索 “Python” 并安装它。</li>
+</ul>
+</section>
+<section id="新建项目文件结构" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="新建项目文件结构"><span class="header-section-number">4.3.3</span> 新建项目文件结构</h3>
+<ul>
+<li>本地新建一个文件夹，如 <strong>D:/FinData/Proj_Maotai</strong></li>
+<li>(推荐) 在该文件夹下新建如下几个子文件夹，用于分类存放文件
+<ul>
+<li>[<code>./data</code>]：存放 .csv、.xlsx 等数据文件</li>
+<li>[<code>./doc</code>]：存放说明文档、报告等文件</li>
+<li>[<code>./codes</code>]：存放代码文件，包括自编函数、模块等</li>
+<li>[<code>./output</code>]：存放输出文件，包括图表、结果等</li>
+<li>此外，建议在该文件夹下新建一个 <code>README.md</code> 文件，对项目进行说明 (如项目背景、目标、数据来源、程序的执行顺序和方法等)。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516012952.png" class="img-fluid figure-img"></p>
+<figcaption>20250516012952</figcaption>
+</figure>
+</div></li>
+</ul>
+<section id="新建-jupyter-notebook-文件-.ipynb" class="level4" data-number="4.3.3.1">
+<h4 data-number="4.3.3.1" class="anchored" data-anchor-id="新建-jupyter-notebook-文件-.ipynb"><span class="header-section-number">4.3.3.1</span> 新建 Jupyter Notebook 文件 (.ipynb)</h4>
+<ul>
+<li>打开 VScode，依次点击 <strong>文件</strong> -&gt; <strong>打开文件夹</strong>，选择 <strong>D:/FinData/Proj_Maotai</strong> 文件夹。</li>
+<li>右击该文件夹，选择 <strong>New File</strong> (亦可直接点击下图中的 <code>New File</code> 图标)，新建一个文件，名称为 <code>data_clean.ipynb</code>。注意：一定要以 <code>.ipynb</code> 结尾，否则无法用 Jupyter Notebook 打开，也无法添加 Python 代码块。
+<ul>
+<li>你也可以使用<strong>命令行方式</strong>新建一个 <code>.ipynb</code> 文件：按快捷键 <code>Ctrl+Shift+P</code> &gt;&gt; 输入或选择 <code>Create: New Jupyter Notebook</code> 会打开一个名为 <strong>Untitled-1.ipynb</strong> 的文件，输入内容后另存到目标文件夹即可。</li>
+</ul></li>
+</ul>
+<p>完成上述设定后，VScode 的文件目录结构如下：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 目录结构</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">D:/FinData/Proj_Maotai</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> codes</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> data</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> doc</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> output</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> data_clean.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="借助-ai-工具自动创建项目文档-备选" class="level4" data-number="4.3.3.2">
+<h4 data-number="4.3.3.2" class="anchored" data-anchor-id="借助-ai-工具自动创建项目文档-备选"><span class="header-section-number">4.3.3.2</span> 借助 AI 工具自动创建项目文档 (备选)</h4>
+<blockquote class="blockquote">
+<p><a href="https://chatgpt.com/share/6826f637-33e4-8005-b032-c8d1c93f4d7f">ChatGPT 对话过程</a></p>
+</blockquote>
+<p>如果觉得手动创建文件夹麻烦，可以借助 ChatGPT 等 AI 工具，自动创建项目文档。下面是我编写的一个示例提示词 (你只需要指定目标文件夹路径即可，即使这个文件夹不存在也没有关系)：</p>
+<div class="callout-prompt">
+<p>请帮我在 Windows 系统上为一个数据分析项目生成标准的项目结构。 项目的根目录是 D:/FinData/Proj_Maotai，请在该路径下创建以下结构：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">D:/FinData/Proj_Maotai</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> codes             <span class="co"># 用于存放脚本代码</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> data              <span class="co"># 原始数据或处理后的数据</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> doc               <span class="co"># 项目文档与说明资料</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> output            <span class="co"># 图表、模型结果、分析报告等输出文件</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md         <span class="co"># 项目说明文件，简要介绍项目目的与结构</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> 01_data_clean.ipynb       <span class="co"># 数据清洗与预处理</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> 02_EDA.ipynb              <span class="co"># 探索性数据分析</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> 03_regression.ipynb       <span class="co"># 回归分析与建模</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>请提供 Python 代码，以便我在写 Jupyter Notebook 中运行。 请确保必要的 .ipynb 文件和 README.md 都被自动生成。如果文件已存在，请保留原文件不覆盖。 你可以默认这些 .ipynb 文件为空白，也可以加一两行注释。</p>
+</div>
+<p>经过测试，ChatGPT 和 豆包生成的代码都可以一次性顺利执行：</p>
+<ul>
+<li><a href="https://chatgpt.com/share/6826f637-33e4-8005-b032-c8d1c93f4d7f">ChatGPT 对话过程</a></li>
+<li><a href="https://www.doubao.com/thread/wafbddcefe1636e59">豆包对话过程</a></li>
+</ul>
+</section>
+<section id="采用插件创建项目模板" class="level4" data-number="4.3.3.3">
+<h4 data-number="4.3.3.3" class="anchored" data-anchor-id="采用插件创建项目模板"><span class="header-section-number">4.3.3.3</span> 采用插件创建项目模板</h4>
+<p>除了上述方法，你也可以在 VScode 中搜索 <code>Project Templates</code>，安装对应的插件来创建项目模板。安装完成后，点击左侧的 <code>Project Templates</code> 图标，选择 <code>Create New Project</code>，然后选择你需要的模板即可。</p>
+<ul>
+<li>该插件提供了多种项目模板，包括数据分析、机器学习、Web 开发等，可以酌情选择。</li>
+<li>该插件也支持自定义模板，具体操作请参考插件的说明文档。</li>
+</ul>
+<p>不过，如果项目不是很复杂，建议还是手动创建项目文件夹，这样更灵活，也更容易管理。</p>
+</section>
+</section>
+<section id="使用-jupyter-notebook" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="使用-jupyter-notebook"><span class="header-section-number">4.3.4</span> 使用 Jupyter Notebook</h3>
+<p><strong>Step 1</strong>：<strong>选择解释器</strong>。初次打开 <code>data_clean.ipynb</code> 文件时，可能需要按下图方式设定 Python 解释器，以便随后用 <strong>python.exe</strong> 来运行新增的代码块。</p>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516015325.png" class="img-fluid"></p>
+<p><strong>Step 2</strong>：<strong>添加 Markdown 文本块</strong>。点击上图中的 <code>+ Markdown</code> 按钮，添加一个 Markdown 文本块。可以用 Markdown 语法撰写文档说明。</p>
+<ul>
+<li>预览：点击图中的 <code>√</code> 或按快捷键 <code>Esc</code>；</li>
+<li>编辑：在预览 <code>双击鼠标</code> 区可重新计入编辑模式。</li>
+</ul>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516020205.png" class="img-fluid"></p>
+<p><strong>Step 3a：</strong> <strong>让 AI 自动生成代码</strong>(可选)：如果你已经在 VScode 中安装了插件 <code>Github Copilot</code>，可以点击图中的 <code>Generate</code> 按钮，输入提示词 (比如，<code>生成随机数 x~N(0,1)，N=100，绘制直方图+密度函数图, 英文标题</code>)，敲回车，或点击下图中的右箭头，Copilot 会自动生成代码。如果代码块右下角显示的不是 <code>python</code>，可以单击之，选择 <code>python</code>，将次代码块标记为 Python 语言。</p>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516013612.png" class="img-fluid"></p>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516014122.png" class="img-fluid"></p>
+<p><strong>Step 3b：</strong> 自行添加代码块。点击上图中的 <code>+ Code</code> 按钮，添加一个代码块。可以在代码块中输入 Python 代码。</p>
+<ul>
+<li>运行代码块：点击上图中的 <code>▶</code> 按钮，或按快捷键 <code>Ctrl + Enter</code>；</li>
+</ul>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516021019.png" class="img-fluid"></p>
+<p><strong>Step 4：</strong> 修改和调试代码。你可以酌情修改代码。</p>
+<ul>
+<li>若出现大量警告信息或程序无法运行，可以选中全部代码或被标注了红色波浪线代码，点击下图中的黄色星星按钮，选择 <code>Fix using copilot</code>，多数情况下都能自动修复。</li>
+<li>若相对可以正常运行的代码做一些优化，则可以选中代码后，点击黄色星星，选择 <code>Modify using copilot</code>，然后输入提示词。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516021357.png" class="img-fluid figure-img"></p>
+<figcaption>20250516021357</figcaption>
+</figure>
+</div>
+<section id="界面和主要功能" class="level4" data-number="4.3.4.1">
+<h4 data-number="4.3.4.1" class="anchored" data-anchor-id="界面和主要功能"><span class="header-section-number">4.3.4.1</span> 界面和主要功能</h4>
+<p>在上文中，为了突出重点，我没有让 VScode 编辑器全屏。事实上，全屏后，你会发现 Jupyter Notebook 提供了一组功能强大的工具栏和菜单栏，帮助你更好地编写和运行代码。下面是 Jupyter Notebook 的主要界面元素：</p>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516204916.png" class="img-fluid"></p>
+<p>多数菜单的功能都是比较直观的，下面我简单介绍几个常用的功能：</p>
+<ul>
+<li><code>View data</code>：查看数据和概要信息。注意：需要安装 <code>Data Wrangler</code> 插件才具有此功能。</li>
+<li><code>...</code>：最右侧的三个点，点击后可以选择 <code>Export</code>，将当前 Notebook 导出为 PDF、HTML、Markdown 等格式；还有预览 (Preview) 等功能 (快捷键 <code>Esc</code>)。</li>
+</ul>
+</section>
+</section>
+<section id="在文档间复制-cell" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="在文档间复制-cell"><span class="header-section-number">4.3.5</span> 在文档间复制 cell</h3>
+</section>
+<section id="单个-cell-的复制和粘贴" class="level3" data-number="4.3.6">
+<h3 data-number="4.3.6" class="anchored" data-anchor-id="单个-cell-的复制和粘贴"><span class="header-section-number">4.3.6</span> 单个 cell 的复制和粘贴</h3>
+<p>在 Jupyter Notebook 中，你可以通过以下方式在不同的 Notebook 文档之间复制 cell： 1. 打开源 Notebook 文档，选中要复制的 cell。 2. 使用快捷键 <code>Ctrl+C</code> 复制选中的 cell；亦可单击三个点图标，选择 <code>Copy Cell</code>。 3. 打开目标 Notebook 文档，将光标定位到要粘贴的位置。 4. 使用快捷键 <code>Ctrl+V</code> 粘贴 cell；亦可单击三个点图标，选择 <code>Paste Cell</code>。</p>
+<section id="多个-cell-的复制和粘贴" class="level4" data-number="4.3.6.1">
+<h4 data-number="4.3.6.1" class="anchored" data-anchor-id="多个-cell-的复制和粘贴"><span class="header-section-number">4.3.6.1</span> 多个 cell 的复制和粘贴</h4>
+<ul>
+<li>在 VS Code 的资源管理器（Explorer）中，分别打开需要操作的两个 Notebook 文件（如 <code>A.ipynb</code> 和 <code>B.ipynb</code>）。
+<ul>
+<li>如需分屏显示，可拖动标签，将两个文档左右排列，方便拖拽和对比操作。</li>
+</ul></li>
+<li>在源 Notebook（如 A.ipynb）中，按住 Ctrl（Mac 下为 Command）逐个点击左侧 cell 区域，可多选不连续的 cell；或先点击一个 cell，再按住 Shift 点击另一个 cell，选择一段连续的 cell。
+<ul>
+<li>多选后，cell 区域会高亮显示，表示已被选中。</li>
+</ul></li>
+<li>按 Ctrl+C（Command+C）或右键点击选中区域，选择“Copy Cell”。</li>
+<li>切换到目标 Notebook（如 B.ipynb），点击你希望插入的位置。</li>
+<li>按 Ctrl+V（Command+V）或右键选择“Paste Cell”，即可将所有选中 cell 批量粘贴到目标位置。</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="导出和文档转换" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="导出和文档转换"><span class="header-section-number">4.4</span> 导出和文档转换</h2>
+<p>在 VScode 中，你可以将 Jupyter Notebook 导出为多种格式，包括 HTML、PDF 和 Markdown。你可以在菜单栏中选择 <strong>文件</strong> -&gt; <strong>导出为</strong>，然后选择你想要的格式。当然，还需要安装一些额外的工具来支持这些导出功能，主要包括 Pandoc 和 TeX Live。</p>
+<section id="安装-pandoc用于文档格式转换" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="安装-pandoc用于文档格式转换"><span class="header-section-number">4.4.1</span> 安装 Pandoc（用于文档格式转换）</h3>
+<p>Jupyter 和 Quarto 在导出 Markdown、Word、PDF 时都会调用 Pandoc。</p>
+<ul>
+<li><p><strong>推荐安装方式（适用于 Anaconda 用户）</strong>：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge pandoc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>或者前往官网下载安装包（Windows/macOS/Linux 均支持）： <a href="https://pandoc.org/install">https://pandoc.org/install</a></p></li>
+<li><p>安装完成后，<strong>你可以在终端中输入以下命令测试是否成功</strong>：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="安装-tex-live用于导出-pdf" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="安装-tex-live用于导出-pdf"><span class="header-section-number">4.4.2</span> 安装 TeX Live（用于导出 PDF）</h3>
+<p>Jupyter 和 Quarto 的 PDF 导出依赖 LaTeX 引擎，如 <code>pdflatex</code> 或 <code>xelatex</code>。推荐安装完整版本的 TeX Live。</p>
+<ul>
+<li><p><strong>Windows 用户</strong>请访问官网下载器： <a href="https://tug.org/texlive/windows.html">https://tug.org/texlive/windows.html</a></p></li>
+<li><p>安装过程中可选择 “完整版” 或 “Typical full installation”；</p></li>
+<li><p>安装完成后，<strong>务必重启 VS Code 和终端</strong>；</p></li>
+<li><p>然后在终端中测试：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdflatex</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="如何打开终端" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="如何打开终端"><span class="header-section-number">4.4.3</span> 如何打开终端？</h3>
+<p>很多初学者不清楚“在终端中输入命令”具体指什么。你可以按以下方式打开终端：</p>
+<ul>
+<li><p><strong>方式一（推荐）</strong>： 在 VS Code 中按下快捷键 <code>Ctrl + ~</code>（就是数字 1 左侧的波浪线），即可打开内置终端。</p></li>
+<li><p><strong>方式二</strong>： 从系统菜单中打开：</p>
+<ul>
+<li>Windows：点击开始 → 输入 <code>cmd</code> 或 <code>Anaconda Prompt</code> 或 <code>PowerShell</code>；</li>
+<li>macOS：打开 Launchpad → 搜索「终端（Terminal）」；</li>
+<li>Linux：按下 <code>Ctrl + Alt + T</code> 打开终端窗口。</li>
+</ul></li>
+</ul>
+<p>终端窗口中，你可以输入如 <code>conda install</code>、<code>pandoc --version</code> 等命令，按下回车运行。</p>
+</section>
+<section id="安装完成后即可使用以下方式导出-pdf" class="level3" data-number="4.4.4">
+<h3 data-number="4.4.4" class="anchored" data-anchor-id="安装完成后即可使用以下方式导出-pdf"><span class="header-section-number">4.4.4</span> 安装完成后即可使用以下方式导出 PDF</h3>
+<ul>
+<li><p>在 VS Code 中点击右上角「导出（Export）」按钮；</p></li>
+<li><p>或在终端中运行：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert your_notebook.ipynb <span class="at">--to</span> pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>或使用 Quarto（如果你已安装）：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render your_notebook.ipynb <span class="at">--to</span> pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p>完成上述安装和设定后，即可顺利将 Notebook 文档导出为 PDF、HTML、Word 等多种格式，满足教学、写作和发布的常见需求。</p>
+</section>
+<section id="高阶用法使用-quarto-导出漂亮-pdf-或制作电子书网站" class="level3" data-number="4.4.5">
+<h3 data-number="4.4.5" class="anchored" data-anchor-id="高阶用法使用-quarto-导出漂亮-pdf-或制作电子书网站"><span class="header-section-number">4.4.5</span> 高阶用法：使用 Quarto 导出漂亮 PDF 或制作电子书网站</h3>
+<p>如果你希望导出的文档更美观、格式更统一，或者希望将多个 Jupyter Notebook 或 Markdown 文档整合成一个电子书（book）或教学网站（website），可以考虑使用 <a href="https://quarto.org"><strong>Quarto</strong></a>。</p>
+<p>Quarto 是 RStudio 团队开发的下一代科学与技术出版平台，<strong>同时支持 <code>.ipynb</code>、<code>.qmd</code>、<code>.md</code> 文件的混合编写和发布</strong>。常见功能包括：</p>
+<ul>
+<li>一键导出 <strong>排版美观的 PDF 文档</strong>（支持标题、目录、脚注、交叉引用、引用文献等）；</li>
+<li>创建结构化的电子书（<strong>Quarto Book</strong>），适合撰写讲义、教程和学术教材；</li>
+<li>部署交互式教学网站（<strong>Quarto Website</strong>），可发布为静态网页托管在 GitHub Pages 上。</li>
+</ul>
+<section id="示例命令" class="level4" data-number="4.4.5.1">
+<h4 data-number="4.4.5.1" class="anchored" data-anchor-id="示例命令"><span class="header-section-number">4.4.5.1</span> 示例命令：</h4>
+<p>将 <code>.ipynb</code> 或 <code>.qmd</code> 导出为 PDF：</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render your_notebook.ipynb <span class="at">--to</span> pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>将多个文档组织为电子书结构（在 <code>_quarto.yml</code> 中设置章节）：</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="安装方式" class="level4" data-number="4.4.5.2">
+<h4 data-number="4.4.5.2" class="anchored" data-anchor-id="安装方式"><span class="header-section-number">4.4.5.2</span> 安装方式：</h4>
+<ul>
+<li><p>可从官网下载安装：<a href="https://quarto.org/download">https://quarto.org/download</a></p></li>
+<li><p>安装完成后，在终端中测试：</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p>Quarto 完全兼容你现有的 VS Code 工作流，安装 Quarto 插件后即可直接在 VS Code 中预览、渲染和发布。对于希望构建专业文档的用户，Quarto 是目前最值得推荐的方案。</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/lianxhcn\.github\.io\/research_with_AI\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../body/00_py_with_AI_pic.html" class="pagination-link" aria-label="Ansome Python + AI">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../body/01_2_install_FAQs.html" class="pagination-link" aria-label="Python 安装常见问题">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python 安装常见问题</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
