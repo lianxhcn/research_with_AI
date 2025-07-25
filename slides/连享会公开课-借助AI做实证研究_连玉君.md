@@ -172,9 +172,17 @@ arlionn@163.com
 - **工具从模型核心转向问题核心**
   - 研究工具 = 解决问题的桥梁，而非目的本身
 
+---
 
 # AI 工具如何提升实证研究的效率？
 
+---
+
+![w:900](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250725161812.png)
+
+---
+
+![w:900](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250725162052.png)
 
 ---
 
@@ -444,7 +452,7 @@ $$
 
 
 
-
+---
 
 
 ## 使用 AI 写一篇完整的论文推介
@@ -515,7 +523,15 @@ Garg, P., & Fetzer, T. (2025). Causal Claims in Economics (Version 1). arXiv. [L
     -   When only a cause is specified, the assistant will return all papers that mention this cause, along with a list of effects associated with it.
 
 
+---
 
+## 借助 AI 生成研究假设
+
+> 吴欣洋, 2025, [AI自动生成研究假设，靠谱吗？流程与挑战](https://www.lianxh.cn/details/1588.html)
+
+-   Ludwig, J., & Mullainathan, S. (2024). Machine Learning as a Tool for Hypothesis Generation. *The Quarterly Journal of Economics*, 139(2), 751--827. [Link](https://academic.oup.com/qje/article-abstract/139/2/751/7515309?redirectedFrom=fulltext&login=false) | [PDF](https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/3/1161/files/2024/02/QJE-machine-learning-for-hypothesis-generation-202461-8f8c19422434d44d.pdf) | [Google Scholar](https://scholar.google.com/scholar?q=Machine%20Learning%20as%20a%20Tool%20for%20Hypothesis%20Generation)
+-   Batista, R. M., & Ross, J. (2024). Words that Work: Using Language to Generate Hypotheses (July 01, 2024). *SSRN*. [Link](https://ssrn.com/abstract=4926398) | [PDF](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4926398)
+    *注*：该文附录提供了部分 Prompts 示例。
 
 
 --- - --
@@ -525,3 +541,9 @@ Garg, P., & Fetzer, T. (2025). Causal Claims in Economics (Version 1). arXiv. [L
 
 
 ![](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250724150411.png)
+
+--- - --
+
+
+## 参考文献
+

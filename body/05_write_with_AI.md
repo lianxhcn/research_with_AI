@@ -45,14 +45,18 @@
 ::: {.callout-tip}
 ## 提示词：论文推介
 
-  >我想写一篇论文推介，介绍我传给你的 PDF 论文。具体要求如下：
-  
-  >1\. 目标读者：经济学、计量经济学领域的研究人员和学生。希望能够让他们快速了解这篇论文的核心内容和贡献。对于一些复杂的数学公式，可以用比较通俗的语言进行解释。必要时，可以提供 1-2 个简化版的例子加以说明。
-  >2\. 需要介绍论文的主要内容、研究方法、数据来源和主要结论。如果需要插入原文中的图形或表格，请告知我图表编号和插入位置，我会手动添加。
-  >3\. 需要包含关键公式和代码的解读。
-  >4\. 需要提供参考文献列表。
-  >    
-  >你先帮我列一个提纲，我们讨论完善后再进行详细撰写。
+我想写一篇论文推介，介绍我传给你的 PDF 论文。具体要求如下：
+
+1. 目标读者：经济学、计量经济学领域的研究人员和学生。
+   - 希望能够让他们快速了解这篇论文的核心内容和贡献。  
+   - 对于一些复杂的数学公式，可以用比较通俗的语言进行解释。
+   - 必要时，可以提供 1-2 个简化版的例子加以说明。
+2. 需要介绍论文的主要内容、研究方法、数据来源和主要结论。   
+   如果需要插入原文中的图形或表格，请告知我图表编号和插入位置，我会手动添加。
+3. 需要包含关键公式和代码的解读。
+4. 需要提供参考文献列表。
+
+你先帮我列一个提纲，我们讨论完善后再进行详细撰写。
 
 - 以 Section 为单位输出。
 
@@ -65,6 +69,25 @@ Wing, C., Yozwiak, M., Hollingsworth, A., Freedman, S., & Simon, K. (2024). Desi
 这篇论文介绍了五种常用的渐进 DID 的估计方法，作者还在 GitHub 上提供了相关的代码和数据。我采用上文介绍的提示词方法与豆包聊了 20 分钟，最终形成了推文的初稿 (满意度：80%)。
 
 > [豆包对话过程](https://www.doubao.com/thread/w8e524bfc59a644e2))
+
+::: {.callout-tip}
+### 提示词 1：概要
+
+# 论文解读：
+
+> Wing, C., Yozwiak, M., Hollingsworth, A., Freedman, S., & Simon, K. (2024). Designing Difference-in-Difference Studies with Staggered Treatment Adoption: Key Concepts and Practical Guidelines. Annual Review of Public Health, 45(1), 485–505. [Link](https://doi.org/10.1146/annurev-publhealth-061022-050825), [PDF](https://www.annualreviews.org/docserver/fulltext/publhealth/45/1/annurev-publhealth-061022-050825.pdf?expires=1752678753&id=id&accname=guest&checksum=345B1C3C23D23EC0D6A9B385A91F2513), [Google](<https://scholar.google.com/scholar?q=Designing Difference-in-Difference Studies with Staggered Treatment Adoption: Key Concepts and Practical Guidelines>).
+
+我想写一篇论文推介，介绍这篇论文。你帮我列个提纲。
+
+包括如下要点：
+
+1. 论文的核心观点和主要结论是什么？
+2. 文中介绍了哪些主要方法 (参见 Table 1)？
+3. 作者提供了哪些实操建议？参见 Section 5
+
+:::
+
+
 
 
 ## 实例 2：FutureHouse.org 平台简介 

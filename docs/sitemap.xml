@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/index.html</loc>
-    <lastmod>2025-07-25T01:44:54.848Z</lastmod>
+    <lastmod>2025-07-25T02:07:33.741Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/00_py_with_AI_intro.html</loc>
@@ -26,15 +26,23 @@
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/05_write_with_AI.html</loc>
-    <lastmod>2025-07-25T01:49:43.302Z</lastmod>
+    <lastmod>2025-07-25T02:29:03.047Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/04_use_AI.html</loc>
     <lastmod>2025-07-24T18:30:06.485Z</lastmod>
   </url>
   <url>
+    <loc>https://lianxhcn.github.io/research_with_AI/examples/AI_ideas_brainstorming.html</loc>
+    <lastmod>2025-07-25T11:49:47.877Z</lastmod>
+  </url>
+  <url>
     <loc>https://lianxhcn.github.io/research_with_AI/examples/AI_research_design_Erdem_2025.html</loc>
     <lastmod>2025-07-24T18:34:27.004Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/research_with_AI/examples/learn_Tobit_model.html</loc>
+    <lastmod>2025-07-25T12:06:05.651Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/examples/CSMAR/00_intro.html</loc>
@@ -47,5 +55,9 @@
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/examples/web_dangdang_book/case_Dangdang_book.html</loc>
     <lastmod>2025-07-24T18:43:55.212Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/references.html</loc>
+    <lastmod>2025-07-25T11:52:28.675Z</lastmod>
   </url>
 </urlset>

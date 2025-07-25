@@ -196,5 +196,14 @@
   },
   "examples/web_dangdang_book/case_Dangdang_book.ipynb": {
     "case_Dangdang_book.html": "1c6c4850"
+  },
+  "examples/AI_ideas_brainstorming.ipynb": {
+    "AI_ideas_brainstorming.html": "32683e0f"
+  },
+  "examples/learn_Tobit_model.ipynb": {
+    "learn_Tobit_model.html": "df280152"
+  },
+  "body/references.md": {
+    "references.html": "63971c53"
   }
 }
