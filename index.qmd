@@ -17,6 +17,12 @@ author: "连玉君"
 - 你需要做一些基本的配置，参见 [安装和环境配置](01_install_Python_Anaconda.html)
 - 书稿中还有不少错漏之处，还请不吝指出：<arlionn@163.com>。
 
+> **如何找到我？**
+
+我最近也在小红书注册了账号 `连玉君 (ID: 95085566173)`，大家可以在那里留言和讨论。 
+
+![](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250726213625.png)
+
 
 ---
 
