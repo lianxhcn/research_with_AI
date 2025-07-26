@@ -1,51 +1,51 @@
 ::: {.callout-tip}
 ### 提示词
 
-\##-Prompt 1:  
 
-我想根据如下资料 ({text-01}) 写一篇推文。我的读者主要是经管类的博士生和青年老师，他们的主要工作做实证研究。
+> **Prompt** 01:  
+我正在做一篇实证分析的文章。我研究的问题是政府引导基金能否降低产业链上的长鞭效应。解释变量是一个虚拟变量，如果一家公司受到了政府引导基金的资助，对应的数值取1，否则的话取0。背景式变量是文献里面常用的用来衡量产业链上长边效应的指标。
 
-1. 你觉得这篇推文的主要卖点应该是什么？
-2. 推文的思路和结构应该是什么样的？
+我研究的这个问题本身存不存在一些潜在的内生性的问题，有哪几种可能的来源？
 
----
+> **Prompt** 02:  
+对于 2. 遗漏变量 (Omitted Variable Bias)，我有哪些可以采用的实证研究方法？
 
-'''{text-01}
-# Causal-Copilot
+> **Prompt** 03:  
+能否具体讨论一下，在我的研究背景下，可能遗漏了哪些重要的变量？遗漏问题如何影响我的统计推断？
 
-介绍原理，然后使用 [https://causalcopilot.com/](https://causalcopilot.com/) 来做一些测试。 
+> **Prompt** 04:  
+ 如果我想采用 IV 估计，能否提供 5 个备选的 IV，并论证其合理性 (相关性、外生性和排他性)。最好有明确的理论和文献依据。
 
-- github: <https://github.com/Lancelot39/Causal-Copilot>
-- [demo-vedio: Causal-Copilot Demo: Tabular Data](https://www.youtube.com/watch?si=3DTT2AlEIcAf-T_E&v=U9-b0ZqqM24&feature=youtu.be)
-- [Sample Dataset](https://huggingface.co/Causal-Copilot)
+> **Prompt** 05:  
+如果使用 「地方政府财政压力 (比如，用地方政府财政赤字率或债务水平来衡量)」作为 IV 是否可以？
 
-Wang, X., Zhou, K., Wu, W., Singh, H. S., Nan, F., Jin, S., Philip, A., Patnaik, S., Zhu, H., Singh, S., Prashant, P., Shen, Q., & Huang, B. (2025). Causal-Copilot: An Autonomous Causal Analysis Agent (Version 2). arXiv. [Link](https://doi.org/10.48550/arXiv.2504.13263) (rep), [PDF](https://arxiv.org/pdf/2504.13263.pdf), [Google](<https://scholar.google.com/scholar?q=Causal-Copilot: An Autonomous Causal Analysis Agent (Version 2)>). [TeX Source](https://arxiv.org/src/2504.13263)
-'''
+> **Prompt** 06:  
+财政压力是否会通过其他渠道影响长鞭效应？这些变量是否需要控制？
 
+> **Prompt** 07:  
+你分析的很好，但我无法在论文中控制太多的变量。如果只选择三个变量来控制，以满足排他性要求，我应该选择哪三个？我在正文中是否需要绘制一个 DAG 图形来辅助论述？
 
-\##-Prompt 2:   
+> **Prompt** 08:  
+这些变量都是宏观层面的变量 (我的基本数据是 firm-year 层面的)，这就意味着我无法在模型中加入 i.year 了，但这可能导致我遗漏了一些不可观察的宏观层面的时序变量。我该如何应对？
 
-帮我规划一个写作提纲。
+> **Prompt** 09:  
+很好，你把咱们的讨论整合一下，写一个详细的研究笔记：
+1. 问题背景
+2. 内生性问题分析
+3. 工具变量的选择和讨论
+4. IV-地方财政压力：选择依据、合理性分析、……
 
-1. 语言朴实，注重为论据提供细节
-2. 不要任何表情符号。全文按照 ## 1. title    ### 1.1 sub_title  的结构来编号
-3. 注重实操性。我的读者希望看完推文后能上手操作，实现自己的需求。
+> **Prompt** 10:  
+可以写的更详细一些，把我们之前讨论过程中很多细节写进来
 
+> **Prompt** :  
 
-\##-Prompt 3:
+我们现在讨论一下使用「地方政府财政赤字率」和「地方债务水平」做工具变量的合理性。
 
-好。
-1. 我希望你提供的推文可以按 section 输出，确保每个 section 都有充实的内容。
-2. 每个 section 可以先用一段话概括这个 section 针对的问题是什么？要点是什么。然后再开始展开说明。
-3. 段落性文字和 items 格式的文本占比 为 2:1 以上，也就说，不要过度使用 items 方式来写推文，总感觉干巴巴的。
+1. 分别从外生性、相关性、排他性三个角度进行分析。
 
-
-\##-Prompt 4:
-
-好
-
-\##-Prompt 5:
-
-将整篇推文汇总成 Markdown 教学文稿。不要删减，只需要把现有答案合并起来，稍作调整即可。
+2. 对于排他性，分析三种潜在的渠道(W1, W2, W3)，以便我在模型中选择合理的控制变量以便关闭这些潜在的后门路径。Z --> (W1 | W2 | W3) --> Y。
+     
+3. 注意：W1-W3 这三个变量必须要有明确的定义，以便我能找到对应的数据，衡量这些变量。
 
 :::

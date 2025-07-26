@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; Ansome Python + AI – Empirical Research with AI</title>
+<title>10&nbsp; 如何借助 AI 寻找工具变量？ – Empirical Research with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../examples/split_mdfile/split-topic-files.html" rel="next">
-<link href="../examples/web_dangdang_book/case_Dangdang_book.html" rel="prev">
+<link href="../body/08_findit_IV_example_Q8.html" rel="next">
+<link href="../body/AI_research_design_Erdem_2025.html" rel="prev">
 <link href="../images/book-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -104,6 +70,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -117,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/regenernate_figure_with_AI.html"><strong>其它应用</strong></a></li><li class="breadcrumb-item"><a href="../examples/regenernate_figure_with_AI.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/08_findit_IV_example.html"><strong>寻找IV</strong></a></li><li class="breadcrumb-item"><a href="../body/08_findit_IV_example.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">如何借助 AI 寻找工具变量？</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -251,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/08_findit_IV_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/08_findit_IV_example.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">如何借助 AI 寻找工具变量？</span></span></a>
   </div>
 </li>
@@ -320,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/regenernate_figure_with_AI.html" class="sidebar-item-text sidebar-link active">
+  <a href="../examples/regenernate_figure_with_AI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
   </div>
 </li>
@@ -359,16 +354,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#画一幅图" id="toc-画一幅图" class="nav-link active" data-scroll-target="#画一幅图"><span class="header-section-number">16.1</span> 画一幅图</a></li>
+  <li><a href="#简介" id="toc-简介" class="nav-link active" data-scroll-target="#简介"><span class="header-section-number">10.1</span> 简介</a></li>
+  <li><a href="#对话思路" id="toc-对话思路" class="nav-link" data-scroll-target="#对话思路"><span class="header-section-number">10.2</span> 对话思路</a></li>
+  <li><a href="#主要提示词" id="toc-主要提示词" class="nav-link" data-scroll-target="#主要提示词"><span class="header-section-number">10.3</span> 主要提示词</a></li>
+  <li><a href="#例子地方政府财政赤字率-作为工具变量的合理性论证" id="toc-例子地方政府财政赤字率-作为工具变量的合理性论证" class="nav-link" data-scroll-target="#例子地方政府财政赤字率-作为工具变量的合理性论证"><span class="header-section-number">10.4</span> 例子：“地方政府财政赤字率” 作为工具变量的合理性论证</a>
+  <ul class="collapse">
+  <li><a href="#ai-的回答" id="toc-ai-的回答" class="nav-link" data-scroll-target="#ai-的回答"><span class="header-section-number">10.4.1</span> AI 的回答</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/regenernate_figure_with_AI.html"><strong>其它应用</strong></a></li><li class="breadcrumb-item"><a href="../examples/regenernate_figure_with_AI.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/08_findit_IV_example.html"><strong>寻找IV</strong></a></li><li class="breadcrumb-item"><a href="../body/08_findit_IV_example.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">如何借助 AI 寻找工具变量？</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">如何借助 AI 寻找工具变量？</span></h1>
 </div>
 
 
@@ -385,19 +386,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>有了 AI 的协助，我们可以在只掌握少量编程知识的情况下，用 Python 实现各种复杂的功能。本章例举一些实例，旨在改变大家对「编程」的认知。</p>
-<p>最终你会发现，Python 只是我们完成某些分析和研究任务的工具而已。AI 的作用是让我们使用「自然语言」来编程。此时的编程主要包括如下几个要点：</p>
+<section id="简介" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="简介"><span class="header-section-number">10.1</span> 简介</h2>
+<p>内生性是因果推断中最关键的问题，在处理内生性问题的方法中，工具变量是最常用的方法之一。但寻找有效的，还要满足排他性限制 (exclusion restrictions) 的工具变量，主要依赖于作者的说理论证，这一过程对写作者的说理能力和创造力的要求是很高的。因此，本文提出利用<strong>大型语言模型 (LLMs)</strong> 来辅助发现新的工具变量。</p>
+<p>在最近的一篇论文中，Han (2024) 提出了一个基于 LLMs 的工具变量搜索方法，称为 FindIt-IV。该方法通过与 LLMs 的交互，帮助研究者在特定的论文情景下快速找到潜在的工具变量。</p>
 <ul>
-<li>目标是什么？</li>
-<li>达到目标的思路和方法是什么？</li>
-<li>拆解：把复杂的问题不断拆解，形成一个个可以清晰界定的小问题。</li>
-<li>解决：用 Python 代码解决这些小问题。</li>
+<li>Han, S. (2024). Mining Causality: AI-Assisted Search for Instrumental Variables (Version 3). arXiv. <a href="https://doi.org/10.48550/arXiv.2409.14202">Link</a> (rep), <a href="https://arxiv.org/pdf/2409.14202.pdf">PDF</a>, <a href="https://scholar.google.com/scholar?q=Mining%20Causality:%20AI-Assisted%20Search%20for%20Instrumental%20Variables%20(Version%203)">Google</a>。</li>
 </ul>
-<section id="画一幅图" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="画一幅图"><span class="header-section-number">16.1</span> 画一幅图</h2>
-<p>我在 <a href="https://r4ds.hadley.nz/data-tidy.html">R for Data Science</a> 书中看到了一幅不错的图形，想要绘制出来。这幅图不算复杂：</p>
-<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516200413.png" class="img-fluid"></p>
-<p>于是，我把图片发给了 AI 工具，配上提示词：</p>
+<p>作者认为，使用大语言模型搜索工具变量有如下好处：</p>
+<ul>
+<li>在特殊的论文情景下，实现快速搜索工具变量；</li>
+<li>与大语言模型互动，可以在自己的研究领域发现更多新的工具变量；</li>
+<li>利用大语言模型系统搜索工具变量，可以提高获取多个工具变量的可能性，有助于研究者通过过度识别检验来验证多工具变量的有效性；</li>
+<li>利用大语言模型找到更多的工具变量，有助于研究者提高给 IV 找到合适数据的机会，或者指导研究者通过其他算法或者实验找到工具变量所需的数据。</li>
+</ul>
+<p>作者在原文中，根据工具变量需要满足的一系列假设，为读者提供了利用大语言模型搜索工具变量可操作的方法和提示词。在最后，本推文也展示了一个中文顶刊中的文献情景，利用大语言模型为这篇文章搜索更多工具变量的案例。</p>
+<p>中山大学的张弛同学使用该文的思路，分析了一篇中文顶刊文章，利用大语言模型为这篇文章搜索更多的工具变量。详情参见：张弛, 2025, <a href="https://www.lianxh.cn/details/1575.html">找不到IV？如何借助大语言模型寻找工具变量</a>。</p>
+<p>下面，我介绍我最近在做的一篇文章是如何借助 AI 寻找工具变量的。</p>
+<p>我要研究的问题是：政府引导基金能否降低产业链上的长鞭效应。解释变量是一个虚拟变量，如果一家公司受到了政府引导基金的资助，对应的数值取 1，否则的话取 0。背景式变量是文献里面常用的用来衡量产业链上长边效应的指标。</p>
+<p>模型设定如下：</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1 D + \beta_2 X + \varepsilon_i
+\]</span></p>
+</section>
+<section id="对话思路" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="对话思路"><span class="header-section-number">10.2</span> 对话思路</h2>
+<blockquote class="blockquote">
+<p>完整讨论过程：<a href="https://chatgpt.com/share/67ded832-79bc-8005-bbdb-7a79ebd755c7">ChatGPT</a></p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词思路
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>简要介绍了我的问题背景，询问 AI 我研究的问题中是存在哪些可能的内生性问题；</p></li>
+<li><p>让 AI 帮我分析这些内生性问题的可能来源，并分析机制；</p></li>
+<li><p>询问「遗漏变量」偏误应该如何应对？</p></li>
+<li><p>聚焦到 IV 上，让 AI 提供 5 个备选的 IV，并论证其合理性 (相关性、外生性和排他性)；</p></li>
+<li><p>逐一论证每个 IV 的合理性 (从外生性、相关性和排他性三个角度分析)，并给出可能的后门路径；</p></li>
+<li><p>模型设定：为了关闭后门路径，询问 AI 我需要控制哪些变量；</p></li>
+<li><p>可行性：询问 AI 工具变量的具体定义，数据来源等；</p></li>
+<li><p>让 AI 对所有 IV 进行综合评价，给出推荐的 IV。</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="主要提示词" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="主要提示词"><span class="header-section-number">10.3</span> 主要提示词</h2>
+<blockquote class="blockquote">
+<p>完整讨论过程：<a href="https://chatgpt.com/share/67ded832-79bc-8005-bbdb-7a79ebd755c7">ChatGPT</a></p>
+</blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -408,120 +452,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>写一段 Python 代码，制作类似的图形。</p>
-<p>请注意左右两侧图形的颜色块要一一对应，这是这幅图的关键。<br>
-只保留中文注释，图中的文字用英文。<br>
-不要显示 warning information</p>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 01:<br>
+我正在做一篇实证分析的文章。我研究的问题是政府引导基金能否降低产业链上的长鞭效应。解释变量是一个虚拟变量，如果一家公司受到了政府引导基金的资助，对应的数值取1，否则的话取0。背景式变量是文献里面常用的用来衡量产业链上长边效应的指标。</p>
+<p>我研究的这个问题是否存在一些潜在的内生性的问题，有哪几种可能的来源？</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 02:<br>
+对于 2. 遗漏变量 (Omitted Variable Bias)，我有哪些可以采用的实证研究方法？</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 03:<br>
+能否具体讨论一下，在我的研究背景下，可能遗漏了哪些重要的变量？遗漏问题如何影响我的统计推断？</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 04:<br>
+如果我想采用 IV 估计，能否提供 5 个备选的 IV，并论证其合理性 (相关性、外生性和排他性)。最好有明确的理论和文献依据。</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 05:<br>
+如果使用 「地方政府财政压力 (比如，用地方政府财政赤字率或债务水平来衡量)」作为 IV 是否可以？</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 06:<br>
+财政压力是否会通过其他渠道影响长鞭效应？这些变量是否需要控制？</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 07:<br>
+你分析的很好，但我无法在论文中控制太多的变量。如果只选择三个变量来控制，以满足排他性要求，我应该选择哪三个？我在正文中是否需要绘制一个 DAG 图形来辅助论述？</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 08:<br>
+这些变量都是宏观层面的变量 (我的基本数据是 firm-year 层面的)，这就意味着我无法在模型中加入 i.year 了，但这可能导致我遗漏了一些不可观察的宏观层面的时序变量。我该如何应对？</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 09:<br>
+很好，你把咱们的讨论整合一下，写一个详细的研究笔记： 1. 问题背景 2. 内生性问题分析 3. 工具变量的选择和讨论 4. IV-地方财政压力：选择依据、合理性分析、……</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> 10:<br>
+可以写的更详细一些，把我们之前讨论过程中很多细节写进来</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Prompt</strong> :</p>
+</blockquote>
+<p>我们现在讨论一下使用「地方政府财政赤字率」和「地方债务水平」做工具变量的合理性。</p>
+<ol type="1">
+<li><p>分别从外生性、相关性、排他性三个角度进行分析。</p></li>
+<li><p>对于排他性，分析三种潜在的渠道(W1, W2, W3)，以便我在模型中选择合理的控制变量以便关闭这些潜在的后门路径。Z –&gt; (W1 | W2 | W3) –&gt; Y。</p></li>
+<li><p>注意：W1-W3 这三个变量必须要有明确的定义，以便我能找到对应的数据，衡量这些变量。</p></li>
+</ol>
 </div>
 </div>
-<p>我把相同的问题同时发给了 <a href="https://chatgpt.com/share/68272fc3-43f0-8005-92ba-b6cafa0cf63d">ChatGPT</a>，DeepSeek 和 <a href="https://www.doubao.com/thread/w39f7dca2185230bf">豆包</a>。最终，豆包给出的图形效果最好：</p>
-<div id="509d943a" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.table <span class="im">import</span> Table</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> FancyArrowPatch</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 原始数据</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'id'</span>: [<span class="st">'A'</span>, <span class="st">'B'</span>],</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x_1'</span>: [<span class="dv">1</span>, <span class="dv">5</span>],</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x_2'</span>: [<span class="dv">2</span>, <span class="dv">6</span>],</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y_1'</span>: [<span class="dv">3</span>, <span class="dv">7</span>],</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y_2'</span>: [<span class="dv">4</span>, <span class="dv">8</span>]</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame(data1)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 转换后数据</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> {</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'id'</span>: [<span class="st">'A'</span>, <span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'B'</span>],</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y'</span>: [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'num'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame(data2)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义颜色映射</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>color_mapping <span class="op">=</span> {</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x_1'</span>: <span class="st">'lightblue'</span>,</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x_2'</span>: <span class="st">'plum'</span>,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y_1'</span>: <span class="st">'lightgreen'</span>,</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y_2'</span>: <span class="st">'lightgreen'</span>,</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x'</span>: <span class="st">'lightblue'</span>,</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y'</span>: <span class="st">'lightgreen'</span>,</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">'num'</span>: [<span class="st">'orange'</span>, <span class="st">'violet'</span>]</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建图形和子图</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>ax.axis(<span class="st">'off'</span>)</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 绘制原始表格</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 绘制原始表格</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>table1 <span class="op">=</span> ax.table(</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    cellText<span class="op">=</span>df1.values,</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    colLabels<span class="op">=</span>df1.columns,</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    cellLoc<span class="op">=</span><span class="st">'center'</span>,</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    loc<span class="op">=</span><span class="st">'left'</span>,</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    bbox<span class="op">=</span>[<span class="dv">0</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>]</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (row, col), cell <span class="kw">in</span> table1.get_celld().items():</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        cell.set_text_props(weight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        colname <span class="op">=</span> df1.columns[col]</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        cell.set_facecolor(color_mapping.get(colname, <span class="st">'white'</span>))</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        colname <span class="op">=</span> df1.columns[col]</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        cell.set_facecolor(color_mapping.get(colname, <span class="st">'white'</span>))</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co"># 绘制箭头</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.arrow(0.45, 0.6, 0.1, 0, head_width=0.03, head_length=0.05, fc='k', ec='k')</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="co"># 绘制转换后表格</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>table2 <span class="op">=</span> ax.table(</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    cellText<span class="op">=</span>df2.values,</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    colLabels<span class="op">=</span>df2.columns,</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    cellLoc<span class="op">=</span><span class="st">'center'</span>,</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    loc<span class="op">=</span><span class="st">'right'</span>,</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    bbox<span class="op">=</span>[<span class="fl">0.55</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>]</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (row, col), cell <span class="kw">in</span> table2.get_celld().items():</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>        cell.set_text_props(weight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>        colname <span class="op">=</span> df2.columns[col]</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> colname <span class="op">==</span> <span class="st">'num'</span>:</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>            cell.set_facecolor(color_mapping[<span class="st">'num'</span>][(row<span class="op">-</span><span class="dv">1</span>) <span class="op">%</span> <span class="dv">2</span>])</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>            cell.set_facecolor(color_mapping.get(colname, <span class="st">'white'</span>))</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>        colname <span class="op">=</span> df2.columns[col]</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> colname <span class="op">==</span> <span class="st">'num'</span>:</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>            cell.set_facecolor(color_mapping[<span class="st">'num'</span>][<span class="dv">0</span>])</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>            cell.set_facecolor(color_mapping.get(colname, <span class="st">'white'</span>))</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 添加 FancyArrowPatch 箭头以美化转换效果</span></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>            fancy_arrow <span class="op">=</span> FancyArrowPatch(</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>                (<span class="fl">0.48</span>, <span class="fl">0.6</span>), (<span class="fl">0.52</span>, <span class="fl">0.6</span>),</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>                transform<span class="op">=</span>fig.transFigure,</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>                connectionstyle<span class="op">=</span><span class="st">"arc3,rad=0"</span>,</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>                arrowstyle<span class="op">=</span><span class="st">'-|&gt;'</span>,</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>                linewidth<span class="op">=</span><span class="dv">2</span>,</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">'black'</span></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>            fig.patches.append(fancy_arrow)</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regenernate_figure_with_AI_files/figure-html/cell-2-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+</section>
+<section id="例子地方政府财政赤字率-作为工具变量的合理性论证" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="例子地方政府财政赤字率-作为工具变量的合理性论证"><span class="header-section-number">10.4</span> 例子：“地方政府财政赤字率” 作为工具变量的合理性论证</h2>
+<p>我对 AI 建议的「地方政府财政赤字率」和「地方债务水平」这两个工具变量比较感兴趣。然而，在正式使用之前，还需要对这两个变量作为工具变量的合理性分析，否则，我们在论文中是无法写清楚的。</p>
+<blockquote class="blockquote">
+<p>完整讨论过程：<a href="https://chatgpt.com/share/67ded832-79bc-8005-bbdb-7a79ebd755c7">ChatGPT</a></p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词：讨论工具变量的合理性
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>我们现在讨论一下使用「地方政府财政赤字率」和「地方债务水平」做工具变量的合理性。 1. 分别从外生性、相关性、排他性三个角度进行分析。<br>
+2. 对于排他性，分析三种潜在的渠道(W1, W2, W3)，以便我在模型中选择合理的控制变量以便关闭这些潜在的后门路径。Z –&gt; (W1 | W2 | W3) –&gt; Y。注意：W1-W3 这三个变量必须要有明确的定义，以便我能找到对应的数据，衡量这些变量。</p>
+</blockquote>
 </div>
+</div>
+<section id="ai-的回答" class="level3" data-number="10.4.1">
+<h3 data-number="10.4.1" class="anchored" data-anchor-id="ai-的回答"><span class="header-section-number">10.4.1</span> AI 的回答</h3>
+<p>下面详细分析使用「<strong>地方政府财政赤字率 (Deficit Ratio)</strong>」与「<strong>地方债务水平 (Debt Level)</strong>」作为工具变量（IV）的合理性，包括从外生性、相关性和排他性三个维度的分析，以及排他性可能受到破坏的三种潜在渠道（W1, W2, W3），并明确给出这些渠道变量的定义与度量方法。</p>
+<blockquote class="blockquote">
+<p><a href="08_findit_IV_example_Q8.html">点击查看详情</a></p>
+</blockquote>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -949,13 +963,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../examples/web_dangdang_book/case_Dangdang_book.html" class="pagination-link" aria-label="案例：当当网 Python 类图书销售数据分析">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span>
+      <a href="../body/AI_research_design_Erdem_2025.html" class="pagination-link" aria-label="借助 AI 做研究设计">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../examples/split_mdfile/split-topic-files.html" class="pagination-link" aria-label="将一个 md 文档切割成多个 md 文档">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../body/08_findit_IV_example_Q8.html" class="pagination-link" aria-label="的回答：工具变量合理性分析">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">的回答：工具变量合理性分析</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; 使用 AI 解读 Tobit 模型 – Empirical Research with AI</title>
+<title>12&nbsp; 使用 AI 解读 Tobit 模型 – Empirical Research with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../examples/CSMAR/00_intro.html" rel="next">
-<link href="../body/AI_research_design_Erdem_2025.html" rel="prev">
+<link href="../body/08_findit_IV_example_Q8.html" rel="prev">
 <link href="../images/book-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -146,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><strong>学计量</strong></a></li><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><strong>学计量</strong></a></li><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -272,7 +272,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>学计量</strong></span></a>
+ <span class="menu-text"><strong>寻找IV</strong></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -280,8 +280,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/learn_Tobit_model.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></span></a>
+  <a href="../body/08_findit_IV_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">如何借助 AI 寻找工具变量？</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/08_findit_IV_example_Q8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">的回答：工具变量合理性分析</span></span></a>
   </div>
 </li>
       </ul>
@@ -289,7 +295,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>数据分析</strong></span></a>
+ <span class="menu-text"><strong>学计量</strong></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -297,20 +303,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../examples/CSMAR/01_unzip_to_csv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../examples/web_dangdang_book/case_Dangdang_book.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
+  <a href="../examples/learn_Tobit_model.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></span></a>
   </div>
 </li>
       </ul>
@@ -318,7 +312,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>其它应用</strong></span></a>
+ <span class="menu-text"><strong>数据分析</strong></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -326,14 +320,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/regenernate_figure_with_AI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
+  <a href="../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/split_mdfile/split-topic-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></span></a>
+  <a href="../examples/CSMAR/01_unzip_to_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/web_dangdang_book/case_Dangdang_book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
   </div>
 </li>
       </ul>
@@ -341,7 +341,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>参考文献和附录</strong></span></a>
+ <span class="menu-text"><strong>其它应用</strong></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -349,8 +349,31 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../examples/regenernate_figure_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/split_mdfile/split-topic-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>参考文献和附录</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../body/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">参考文献</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">参考文献</span></span></a>
   </div>
 </li>
       </ul>
@@ -365,27 +388,27 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#简介" id="toc-简介" class="nav-link active" data-scroll-target="#简介"><span class="header-section-number">10.1</span> 简介</a></li>
-  <li><a href="#模拟-tobit-modelpython-代码" id="toc-模拟-tobit-modelpython-代码" class="nav-link" data-scroll-target="#模拟-tobit-modelpython-代码"><span class="header-section-number">10.2</span> 模拟 Tobit Model：Python 代码</a></li>
-  <li><a href="#原理和模型表述" id="toc-原理和模型表述" class="nav-link" data-scroll-target="#原理和模型表述"><span class="header-section-number">10.3</span> 原理和模型表述</a></li>
-  <li><a href="#tobit-模型的数学表述" id="toc-tobit-模型的数学表述" class="nav-link" data-scroll-target="#tobit-模型的数学表述"><span class="header-section-number">10.4</span> Tobit 模型的数学表述</a></li>
-  <li><a href="#经济学含义与实例" id="toc-经济学含义与实例" class="nav-link" data-scroll-target="#经济学含义与实例"><span class="header-section-number">10.5</span> 经济学含义与实例</a></li>
-  <li><a href="#详细推导过程" id="toc-详细推导过程" class="nav-link" data-scroll-target="#详细推导过程"><span class="header-section-number">10.6</span> 详细推导过程</a>
+  <li><a href="#简介" id="toc-简介" class="nav-link active" data-scroll-target="#简介"><span class="header-section-number">12.1</span> 简介</a></li>
+  <li><a href="#模拟-tobit-modelpython-代码" id="toc-模拟-tobit-modelpython-代码" class="nav-link" data-scroll-target="#模拟-tobit-modelpython-代码"><span class="header-section-number">12.2</span> 模拟 Tobit Model：Python 代码</a></li>
+  <li><a href="#原理和模型表述" id="toc-原理和模型表述" class="nav-link" data-scroll-target="#原理和模型表述"><span class="header-section-number">12.3</span> 原理和模型表述</a></li>
+  <li><a href="#tobit-模型的数学表述" id="toc-tobit-模型的数学表述" class="nav-link" data-scroll-target="#tobit-模型的数学表述"><span class="header-section-number">12.4</span> Tobit 模型的数学表述</a></li>
+  <li><a href="#经济学含义与实例" id="toc-经济学含义与实例" class="nav-link" data-scroll-target="#经济学含义与实例"><span class="header-section-number">12.5</span> 经济学含义与实例</a></li>
+  <li><a href="#详细推导过程" id="toc-详细推导过程" class="nav-link" data-scroll-target="#详细推导过程"><span class="header-section-number">12.6</span> 详细推导过程</a>
   <ul class="collapse">
-  <li><a href="#tobit-模型的详细数学推导" id="toc-tobit-模型的详细数学推导" class="nav-link" data-scroll-target="#tobit-模型的详细数学推导"><span class="header-section-number">10.6.1</span> Tobit 模型的详细数学推导</a></li>
+  <li><a href="#tobit-模型的详细数学推导" id="toc-tobit-模型的详细数学推导" class="nav-link" data-scroll-target="#tobit-模型的详细数学推导"><span class="header-section-number">12.6.1</span> Tobit 模型的详细数学推导</a></li>
   </ul></li>
-  <li><a href="#tobit-和-ols-对比" id="toc-tobit-和-ols-对比" class="nav-link" data-scroll-target="#tobit-和-ols-对比"><span class="header-section-number">10.7</span> Tobit 和 OLS 对比</a></li>
-  <li><a href="#后续讨论" id="toc-后续讨论" class="nav-link" data-scroll-target="#后续讨论"><span class="header-section-number">10.8</span> 后续讨论</a></li>
-  <li><a href="#参考文献" id="toc-参考文献" class="nav-link" data-scroll-target="#参考文献"><span class="header-section-number">10.9</span> 参考文献</a></li>
+  <li><a href="#tobit-和-ols-对比" id="toc-tobit-和-ols-对比" class="nav-link" data-scroll-target="#tobit-和-ols-对比"><span class="header-section-number">12.7</span> Tobit 和 OLS 对比</a></li>
+  <li><a href="#后续讨论" id="toc-后续讨论" class="nav-link" data-scroll-target="#后续讨论"><span class="header-section-number">12.8</span> 后续讨论</a></li>
+  <li><a href="#参考文献" id="toc-参考文献" class="nav-link" data-scroll-target="#参考文献"><span class="header-section-number">12.9</span> 参考文献</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><strong>学计量</strong></a></li><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><strong>学计量</strong></a></li><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></h1>
 </div>
 
 
@@ -413,16 +436,16 @@ window.Quarto = {
 <li>可以让 AI 扮演某个角色 (如 {有二十年从教经验的计量经济学教授})，用大白话讲给 {高中生} 甚至是 {小学生}。总有一个版本能契合你的基础和思维方式。</li>
 </ul></li>
 </ul>
-<section id="简介" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="简介"><span class="header-section-number">10.1</span> 简介</h2>
+<section id="简介" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="简介"><span class="header-section-number">12.1</span> 简介</h2>
 <p>在学习计量经济学的过程中，许多学生常常会遇到复杂的模型和晦涩的数学推导，感到无从下手。由于缺乏合适的老师或同伴指导，理解这些内容变得更加困难。</p>
 <p>AI 助手的出现，为学生们提供了全新的学习方式。通过 AI，学生不仅可以获得模型原理、数学表述和经济学含义的详细讲解，还能根据自己的需求生成 Stata 或 Python 代码、图形和 LaTeX 公式。</p>
 <p>更重要的是，AI 能用讲义风格的文字和丰富的代码注释，帮助学生逐步掌握知识点。无论你的基础如何，AI 都可以用通俗易懂的语言，甚至模拟经验丰富的教授，帮助你找到最适合自己的学习路径。</p>
 <p>本节的目的是通过 AI 助手，帮助学生理解 Tobit 模型的原理、数学表述和经济学含义。我们将展示如何使用 AI 生成相关内容，并提供实际的代码示例和图形展示。</p>
 <p>我主要受到了 <a href="https://doi.org/10.1257/jel.20231736">Korinek (2023)</a> 的启发。为了解读 Solow 模型的原理 (<a href="https://www.aeaweb.org/content/file?id=21904">Chat 50</a>)，Korinek 向 AI 发送了提示词 <code>Simulate the Solow growth model and plot the results in a four chart.</code>。AI 的解读效果非常好。</p>
 </section>
-<section id="模拟-tobit-modelpython-代码" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="模拟-tobit-modelpython-代码"><span class="header-section-number">10.2</span> 模拟 Tobit Model：Python 代码</h2>
+<section id="模拟-tobit-modelpython-代码" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="模拟-tobit-modelpython-代码"><span class="header-section-number">12.2</span> 模拟 Tobit Model：Python 代码</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -508,8 +531,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="原理和模型表述" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="原理和模型表述"><span class="header-section-number">10.3</span> 原理和模型表述</h2>
+<section id="原理和模型表述" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="原理和模型表述"><span class="header-section-number">12.3</span> 原理和模型表述</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -526,8 +549,8 @@ window.Quarto = {
 </div>
 <p>Tobit 模型是一种用于处理因变量存在截断（如左截断为 0）的回归模型。其基本思想是：我们观测到的因变量 <span class="math inline">\(y\)</span>，是一个潜在的连续变量 <span class="math inline">\(y^*\)</span> 被某个阈值截断后的结果。</p>
 </section>
-<section id="tobit-模型的数学表述" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="tobit-模型的数学表述"><span class="header-section-number">10.4</span> Tobit 模型的数学表述</h2>
+<section id="tobit-模型的数学表述" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="tobit-模型的数学表述"><span class="header-section-number">12.4</span> Tobit 模型的数学表述</h2>
 <p>Tobit 模型可表示为：</p>
 <p><span class="math display">\[
 \begin{align*}
@@ -540,15 +563,15 @@ y_i^*, &amp; \text{如果 } y_i^* &gt; 0 \\
 \]</span></p>
 <p>其中： - <span class="math inline">\(y_i^*\)</span>：不可观测的潜在因变量（如“理想消费”） - <span class="math inline">\(y_i\)</span>：实际观测到的因变量（如“实际消费”，不能为负） - <span class="math inline">\(x_i\)</span>：自变量 - <span class="math inline">\(\beta_0, \beta_1\)</span>：回归系数 - <span class="math inline">\(\varepsilon_i\)</span>：正态分布的误差项</p>
 </section>
-<section id="经济学含义与实例" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="经济学含义与实例"><span class="header-section-number">10.5</span> 经济学含义与实例</h2>
+<section id="经济学含义与实例" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="经济学含义与实例"><span class="header-section-number">12.5</span> 经济学含义与实例</h2>
 <p>以家庭消费为例，<span class="math inline">\(y_i^*\)</span> 可以理解为家庭的“理想消费金额”，但由于某些家庭可能没有消费（如收入太低），实际观测到的消费 <span class="math inline">\(y_i\)</span> 就会被截断为 0。</p>
 <p>在上面的代码中，我们模拟了 <span class="math inline">\(N=500\)</span> 个样本，生成了 <span class="math inline">\(y^*\)</span> 和 <span class="math inline">\(y\)</span>。图形左侧展示了 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(y^*\)</span> 的关系，可以看到 <span class="math inline">\(y^*\)</span> 是连续分布的；右侧展示了 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(y\)</span> 的关系，所有 <span class="math inline">\(y^* \leq 0\)</span> 的点都被截断为 0，形成了“堆积”。</p>
 <p>这种模型广泛用于： - 消费/投资为零的情况（如部分家庭没有购房支出） - 信贷申请/批准金额（如部分人未获批贷款） - 劳动供给（如部分人未参与劳动市场）</p>
 <p>Tobit 模型能有效处理这类“部分观测为零”的数据，避免 OLS 回归的偏误。</p>
 </section>
-<section id="详细推导过程" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="详细推导过程"><span class="header-section-number">10.6</span> 详细推导过程</h2>
+<section id="详细推导过程" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="详细推导过程"><span class="header-section-number">12.6</span> 详细推导过程</h2>
 <p>其实，仅仅依据上面的内容，你还是无法真正理解 Tobit 模型的数学公式和经济学含义。下面我们将详细推导 Tobit 模型的数学公式，并解释每一步的经济学含义。</p>
 <p>我列举了一些提示词要点，你可以酌情选择使用。建议一次性不要给 AI 太多提示词，分步进行更容易获得满意的结果。</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -572,16 +595,16 @@ y_i^*, &amp; \text{如果 } y_i^* &gt; 0 \\
 </ol>
 </div>
 </div>
-<section id="tobit-模型的详细数学推导" class="level3" data-number="10.6.1">
-<h3 data-number="10.6.1" class="anchored" data-anchor-id="tobit-模型的详细数学推导"><span class="header-section-number">10.6.1</span> Tobit 模型的详细数学推导</h3>
-<section id="潜在变量-y-的定义" class="level4" data-number="10.6.1.1">
-<h4 data-number="10.6.1.1" class="anchored" data-anchor-id="潜在变量-y-的定义"><span class="header-section-number">10.6.1.1</span> 1. 潜在变量 <span class="math inline">\(y^*\)</span> 的定义</h4>
+<section id="tobit-模型的详细数学推导" class="level3" data-number="12.6.1">
+<h3 data-number="12.6.1" class="anchored" data-anchor-id="tobit-模型的详细数学推导"><span class="header-section-number">12.6.1</span> Tobit 模型的详细数学推导</h3>
+<section id="潜在变量-y-的定义" class="level4" data-number="12.6.1.1">
+<h4 data-number="12.6.1.1" class="anchored" data-anchor-id="潜在变量-y-的定义"><span class="header-section-number">12.6.1.1</span> 1. 潜在变量 <span class="math inline">\(y^*\)</span> 的定义</h4>
 <p>Tobit 模型假设存在一个不可观测的潜在连续变量 <span class="math inline">\(y^*\)</span>，其生成机制为： <span class="math display">\[
 y_i^* = \beta_0 + \beta_1 x_i + \varepsilon_i, \quad \varepsilon_i \sim N(0, \sigma^2)
 \]</span> 其中，<span class="math inline">\(x_i\)</span> 是自变量，<span class="math inline">\(\beta_0, \beta_1\)</span> 为参数，<span class="math inline">\(\varepsilon_i\)</span> 为正态分布误差项。</p>
 </section>
-<section id="截断后的观测变量-y-的定义" class="level4" data-number="10.6.1.2">
-<h4 data-number="10.6.1.2" class="anchored" data-anchor-id="截断后的观测变量-y-的定义"><span class="header-section-number">10.6.1.2</span> 2. 截断后的观测变量 <span class="math inline">\(y\)</span> 的定义</h4>
+<section id="截断后的观测变量-y-的定义" class="level4" data-number="12.6.1.2">
+<h4 data-number="12.6.1.2" class="anchored" data-anchor-id="截断后的观测变量-y-的定义"><span class="header-section-number">12.6.1.2</span> 2. 截断后的观测变量 <span class="math inline">\(y\)</span> 的定义</h4>
 <p>实际观测到的因变量 <span class="math inline">\(y_i\)</span> 受到截断（如左截断为 0）： <span class="math display">\[
 y_i = \begin{cases}
 y_i^*, &amp; \text{如果 } y_i^* &gt; 0 \\
@@ -589,8 +612,8 @@ y_i^*, &amp; \text{如果 } y_i^* &gt; 0 \\
 \end{cases}
 \]</span></p>
 </section>
-<section id="期望值和条件期望值的推导" class="level4" data-number="10.6.1.3">
-<h4 data-number="10.6.1.3" class="anchored" data-anchor-id="期望值和条件期望值的推导"><span class="header-section-number">10.6.1.3</span> 3. 期望值和条件期望值的推导</h4>
+<section id="期望值和条件期望值的推导" class="level4" data-number="12.6.1.3">
+<h4 data-number="12.6.1.3" class="anchored" data-anchor-id="期望值和条件期望值的推导"><span class="header-section-number">12.6.1.3</span> 3. 期望值和条件期望值的推导</h4>
 <p>Tobit 模型下，<span class="math inline">\(y_i\)</span> 的条件期望为： <span class="math display">\[
 E[y_i|x_i] = P(y_i^* &gt; 0|x_i) \cdot E[y_i^*|y_i^* &gt; 0, x_i]
 \]</span> 具体推导如下：</p>
@@ -602,18 +625,18 @@ E[y_i|x_i] = P(y_i^* &gt; 0|x_i) \cdot E[y_i^*|y_i^* &gt; 0, x_i]
 E[y_i|x_i] = \left[1 - \Phi\left(-\frac{\beta_0 + \beta_1 x_i}{\sigma}\right)\right] \left[\beta_0 + \beta_1 x_i + \sigma \frac{\varphi\left(\frac{\beta_0 + \beta_1 x_i}{\sigma}\right)}{1 - \Phi\left(-\frac{\beta_0 + \beta_1 x_i}{\sigma}\right)}\right]
 \]</span></p>
 </section>
-<section id="tobit-和-ols-估计式的关系" class="level4" data-number="10.6.1.4">
-<h4 data-number="10.6.1.4" class="anchored" data-anchor-id="tobit-和-ols-估计式的关系"><span class="header-section-number">10.6.1.4</span> 4. Tobit 和 OLS 估计式的关系</h4>
+<section id="tobit-和-ols-估计式的关系" class="level4" data-number="12.6.1.4">
+<h4 data-number="12.6.1.4" class="anchored" data-anchor-id="tobit-和-ols-估计式的关系"><span class="header-section-number">12.6.1.4</span> 4. Tobit 和 OLS 估计式的关系</h4>
 <p>OLS 直接对 <span class="math inline">\(y\)</span> 回归会低估 <span class="math inline">\(\beta_1\)</span>，因为截断导致大量 <span class="math inline">\(y=0\)</span> 的观测值，拉低了回归斜率。Tobit 模型通过最大似然法，利用了 <span class="math inline">\(y=0\)</span> 的概率信息，能更准确估计参数。</p>
 </section>
-<section id="tobit-模型的最大似然估计方法" class="level4" data-number="10.6.1.5">
-<h4 data-number="10.6.1.5" class="anchored" data-anchor-id="tobit-模型的最大似然估计方法"><span class="header-section-number">10.6.1.5</span> 5. Tobit 模型的最大似然估计方法</h4>
+<section id="tobit-模型的最大似然估计方法" class="level4" data-number="12.6.1.5">
+<h4 data-number="12.6.1.5" class="anchored" data-anchor-id="tobit-模型的最大似然估计方法"><span class="header-section-number">12.6.1.5</span> 5. Tobit 模型的最大似然估计方法</h4>
 <p>Tobit 模型的对数似然函数为： <span class="math display">\[
 \ell(\beta_0, \beta_1, \sigma) = \sum_{y_i=0} \log \Phi\left(\frac{-(\beta_0 + \beta_1 x_i)}{\sigma}\right) + \sum_{y_i&gt;0} \log \left[\frac{1}{\sigma} \varphi\left(\frac{y_i - \beta_0 - \beta_1 x_i}{\sigma}\right)\right]
 \]</span> 其中，第一项对应被截断的观测，第二项对应未被截断的观测。通过极大化该似然函数，得到参数估计值。</p>
 </section>
-<section id="tobit-模型边际效应的计算方法和经济含义" class="level4" data-number="10.6.1.6">
-<h4 data-number="10.6.1.6" class="anchored" data-anchor-id="tobit-模型边际效应的计算方法和经济含义"><span class="header-section-number">10.6.1.6</span> 6. Tobit 模型边际效应的计算方法和经济含义</h4>
+<section id="tobit-模型边际效应的计算方法和经济含义" class="level4" data-number="12.6.1.6">
+<h4 data-number="12.6.1.6" class="anchored" data-anchor-id="tobit-模型边际效应的计算方法和经济含义"><span class="header-section-number">12.6.1.6</span> 6. Tobit 模型边际效应的计算方法和经济含义</h4>
 <p>Tobit 模型的系数 <span class="math inline">\(\beta_1\)</span> 并不是 <span class="math inline">\(x\)</span> 对 <span class="math inline">\(y\)</span> 的直接边际效应。<span class="math inline">\(x\)</span> 对 <span class="math inline">\(E[y|x]\)</span> 的边际效应为： <span class="math display">\[
 \frac{\partial E[y|x]}{\partial x} = \beta_1 \cdot \Phi\left(\frac{\beta_0 + \beta_1 x}{\sigma}\right)
 \]</span> 这表示 <span class="math inline">\(x\)</span> 的影响被截断概率所“缩小”，只有未被截断的部分才体现出 <span class="math inline">\(x\)</span> 的真实效应。经济学上，这反映了自变量对“实际观测到的因变量”的平均影响。</p>
@@ -622,8 +645,8 @@ E[y_i|x_i] = \left[1 - \Phi\left(-\frac{\beta_0 + \beta_1 x_i}{\sigma}\right)\ri
 </section>
 </section>
 </section>
-<section id="tobit-和-ols-对比" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="tobit-和-ols-对比"><span class="header-section-number">10.7</span> Tobit 和 OLS 对比</h2>
+<section id="tobit-和-ols-对比" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="tobit-和-ols-对比"><span class="header-section-number">12.7</span> Tobit 和 OLS 对比</h2>
 <p>你还可以进步借助 AI 生成 Tobit 和 OLS 模型的估计结果图示，以便说明 OLS 估计可能存在的偏差。</p>
 <p>这里用了教育学中一个非常重要的原理：知识迁移。在学习 Tobit 模型过程中，你可以借助对比，将已经掌握的 OLS 模型知识迁移到新的 Tobit 模型上。</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -648,8 +671,8 @@ E[y_i|x_i] = \left[1 - \Phi\left(-\frac{\beta_0 + \beta_1 x_i}{\sigma}\right)\ri
 </div>
 </div>
 </section>
-<section id="后续讨论" class="level2" data-number="10.8">
-<h2 data-number="10.8" class="anchored" data-anchor-id="后续讨论"><span class="header-section-number">10.8</span> 后续讨论</h2>
+<section id="后续讨论" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="后续讨论"><span class="header-section-number">12.8</span> 后续讨论</h2>
 <p>按照上述逻辑，你可以不断追问 AI，生成更多内容。这种学习模式与传统的课堂教学和硬啃教科书有很大区别。你完全可以根据自己的基础和需求，调整 AI 的提示词，让其生成最适合你的内容。</p>
 <p>比如，你可以使用如下提示词追问：</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -676,8 +699,8 @@ E[y_i|x_i] = \left[1 - \Phi\left(-\frac{\beta_0 + \beta_1 x_i}{\sigma}\right)\ri
 <p><a href="https://chatgpt.com/share/688370e0-180c-8005-b6ea-d1a34c01dfb6">ChatGPT 对话过程</a></p>
 </blockquote>
 </section>
-<section id="参考文献" class="level2" data-number="10.9">
-<h2 data-number="10.9" class="anchored" data-anchor-id="参考文献"><span class="header-section-number">10.9</span> 参考文献</h2>
+<section id="参考文献" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="参考文献"><span class="header-section-number">12.9</span> 参考文献</h2>
 <ul>
 <li>Korinek, A. (2023). Generative AI for Economic Research: Use Cases and Implications for Economists. Journal of Economic Literature, 61(4), 1281–1317. <a href="https://doi.org/10.1257/jel.20231736">Link</a> (rep), <a href="https://genaiforecon.org/JEL-2023-1736_published.pdf">PDF</a>, <a href="https://www.aeaweb.org/doi/10.1257/jel.20231736.appx">Appendix</a>, <a href="https://scholar.google.com/scholar?q=Generative%20AI%20for%20Economic%20Research:%20Use%20Cases%20and%20Implications%20for%20Economists">Google</a>.
 <ul>
@@ -1114,13 +1137,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../body/AI_research_design_Erdem_2025.html" class="pagination-link" aria-label="借助 AI 做研究设计">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span>
+      <a href="../body/08_findit_IV_example_Q8.html" class="pagination-link" aria-label="的回答：工具变量合理性分析">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">的回答：工具变量合理性分析</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../examples/CSMAR/00_intro.html" class="pagination-link" aria-label="数据分析案例：CAMAR 数据库合并">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -48,7 +48,11 @@ book:
     - part: "**研究设计**"
       chapters: 
         - body/AI_research_design_Erdem_2025.ipynb
-#        - body/07_findit_IV.ipynb
+
+    - part: "**寻找IV**"
+      chapters: 
+        - body/08_findit_IV_example.ipynb
+        - body/08_findit_IV_example_Q8.md
 
     - part: "**学计量**"
       chapters: 
