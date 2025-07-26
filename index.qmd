@@ -9,9 +9,14 @@ author: "连玉君"
 
 &emsp;
 
-这本书是使用 VScode 编辑器 + Quarto 插件编写，进而通过 Github pages 发布的。
+这本书是使用 VScode 编辑器 + Quarto 插件编写，进而通过 Github pages 发布的。详情参见 [Quarto books](<https://lianxhcn.github.io/quarto_book/>)。 
 
-详情参见 [Quarto books](<https://lianxhcn.github.io/quarto_book/>)。 
+>**如何使用本书？**
+
+- 你可以 [Fork](https://github.com/lianxhcn/research_with_AI/fork) 本书的 [github 仓库](https://github.com/lianxhcn/research_with_AI)，然后你的电脑上演练书中的例子。
+- 你需要做一些基本的配置，参见 [安装和环境配置](01_install_Python_Anaconda.html)
+- 书稿中还有不少错漏之处，还请不吝指出：<arlionn@163.com>。
+
 
 ---
 

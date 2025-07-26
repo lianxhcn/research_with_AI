@@ -53,11 +53,11 @@ footer {
 
 #### 连享会 · Open 2025
 
-<https://lianxhcn.github.io/open2025>
+<https://lianxhcn.github.io/research_with_AI>
 
 <br>
 
-# Research with AI
+# Empirical Research with AI
 
 <br>
 
@@ -66,6 +66,8 @@ footer {
 arlionn@163.com
 
 <br>
+
+&#x1F34F; 课件：[www.lianxh.cn](https://www.lianxh.cn) &rarr; **[公开课]**
 
 
 --- - --
@@ -150,31 +152,33 @@ arlionn@163.com
 - **主流软件技能**：Stata、R、Matlab、SAS；
 - **文献阅读与论文写作能力**：跟踪一条 literature line，围绕它选题、建模、实证。
 
----
+
+--- - --
 
 ## AI 时代的变化在哪里？
 
-- **从「写代码」转向「写提示词」**
-  - 重点不是命令语法，而是能否**清晰表达问题、设计流程、定位输出**
+
 - **从「单点技能」转向「跨界整合」**
   - 整合数据、模型、算法、文献，并用 AI 协助迁移
-- **从「复制路径」转向「个性化研究栈」**
-  - 构建个人 Research Stack：数据源 + AI 工具 + Quarto + GitHub
-
----
-
-## 3. 研究范式正在发生变化
-
 - **理论与数据的互动方向反转**
   - 从「理论先行 → 实证验证」向「数据先感知 → 模型解释」过渡
-- **AI 改写知识输入路径**
-  - 工具如 [ChatGPT](https://chat.openai.com/)、[Causal.Claims](https://www.causal.claims/)、[DeepSeek](https://www.deepseek.com/)、[PaperQA](https://github.com/rocketlaunchr/paperqa)
 - **工具从模型核心转向问题核心**
   - 研究工具 = 解决问题的桥梁，而非目的本身
+  - 从「写代码」转向「写提示词」：重点不是命令语法，而是能否清晰表达问题、设计流程、定位输出
+  - 工具： [ChatGPT](https://chat.openai.com/)、[Causal.Claims](https://www.causal.claims/)、[DeepSeek](https://www.deepseek.com/)、[PaperQA](https://github.com/rocketlaunchr/paperqa)
+
 
 ---
 
 # AI 工具如何提升实证研究的效率？
+
+- Korinek, A. (2023). Generative AI for Economic Research: Use Cases and Implications for Economists. Journal of Economic Literature, 61(4), 1281–1317.   
+  
+  [Link](https://doi.org/10.1257/jel.20231736) (rep), [PDF](https://genaiforecon.org/JEL-2023-1736_published.pdf), [-PDF2-](../refs/Korinek_2023_Generative_AI_for_Economic_Research_Use_Cases_and_Implications_for_Economists.pdf)    
+  
+  [Appendix](https://www.aeaweb.org/doi/10.1257/jel.20231736.appx), [Google](<https://scholar.google.com/scholar?q=Generative AI for Economic Research: Use Cases and Implications for Economists>).   
+  
+  [作者主页-Tips-AI](https://genaiforecon.org/get-started.html)
 
 ---
 
