@@ -4,7 +4,37 @@
     "href": "index.html",
     "title": "Empirical Research with AI",
     "section": "",
-    "text": "这本书是使用 VScode 编辑器 + Quarto 插件编写，进而通过 Github pages 发布的。详情参见 Quarto books。 \n\n如何使用本书？\n\n\n你可以 Fork 本书的 github 仓库，然后你的电脑上演练书中的例子。\n你需要做一些基本的配置，参见 安装和环境配置\n书稿中还有不少错漏之处，还请不吝指出：arlionn@163.com。\n\n\n主页 | 课程 | 视频 | 推文 | 资料",
+    "text": "0.1 关于这本书\n这本书是在准备 连享会系列公开课 中的「AI时代如何做实证研究？」专题时编写的讲义。\n书中介绍了 AI 工具如何提升实证研究的效率，如何帮助我们更好地思考和解决问题。书中还介绍了 ChatGPT, 豆包, Github Copilot 等工具的使用，以及 Markdown、Github 和 Jupyter Notebook 的协同工作方式。\n当然，此处介绍的内容只是 GenAI 的一些非常基础的应用，有关 GenAI 的更深入、更系统的介绍，将在 2025 年 9 月 13, 14, 20 日开设的 GenAI 专题课程中讲授，详情参见：",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>简介</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#关于这本书",
+    "href": "index.html#关于这本书",
+    "title": "Empirical Research with AI",
+    "section": "",
+    "text": "生成式人工智能专题：社会科学研究的革新工具\n\n嘉宾：杨阳 (香港浸会大学)\n时间：2025 年 9 月 13, 14, 20 日 (共三天)\n方式：线上直播 + 30 天回放",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>简介</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#如何使用本书",
+    "href": "index.html#如何使用本书",
+    "title": "Empirical Research with AI",
+    "section": "0.2 如何使用本书？",
+    "text": "0.2 如何使用本书？\n这本书是使用 VScode 编辑器 + Quarto 插件编写，进而通过 Github pages 发布的。详情参见 Quarto books。 \n\n你可以 Fork 本书的 github 仓库，然后你的电脑上演练书中的例子。\n你需要做一些基本的配置，参见 安装和环境配置\n书稿中还有不少错漏之处，还请不吝指出：arlionn@163.com。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>简介</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#如何找到我",
+    "href": "index.html#如何找到我",
+    "title": "Empirical Research with AI",
+    "section": "0.3 如何找到我？",
+    "text": "0.3 如何找到我？\n我最近也在小红书注册了账号 连玉君 (ID: 95085566173)，大家可以在那里留言和讨论。\n\n\n主页 | 课程 | 视频 | 推文 | 资料",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>简介</span>"
     ]
