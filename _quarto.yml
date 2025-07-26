@@ -39,8 +39,11 @@ book:
     - part: "**论文解读**"
       chapters: 
         - body/05_00_read_paper_with_AI.ipynb
-#        - body/05_01_example_Wing-2024.ipynb
-        - body/06_AI_ideas_brainstorming.ipynb
+        - body/05_01_example_Wing-2024.ipynb
+        - body/05_02_Wing-2024.md
+
+#    - part: "**研究假设生成**"
+#        - body/06_AI_ideas_brainstorming.ipynb
       
     - part: "**研究设计**"
       chapters: 

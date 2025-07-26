@@ -320,11 +320,6 @@ A --> B
 - [kimi](https://www.kimi.ai/) - 一款基于 AI 的智能助手，支持多种语言的语音识别和翻译。
 
 
-## 连玉君的提示词
-
-- <https://github.com/arlionn/UseChatGPT>
-- <https://gitee.com/arlionn/UseChatGPT> (码云版)
-
 ---
 
 ## 理念
@@ -378,6 +373,11 @@ A --> B
   - [ChatGPT Prompting Cheat Sheet](https://blog.finxter.com/wp-content/uploads/2023/03/Finxter_Prompting_OpenAI-1.pdf)
   - [The Complete ChatGPT Cheat Sheet 2025!](https://www.reddit.com/r/ChatGPTPromptGenius/comments/1icr5au/the_complete_chatgpt_cheat_sheet_2025/)
   - [Prompt工作手册 - 方法篇](https://zhuanlan.zhihu.com/p/713023937)
+
+> 连玉君的提示词
+
+- <https://github.com/arlionn/UseChatGPT>
+- <https://gitee.com/arlionn/UseChatGPT> (码云版)
 
 
 --- - --

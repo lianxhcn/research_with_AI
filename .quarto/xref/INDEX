@@ -229,5 +229,11 @@
   },
   "examples/split_mdfile/split-topic-files.ipynb": {
     "split-topic-files.html": "7bf261a3"
+  },
+  "body/05_01_example_Wing-2024.ipynb": {
+    "05_01_example_Wing-2024.html": "ef9669bd"
+  },
+  "body/05_02_Wing-2024.md": {
+    "05_02_Wing-2024.html": "806de740"
   }
 }

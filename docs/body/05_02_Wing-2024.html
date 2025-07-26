@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Wing et al.&nbsp;(2024) 论文推介：如何正确使用 Difference-in-Differences 方法？ – Empirical Research with AI</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../body/AI_research_design_Erdem_2025.html" rel="next">
+<link href="../body/05_01_example_Wing-2024.html" rel="prev">
+<link href="../images/book-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e8fb9d25728d58bfeac61b497e4a6629.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8434d2026ae8291579158df2ad8dfa64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/05_02_Wing-2024.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Wing et al.&nbsp;(2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="https://lianxhcn.github.io/research_with_AI/" class="sidebar-logo-link">
+      <img src="../images/book-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Empirical Research with AI</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/lianxhcn/research_with_AI" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">简介</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>简介</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/00_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">理念</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/01_install_Python_Anaconda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python：安装和环境配置</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/02_install_FAQs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Python 安装常见问题</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/03_markdown_marp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Markdown</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>论文解读</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/05_00_read_paper_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/05_01_example_Wing-2024.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">案例：AI 助我读论文之 Wing et al.&nbsp;(2024)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/05_02_Wing-2024.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Wing et al.&nbsp;(2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>研究设计</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/AI_research_design_Erdem_2025.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>学计量</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/learn_Tobit_model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>数据分析</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/CSMAR/01_unzip_to_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/web_dangdang_book/case_Dangdang_book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>其它应用</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/regenernate_figure_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/split_mdfile/split-topic-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>参考文献和附录</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">参考文献</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lab-sec1" id="toc-lab-sec1" class="nav-link active" data-scroll-target="#lab-sec1"><span class="header-section-number">8.1</span> 1. 写在前面：为什么你可能用错了 DID？</a>
+  <ul class="collapse">
+  <li><a href="#一个看似无害的例子" id="toc-一个看似无害的例子" class="nav-link" data-scroll-target="#一个看似无害的例子"><span class="header-section-number">8.1.1</span> 1.1 一个看似无害的例子</a></li>
+  <li><a href="#来自最新研究的警示" id="toc-来自最新研究的警示" class="nav-link" data-scroll-target="#来自最新研究的警示"><span class="header-section-number">8.1.2</span> 1.2 来自最新研究的警示</a></li>
+  <li><a href="#这篇推文能帮你解决什么问题" id="toc-这篇推文能帮你解决什么问题" class="nav-link" data-scroll-target="#这篇推文能帮你解决什么问题"><span class="header-section-number">8.1.3</span> 1.3 这篇推文能帮你解决什么问题？</a></li>
+  </ul></li>
+  <li><a href="#lab-sec2" id="toc-lab-sec2" class="nav-link" data-scroll-target="#lab-sec2"><span class="header-section-number">8.2</span> 2. 最基础的 2×2 DID：你还记得它的含义吗？</a>
+  <ul class="collapse">
+  <li><a href="#什么是-22-did" id="toc-什么是-22-did" class="nav-link" data-scroll-target="#什么是-22-did"><span class="header-section-number">8.2.1</span> 2.1 什么是 2×2 DID？</a></li>
+  <li><a href="#did-成立的两个关键假设" id="toc-did-成立的两个关键假设" class="nav-link" data-scroll-target="#did-成立的两个关键假设"><span class="header-section-number">8.2.2</span> 2.2 DID 成立的两个关键假设</a></li>
+  <li><a href="#例子疫苗政策对死亡率的影响" id="toc-例子疫苗政策对死亡率的影响" class="nav-link" data-scroll-target="#例子疫苗政策对死亡率的影响"><span class="header-section-number">8.2.3</span> 2.3 例子：疫苗政策对死亡率的影响</a></li>
+  <li><a href="#为什么-22-did-是后续方法的出发点" id="toc-为什么-22-did-是后续方法的出发点" class="nav-link" data-scroll-target="#为什么-22-did-是后续方法的出发点"><span class="header-section-number">8.2.4</span> 2.4 为什么 2×2 DID 是后续方法的出发点？</a></li>
+  </ul></li>
+  <li><a href="#lab-sec3" id="toc-lab-sec3" class="nav-link" data-scroll-target="#lab-sec3"><span class="header-section-number">8.3</span> 3. 分期处理的挑战：当处理时间不同步时，会发生什么？</a>
+  <ul class="collapse">
+  <li><a href="#twfe-在这种情境下是如何工作的" id="toc-twfe-在这种情境下是如何工作的" class="nav-link" data-scroll-target="#twfe-在这种情境下是如何工作的"><span class="header-section-number">8.3.1</span> 3.1 TWFE 在这种情境下是如何工作的？</a></li>
+  <li><a href="#goodman-bacon-decomposition将复杂-did-拆解为-22-子实验" id="toc-goodman-bacon-decomposition将复杂-did-拆解为-22-子实验" class="nav-link" data-scroll-target="#goodman-bacon-decomposition将复杂-did-拆解为-22-子实验"><span class="header-section-number">8.3.2</span> 3.2 Goodman-Bacon decomposition：将复杂 DID 拆解为 2×2 子实验</a></li>
+  <li><a href="#示例图解sulfa-drugs-实验来自-wing-等人" id="toc-示例图解sulfa-drugs-实验来自-wing-等人" class="nav-link" data-scroll-target="#示例图解sulfa-drugs-实验来自-wing-等人"><span class="header-section-number">8.3.3</span> 3.3 示例图解：sulfa drugs 实验（来自 Wing 等人）</a></li>
+  <li><a href="#什么时候偏误会严重" id="toc-什么时候偏误会严重" class="nav-link" data-scroll-target="#什么时候偏误会严重"><span class="header-section-number">8.3.4</span> 3.4 什么时候偏误会严重？</a></li>
+  <li><a href="#一个警示性的结论" id="toc-一个警示性的结论" class="nav-link" data-scroll-target="#一个警示性的结论"><span class="header-section-number">8.3.5</span> 3.5 一个警示性的结论</a></li>
+  </ul></li>
+  <li><a href="#lab-sec4" id="toc-lab-sec4" class="nav-link" data-scroll-target="#lab-sec4"><span class="header-section-number">8.4</span> 4. 五种实用方法一图总览：你可以怎么做？</a>
+  <ul class="collapse">
+  <li><a href="#方法概览表简化" id="toc-方法概览表简化" class="nav-link" data-scroll-target="#方法概览表简化"><span class="header-section-number">8.4.1</span> 4.1 方法概览表（简化）</a></li>
+  <li><a href="#一图看懂逻辑差异" id="toc-一图看懂逻辑差异" class="nav-link" data-scroll-target="#一图看懂逻辑差异"><span class="header-section-number">8.4.2</span> 4.2 一图看懂逻辑差异</a></li>
+  <li><a href="#方法选择的三个基本维度" id="toc-方法选择的三个基本维度" class="nav-link" data-scroll-target="#方法选择的三个基本维度"><span class="header-section-number">8.4.3</span> 4.3 方法选择的三个基本维度</a></li>
+  </ul></li>
+  <li><a href="#lab-sec5" id="toc-lab-sec5" class="nav-link" data-scroll-target="#lab-sec5"><span class="header-section-number">8.5</span> 5. 方法逐个讲</a>
+  <ul class="collapse">
+  <li><a href="#twfetwo-way-fixed-effects" id="toc-twfetwo-way-fixed-effects" class="nav-link" data-scroll-target="#twfetwo-way-fixed-effects"><span class="header-section-number">8.5.1</span> 5.1 TWFE（Two-Way Fixed Effects）</a></li>
+  <li><a href="#stacked-didcengiz-et-al.-2019" id="toc-stacked-didcengiz-et-al.-2019" class="nav-link" data-scroll-target="#stacked-didcengiz-et-al.-2019"><span class="header-section-number">8.5.2</span> 5.2 Stacked DID（Cengiz et al.&nbsp;2019）</a></li>
+  <li><a href="#callaway-santanna2021" id="toc-callaway-santanna2021" class="nav-link" data-scroll-target="#callaway-santanna2021"><span class="header-section-number">8.5.3</span> 5.3 Callaway &amp; Sant’Anna（2021）</a></li>
+  <li><a href="#sun-abraham2020" id="toc-sun-abraham2020" class="nav-link" data-scroll-target="#sun-abraham2020"><span class="header-section-number">8.5.4</span> 5.4 Sun &amp; Abraham（2020）</a></li>
+  <li><a href="#gardner-wooldridgetwo-stage-diddid2s" id="toc-gardner-wooldridgetwo-stage-diddid2s" class="nav-link" data-scroll-target="#gardner-wooldridgetwo-stage-diddid2s"><span class="header-section-number">8.5.5</span> 5.5 Gardner &amp; Wooldridge：Two-stage DID（did2s）</a></li>
+  </ul></li>
+  <li><a href="#lab-sec6" id="toc-lab-sec6" class="nav-link" data-scroll-target="#lab-sec6"><span class="header-section-number">8.6</span> 6. 作者推荐的六条实操建议</a>
+  <ul class="collapse">
+  <li><a href="#s1.-明确定义研究问题what-do-you-want" id="toc-s1.-明确定义研究问题what-do-you-want" class="nav-link" data-scroll-target="#s1.-明确定义研究问题what-do-you-want"><span class="header-section-number">8.6.1</span> S1. 明确定义研究问题（What do you want?）</a></li>
+  <li><a href="#s2.-避免污染的对照组" id="toc-s2.-避免污染的对照组" class="nav-link" data-scroll-target="#s2.-避免污染的对照组"><span class="header-section-number">8.6.2</span> S2. 避免污染的对照组</a></li>
+  <li><a href="#s3.-谨慎使用-twfe尤其在存在异质效应时" id="toc-s3.-谨慎使用-twfe尤其在存在异质效应时" class="nav-link" data-scroll-target="#s3.-谨慎使用-twfe尤其在存在异质效应时"><span class="header-section-number">8.6.3</span> S3. 谨慎使用 TWFE，尤其在存在异质效应时</a></li>
+  <li><a href="#s4.-优先使用-group-time-att-方法" id="toc-s4.-优先使用-group-time-att-方法" class="nav-link" data-scroll-target="#s4.-优先使用-group-time-att-方法"><span class="header-section-number">8.6.4</span> S4. 优先使用 group × time ATT 方法</a></li>
+  <li><a href="#s5.-如果估计-dynamic-effects请使用事件时间框架" id="toc-s5.-如果估计-dynamic-effects请使用事件时间框架" class="nav-link" data-scroll-target="#s5.-如果估计-dynamic-effects请使用事件时间框架"><span class="header-section-number">8.6.5</span> S5. 如果估计 dynamic effects，请使用事件时间框架</a></li>
+  <li><a href="#s6.-保留原始图表与诊断分析" id="toc-s6.-保留原始图表与诊断分析" class="nav-link" data-scroll-target="#s6.-保留原始图表与诊断分析"><span class="header-section-number">8.6.6</span> S6. 保留原始图表与诊断分析</a></li>
+  </ul></li>
+  <li><a href="#lab-sec7" id="toc-lab-sec7" class="nav-link" data-scroll-target="#lab-sec7"><span class="header-section-number">8.7</span> 7. 你的论文中该如何选择？三种典型应用场景推荐</a>
+  <ul class="collapse">
+  <li><a href="#应用场景一一次性处理时间清晰" id="toc-应用场景一一次性处理时间清晰" class="nav-link" data-scroll-target="#应用场景一一次性处理时间清晰"><span class="header-section-number">8.7.1</span> 7.1 应用场景一：一次性处理，时间清晰</a></li>
+  <li><a href="#应用场景二错峰处理政策在不同地区逐步推出" id="toc-应用场景二错峰处理政策在不同地区逐步推出" class="nav-link" data-scroll-target="#应用场景二错峰处理政策在不同地区逐步推出"><span class="header-section-number">8.7.2</span> 7.2 应用场景二：错峰处理，政策在不同地区逐步推出</a></li>
+  <li><a href="#应用场景三关注异质性反应或动态路径" id="toc-应用场景三关注异质性反应或动态路径" class="nav-link" data-scroll-target="#应用场景三关注异质性反应或动态路径"><span class="header-section-number">8.7.3</span> 7.3 应用场景三：关注异质性反应或动态路径</a></li>
+  </ul></li>
+  <li><a href="#lab-sec8" id="toc-lab-sec8" class="nav-link" data-scroll-target="#lab-sec8"><span class="header-section-number">8.8</span> 8. 附录：常用命令、图形模板与推荐资料</a>
+  <ul class="collapse">
+  <li><a href="#stata-命令对照表" id="toc-stata-命令对照表" class="nav-link" data-scroll-target="#stata-命令对照表"><span class="header-section-number">8.8.1</span> 8.1 Stata 命令对照表</a></li>
+  <li><a href="#推荐图形模板" id="toc-推荐图形模板" class="nav-link" data-scroll-target="#推荐图形模板"><span class="header-section-number">8.8.2</span> 8.2 推荐图形模板</a></li>
+  <li><a href="#推荐资料" id="toc-推荐资料" class="nav-link" data-scroll-target="#推荐资料"><span class="header-section-number">8.8.3</span> 8.3 推荐资料</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/05_02_Wing-2024.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Wing et al.&nbsp;(2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="lab-wing-2024" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Wing et al.&nbsp;(2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<ul>
+<li>Wing, C., Yozwiak, M., Hollingsworth, A., Freedman, S., &amp; Simon, K. (2024). Designing Difference-in-Difference Studies with Staggered Treatment Adoption: Key Concepts and Practical Guidelines. Annual Review of Public Health, 45(1), 485–505. <a href="https://doi.org/10.1146/annurev-publhealth-061022-050825">Link</a>, <a href="https://www.annualreviews.org/docserver/fulltext/publhealth/45/1/annurev-publhealth-061022-050825.pdf?expires=1752678753&amp;id=id&amp;accname=guest&amp;checksum=345B1C3C23D23EC0D6A9B385A91F2513">PDF</a>, <a href="https://scholar.google.com/scholar?q=Designing%20Difference-in-Difference%20Studies%20with%20Staggered%20Treatment%20Adoption:%20Key%20Concepts%20and%20Practical%20Guidelines">Google</a>.</li>
+</ul>
+<blockquote class="blockquote">
+<p>本文写作过程中使用了 AI 工具 ChatGPT 进行辅助。<br>
+ChatGPT 对话：<a href="https://chatgpt.com/share/6883cbb0-f6e8-8005-98b7-b8e1692b9332">点击查看</a>。</p>
+</blockquote>
+<p> </p>
+<section id="lab-sec1" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="lab-sec1"><span class="header-section-number">8.1</span> 1. 写在前面：为什么你可能用错了 DID？</h2>
+<p>Difference-in-Differences（DID）是因果推断中最常用的工具之一，尤其在政策评估和公共卫生研究中几乎成了“标配”。许多论文，特别是关于地方政策变更（如最低工资调整、医保扩张、补贴计划）等主题，都会自然而然地落入“分期处理”（staggered adoption）的情境：有些地区早一点实施，有些则晚一点，甚至永远不实施。</p>
+<p>在这种设定下，研究者往往直接将 TWFE（two-way fixed effects，双向固定效应）模型套入数据，便得出了所谓的“平均处理效应”。然而，这种做法隐藏着一个深层次的统计陷阱——即使你满足了并行趋势假设（common trends），即使你严格控制了协变量，也很可能得出了错误的估计。</p>
+<section id="一个看似无害的例子" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="一个看似无害的例子"><span class="header-section-number">8.1.1</span> 1.1 一个看似无害的例子</h3>
+<p>设想如下的情境：某项公共卫生政策（例如提供免费疫苗）在三个州分批推行：</p>
+<ul>
+<li>A 州在 2018 年推行；</li>
+<li>B 州在 2020 年推行；</li>
+<li>C 州从未推行。</li>
+</ul>
+<p>你收集了 2016–2022 年的各州健康数据，然后运行如下 TWFE 回归模型：</p>
+<p><span class="math display">\[
+Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
+\]</span></p>
+<p>结果显示 $ = -3.7$，你欣喜地认为该政策平均每年使死亡率下降了 3.7。问题是：这个估计是否真的可信？它真的等于我们关心的因果效应（Average Treatment Effect on the Treated, ATT）吗？</p>
+<p>很可能不是。事实上，近期的研究清晰地表明：当政策是“错峰推出”的，而且处理效应在时间上具有异质性（即效应在不同时间点不同），TWFE 给出的估计可能是<strong>方向错误的加权平均值</strong>，甚至完全偏离真实效应。</p>
+</section>
+<section id="来自最新研究的警示" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="来自最新研究的警示"><span class="header-section-number">8.1.2</span> 1.2 来自最新研究的警示</h3>
+<p>Wing 等人（2024）在《Annual Review of Public Health》中发表的重要综述文章，专门讨论了这一问题。他们指出：在存在异质效应与分期处理的情境下，TWFE 估计量往往混杂了“坏的比较”（bad comparisons），尤其是<strong>晚处理组与早处理组之间的比较</strong>，由于这些“对照组”其实已经接受了处理，导致估计量偏误难以察觉。</p>
+<p>他们以模拟实验为例，展示了 TWFE 可能产生方向相反的估计结果——即明明政策是有效的，却因为使用了“错误的对照组”，得出了“政策增加死亡率”的结论。</p>
+<p>我们必须认识到：传统 DID 方法的便利性背后，隐藏的是对研究设计粗心大意的风险。</p>
+</section>
+<section id="这篇推文能帮你解决什么问题" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="这篇推文能帮你解决什么问题"><span class="header-section-number">8.1.3</span> 1.3 这篇推文能帮你解决什么问题？</h3>
+<p>本推文旨在以通俗的方式向博士生与青年教师解释：</p>
+<ul>
+<li>为什么传统 DID 方法可能失效；</li>
+<li>如何理解 staggered DID 中的估计陷阱；</li>
+<li>如何选择合适的方法来估计分期处理的因果效应；</li>
+<li>如何将这些方法应用到你自己的论文中。</li>
+</ul>
+<p>我们会用一个贯穿始终的公共卫生政策模拟例子，图文并茂地解释各种方法的核心思想、数学表达与结果含义，确保你在理解的基础上，<strong>能操作、能解释、能写入你的论文</strong>。</p>
+</section>
+</section>
+<section id="lab-sec2" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="lab-sec2"><span class="header-section-number">8.2</span> 2. 最基础的 2×2 DID：你还记得它的含义吗？</h2>
+<p>在深入介绍 staggered DID 之前，我们有必要回顾最基础的 Difference-in-Differences（DID）设计。许多方法的出发点，都是对这个简单 2×2 DID 框架的延展与修正。理解这一框架不仅能帮助我们把握估计量的本质，也能明确识别分期处理下的偏误源头。</p>
+<section id="什么是-22-did" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="什么是-22-did"><span class="header-section-number">8.2.1</span> 2.1 什么是 2×2 DID？</h3>
+<p>最简单的 DID 设计包含两个组、两个时间点：</p>
+<ul>
+<li>一组是“处理组”（treatment group），另一组是“对照组”（control group）；</li>
+<li>两个时间点：$t=0$（处理前），$t=1$（处理后）；</li>
+<li>只有处理组在 $t=1$ 之后接受了处理，对照组始终未被处理。</li>
+</ul>
+<p>我们关心的因果效应是：在 $t=1$ 时，处理组相对于它自己在 $t=0$ 的变化，减去对照组在 $t=1$ 相对于 $t=0$ 的变化。</p>
+<p>这个思路可以写作一个标准的 DID 估计量：</p>
+<p><span class="math display">\[
+\widehat{\text{DID}} = (Y_{T,1} - Y_{T,0}) - (Y_{C,1} - Y_{C,0})
+\]</span></p>
+<p>其中：</p>
+<ul>
+<li>$Y_{T,t}$ 表示处理组在时间 $t$ 的平均结果；</li>
+<li>$Y_{C,t}$ 表示对照组在时间 $t$ 的平均结果。</li>
+</ul>
+<p>若我们将该估计量视为一个回归模型，它可以形式化为：</p>
+<p><span class="math display">\[
+Y_{it} = \alpha + \delta \cdot \text{Post}_t + \gamma \cdot \text{Treat}_i + \beta \cdot (\text{Treat}_i \times \text{Post}_t) + \varepsilon_{it}
+\]</span></p>
+<p>其中，$$ 就是我们要估计的因果效应（ATT）。</p>
+</section>
+<section id="did-成立的两个关键假设" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="did-成立的两个关键假设"><span class="header-section-number">8.2.2</span> 2.2 DID 成立的两个关键假设</h3>
+<p>DID 的识别依赖于两个关键但强约束的假设：</p>
+<section id="并行趋势假设common-trends" class="level4" data-number="8.2.2.1">
+<h4 data-number="8.2.2.1" class="anchored" data-anchor-id="并行趋势假设common-trends"><span class="header-section-number">8.2.2.1</span> （1）并行趋势假设（Common Trends）</h4>
+<p>即如果没有接受处理，处理组和对照组的结果变量在时间上的变化趋势应该是一致的。</p>
+<p>形式化地说：</p>
+<p><span class="math display">\[
+E[Y_{T,1}(0) - Y_{T,0}(0)] = E[Y_{C,1}(0) - Y_{C,0}(0)]
+\]</span></p>
+<p>这个假设无法直接检验，因为我们无法观察所有单位的“未处理状态下的潜在结果”。但我们可以通过检查处理前的趋势是否一致（“pre-trends”）来佐证其合理性。</p>
+</section>
+<section id="无预期行为no-anticipation" class="level4" data-number="8.2.2.2">
+<h4 data-number="8.2.2.2" class="anchored" data-anchor-id="无预期行为no-anticipation"><span class="header-section-number">8.2.2.2</span> （2）无预期行为（No Anticipation）</h4>
+<p>处理组不会因为“预期”将来会接受处理而提前调整行为。</p>
+<p>形式化地写为：</p>
+<p><span class="math display">\[
+E[Y_{T,0}(1) - Y_{T,0}(0)] = 0
+\]</span></p>
+<p>换句话说，处理的影响只能在实际处理开始之后才出现。</p>
+</section>
+</section>
+<section id="例子疫苗政策对死亡率的影响" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="例子疫苗政策对死亡率的影响"><span class="header-section-number">8.2.3</span> 2.3 例子：疫苗政策对死亡率的影响</h3>
+<p>我们沿用 Wing 等人（2024）的模拟例子：设想一种疫苗政策只在 A 州推出，其它州未推出。</p>
+<ul>
+<li>年份 $t=0$（2019）：A、B 两州都未实施政策；</li>
+<li>年份 $t=1$（2020）：A 州开始实施，B 州未实施；</li>
+<li>我们观察到 A 州死亡率下降了 10，B 州下降了 2；</li>
+<li>那么 DID 估计值为：$(-10) - (-2) = -8$。</li>
+</ul>
+<p>这意味着，政策可能将死亡率额外降低了 8。</p>
+</section>
+<section id="为什么-22-did-是后续方法的出发点" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="为什么-22-did-是后续方法的出发点"><span class="header-section-number">8.2.4</span> 2.4 为什么 2×2 DID 是后续方法的出发点？</h3>
+<p>Wing 等人提出的核心观点是：<strong>复杂的 staggered DID，可以看作是众多 2×2 DID 子实验的加权平均</strong>。只有真正理解了 2×2 DID 的估计逻辑，才能意识到在何种条件下这些子实验会给出可靠的估计，在何种条件下却引入了偏误。</p>
+<p>在接下来的章节中，我们将看到，当各个单位的处理时间不同（staggered adoption），处理效应随时间变化（treatment heterogeneity），且我们又将所有单位一起放入 TWFE 模型中分析时，这个估计量已不再是上面那种简单 DID 的平均，而可能被“坏的子比较”严重扭曲。</p>
+<p>因此，<strong>重温 2×2 DID 的基本逻辑，就是理解分期处理挑战的起点</strong>。</p>
+<p>好的，继续依照既定结构与字数计划输出所有 Sections。</p>
+</section>
+</section>
+<section id="lab-sec3" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="lab-sec3"><span class="header-section-number">8.3</span> 3. 分期处理的挑战：当处理时间不同步时，会发生什么？</h2>
+<p>上一节我们介绍了标准的 2×2 DID 框架，它建立在“单一处理时间”“统一比较结构”的理想设定上。但现实中，政策往往以**错峰方式（staggered adoption）**在不同单位中推广。这类设定在文献中极其常见，例如：</p>
+<ul>
+<li>最低工资在不同州的分批调整；</li>
+<li>医疗补贴政策在不同县的滚动推出；</li>
+<li>城市限购、限行政策在各地陆续上马。</li>
+</ul>
+<p>这种设定使得我们面对的，不再是 2 组 × 2 时间点的比较，而是<strong>多个处理组、多个时间点、多个处理路径</strong>交织在一起。</p>
+<section id="twfe-在这种情境下是如何工作的" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="twfe-在这种情境下是如何工作的"><span class="header-section-number">8.3.1</span> 3.1 TWFE 在这种情境下是如何工作的？</h3>
+<p>研究者往往使用如下的 TWFE 模型进行估计：</p>
+<p><span class="math display">\[
+Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
+\]</span></p>
+<p>其中，$D_{it}$ 表示个体 $i$ 在时间 $t$ 是否接受了处理。</p>
+<p>这种做法有两个表面上的优势：</p>
+<ul>
+<li>控制了单位固定效应 $_i$ 和时间固定效应 $_t$；</li>
+<li>所有组和所有时期的数据都被用上，提升了估计效率。</li>
+</ul>
+<p>但问题也正在于此：<strong>并非所有被用上的比较，都是有效的因果识别来源</strong>。</p>
+</section>
+<section id="goodman-bacon-decomposition将复杂-did-拆解为-22-子实验" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="goodman-bacon-decomposition将复杂-did-拆解为-22-子实验"><span class="header-section-number">8.3.2</span> 3.2 Goodman-Bacon decomposition：将复杂 DID 拆解为 2×2 子实验</h3>
+<p>Goodman-Bacon（2021）的突破性研究表明，TWFE 模型中估计量 $$ 实际上是多个 2×2 DID 子估计的加权平均。每一个子 DID 来自两个组在某一时间窗口内的比较。</p>
+<p>比如，设有三个处理时间：</p>
+<ul>
+<li>A 州：2018；</li>
+<li>B 州：2020；</li>
+<li>C 州：未处理。</li>
+</ul>
+<p>TWFE 模型包含的子比较包括：</p>
+<ol type="1">
+<li>A 州 vs.&nbsp;C 州（t=2017–2019）；</li>
+<li>B 州 vs.&nbsp;C 州（t=2019–2021）；</li>
+<li>A 州 vs.&nbsp;B 州（t=2019–2021）；</li>
+<li>B 州 vs.&nbsp;A 州（t=2017–2019）……</li>
+</ol>
+<p>其中 3 和 4 是最危险的，它们将<strong>已经处理过的组</strong>当作“对照组”，可能严重违反了并行趋势假设和未处理状态的可识别性。</p>
+<p>这些子估计被 Goodman-Bacon 分为三类：</p>
+<ul>
+<li>treated vs.&nbsp;untreated；</li>
+<li>early treated vs.&nbsp;late treated；</li>
+<li>late treated vs.&nbsp;early treated（最容易出偏误的一类）。</li>
+</ul>
+<p>每个子估计都被赋予一个权重，构成最终的 TWFE 估计。</p>
+</section>
+<section id="示例图解sulfa-drugs-实验来自-wing-等人" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="示例图解sulfa-drugs-实验来自-wing-等人"><span class="header-section-number">8.3.3</span> 3.3 示例图解：sulfa drugs 实验（来自 Wing 等人）</h3>
+<p>Wing 等人构造了一个模拟实验：假设磺胺药物分别在三个时点推广到三个州组（早、中、晚），还有一个州组从未获得该药物。在图 2 中，他们展示了每一种 2×2 比较的估计值与权重。</p>
+<p>其中，“1940 vs.&nbsp;1930”这种 late vs.&nbsp;early 比较给出的估计结果是<strong>正的</strong>，而真实效应是负的，说明这是典型的偏误方向翻转。</p>
+<p>更糟的是，这类比较可能被赋予高达 18% 的权重，极大地污染了整体估计量。</p>
+</section>
+<section id="什么时候偏误会严重" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="什么时候偏误会严重"><span class="header-section-number">8.3.4</span> 3.4 什么时候偏误会严重？</h3>
+<p>偏误的严重程度取决于两个因素：</p>
+<ul>
+<li><strong>处理效应是否随时间变化</strong>（event-time heterogeneity）；</li>
+<li><strong>“坏的比较”的权重有多大</strong>。</li>
+</ul>
+<p>只要处理效应不是恒定的（实际上几乎从不恒定），且“坏的比较”在样本中占据一定比例，TWFE 就可能产生严重偏误，甚至估计方向完全错误。</p>
+<p>这正是为什么 Goodman-Bacon decomposition 成为现代 DID 方法中不可绕过的基础工具。</p>
+</section>
+<section id="一个警示性的结论" class="level3" data-number="8.3.5">
+<h3 data-number="8.3.5" class="anchored" data-anchor-id="一个警示性的结论"><span class="header-section-number">8.3.5</span> 3.5 一个警示性的结论</h3>
+<p>TWFE 在 staggered DID 情境下不是“无害的平均”，而是“危险的混合物”。</p>
+<p>正如 Wing 等人指出的那样：“如果我们不能明确理解哪些子比较被包含在估计中，就不能断言我们的估计结果具有因果含义。”</p>
+<p>这一观察直接推动了后续方法的发展，如 stacked DID、Callaway &amp; Sant’Anna 等方法，目的就是<strong>控制或剔除这些“坏的比较”</strong>。</p>
+</section>
+</section>
+<section id="lab-sec4" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="lab-sec4"><span class="header-section-number">8.4</span> 4. 五种实用方法一图总览：你可以怎么做？</h2>
+<p>面对 staggered DID 的复杂结构与 TWFE 的偏误问题，近年来方法学文献提出了多种新的解决方案。这些方法各有侧重，但都建立在如下共识基础上：</p>
+<blockquote class="blockquote">
+<p>“我们必须控制或规避掉那些由处理过单位构成的对照组。”</p>
+</blockquote>
+<section id="方法概览表简化" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="方法概览表简化"><span class="header-section-number">8.4.1</span> 4.1 方法概览表（简化）</h3>
+<p>以下是 5 种主流方法的直观对比：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法名称</th>
+<th>是否使用回归？</th>
+<th>估计结果形式</th>
+<th>是否输出组 × 时间 ATT？</th>
+<th>控制组设定</th>
+<th>推荐软件</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TWFE</td>
+<td>是</td>
+<td>单一 $$</td>
+<td>否</td>
+<td>所有单位</td>
+<td>所有软件</td>
+</tr>
+<tr class="even">
+<td>Stacked DID</td>
+<td>是</td>
+<td>event-study 图</td>
+<td>是（自动加总）</td>
+<td>干净对照组</td>
+<td>手工回归 / <code>stackedev</code></td>
+</tr>
+<tr class="odd">
+<td>Callaway &amp; Sant’Anna</td>
+<td>否</td>
+<td>ATT(a,t) 列表</td>
+<td>是（可加总）</td>
+<td>可选未处理 / 延迟处理</td>
+<td><code>did</code> (R), <code>csdid</code> (Stata)</td>
+</tr>
+<tr class="even">
+<td>Sun &amp; Abraham</td>
+<td>是</td>
+<td>event-study 图</td>
+<td>是</td>
+<td>最近处理组</td>
+<td><code>eventstudyinteract</code></td>
+</tr>
+<tr class="odd">
+<td>Gardner (did2s)</td>
+<td>是</td>
+<td>ATT 或图</td>
+<td>是</td>
+<td>所有未处理单位</td>
+<td><code>did2s</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="一图看懂逻辑差异" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="一图看懂逻辑差异"><span class="header-section-number">8.4.2</span> 4.2 一图看懂逻辑差异</h3>
+<p>我们可以用一张结构图来解释这些方法的核心逻辑差异（此处建议在讲义中插入图表）：</p>
+<ul>
+<li>TWFE：使用所有比较（包括坏的）；</li>
+<li>Stacked DID：仅使用“干净”的 2×2 子实验，拼接构成估计；</li>
+<li>Callaway &amp; Sant’Anna：精确估计每个组 × 时间效应；</li>
+<li>Sun &amp; Abraham：对 event-time 效应进行交互建模；</li>
+<li>Gardner：先做回归残差去噪，再估计效应。</li>
+</ul>
+</section>
+<section id="方法选择的三个基本维度" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="方法选择的三个基本维度"><span class="header-section-number">8.4.3</span> 4.3 方法选择的三个基本维度</h3>
+<p>选择方法时，应重点考虑以下三个问题：</p>
+<ol type="1">
+<li>你的处理效应是否异质？</li>
+<li>你是否希望估计动态路径（event-study）？</li>
+<li>你是否能接受对照组被限定为“未来将处理”的单位？</li>
+</ol>
+<p>在后续章节中，我们将逐一介绍这些方法的原理、估计公式、应用条件，并与 Wing 等人的实操建议一一对应。</p>
+<p>好的，继续输出 Section 5 至 Section 8 的内容。</p>
+</section>
+</section>
+<section id="lab-sec5" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="lab-sec5"><span class="header-section-number">8.5</span> 5. 方法逐个讲</h2>
+<p>以下是对五种主要方法的逐一介绍。每种方法包括基本思想、数学表达、适用情境、结果解释方式，并明确与 Section 6 的实操建议的对应关系。</p>
+<section id="twfetwo-way-fixed-effects" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="twfetwo-way-fixed-effects"><span class="header-section-number">8.5.1</span> 5.1 TWFE（Two-Way Fixed Effects）</h3>
+<p><strong>基本思想</strong>：最常见的做法，将所有单位、所有时间点的处理状态编码为一个 0/1 变量，在回归中加入单位固定效应与时间固定效应。</p>
+<p><strong>模型形式</strong>：</p>
+<p><span class="math display">\[
+Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
+\]</span></p>
+<p>其中 $$ 被解释为平均处理效应。</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>所有单位几乎同时接受处理；</li>
+<li>处理效应不随时间变化；</li>
+<li>没有严重的预期效应或政策滞后反应。</li>
+</ul>
+<p><strong>结果解释</strong>：</p>
+<p>当上述条件被破坏时，$$ 可能是多个子比较的有偏加权平均，甚至方向错误。</p>
+<p><strong>对应建议（Section 6）</strong>：</p>
+<ul>
+<li>不推荐在 staggered adoption 情境下单独使用 TWFE；</li>
+<li>可用 TWFE 作基准估计，但需搭配 Bacon 分解或敏感性分析。</li>
+</ul>
+</section>
+<section id="stacked-didcengiz-et-al.-2019" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="stacked-didcengiz-et-al.-2019"><span class="header-section-number">8.5.2</span> 5.2 Stacked DID（Cengiz et al.&nbsp;2019）</h3>
+<p><strong>基本思想</strong>：</p>
+<p>将每一个“政策推出”的处理组及其对应的干净控制组视为一个独立的 2×2 实验，进行事件研究式建模，再将所有子实验合并为一个 stacked 数据集，在其上进行统一回归。</p>
+<p><strong>事件时间定义</strong>：</p>
+<p><span class="math display">\[
+e = t - A_s,\quad \text{即实际时间减去政策首次实施年份}
+\]</span></p>
+<p><strong>回归模型</strong>：</p>
+<p><span class="math display">\[
+Y_{ised} = \sum_{k \neq -1} \beta_k \cdot D_{sd} \cdot \mathbb{1}[e = k] + \alpha_{sd} + \lambda_{ed} + \varepsilon_{ised}
+\]</span></p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>多次政策推出（如多个州分批推出政策）；</li>
+<li>可构造干净对照组（未处理或延迟处理）；</li>
+<li>关注动态效应路径。</li>
+</ul>
+<p><strong>结果解释</strong>：</p>
+<p>$_k$ 表示事件时间为 $k$ 的平均处理效应（如政策实施后第 $k$ 年的效应）。</p>
+<p><strong>对应建议（Section 6）</strong>：</p>
+<ul>
+<li>强烈推荐在 staggered DID 中使用；</li>
+<li>注意选择合理的事件窗口（如 -2 到 +4 年）；</li>
+<li>推荐搭配平衡样本设计，确保每个 $k$ 都有足够样本。</li>
+</ul>
+</section>
+<section id="callaway-santanna2021" class="level3" data-number="8.5.3">
+<h3 data-number="8.5.3" class="anchored" data-anchor-id="callaway-santanna2021"><span class="header-section-number">8.5.3</span> 5.3 Callaway &amp; Sant’Anna（2021）</h3>
+<p><strong>基本思想</strong>：</p>
+<p>将每一个组（单位）的处理时间作为组别指标，直接估计各组在各时间的 ATT，然后加权汇总，形成总体效应。</p>
+<p><strong>核心量：ATT(a, t)</strong></p>
+<p>表示处理组在第 $a$ 年接受处理，在第 $t$ 年观测时的平均处理效应。</p>
+<p><strong>加权方式</strong>：</p>
+<p><span class="math display">\[
+\delta_q = \sum_a \text{Pr}(A_s = a) \cdot \text{ATT}(a, a + q)
+\]</span></p>
+<p>其中 $q$ 为事件时间，$a$ 为组的处理时间。</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>有多个处理时间；</li>
+<li>明确关心各组的异质性与动态路径；</li>
+<li>对结果解释要求细致。</li>
+</ul>
+<p><strong>结果解释</strong>：</p>
+<p>可视化输出一系列 $(a, t)$ 或加总后展示 $_q$（如 event-study 图）。</p>
+<p><strong>对应建议（Section 6）</strong>：</p>
+<ul>
+<li>推荐作为主方法之一；</li>
+<li>可用 <code>csdid</code> 命令（Stata）或 <code>did</code>（R）实现；</li>
+<li>可配合 covariates 做 IPW 加权。</li>
+</ul>
+</section>
+<section id="sun-abraham2020" class="level3" data-number="8.5.4">
+<h3 data-number="8.5.4" class="anchored" data-anchor-id="sun-abraham2020"><span class="header-section-number">8.5.4</span> 5.4 Sun &amp; Abraham（2020）</h3>
+<p><strong>基本思想</strong>：</p>
+<p>使用回归框架，将不同处理时间组与 event time 进行交互，构建 saturated event study 模型，避免组别混杂。</p>
+<p><strong>模型核心</strong>：</p>
+<p><span class="math display">\[
+Y_{it} = \sum_{g,e} \delta_{g,e} \cdot \mathbb{1}[G_i = g] \cdot \mathbb{1}[t - g = e] + \alpha_i + \lambda_t + \varepsilon_{it}
+\]</span></p>
+<p>其中 $G_i$ 是单位 $i$ 的处理时间，$e$ 是事件时间。</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>想使用 OLS 框架；</li>
+<li>希望得到处理组特异的动态路径；</li>
+<li>数据处理时间结构相对密集。</li>
+</ul>
+<p><strong>结果解释</strong>：</p>
+<p>每个 $_{g,e}$ 表示第 $g$ 组在事件时间 $e$ 下的效应，结果较为细致。</p>
+<p><strong>对应建议（Section 6）</strong>：</p>
+<ul>
+<li>推荐作为对照方法；</li>
+<li>可使用 <code>eventstudyinteract</code> 命令（Stata）实现；</li>
+<li>注意回归中 reference period 设置。</li>
+</ul>
+</section>
+<section id="gardner-wooldridgetwo-stage-diddid2s" class="level3" data-number="8.5.5">
+<h3 data-number="8.5.5" class="anchored" data-anchor-id="gardner-wooldridgetwo-stage-diddid2s"><span class="header-section-number">8.5.5</span> 5.5 Gardner &amp; Wooldridge：Two-stage DID（did2s）</h3>
+<p><strong>基本思想</strong>：</p>
+<p>第一阶段仅使用未处理单位估计单位和时间固定效应；第二阶段估计处理效应。</p>
+<p><strong>估计框架</strong>：</p>
+<ul>
+<li>第一步：残差提取；</li>
+<li>第二步：回归残差对处理变量，估计处理效应。</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>样本较小、担心 overfitting；</li>
+<li>希望用经典 OLS 工具获得稳健性与精度。</li>
+</ul>
+<p><strong>结果解释</strong>：</p>
+<p>输出单一 $$ 或 event study 系数，但具有较强理论基础和可解释性。</p>
+<p><strong>对应建议（Section 6）</strong>：</p>
+<ul>
+<li>适合与 stacked DID / csdid 结果交叉验证；</li>
+<li>推荐 <code>did2s</code> 包（R）实现。</li>
+</ul>
+</section>
+</section>
+<section id="lab-sec6" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="lab-sec6"><span class="header-section-number">8.6</span> 6. 作者推荐的六条实操建议</h2>
+<p>Wing 等人以公共卫生领域的经验为基础，总结出六条关键实操建议。这些建议适用于任何采用 staggered DID 的研究，尤其适合政策干预类论文。</p>
+<section id="s1.-明确定义研究问题what-do-you-want" class="level3" data-number="8.6.1">
+<h3 data-number="8.6.1" class="anchored" data-anchor-id="s1.-明确定义研究问题what-do-you-want"><span class="header-section-number">8.6.1</span> S1. 明确定义研究问题（What do you want?）</h3>
+<ul>
+<li>是估计整体效应，还是某个子群体的效应？</li>
+<li>是估计短期效应，还是长期路径？</li>
+</ul>
+<p><strong>要点：</strong> 不同目标对应不同加权策略与估计方法。</p>
+</section>
+<section id="s2.-避免污染的对照组" class="level3" data-number="8.6.2">
+<h3 data-number="8.6.2" class="anchored" data-anchor-id="s2.-避免污染的对照组"><span class="header-section-number">8.6.2</span> S2. 避免污染的对照组</h3>
+<ul>
+<li>不要将已被处理的单位作为对照；</li>
+<li>只使用“干净对照组”（未处理或延迟处理的单位）；</li>
+<li>推荐方法：stacked DID, csdid。</li>
+</ul>
+</section>
+<section id="s3.-谨慎使用-twfe尤其在存在异质效应时" class="level3" data-number="8.6.3">
+<h3 data-number="8.6.3" class="anchored" data-anchor-id="s3.-谨慎使用-twfe尤其在存在异质效应时"><span class="header-section-number">8.6.3</span> S3. 谨慎使用 TWFE，尤其在存在异质效应时</h3>
+<ul>
+<li>TWFE 的估计结果需要 Bacon 分解解释；</li>
+<li>若你无法判断哪些子比较构成估计量，就不要直接使用 TWFE。</li>
+</ul>
+</section>
+<section id="s4.-优先使用-group-time-att-方法" class="level3" data-number="8.6.4">
+<h3 data-number="8.6.4" class="anchored" data-anchor-id="s4.-优先使用-group-time-att-方法"><span class="header-section-number">8.6.4</span> S4. 优先使用 group × time ATT 方法</h3>
+<ul>
+<li>推荐使用 Callaway &amp; Sant’Anna, stacked DID；</li>
+<li>输出 ATT(a, t) 能让你判断哪一类单位在何时受到影响；</li>
+<li>有助于理解政策异质性与动态反应。</li>
+</ul>
+</section>
+<section id="s5.-如果估计-dynamic-effects请使用事件时间框架" class="level3" data-number="8.6.5">
+<h3 data-number="8.6.5" class="anchored" data-anchor-id="s5.-如果估计-dynamic-effects请使用事件时间框架"><span class="header-section-number">8.6.5</span> S5. 如果估计 dynamic effects，请使用事件时间框架</h3>
+<ul>
+<li>明确区分 event time（相对政策开始的时间）与 calendar time；</li>
+<li>使用事件时间窗口（如 -2 到 +4）做图或估计；</li>
+<li>推荐配图展示。</li>
+</ul>
+</section>
+<section id="s6.-保留原始图表与诊断分析" class="level3" data-number="8.6.6">
+<h3 data-number="8.6.6" class="anchored" data-anchor-id="s6.-保留原始图表与诊断分析"><span class="header-section-number">8.6.6</span> S6. 保留原始图表与诊断分析</h3>
+<ul>
+<li>附带展示 pre-trends 检验图；</li>
+<li>展示不同方法下的估计结果对比图；</li>
+<li>强调稳健性与诊断，而非单一显著性。</li>
+</ul>
+</section>
+</section>
+<section id="lab-sec7" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="lab-sec7"><span class="header-section-number">8.7</span> 7. 你的论文中该如何选择？三种典型应用场景推荐</h2>
+<p>为了将方法与实操建议真正用到论文中，我们以三类常见论文结构为例，推荐可操作的分析策略。</p>
+<section id="应用场景一一次性处理时间清晰" class="level3" data-number="8.7.1">
+<h3 data-number="8.7.1" class="anchored" data-anchor-id="应用场景一一次性处理时间清晰"><span class="header-section-number">8.7.1</span> 7.1 应用场景一：一次性处理，时间清晰</h3>
+<blockquote class="blockquote">
+<p>比如：全国统一施行某项补贴政策，2020 年一月生效。</p>
+</blockquote>
+<p><strong>建议方法</strong>：</p>
+<ul>
+<li>可使用 2×2 DID 或 TWFE；</li>
+<li>若关注动态效应，推荐 event study + csdid；</li>
+<li>对照组为“从未处理”单位。</li>
+</ul>
+</section>
+<section id="应用场景二错峰处理政策在不同地区逐步推出" class="level3" data-number="8.7.2">
+<h3 data-number="8.7.2" class="anchored" data-anchor-id="应用场景二错峰处理政策在不同地区逐步推出"><span class="header-section-number">8.7.2</span> 7.2 应用场景二：错峰处理，政策在不同地区逐步推出</h3>
+<blockquote class="blockquote">
+<p>比如：医保扩张政策 2018–2021 年间在各州陆续施行。</p>
+</blockquote>
+<p><strong>建议方法</strong>：</p>
+<ul>
+<li>不使用 TWFE；</li>
+<li>使用 stacked DID（平衡事件窗口）；</li>
+<li>对照组为未来处理或从未处理组；</li>
+<li>搭配图形展示与敏感性分析。</li>
+</ul>
+</section>
+<section id="应用场景三关注异质性反应或动态路径" class="level3" data-number="8.7.3">
+<h3 data-number="8.7.3" class="anchored" data-anchor-id="应用场景三关注异质性反应或动态路径"><span class="header-section-number">8.7.3</span> 7.3 应用场景三：关注异质性反应或动态路径</h3>
+<blockquote class="blockquote">
+<p>比如：某补贴政策对不同收入群体影响可能不同，且效应随时间演化。</p>
+</blockquote>
+<p><strong>建议方法</strong>：</p>
+<ul>
+<li>使用 Callaway &amp; Sant’Anna；</li>
+<li>输出 ATT(a, t)，聚焦群体与时间异质性；</li>
+<li>可扩展为组内回归、分层事件研究。</li>
+</ul>
+</section>
+</section>
+<section id="lab-sec8" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="lab-sec8"><span class="header-section-number">8.8</span> 8. 附录：常用命令、图形模板与推荐资料</h2>
+<p>以下是建议你实际操作时参考的命令、工具与学习资料。</p>
+<section id="stata-命令对照表" class="level3" data-number="8.8.1">
+<h3 data-number="8.8.1" class="anchored" data-anchor-id="stata-命令对照表"><span class="header-section-number">8.8.1</span> 8.1 Stata 命令对照表</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 37%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TWFE</td>
+<td><code>xtreg y d i.time, fe</code></td>
+<td>不推荐用于 staggered DID</td>
+</tr>
+<tr class="even">
+<td>Bacon 分解</td>
+<td><code>bacondecomp</code></td>
+<td>拆解 TWFE 中的子比较</td>
+</tr>
+<tr class="odd">
+<td>csdid</td>
+<td><code>csdid y time id gvar</code></td>
+<td>官方推荐，功能强大</td>
+</tr>
+<tr class="even">
+<td>stacked DID</td>
+<td>手动 reshape + event-study</td>
+<td>需要写循环或使用 <code>stackedev</code> 包</td>
+</tr>
+<tr class="odd">
+<td>Sun &amp; Abraham</td>
+<td><code>eventstudyinteract</code></td>
+<td>事件时间交互建模</td>
+</tr>
+<tr class="even">
+<td>did2s</td>
+<td>R 包 <code>did2s</code></td>
+<td>两阶段 OLS 建模，精确稳健</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="推荐图形模板" class="level3" data-number="8.8.2">
+<h3 data-number="8.8.2" class="anchored" data-anchor-id="推荐图形模板"><span class="header-section-number">8.8.2</span> 8.2 推荐图形模板</h3>
+<ul>
+<li>Event study plot with pre-trend lines；</li>
+<li>Goodman-Bacon 分解图；</li>
+<li>ATT(a,t) 热力图（group × time）；</li>
+<li>多方法比较图（coefplot 系列）。</li>
+</ul>
+</section>
+<section id="推荐资料" class="level3" data-number="8.8.3">
+<h3 data-number="8.8.3" class="anchored" data-anchor-id="推荐资料"><span class="header-section-number">8.8.3</span> 8.3 推荐资料</h3>
+<ul>
+<li>Wing et al.&nbsp;(2024) 官方 replication repo：<a href="https://github.com/hollina/arph-did-example">GitHub</a></li>
+<li>Callaway &amp; Sant’Anna R 教程：<a href="https://bcallaway11.github.io/did/">R package documentation</a></li>
+<li><code>csdid</code> 官方指南（Stata）：<a href="https://friosavila.github.io/">PDF</a></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/lianxhcn\.github\.io\/research_with_AI\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../body/05_01_example_Wing-2024.html" class="pagination-link" aria-label="案例：AI 助我读论文之 Wing et al. (2024)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">案例：AI 助我读论文之 Wing et al.&nbsp;(2024)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../body/AI_research_design_Erdem_2025.html" class="pagination-link" aria-label="借助 AI 做研究设计">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

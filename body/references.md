@@ -20,6 +20,9 @@ tasks.
 
 - Renkema, M., & Tursunbayeva, A. (2024). The future of work of academics in the age of Artificial Intelligence: State-of-the-art and a research roadmap. Futures, 163, 103453. [Link](https://doi.org/10.1016/j.futures.2024.103453), [PDF](https://ris.utwente.nl/ws/portalfiles/portal/489029873/1-s2.0-S0016328724001368-main.pdf), [Google](<https://scholar.google.com/scholar?q=The future of work of academics in the age of Artificial Intelligence: State-of-the-art and a research roadmap>).
 
+- Sahoo, S., & Dutta, K. (2024). Boardwalk Empire: How Generative AI is Revolutionizing Economic Paradigms (Version 2). arXiv. [Link](https://doi.org/10.48550/arXiv.2410.15212) (rep), [PDF](https://arxiv.org/pdf/2410.15212.pdf), [Google](<https://scholar.google.com/scholar?q=Boardwalk Empire: How Generative AI is Revolutionizing Economic Paradigms (Version 2)>).
+  - 介绍了各种使用 GenAI 处理文本、语音和影像资料的软件和平台。
+
 - Qin X, Huang M, Ding J. AITurk: Using ChatGPT for Social Science Research[J]. Available at SSRN 4922861, 2024. [-PDF-](https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=4922861). [中文推文](https://www.lianxh.cn/details/1534.html), [ATTurk](https://www.aiturk.cc/)
 
 - Wang, J. J., & Wang, V. X. (2024). Leveraging Large Language Models to Democratize Access to Costly Datasets for Academic Research (Version 2). arXiv. [Link](https://doi.org/10.48550/arXiv.2412.02065) (rep), [PDF](https://arxiv.org/pdf/2412.02065.pdf), [Google](<https://scholar.google.com/scholar?q=Leveraging Large Language Models to Democratize Access to Costly Datasets for Academic Research (Version 2)>). Page 32-33 提供了作者用于收集数据的提示词清单。

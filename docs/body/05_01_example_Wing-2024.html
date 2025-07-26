@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; 利用 AI 生成研究假设 – Empirical Research with AI</title>
+<title>7&nbsp; 案例：AI 助我读论文之 Wing et al.&nbsp;(2024) – Empirical Research with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../body/AI_research_design_Erdem_2025.html" rel="next">
+<link href="../body/05_02_Wing-2024.html" rel="next">
 <link href="../body/05_00_read_paper_with_AI.html" rel="prev">
 <link href="../images/book-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/06_AI_ideas_brainstorming.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">利用 AI 生成研究假设</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/05_01_example_Wing-2024.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">案例：AI 助我读论文之 Wing et al.&nbsp;(2024)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -137,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../body/00_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">借助 AI 写代码</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">理念</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -177,8 +211,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/06_AI_ideas_brainstorming.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">利用 AI 生成研究假设</span></span></a>
+  <a href="../body/05_01_example_Wing-2024.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">案例：AI 助我读论文之 Wing et al.&nbsp;(2024)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../body/05_02_Wing-2024.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Wing et al.&nbsp;(2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span></span></a>
   </div>
 </li>
       </ul>
@@ -195,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../body/AI_research_design_Erdem_2025.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span></a>
   </div>
 </li>
       </ul>
@@ -212,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/learn_Tobit_model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></span></a>
   </div>
 </li>
       </ul>
@@ -229,19 +269,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/CSMAR/01_unzip_to_csv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/web_dangdang_book/case_Dangdang_book.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
   </div>
 </li>
       </ul>
@@ -258,13 +298,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/regenernate_figure_with_AI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/split_mdfile/split-topic-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></span></a>
   </div>
 </li>
       </ul>
@@ -281,7 +321,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../body/references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">参考文献</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">参考文献</span></span></a>
   </div>
 </li>
       </ul>
@@ -296,31 +336,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ai助力基于大语言模型的研究假设论证" id="toc-ai助力基于大语言模型的研究假设论证" class="nav-link active" data-scroll-target="#ai助力基于大语言模型的研究假设论证"><span class="header-section-number">8</span> AI助力：基于大语言模型的研究假设论证</a>
-  <ul class="collapse">
-  <li><a href="#为什么用ai帮忙做假设" id="toc-为什么用ai帮忙做假设" class="nav-link" data-scroll-target="#为什么用ai帮忙做假设"><span class="header-section-number">8.1</span> 1. 为什么用AI帮忙“做假设”？</a></li>
-  <li><a href="#怎么写出有启发性的-prompt" id="toc-怎么写出有启发性的-prompt" class="nav-link" data-scroll-target="#怎么写出有启发性的-prompt"><span class="header-section-number">8.2</span> 2. 怎么写出“有启发性”的 Prompt？</a>
-  <ul class="collapse">
-  <li><a href="#ludwig-mullainathan2024提示词" id="toc-ludwig-mullainathan2024提示词" class="nav-link" data-scroll-target="#ludwig-mullainathan2024提示词"><span class="header-section-number">8.2.1</span> 📘 Ludwig &amp; Mullainathan（2024）提示词</a></li>
-  </ul></li>
-  <li><a href="#实战示例如何从-prompt-到-初步假设" id="toc-实战示例如何从-prompt-到-初步假设" class="nav-link" data-scroll-target="#实战示例如何从-prompt-到-初步假设"><span class="header-section-number">8.3</span> 3. 实战示例：如何从 Prompt 到 初步假设？</a>
-  <ul class="collapse">
-  <li><a href="#模型可能输出的初步假设" id="toc-模型可能输出的初步假设" class="nav-link" data-scroll-target="#模型可能输出的初步假设"><span class="header-section-number">8.3.1</span> 模型可能输出的初步假设：</a></li>
-  <li><a href="#你可以如何用这些假设" id="toc-你可以如何用这些假设" class="nav-link" data-scroll-target="#你可以如何用这些假设"><span class="header-section-number">8.3.2</span> 你可以如何用这些假设？</a></li>
-  <li><a href="#提问小技巧" id="toc-提问小技巧" class="nav-link" data-scroll-target="#提问小技巧"><span class="header-section-number">8.3.3</span> 提问小技巧：</a></li>
-  </ul></li>
-  <li><a href="#使用提示词时的几点注意" id="toc-使用提示词时的几点注意" class="nav-link" data-scroll-target="#使用提示词时的几点注意"><span class="header-section-number">8.4</span> 4. 使用提示词时的几点注意</a></li>
-  <li><a href="#原始论文与学习资料" id="toc-原始论文与学习资料" class="nav-link" data-scroll-target="#原始论文与学习资料"><span class="header-section-number">8.5</span> 5. 原始论文与学习资料</a></li>
-  </ul></li>
+  <li><a href="#泛聊并形成大纲" id="toc-泛聊并形成大纲" class="nav-link active" data-scroll-target="#泛聊并形成大纲"><span class="header-section-number">7.1</span> 泛聊并形成大纲</a></li>
+  <li><a href="#撰写论文推介正文" id="toc-撰写论文推介正文" class="nav-link" data-scroll-target="#撰写论文推介正文"><span class="header-section-number">7.3</span> 撰写论文推介正文</a></li>
+  <li><a href="#最终文稿" id="toc-最终文稿" class="nav-link" data-scroll-target="#最终文稿"><span class="header-section-number">7.4</span> 最终文稿</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/06_AI_ideas_brainstorming.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">利用 AI 生成研究假设</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/05_01_example_Wing-2024.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">案例：AI 助我读论文之 Wing et al.&nbsp;(2024)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">利用 AI 生成研究假设</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">案例：AI 助我读论文之 Wing et al.&nbsp;(2024)</span></h1>
 </div>
 
 
@@ -337,116 +364,368 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>我主要受到了 <a href="https://doi.org/10.1257/jel.20231736">Korinek (2023)</a> 的启发。Korinek 教授为这篇文章建立了一个专门的网站：<a href=""></a></p>
-<ul>
-<li><p><a href="https://genaiforecon.org/subs/ideation.html"></a></p></li>
-<li><p>吴欣洋, 2025, <a href="https://www.lianxh.cn/details/1588.html">AI自动生成研究假设，靠谱吗？流程与挑战</a></p></li>
-</ul>
-<section id="ai助力基于大语言模型的研究假设论证" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> AI助力：基于大语言模型的研究假设论证</h1>
-<blockquote class="blockquote">
-<p><strong>作者：</strong> 杜新月 (中国科学技术大学) <strong>邮箱：</strong> <a href="mailto:xinyuedu97@gmail.com" class="email">xinyuedu97@gmail.com</a></p>
-</blockquote>
-<hr>
-<section id="为什么用ai帮忙做假设" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="为什么用ai帮忙做假设"><span class="header-section-number">8.1</span> 1. 为什么用AI帮忙“做假设”？</h2>
-<p>在学术研究中，提出好问题比找到答案更难。<strong>假设生成（Hypothesis Generation）</strong>是整个研究流程中最具创造性的一环，但往往也最依赖经验和灵感。</p>
-<p>近年来，随着<strong>大语言模型（LLMs）</strong>的快速发展，研究者开始探索其在“提出假设”这一阶段的潜力。尤其是以下两篇文章，为我们提供了新的视角：</p>
-<ul>
-<li><strong>Ludwig 和 Mullainathan（2024）</strong>：强调用机器学习工具理解数据结构、发现变量之间潜在的因果关系；</li>
-<li><strong>Batista 和 Ross（2024）</strong>：主张通过语言建模从文献中“读出”作者潜在的理论假设。</li>
-</ul>
-<p>这两条路线都是：<strong>让AI成为理论生成的“辅助脑”</strong>，成为科研的“灵感伙伴”。</p>
-<hr>
-</section>
-<section id="怎么写出有启发性的-prompt" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="怎么写出有启发性的-prompt"><span class="header-section-number">8.2</span> 2. 怎么写出“有启发性”的 Prompt？</h2>
-<p>如果你希望大语言模型像个靠谱的科研助理，那你得先学会怎么吩咐它——也就是写好提示词（Prompt）。</p>
-<p>一个好的 Prompt 通常具备以下特点：</p>
-<ul>
-<li><strong>明确背景</strong>：数据类型、研究领域、已知事实；</li>
-<li><strong>聚焦任务</strong>：是要生成假设、还是评估已有假设？</li>
-<li><strong>控制风格</strong>：例如强调创新性、理论一致性、可实证性等。</li>
-</ul>
-<p>下面是两篇论文中直接使用的原始 Prompt 模板，建议大家参考或套用：</p>
-<section id="ludwig-mullainathan2024提示词" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="ludwig-mullainathan2024提示词"><span class="header-section-number">8.2.1</span> 📘 Ludwig &amp; Mullainathan（2024）提示词</h3>
-<ul>
-<li><p><strong>生成假设（Hypothesis Generation）</strong> &gt; “Given the following dataset characteristics and research context, generate plausible and novel hypotheses that could be empirically tested. Focus on potential causal relationships and mechanisms.”</p></li>
-<li><p><strong>验证假设（Hypothesis Evaluation）</strong> &gt; “Evaluate the plausibility of the following hypothesis based on existing economic theories and relevant empirical evidence. Provide reasoning to support or refute it.”</p></li>
-</ul>
-<p>📝 <strong>实际应用场景：</strong><br>
-你可以将变量描述、样本信息、已有研究结论打包输入，让模型提出具有因果推理的假设。</p>
-<hr>
-</section>
-</section>
-<section id="实战示例如何从-prompt-到-初步假设" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="实战示例如何从-prompt-到-初步假设"><span class="header-section-number">8.3</span> 3. 实战示例：如何从 Prompt 到 初步假设？</h2>
-<p>假设你在研究<strong>远程办公对员工生产率的影响</strong>，你可以这样写 Prompt：</p>
-<blockquote class="blockquote">
-<p><strong>Prompt 示例：</strong><br>
-You are a social science researcher. Based on the dataset describing remote work adoption, employee demographics, and performance metrics, generate three novel and testable hypotheses regarding the effects of remote work on productivity and well-being.</p>
-</blockquote>
-<hr>
-<section id="模型可能输出的初步假设" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="模型可能输出的初步假设"><span class="header-section-number">8.3.1</span> 模型可能输出的初步假设：</h3>
+<p> </p>
+<p>本章以 Wing et al.&nbsp;(2024) 的论文为例，介绍如何使用 AI 工具来解读论文。我们将使用 <a href="https://chat.openai.com/">ChatGPT</a> 和 <a href="https://findit.ai/">Findit</a> 这两个工具来帮助我们理解论文的内容和方法。</p>
+<p>与 ChatGPT 的对话过程：<a href="https://chatgpt.com/share/6883cbb0-f6e8-8005-98b7-b8e1692b9332">点击查看</a>。</p>
+<p>此前，我也用豆包帮我读过这篇论文，参见 <a href="https://www.doubao.com/thread/w8e524bfc59a644e2">豆包对话过程</a>。</p>
+<section id="泛聊并形成大纲" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="泛聊并形成大纲"><span class="header-section-number">7.1</span> 泛聊并形成大纲</h2>
+<p>我把 Wing et al.&nbsp;(2024) 的论文上传到 ChatGPT，并编写了如下提示词：</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词 1：泛聊
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>#论文解读：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Wing, C., Yozwiak, M., Hollingsworth, A., Freedman, S., &amp; Simon, K. (2024). Designing Difference-in-Difference Studies with Staggered Treatment Adoption: Key Concepts and Practical Guidelines.</span>  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">Annual Review of Public Health, 45(1), 485–505.</span>  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Link</span><span class="co">](https://doi.org/10.1146/annurev-publhealth-061022-050825)</span><span class="at">.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>我想写一篇论文推介，介绍这篇论文。</p>
+<p>你帮我列个提纲。包括如下要点：</p>
 <ol type="1">
-<li><p><strong>Remote work increases productivity among employees with caregiving responsibilities.</strong><br>
-👉 远程办公为照顾家庭的员工提供更大的时间灵活性，从而提升他们的工作效率。</p></li>
-<li><p><strong>The effect of remote work on productivity is moderated by prior digital literacy.</strong><br>
-👉 掌握数字工具的员工可能比“技术新手”更能适应远程办公，从而实现更高效率。</p></li>
-<li><p><strong>Long-term remote work leads to a decline in team-level innovation output.</strong><br>
-👉 缺乏面对面的互动可能削弱团队之间的创意碰撞和合作氛围。</p></li>
+<li>论文的核心观点和主要结论是什么？</li>
+<li>文中介绍了哪些主要方法 (参见 Table 1)？</li>
+<li>作者提供了哪些实操建议？参见 Section 5</li>
+</ol>
+</div>
+</div>
+<p>ChatGPT 的回答简明扼要，基本上抓住了这篇论文的要点。让我有点惊喜的是，它居然还贴心地列了一个表格，把文中提到的五种方法对应的 Stata 和 R 实现命令也总结好了。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+回复 1：ChatGPT 首轮回答
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>## 1. 论文的核心观点与主要结论</p>
+<ul>
+<li><p><strong>核心问题</strong>：传统 DID 在处理“分期处理”（staggered adoption）时会面临严重的混淆偏误（confounding），尤其是在存在<strong>时间异质性处理效应</strong>的情况下。</p></li>
+<li><p><strong>关键结论</strong>：</p>
+<ul>
+<li><p>两大核心理念：</p>
+<ol type="1">
+<li><strong>复杂 DID = 简单 2×2 DID 的加权平均</strong>，理解这一点有助于解析 TWFE 存在哪些“坏的比较”；</li>
+<li><strong>干净的控制组（clean controls）设计</strong>是避免偏误的关键。</li>
+</ol></li>
+<li><p>TWFE 估计量存在混杂：它不仅包括“treated vs untreated”，还包括“late vs early”这种有偏比较；</p></li>
+<li><p><strong>推荐使用的新方法</strong>（如 stacked DID 和 Callaway &amp; Sant’Anna 方法）能更清楚地识别组 × 时间的异质性效应，并给出更可信的平均处理效应。</p></li>
+</ul></li>
+</ul>
+<p>## 2. 文中介绍的主要方法（Table 1）</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 20%">
+<col style="width: 14%">
+<col style="width: 18%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>软件支持</th>
+<th>输出内容</th>
+<th>优点</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Stacked DID</strong></td>
+<td>STATA/R 通用实现</td>
+<td>加总或 event study 图</td>
+<td>保证干净控制组；结构直观</td>
+<td>权重不透明；标准误需聚类</td>
+</tr>
+<tr class="even">
+<td><strong>Callaway &amp; Sant’Anna (2021)</strong></td>
+<td><code>did</code> (R), <code>csdid</code> (Stata)</td>
+<td>所有 ATT(a, t)，可自定义加权</td>
+<td>明确估计每个 group × time 效应</td>
+<td>稍复杂；推荐用包</td>
+</tr>
+<tr class="odd">
+<td><strong>Gardner (2022)</strong></td>
+<td><code>Did2s</code> (R)</td>
+<td>加总效应或 event study</td>
+<td>利用未处理组构建双重残差</td>
+<td>加权等权，需理解设计</td>
+</tr>
+<tr class="even">
+<td><strong>Sun &amp; Abraham (2020)</strong></td>
+<td><code>eventstudyinteract</code></td>
+<td>event study 图</td>
+<td>区分 group × period 的处理异质性</td>
+<td>无法处理时间变化协变量</td>
+</tr>
+<tr class="odd">
+<td><strong>Wooldridge (2022)</strong></td>
+<td>回归可实现</td>
+<td>ATT(a, t)，加总 ATT</td>
+<td>可以纳入时间变协变量</td>
+<td>无专门包</td>
+</tr>
+<tr class="even">
+<td><strong>de Chaisemartin &amp; D’Haultfoeuille (2020)</strong></td>
+<td><code>did_multiplegt</code></td>
+<td>单一加总效应</td>
+<td>利用“状态切换”识别处理效应</td>
+<td>假设较强，解释为首次变化效应</td>
+</tr>
+</tbody>
+</table>
+<p>## 3. 作者提供的实操建议（Section 5）</p>
+<p>作者提出了 6 条实用建议，帮助研究者在实际操作中避免偏误和提升估计质量：</p>
+<ol type="1">
+<li><strong>明确定义研究问题</strong>：是否目标是估计长期效应？平均效应？还是事件时间上的动态路径？</li>
+<li><strong>数据准备中避免混淆比较</strong>：识别每个组的处理时间，排除已经处理过的“污染对照组”。</li>
+<li><strong>慎用 TWFE 回归</strong>：除非确认处理效应恒定，否则应避免直接使用。</li>
+<li><strong>优先使用 event-study 构建组 × 时间 ATT</strong>：推荐 Callaway &amp; Sant’Anna 或 stacked DID 实现。</li>
+<li><strong>合理使用协变量调整</strong>：特别是时间不变协变量，可用于强化并行趋势假设。</li>
+<li><strong>图形化展示 ATT 路径和 pre-trend 检验</strong>：通过 event-study 图来验证 no anticipation 和 common trends 假设。</li>
 </ol>
 <hr>
-</section>
-<section id="你可以如何用这些假设" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="你可以如何用这些假设"><span class="header-section-number">8.3.2</span> 你可以如何用这些假设？</h3>
-<p>这些假设虽然未经实证检验，但它们具备三个特征：</p>
-<ul>
-<li><strong>有可测变量</strong>：如 caregiving status、digital literacy、innovation output。</li>
-<li><strong>有机制逻辑</strong>：不是“表面相关”，而是有潜在因果路径。</li>
-<li><strong>可转为模型设计</strong>：每条都可以发展为回归模型中的交互项或中介变量框架。</li>
-</ul>
-<p>你可以基于它们设计问卷、调用现有数据集（如 American Time Use Survey 或 CPS）、搭建量化模型等。</p>
+<p>如需将其撰写为一篇推文文章或教学讲义，我可以按结构扩写每节内容，并添加图例说明和代码演示。是否继续？</p>
+</div>
+</div>
+<p>我担心自己遗漏重要内容，便追问：</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词 2：补充内容
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>除了我提供的三个要点，你认为这篇论文推介海英包含哪些要点？</p>
+</div>
+</div>
+<p>ChatGPT 认为需要再补充三个要点：</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+回复 2：ChatGPT 补充回答
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>很好的问题。在你已指定的三个要点基础上（核心观点、主要方法、实操建议），为了使这篇论文推介更系统、完整、适合教学与学术传播用途，我建议<strong>增加以下 3 个要点</strong>，一共构成 <strong>6 个板块</strong>的完整推介结构：</p>
 <hr>
-</section>
-<section id="提问小技巧" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="提问小技巧"><span class="header-section-number">8.3.3</span> 提问小技巧：</h3>
+<p>## 4. 样例设计与图形直观解释（Section 2）</p>
 <ul>
-<li><strong>提供更多上下文</strong>：描述数据集包含哪些变量，研究场景是什么。</li>
-<li><strong>控制输出风格</strong>：加上一句 “Generate hypotheses in a bullet point format, and explain briefly the reasoning for each.” 会更清晰。</li>
-<li><strong>鼓励多轮对话</strong>：可以先让模型列出研究方向，再针对其中一个细化。</li>
+<li><strong>推荐加入理由</strong>：作者构造了一个关于磺胺药物（sulfa drugs）分期推出的模拟案例，并通过图形展示了不同组别（早期、中期、晚期、未处理）在 mortality 变化上的差异。 ……</li>
 </ul>
 <hr>
-</section>
-</section>
-<section id="使用提示词时的几点注意" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="使用提示词时的几点注意"><span class="header-section-number">8.4</span> 4. 使用提示词时的几点注意</h2>
+<p>## 5. 异质性与 TWFE 偏误的来源与后果（Section 3.5）</p>
 <ul>
-<li><strong>不要太空泛</strong>：不要直接说“给我一个假设”，要加上数据/背景/变量等信息。</li>
-<li><strong>可以迭代式提问</strong>：先让模型列出多个方向，再逐一展开。</li>
-<li><strong>加上语料/表格更好</strong>：模型“有料”才“出活”。</li>
-<li><strong>不要迷信 AI 输出</strong>：它的答案是“启发性”而非“定论”。</li>
+<li><strong>推荐加入理由</strong>：该部分系统总结了 TWFE 偏误的数学机制（由 Goodman-Bacon 提出），是该领域的核心争议之一。 ……</li>
 </ul>
 <hr>
-</section>
-<section id="原始论文与学习资料" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="原始论文与学习资料"><span class="header-section-number">8.5</span> 5. 原始论文与学习资料</h2>
+<p>## 6. 软件与实操实现建议（Section 4.3, Table 1）</p>
 <ul>
-<li><p><strong>Ludwig, J., &amp; Mullainathan, S. (2024).</strong><br>
-<em>Machine Learning as a Tool for Hypothesis Generation.</em><br>
-The Quarterly Journal of Economics, 139(2), 751–827.<br>
-🔗 <a href="https://doi.org/10.1093/qje/qjad055">论文主页（QJE）</a><br>
-📄 <a href="https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/3/1161/files/2024/02/QJE-machine-learning-for-hypothesis-generation-202461-8f8c19422434d44d.pdf">PDF 下载</a></p></li>
-<li><p><strong>Batista, R., &amp; Ross, J. (2024).</strong><br>
-<em>Words that Work: Using Language to Generate Hypotheses.</em><br>
-SSRN Working Paper, July 01, 2024.<br>
-🔗 <a href="https://ssrn.com/abstract=4926398">SSRN 页面</a></p></li>
+<li><strong>推荐加入理由</strong>：Table 1 对当前主流 DID 实现方法做了清晰对比，有利于读者选择合适的工具。 ……</li>
+<li><strong>建议用途</strong>：可以补充一个附录，提供 R 和 Stata 用户分别应如何使用这些方法（如 <code>csdid</code>、<code>did_multiplegt</code>、<code>eventstudyinteract</code> 等）。</li>
 </ul>
+<hr>
+<section id="总结建议的论文推介结构共-6-节" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="总结建议的论文推介结构共-6-节"><span class="header-section-number">7.2</span> 总结：建议的论文推介结构（共 6 节）</h2>
+<ol type="1">
+<li>论文核心观点与主要贡献（What and Why）</li>
+<li>主流估计方法与适用情境（Table 1）</li>
+<li>作者的实操建议与方法选择（Section 5）</li>
+<li>教学案例与图形展示（sulfa drugs 模拟实验）</li>
+<li>TWFE 的偏误与异质性陷阱（Goodman-Bacon decomposition）</li>
+<li>软件工具与实证操作建议（含软件包、命令、标准误估计等）</li>
+</ol>
+</section>
+</div>
+</div>
+<p>虽然我对这个结构比较满意，但我担心 AI 写东西太过教条，或者过于简略。于是，我设定了读者的角色、他们的知识背景，并征询 AI 对篇幅的看法。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词 3：细化提纲
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>如果想写一篇适合初学者，主要是博士生和青年老师，他们的理论基础有些薄弱，希望能能通过通俗的语言，简明扼要的数学公式了解文中提到的各种方法的要点、适用场景和结果的解释方法。<br>
+我应该如何安排这篇论文的结构和篇幅，每个部分大概多少字？</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+回复 3：ChatGPT 列出的细化提纲
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>非常好的设问。</p>
+<p>我建议这篇文章安排为如下 <strong>7 个部分</strong>，总篇幅建议控制在 <strong>8000–10,000 字左右（中文字符）</strong>，既适合长推文，也便于改写为课程讲义或公众号文章。</p>
+<hr>
+<p>## 拟定结构与篇幅建议</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 0%">
+<col style="width: 14%">
+<col style="width: 81%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>序号</th>
+<th>模块标题</th>
+<th>内容要点</th>
+<th>建议字数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>导言：分期处理的 DID 为什么值得关注？</strong></td>
+<td>- 现实案例（如政策滚动式推出）<br>- TWFE 的流行与质疑<br>- 本文阅读指南与学习目标</td>
+<td>600–800</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>直觉解释：DID 的本质与“分期处理”的陷阱</strong></td>
+<td>- 用简单例子解释 2×2 DID 的逻辑<br>- Goodman-Bacon decomposition 的直觉化说明（配图）<br>- “坏的比较”如何引入偏误</td>
+<td>1000–1500</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>最常用的几种估计方法：思想、公式与适用场景</strong></td>
+<td>- 逐一介绍以下方法：<br> a. TWFE（回顾）<br> b. Stacked DID<br> c.&nbsp;Callaway &amp; Sant’Anna (csdid)<br> d.&nbsp;Sun &amp; Abraham<br> e. Gardner (did2s)<br> f.&nbsp;de Chaisemartin &amp; D’Haultfoeuille<br>- 每种方法配一句话直觉、一组简要公式、一个适用场景</td>
+<td>3000–3500</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>一个教学例子：sulfa drugs 与死亡率（图 + 模拟）</strong></td>
+<td>- 作者构建的模拟示例介绍<br>- 图 1 与图 2 解读：每组死亡率的变化逻辑；哪些 DID 比较是有偏的</td>
+<td>800–1000</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>推荐的分析策略：设计、估计与解释的 checklist</strong></td>
+<td>- Section 5 的总结<br>- 6 条建议的通俗表达与应用建议<br>- 表格呈现每条建议与推荐方法</td>
+<td>800–1000</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><strong>结果解读技巧：估计量、ATT、Event Study 的含义</strong></td>
+<td>- 估计的 ATT 是哪个？<br>- 如何理解组 × 时间的动态路径？<br>- 如何做稳健性分析（pre-trend）？</td>
+<td>600–800</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><strong>附录：软件实现对照表与入门路径推荐</strong></td>
+<td>- R 与 Stata 的软件包对应<br>- 推荐教程、代码仓库（如作者的 GitHub）<br>- 延伸阅读（几篇核心综述文献）</td>
+<td>600–800</td>
+</tr>
+</tbody>
+</table>
+<p>……</p>
+<p>如你愿意，我可基于该结构逐一撰写每一节，并配合教学/推文风格的 markdown 文稿。是否开始撰写第一节？或者是否要我提供一个样板段落？</p>
+</div>
+</div>
+<p>看到这个提纲后，我意识到，我这篇推介应该重点强调「实操建议」，这是读者最关心的内容。为此，我编写了如下提示词：</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词 4：局部修正
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>这篇推文的主要目的是给读者提供一些实操建议，因此，各个 section 的内容尽量循序渐进，确保各个模型的介绍与 Section 5 中的实操建议能有机衔接，让读者看完这篇推介后能上手应用到自己的论文中。</p>
+</div>
+</div>
+<p>AI 对提纲你进行了调整，并给出了一个更为详细的结构 (<a href="https://chatgpt.com/share/6883cbb0-f6e8-8005-98b7-b8e1692b9332">详情参见原始对话</a>)，受限于篇幅，这里进列出它的提供的总结：</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+回复 5：ChatGPT 进一步细化写作提纲
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>非常好，我已理解你的目标：这篇推文不仅是综述，更是实践指南，要让初学者「看得懂、用得上、写得进论文」。基于这个要求，我对之前的结构做了进一步优化，以实现 <code>从直觉启发 → 方法入门 → 模拟案例 → 实操建议</code> 的自然过渡，并确保每个方法介绍最终都能在 Section 5 实操建议中找到落地应用。</p>
+</div>
+</div>
+</section>
+<section id="撰写论文推介正文" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="撰写论文推介正文"><span class="header-section-number">7.3</span> 撰写论文推介正文</h2>
+<p>接下来的工作就很简单了：按照上面的提纲，逐步撰写每个部分的内容。</p>
+<p>此时，建议明确说明对正文的撰写要求。比如，是否需要使用教学风格的语言，是否需要配合图表，是否需要提供代码示例等。</p>
+<p>下面是我经过长时间打磨形成的一个比较稳定的提示词：</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词 6：撰写正文
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>按照 {优化后的推文结构（强调“实操衔接”）} 的结构来写，每个 section 输出一次。<br>
+字数严格按照计划执行，不要缩减。</p>
+<p>格式要求：</p>
+<ol type="1">
+<li>按照 ## 1. sec_title; ### 1.1 sub_sec_title 的方式编号 ；每个 section 添加一个标签 {lab-sec#}，便于后续修改时定位</li>
+<li>语言风格：中文讲义，20 年从教的老教授的风格，语言平和，准确，有力</li>
+<li>不要使用任何表情符号</li>
+<li>重要文献和链接务必在文中 提供超链接，文末提供完整的引文信息</li>
+<li>引文信息尽量使用如下格式，如果 PDF 链接无法获取，可以留空或删除 <code>[-PDF-]()</code> 部分的信息 引文信息采用 APA 格式，附加 <code>[Link](), [PDF](), [Google](), [github]()</code> 信息。即： Authors. ({Year}). {title_of_paper}, 45(1), 485–505. <code>[Link](https://doi.org/{DOI}), [PDF](http://sci-hub.ren/{DOI}), [Google](&lt;{title_of_paper}&gt;), [github-replication](https://github.com/{ID}/{rep_name})</code><br>
+</li>
+<li>文中的例子最好具体化，并保持全文一致，逐步推进和扩展。</li>
+</ol>
+</div>
+</div>
+<p>细心的读者可能会注意到，我在提示词的第一行，用比较严肃的语气写到「<strong>字数严格按照计划执行，不要缩减。</strong>」。这是因为，有些 AI 工具经常会「偷工减料」。虽然到目前我还没有完全搞清楚背后的原因，但大体上应该有如下可能：由于内存的限制，多数 AI 工具只能记住最近的 1-2 个对话的内容；此外，也有可能某些参数的设定，使之倾向于提供较为简洁的回答。为了避免这种情况，我在提示词中明确要求它严格按照计划的字数来输出结果。</p>
+</section>
+<section id="最终文稿" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="最终文稿"><span class="header-section-number">7.4</span> 最终文稿</h2>
+<p>ChatGPT 输出的 Section 1 的内容基本符合我的要求。然后他开始输出 Section 2 的内容，并询问我是否需要继续输出。我给出了如下提示词，然后陪儿子去楼下散步 (回来后就可以收割所有输出结果了)。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词 6：连续输出
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>继续输出所有 sections，无需停顿</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>👉 <a href="05_02_Wing-2024.html">点击查看</a> 最终成稿 (<a href="../body/05_02_Wing-2024.html">.md file</a>)。</p>
+</blockquote>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -879,8 +1158,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../body/AI_research_design_Erdem_2025.html" class="pagination-link" aria-label="借助 AI 做研究设计">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../body/05_02_Wing-2024.html" class="pagination-link" aria-label="Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Wing et al.&nbsp;(2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
