@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; 数据分析案例：CAMAR 数据库合并 – Empirical Research with AI</title>
+<title>14&nbsp; 将一个 md 文档切割成多个 md 文档 – Empirical Research with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../examples/CSMAR/01_unzip_to_csv.html" rel="next">
-<link href="../../examples/learn_Tobit_model.html" rel="prev">
+<link href="../../body/references.html" rel="next">
+<link href="../../examples/regenernate_figure_with_AI.html" rel="prev">
 <link href="../../images/book-logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../examples/CSMAR/00_intro.html"><strong>数据分析</strong></a></li><li class="breadcrumb-item"><a href="../../examples/CSMAR/00_intro.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../examples/regenernate_figure_with_AI.html"><strong>其它应用</strong></a></li><li class="breadcrumb-item"><a href="../../examples/split_mdfile/split-topic-files.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -228,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
   </div>
 </li>
@@ -263,7 +297,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/split_mdfile/split-topic-files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../examples/split_mdfile/split-topic-files.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></span></a>
   </div>
 </li>
@@ -296,19 +330,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#多个-zip-文件的合并" id="toc-多个-zip-文件的合并" class="nav-link active" data-scroll-target="#多个-zip-文件的合并"><span class="header-section-number">10.1</span> 多个 zip 文件的合并</a>
-  <ul class="collapse">
-  <li><a href="#任务概况" id="toc-任务概况" class="nav-link" data-scroll-target="#任务概况"><span class="header-section-number">10.1.1</span> 任务概况</a></li>
-  </ul></li>
+  <li><a href="#任务描述" id="toc-任务描述" class="nav-link active" data-scroll-target="#任务描述"><span class="header-section-number">14.1</span> 任务描述</a></li>
+  <li><a href="#处理思路" id="toc-处理思路" class="nav-link" data-scroll-target="#处理思路"><span class="header-section-number">14.2</span> 处理思路</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../examples/CSMAR/00_intro.html"><strong>数据分析</strong></a></li><li class="breadcrumb-item"><a href="../../examples/CSMAR/00_intro.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../examples/regenernate_figure_with_AI.html"><strong>其它应用</strong></a></li><li class="breadcrumb-item"><a href="../../examples/split_mdfile/split-topic-files.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></h1>
 </div>
 
 
@@ -325,22 +357,173 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="多个-zip-文件的合并" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="多个-zip-文件的合并"><span class="header-section-number">10.1</span> 多个 zip 文件的合并</h2>
+<section id="任务描述" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="任务描述"><span class="header-section-number">14.1</span> 任务描述</h2>
+<p>在过去的三年中，除了重要节假日以外，<a href="https://www.lianxh.cn">连享会</a> 基本能确保每天发布一篇新推文。这些推文的选题基本上都是我确定的。</p>
+<p>我每周会花一天的时间，阅读大量的文献和各种网站，收集和整理选题。这些选题会被我统一记录在一个 Markdown 文档中，形如 <a href="Topics-2025-07.md">Topics-2025-07.md</a>。经过修改后，这些选题会发布在 <a href="https://github.com/arlionn/lianxhta/tree/main/blog_topic">备选推文主题</a> 页面，由助教们认领。</p>
+<p>我每周大概公布 10 个选题。其中最让我头疼的工作就是将这个 Markdown 文档切割成多个小文档 (由 <code>图 1</code> 转成 <code>图 2</code>)：我需要 <strong>新建一个 .md 文档</strong> → <strong>重命名</strong> → <strong>贴入内容</strong>。这个工作没什么难度，但很耗神，也容易出错。</p>
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250726003509.png" class="img-fluid"></p>
 <blockquote class="blockquote">
-<p><a href="01_unzip_to_csv.html">01_unzip_to_csv</a> 文件</p>
+<p>图 1：<code>Topics-2025-07.md</code> 文档中的选题笔记</p>
 </blockquote>
-<p>这个 Jupyter Notebook 文件演示了如何将多个 zip 文件中的 CSV 数据合并成一个大的数据集。我们将使用 Python 的 <code>pandas</code> 库来处理数据。在进行这个任务是，我刚接触 Python 一周，只了解一些基本概念，没有任何实操经验。如果不借助 AI，我甚至难以写出两行正确的代码。</p>
-<p>不过，好在有 Copilot 的帮助，我只需要写清楚提示词，它基本上能够一次性帮我编写好代码。期间很少出现 bugs。当然，很多时候由于我对数据特征了解不够，往往无法准确表述我的需求，这时我会通过多次迭代来完善提示词，直到得到满意的结果。</p>
-<p>需要注意的是，在这个过程中，我很少会动手修改 Copilot 生成的代码。我的主要精力集中在修改和优化提示词上，我会不断把更新后的提示词发给 Copilot，让它生成新的代码。运行后，如果不符合要求，或我有新的数据处理需求，我会再次调整提示词，直到得到满意的结果。</p>
-<section id="任务概况" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="任务概况"><span class="header-section-number">10.1.1</span> 任务概况</h3>
-<p>原始数据文件是从 CSMAR 数据库下载的，包含多个 zip 文件：</p>
-<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250725020249.png" class="img-fluid"></p>
-<p>我们需要将这些 zip 文件自动解压成 CSV 文件，并合并成一个大的数据集。</p>
-
-
+<p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250726003935.png" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p>图 2：github 仓库中选题发布页面</p>
+</blockquote>
 </section>
+<section id="处理思路" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="处理思路"><span class="header-section-number">14.2</span> 处理思路</h2>
+<p>我此前尝试过用 Stata 写代码来处理这个任务，但效果不佳，可能是因为我对文档读写不太熟悉。</p>
+<p>前段时间我尝试用 AI 编写 Python 代码来完成这个任务。AI 给出的代码基本上没有 bugs。我运行代码后，便有了新的需求，比如：</p>
+<ul>
+<li>自动覆盖旧文件；</li>
+<li>可以指定从 .md 文档中选择一部分文本进行切割；</li>
+<li>指定存放输出结果的文件夹</li>
+<li>确定屏幕打印结果</li>
+</ul>
+<p>需要声明的是：在此过程中，我只能大概读懂 AI 编写的 Python 代码，我基本上无法自行编写 Python 代码。我的主要工作就是优化提示词 (本质上是弄清楚我自己到底想要什么样的结果)。因此，我从不修改 AI 编写的 Python 代码，我只修改提示词。</p>
+<p>下面是我经过 5-6 轮修改后形成的提示词。这些提示词的编排格式是我自己设计的，虽然花了一些时间，但我发现这个习惯在应对较为复杂的任务时至关重要。否则，如果你的提示词是大段的文字，逻辑不清晰，AI 帮你编写的代码也会很容易出错。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示词
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### input-output</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Folder：当前路径</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>filename-input：包含关键词 'Topics-' 且后缀为 '.md' 的文件</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>range-转换范围: </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>begin: # B860</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">  -   </span>end: # B851</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Folder-output：'.\topics'</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">### 任务：</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Input: 读取 {filename-input} 文件。</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Actions：</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>在 {filename-input} 文档中，以 <span class="in">`^# B\d{3,.}：title`</span> 开头的行为分割线，将该行及以下到下一个 <span class="in">`^# B\d{3,.}：title`</span> 之间的文本写入一个新的 **.md** 文件中</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>仅读取 {begin} 到 {end} 范围内的选题</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Output:</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>存入：{Folder-output} 文件夹</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>预先清空该文件夹 </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>文件名为 <span class="in">`B\d{3,.}：title`</span> </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>首字母为 'B'</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>文件后缀为 '.md'，而不是 '.md.md'</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>屏幕打印：</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>文件总数</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>文件名称列表</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>下面是 AI 编写的 Python 代码：</p>
+<div id="57e32d62" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shutil</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ================= 用户参数 =================</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>input_folder <span class="op">=</span> <span class="vs">r"."</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>output_folder <span class="op">=</span> <span class="vs">r".\topics"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>begin_tag <span class="op">=</span> <span class="st">"# B860"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>end_tag <span class="op">=</span> <span class="st">"# B851"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ================= 辅助函数 =================</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_input_filename(folder):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> fname <span class="kw">in</span> os.listdir(folder):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">"Topics-"</span> <span class="kw">in</span> fname <span class="kw">and</span> fname.endswith(<span class="st">'.md'</span>):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> os.path.join(folder, fname)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="st">"未找到包含 'Topics-' 且后缀为 '.md' 的文件"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_file(filepath):</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filepath, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> f.read()</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> split_by_title(text):</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 正则匹配 '# Bxxx：title'</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    blocks <span class="op">=</span> <span class="bu">list</span>(re.finditer(<span class="vs">r'^# B\d{3,}：.*$'</span>, text, flags<span class="op">=</span>re.MULTILINE))</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> []</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> idx, match <span class="kw">in</span> <span class="bu">enumerate</span>(blocks):</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        start <span class="op">=</span> match.start()</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        end <span class="op">=</span> blocks[idx <span class="op">+</span> <span class="dv">1</span>].start() <span class="cf">if</span> idx <span class="op">+</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="bu">len</span>(blocks) <span class="cf">else</span> <span class="bu">len</span>(text)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        title_line <span class="op">=</span> text[match.start():match.end()]</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        block_text <span class="op">=</span> text[start:end].strip()</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        result.append((title_line, block_text))</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_range(blocks, begin_tag, end_tag):</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    begin_idx, end_idx <span class="op">=</span> <span class="va">None</span>, <span class="va">None</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, (title, _) <span class="kw">in</span> <span class="bu">enumerate</span>(blocks):</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> title.strip().startswith(begin_tag):</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>            begin_idx <span class="op">=</span> i</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> title.strip().startswith(end_tag):</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>            end_idx <span class="op">=</span> i</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> begin_idx <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> end_idx <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> begin_idx <span class="op">&lt;=</span> end_idx:</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> blocks[begin_idx:end_idx<span class="op">+</span><span class="dv">1</span>]</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"未能定位 begin 或 end 位置，或顺序错误"</span>)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_folder(folder):</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.exists(folder):</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        shutil.rmtree(folder)</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    os.makedirs(folder)</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> save_blocks_to_folder(blocks, folder):</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    filenames <span class="op">=</span> []</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> title, content <span class="kw">in</span> blocks:</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 文件名采用 '# Bxxx：title' 的形式</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        file_base <span class="op">=</span> re.match(<span class="vs">r'^# (B\d{3,}：.*)$'</span>, title.strip())</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> file_base:</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>        filename <span class="op">=</span> file_base.group(<span class="dv">1</span>) <span class="op">+</span> <span class="st">".md"</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 替换非法字符</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        filename <span class="op">=</span> re.sub(<span class="vs">r'[\\/:*?"&lt;&gt;|]'</span>, <span class="st">'_'</span>, filename)</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>        filepath <span class="op">=</span> os.path.join(folder, filename)</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(filepath, <span class="st">"w"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>            f.write(content.strip() <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>        filenames.append(filename)</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> filenames</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="co"># ================= 主程序 =================</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. 获取输入文件</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    input_path <span class="op">=</span> get_input_filename(input_folder)</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. 读取内容</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> read_file(input_path)</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3. 按分割线分割</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    blocks <span class="op">=</span> split_by_title(text)</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4. 提取 begin 到 end 范围</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>    blocks_in_range <span class="op">=</span> find_range(blocks, begin_tag, end_tag)</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 5. 预清空输出文件夹</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    clean_folder(output_folder)</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 6. 写入输出</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>    filelist <span class="op">=</span> save_blocks_to_folder(blocks_in_range, output_folder)</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 7. 打印信息</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"文件总数：</span><span class="sc">{</span><span class="bu">len</span>(filelist)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"文件名称列表："</span>)</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> fn <span class="kw">in</span> filelist:</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>文件总数：9
+文件名称列表：
+B860：Stata 可视化：heatplot-热力图.md
+B859：cdist-如何估计反事实的分布特征？.md
+B858：数据量大时，啥啥都显著.md
+B857：介绍 Local-DID 模型.md
+B856：Stata 可视化：robbox-强大的的箱型图命令 - 快速呈现离群值.md
+B855：介绍 I4R 机构和网站.md
+B854：知乎热议：为什么国内博士毕业的 paper 普遍比国外博士多？.md
+B852：mmqreg_ quantile regressions via Method of Moments.md
+B851：翻译：异方差稳健性标准误：实操建议.md</code></pre>
+</div>
+</div>
+<p>有了这段代码，我每次只需 1 秒即可完成任务。</p>
+<p>你可以在 <a href="topics/B860：Stata 可视化：heatplot-热力图.md">B860：Stata 可视化：heatplot-热力图</a> 查看选题 <strong>B860</strong> 的具体要求。再过 1 月左右，你就可以在 <a href="https://www.lianxh.cn">lianxh.cn</a> 上看到这篇推文了。</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -768,13 +951,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../examples/learn_Tobit_model.html" class="pagination-link" aria-label="使用 AI 解读 Tobit 模型">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></span>
+      <a href="../../examples/regenernate_figure_with_AI.html" class="pagination-link" aria-label="Ansome Python + AI">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../examples/CSMAR/01_unzip_to_csv.html" class="pagination-link" aria-label="CSMAR 数据处理">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../body/references.html" class="pagination-link" aria-label="参考文献">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">参考文献</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

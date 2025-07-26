@@ -5,40 +5,32 @@
     <lastmod>2025-07-25T02:07:33.741Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/research_with_AI/body/00_py_with_AI_intro.html</loc>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/00_intro.html</loc>
     <lastmod>2025-05-22T08:49:50.091Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/research_with_AI/body/00_py_with_AI_pic.html</loc>
-    <lastmod>2025-07-24T18:27:14.934Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lianxhcn.github.io/research_with_AI/body/01_1_install-Python-Anocanda.html</loc>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/01_install_Python_Anaconda.html</loc>
     <lastmod>2025-06-06T04:03:07.844Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/research_with_AI/body/01_2_install_FAQs.html</loc>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/02_install_FAQs.html</loc>
     <lastmod>2025-05-23T16:03:43.452Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/research_with_AI/body/01_3_markdown.html</loc>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/03_markdown_marp.html</loc>
     <lastmod>2025-07-02T15:08:24.714Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/research_with_AI/body/05_write_with_AI.html</loc>
-    <lastmod>2025-07-25T02:29:03.047Z</lastmod>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/05_00_read_paper_with_AI.html</loc>
+    <lastmod>2025-07-25T17:22:21.429Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/research_with_AI/body/04_use_AI.html</loc>
-    <lastmod>2025-07-24T18:30:06.485Z</lastmod>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/06_AI_ideas_brainstorming.html</loc>
+    <lastmod>2025-07-26T01:44:18.542Z</lastmod>
   </url>
   <url>
-    <loc>https://lianxhcn.github.io/research_with_AI/examples/AI_ideas_brainstorming.html</loc>
-    <lastmod>2025-07-25T11:49:47.877Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lianxhcn.github.io/research_with_AI/examples/AI_research_design_Erdem_2025.html</loc>
-    <lastmod>2025-07-24T18:34:27.004Z</lastmod>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/AI_research_design_Erdem_2025.html</loc>
+    <lastmod>2025-07-25T17:34:57.580Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/examples/learn_Tobit_model.html</loc>
@@ -57,7 +49,15 @@
     <lastmod>2025-07-24T18:43:55.212Z</lastmod>
   </url>
   <url>
+    <loc>https://lianxhcn.github.io/research_with_AI/examples/regenernate_figure_with_AI.html</loc>
+    <lastmod>2025-07-24T18:27:14.934Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/research_with_AI/examples/split_mdfile/split-topic-files.html</loc>
+    <lastmod>2025-07-26T03:16:42.119Z</lastmod>
+  </url>
+  <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/references.html</loc>
-    <lastmod>2025-07-25T11:52:28.675Z</lastmod>
+    <lastmod>2025-07-26T02:18:22.129Z</lastmod>
   </url>
 </urlset>

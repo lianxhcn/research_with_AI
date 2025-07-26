@@ -67,6 +67,30 @@ $$
 
 详情参见：连小白, 2025, [完美替代 MathPix：我用 ChatGPT、豆包、Kimi 识别数学公式](https://www.lianxh.cn/details/1639.html).
 
+
+## 参考文献格式化
+
+::: {.callout-tip}
+### 提示词-格式化参考文献
+
+
+按如下格式帮我补全 {refs} 的引文信息：
+
+'''{format}
+Bahoo, S., Goodell, J. W., Rhattat, R., & Shahid, S. (2025). {title}. Journal of Economic Surveys. Portico. [Link](https://doi.org/{DOI}), [PDF](URL), [Google](<https://scholar.google.com/scholar?q={title}>)
+'''
+
+'''{refs}
+1. Athey, S., & Imbens, G. W. (2024). Machine Learning Methods for Empirical Research. Annual Review of Economics, 16, 119-143.
+2. Chen, H., & Li, S. (2025). The Impact of AI Tools on Academic Research Productivity: Evidence from Economics and Management. Journal of Economic Surveys, 39(2), 345-367.
+3. Goldfarb, A., & Tucker, C. (2023). Artificial Intelligence in Research: Applications and Limitations. Journal of Economic Literature, 61(3), 898-927.
+4. Liu, Y., & Wang, X. (2025). AI-Assisted Causal Inference: Opportunities and Challenges. Econometrica, 93(4), 1245-1278.
+5. Zhang, C. (2025). Mining Causality: AI-Assisted Search for Instrumental Variables. Journal of Economic Methodology, 32(2), 178-196.
+
+'''
+
+:::
+
 <!-- 
 ## 参考文献格式化
 

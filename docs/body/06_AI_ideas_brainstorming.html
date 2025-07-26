@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; 借助 AI 写代码 – Empirical Research with AI</title>
+<title>7&nbsp; 利用 AI 生成研究假设 – Empirical Research with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../body/00_py_with_AI_pic.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../body/AI_research_design_Erdem_2025.html" rel="next">
+<link href="../body/05_00_read_paper_with_AI.html" rel="prev">
 <link href="../images/book-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/00_py_with_AI_intro.html"><strong>简介</strong></a></li><li class="breadcrumb-item"><a href="../body/00_py_with_AI_intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">借助 AI 写代码</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/06_AI_ideas_brainstorming.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">利用 AI 生成研究假设</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -136,32 +136,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/00_py_with_AI_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../body/00_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">借助 AI 写代码</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/00_py_with_AI_pic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
+  <a href="../body/01_install_Python_Anaconda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python：安装和环境配置</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/01_1_install-Python-Anocanda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Python：安装和环境配置</span></span></a>
+  <a href="../body/02_install_FAQs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Python 安装常见问题</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/01_2_install_FAQs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Python 安装常见问题</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../body/01_3_markdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Markdown</span></span></a>
+  <a href="../body/03_markdown_marp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Markdown</span></span></a>
   </div>
 </li>
       </ul>
@@ -177,20 +171,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/05_write_with_AI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></span></a>
+  <a href="../body/05_00_read_paper_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/04_use_AI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">使用 AI 写论文推介</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../examples/AI_ideas_brainstorming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">利用 AI 生成研究假设</span></span></a>
+  <a href="../body/06_AI_ideas_brainstorming.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">利用 AI 生成研究假设</span></span></a>
   </div>
 </li>
       </ul>
@@ -206,8 +194,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/AI_research_design_Erdem_2025.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span></a>
+  <a href="../body/AI_research_design_Erdem_2025.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span></a>
   </div>
 </li>
       </ul>
@@ -224,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/learn_Tobit_model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></span></a>
   </div>
 </li>
       </ul>
@@ -241,19 +229,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/CSMAR/00_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">数据分析案例：CAMAR 数据库合并</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/CSMAR/01_unzip_to_csv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">CSMAR 数据处理</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/web_dangdang_book/case_Dangdang_book.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">案例：当当网 Python 类图书销售数据分析</span></span></a>
   </div>
 </li>
       </ul>
@@ -261,12 +249,35 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>参考文献和附录</strong></span></a>
+ <span class="menu-text"><strong>其它应用</strong></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/regenernate_figure_with_AI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/split_mdfile/split-topic-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">将一个 md 文档切割成多个 md 文档</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>参考文献和附录</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../body/references.html" class="sidebar-item-text sidebar-link">
@@ -285,12 +296,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ai-工具" id="toc-ai-工具" class="nav-link active" data-scroll-target="#ai-工具"><span class="header-section-number">2.1</span> AI 工具</a></li>
-  <li><a href="#理念" id="toc-理念" class="nav-link" data-scroll-target="#理念"><span class="header-section-number">2.2</span> 理念</a></li>
-  <li><a href="#提示词" id="toc-提示词" class="nav-link" data-scroll-target="#提示词"><span class="header-section-number">2.3</span> 提示词</a></li>
-  <li><a href="#我的使用经验" id="toc-我的使用经验" class="nav-link" data-scroll-target="#我的使用经验"><span class="header-section-number">2.4</span> 我的使用经验</a>
+  <li><a href="#ai助力基于大语言模型的研究假设论证" id="toc-ai助力基于大语言模型的研究假设论证" class="nav-link active" data-scroll-target="#ai助力基于大语言模型的研究假设论证"><span class="header-section-number">8</span> AI助力：基于大语言模型的研究假设论证</a>
   <ul class="collapse">
-  <li><a href="#实例使用-ai-写一篇完整的论文推介" id="toc-实例使用-ai-写一篇完整的论文推介" class="nav-link" data-scroll-target="#实例使用-ai-写一篇完整的论文推介"><span class="header-section-number">2.4.1</span> 实例：使用 AI 写一篇完整的论文推介</a></li>
+  <li><a href="#为什么用ai帮忙做假设" id="toc-为什么用ai帮忙做假设" class="nav-link" data-scroll-target="#为什么用ai帮忙做假设"><span class="header-section-number">8.1</span> 1. 为什么用AI帮忙“做假设”？</a></li>
+  <li><a href="#怎么写出有启发性的-prompt" id="toc-怎么写出有启发性的-prompt" class="nav-link" data-scroll-target="#怎么写出有启发性的-prompt"><span class="header-section-number">8.2</span> 2. 怎么写出“有启发性”的 Prompt？</a>
+  <ul class="collapse">
+  <li><a href="#ludwig-mullainathan2024提示词" id="toc-ludwig-mullainathan2024提示词" class="nav-link" data-scroll-target="#ludwig-mullainathan2024提示词"><span class="header-section-number">8.2.1</span> 📘 Ludwig &amp; Mullainathan（2024）提示词</a></li>
+  </ul></li>
+  <li><a href="#实战示例如何从-prompt-到-初步假设" id="toc-实战示例如何从-prompt-到-初步假设" class="nav-link" data-scroll-target="#实战示例如何从-prompt-到-初步假设"><span class="header-section-number">8.3</span> 3. 实战示例：如何从 Prompt 到 初步假设？</a>
+  <ul class="collapse">
+  <li><a href="#模型可能输出的初步假设" id="toc-模型可能输出的初步假设" class="nav-link" data-scroll-target="#模型可能输出的初步假设"><span class="header-section-number">8.3.1</span> 模型可能输出的初步假设：</a></li>
+  <li><a href="#你可以如何用这些假设" id="toc-你可以如何用这些假设" class="nav-link" data-scroll-target="#你可以如何用这些假设"><span class="header-section-number">8.3.2</span> 你可以如何用这些假设？</a></li>
+  <li><a href="#提问小技巧" id="toc-提问小技巧" class="nav-link" data-scroll-target="#提问小技巧"><span class="header-section-number">8.3.3</span> 提问小技巧：</a></li>
+  </ul></li>
+  <li><a href="#使用提示词时的几点注意" id="toc-使用提示词时的几点注意" class="nav-link" data-scroll-target="#使用提示词时的几点注意"><span class="header-section-number">8.4</span> 4. 使用提示词时的几点注意</a></li>
+  <li><a href="#原始论文与学习资料" id="toc-原始论文与学习资料" class="nav-link" data-scroll-target="#原始论文与学习资料"><span class="header-section-number">8.5</span> 5. 原始论文与学习资料</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -298,9 +318,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/00_py_with_AI_intro.html"><strong>简介</strong></a></li><li class="breadcrumb-item"><a href="../body/00_py_with_AI_intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">借助 AI 写代码</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/06_AI_ideas_brainstorming.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">利用 AI 生成研究假设</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">借助 AI 写代码</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">利用 AI 生成研究假设</span></h1>
 </div>
 
 
@@ -317,166 +337,113 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>我主要受到了 <a href="https://doi.org/10.1257/jel.20231736">Korinek (2023)</a> 的启发。Korinek 教授为这篇文章建立了一个专门的网站：<a href=""></a></p>
 <ul>
-<li>主要工具
-<ul>
-<li><a href="https://chat.openai.com/">ChatGPT</a></li>
-<li><a href="https://github.com/github/copilot">Copilot</a></li>
-<li><a href="https://www.codeium.com/">Codeium</a></li>
-<li><a href="https://www.tabnine.com/">Tabnine</a></li>
-</ul></li>
-<li>其他工具
-<ul>
-<li><a href="https://replit.com/">Replit</a></li>
-<li><a href="https://www.kite.com/">Kite</a></li>
-<li><a href="https://openai.com/research/codex">Codex</a></li>
-<li><a href="https://www.codeium.com/">Codeium</a></li>
-<li><a href="https://aws.amazon.com/codewhisperer/">CodeWhisperer</a></li>
-<li><a href="https://polycoder.ai/">PolyCoder</a></li>
-<li><a href="https://arxiv.org/abs/2203.13488">CodeGen</a></li>
-</ul></li>
+<li><p><a href="https://genaiforecon.org/subs/ideation.html"></a></p></li>
+<li><p>吴欣洋, 2025, <a href="https://www.lianxh.cn/details/1588.html">AI自动生成研究假设，靠谱吗？流程与挑战</a></p></li>
 </ul>
-<section id="ai-工具" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="ai-工具"><span class="header-section-number">2.1</span> AI 工具</h2>
+<section id="ai助力基于大语言模型的研究假设论证" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> AI助力：基于大语言模型的研究假设论证</h1>
+<blockquote class="blockquote">
+<p><strong>作者：</strong> 杜新月 (中国科学技术大学) <strong>邮箱：</strong> <a href="mailto:xinyuedu97@gmail.com" class="email">xinyuedu97@gmail.com</a></p>
+</blockquote>
+<hr>
+<section id="为什么用ai帮忙做假设" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="为什么用ai帮忙做假设"><span class="header-section-number">8.1</span> 1. 为什么用AI帮忙“做假设”？</h2>
+<p>在学术研究中，提出好问题比找到答案更难。<strong>假设生成（Hypothesis Generation）</strong>是整个研究流程中最具创造性的一环，但往往也最依赖经验和灵感。</p>
+<p>近年来，随着<strong>大语言模型（LLMs）</strong>的快速发展，研究者开始探索其在“提出假设”这一阶段的潜力。尤其是以下两篇文章，为我们提供了新的视角：</p>
 <ul>
-<li>通用工具
-<ul>
-<li><a href="https://chat.openai.com/chat">ChatGPT</a>&nbsp;- 由 OpenAI 开发的聊天机器人，基于 GPT-3.5 架构。可以用于编写代码、回答问题、生成文本等。</li>
-<li><a href="https://openai.com/pricing">ChatGPT Plus</a>&nbsp;- 付费版本的 ChatGPT，提供更快的响应时间和更高的可用性。</li>
-<li><a href="https://deepseek.ai/">DeepSeek</a>&nbsp;- 国内访问顺畅，整体表现不错，但结果的稳定性欠佳。</li>
-<li><a href="https://www.douban.com/">豆包</a>&nbsp;- 更适合文字编排、翻译等。</li>
-<li><a href="https://www.kimi.ai/">kimi</a>&nbsp;- 与豆包相当。</li>
-</ul></li>
-<li>编程工具 (这些都是 VScode 中的插件)
-<ul>
-<li>GitHub Copilot: VScode 插件，可以在编写代码时提供实时建议和补全。首月免费，后续 $10/月。</li>
-<li>Tabnine: 代码补全工具，支持多种编程语言。</li>
-<li>clint: 代码补全工具，支持多种编程语言。</li>
-<li>Codeium: 代码补全工具，支持多种编程语言。</li>
-</ul></li>
+<li><strong>Ludwig 和 Mullainathan（2024）</strong>：强调用机器学习工具理解数据结构、发现变量之间潜在的因果关系；</li>
+<li><strong>Batista 和 Ross（2024）</strong>：主张通过语言建模从文献中“读出”作者潜在的理论假设。</li>
 </ul>
+<p>这两条路线都是：<strong>让AI成为理论生成的“辅助脑”</strong>，成为科研的“灵感伙伴”。</p>
+<hr>
 </section>
-<section id="理念" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="理念"><span class="header-section-number">2.2</span> 理念</h2>
-<blockquote class="blockquote">
-<p>自然语言编程 vs.&nbsp;传统编程</p>
-</blockquote>
+<section id="怎么写出有启发性的-prompt" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="怎么写出有启发性的-prompt"><span class="header-section-number">8.2</span> 2. 怎么写出“有启发性”的 Prompt？</h2>
+<p>如果你希望大语言模型像个靠谱的科研助理，那你得先学会怎么吩咐它——也就是写好提示词（Prompt）。</p>
+<p>一个好的 Prompt 通常具备以下特点：</p>
 <ul>
-<li>「自然语言编程」与 Python、C++ 等传统编程本质上都是向计算机发出指令，要求其执行特定操作</li>
-<li>区别在于：
-<ul>
-<li>传统编程语言（如 Python、C++）有严格的语法和结构</li>
-<li>自然语言编程则用人类语言（如中文、英文）描述操作</li>
-</ul></li>
+<li><strong>明确背景</strong>：数据类型、研究领域、已知事实；</li>
+<li><strong>聚焦任务</strong>：是要生成假设、还是评估已有假设？</li>
+<li><strong>控制风格</strong>：例如强调创新性、理论一致性、可实证性等。</li>
 </ul>
-<blockquote class="blockquote">
-<p>思维方式与沟通能力</p>
-</blockquote>
+<p>下面是两篇论文中直接使用的原始 Prompt 模板，建议大家参考或套用：</p>
+<section id="ludwig-mullainathan2024提示词" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="ludwig-mullainathan2024提示词"><span class="header-section-number">8.2.1</span> 📘 Ludwig &amp; Mullainathan（2024）提示词</h3>
 <ul>
-<li>初学时，自然语言编程似乎更简单</li>
-<li>真正发挥其潜力，关键在于<strong>思维方式</strong>和<strong>沟通方式</strong>（如何提问）</li>
-<li>学习曲线很陡峭：
-<ul>
-<li>知识广度：你要知道很多东西以及他们的关联，才能提出好的问题</li>
-<li>知识深度：基本概念、核心理论、核心算法</li>
-<li>逻辑思维：界定问题、拆解问题、追问（横向 v.s. 纵向）</li>
-<li>语言表达：简洁、准确、清晰</li>
-</ul></li>
+<li><p><strong>生成假设（Hypothesis Generation）</strong> &gt; “Given the following dataset characteristics and research context, generate plausible and novel hypotheses that could be empirically tested. Focus on potential causal relationships and mechanisms.”</p></li>
+<li><p><strong>验证假设（Hypothesis Evaluation）</strong> &gt; “Evaluate the plausibility of the following hypothesis based on existing economic theories and relevant empirical evidence. Provide reasoning to support or refute it.”</p></li>
 </ul>
-<blockquote class="blockquote">
-<p>最核心的理念转变</p>
-</blockquote>
-<ul>
-<li>提示词 = 自然语言的”代码”</li>
-<li>写好提示词，就像写好 Python/C++ 代码一样重要</li>
-<li>许多高校已开设「提示词工程」课程，「Prompt 工程师」将成为热门职业</li>
-</ul>
-<blockquote class="blockquote">
-<p>推荐学习资料</p>
-</blockquote>
-<ul>
-<li><p><a href="https://www.promptingguide.ai/zh">Prompt Engineering Guide</a></p></li>
-<li><p>吴恩达老师的 <a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/">ChatGPT Prompt Engineering for Developers</a></p>
-<p><a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/"><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250425003834.png" width="400pt"></a></p></li>
-</ul>
+<p>📝 <strong>实际应用场景：</strong><br>
+你可以将变量描述、样本信息、已有研究结论打包输入，让模型提出具有因果推理的假设。</p>
+<hr>
 </section>
-<section id="提示词" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="提示词"><span class="header-section-number">2.3</span> 提示词</h2>
-<blockquote class="blockquote">
-<p>Tips</p>
-</blockquote>
-<ul>
-<li>先粗后细 <a href="https://chatgpt.com/share/680a54a4-1174-8005-bedc-b101549ad45b">e.g.&nbsp;生成讲义</a> v.s 先细后粗</li>
-<li>顺藤摸瓜-迁移 <a href="https://chatgpt.com/share/680a57b2-f4d4-8005-b94a-b9c659e08508">e.g.&nbsp;各种抽样方法</a></li>
-<li>虚构角色 <a href="https://chatgpt.com/share/67f11fc5-b1a0-8005-b559-c479ffbad641">e.g.&nbsp;你是一个资深的英文经济学期刊的编辑</a> → <a href="https://www.lianxh.cn/details/1563.html">推文</a></li>
-</ul>
-<blockquote class="blockquote">
-<p>收集整理自己的提示词</p>
-</blockquote>
-<ul>
-<li><a href="https://blog.finxter.com/wp-content/uploads/2023/03/Finxter_Prompting_OpenAI-1.pdf">ChatGPT Prompting Cheat Sheet</a></li>
-<li><a href="https://www.reddit.com/r/ChatGPTPromptGenius/comments/1icr5au/the_complete_chatgpt_cheat_sheet_2025/">The Complete ChatGPT Cheat Sheet 2025!</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/713023937">Prompt工作手册 - 方法篇</a></li>
-</ul>
 </section>
-<section id="我的使用经验" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="我的使用经验"><span class="header-section-number">2.4</span> 我的使用经验</h2>
+<section id="实战示例如何从-prompt-到-初步假设" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="实战示例如何从-prompt-到-初步假设"><span class="header-section-number">8.3</span> 3. 实战示例：如何从 Prompt 到 初步假设？</h2>
+<p>假设你在研究<strong>远程办公对员工生产率的影响</strong>，你可以这样写 Prompt：</p>
 <blockquote class="blockquote">
-<p>我常用的提示词</p>
+<p><strong>Prompt 示例：</strong><br>
+You are a social science researcher. Based on the dataset describing remote work adoption, employee demographics, and performance metrics, generate three novel and testable hypotheses regarding the effects of remote work on productivity and well-being.</p>
 </blockquote>
-<ul>
-<li><a href="https://github.com/arlionn/UseChatGPT" class="uri">https://github.com/arlionn/UseChatGPT</a></li>
-<li><a href="https://gitee.com/arlionn/UseChatGPT" class="uri">https://gitee.com/arlionn/UseChatGPT</a> (码云版)</li>
-</ul>
-<blockquote class="blockquote">
-<p>借助 AI 找 IV：连玉君的实战经验</p>
-</blockquote>
-<ul>
-<li><a href="https://chatgpt.com/share/67ded832-79bc-8005-bbdb-7a79ebd755c7">帮我找 20 个 IV</a></li>
-<li><a href="https://chatgpt.com/share/680a60aa-3eb4-8005-9478-42828c78c38a">寻找 IV 的提示词如何写？</a></li>
-</ul>
-<section id="实例使用-ai-写一篇完整的论文推介" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="实例使用-ai-写一篇完整的论文推介"><span class="header-section-number">2.4.1</span> 实例：使用 AI 写一篇完整的论文推介</h3>
-<ul>
-<li><a href="https://chatgpt.com/share/6812ec94-a280-8005-9abc-ac0bba09e566">Du-2024-EE-中文精要生成过程</a></li>
-</ul>
-<p><strong>核心提示词：</strong> 参见 <a href="https://github.com/arlionn/UseChatGPT/blob/main/Prompt/useful_Prompts.md">连玉君的 Prompts</a></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-提示词
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Prompt 1</strong>:</p>
-<p>{先上传论文的 PDF 版本给 ChatGPT，然后输入以下提示词：}</p>
-<p>“写一篇论文推介，介绍附件中的论文。先列个提纲给我。”</p>
-<p><strong>Prompt 2</strong>:</p>
-<p>分批次输出吧：</p>
+<hr>
+<section id="模型可能输出的初步假设" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="模型可能输出的初步假设"><span class="header-section-number">8.3.1</span> 模型可能输出的初步假设：</h3>
 <ol type="1">
-<li>计量模型的证明和详细推导过程可以省略，但要补充简单直白的语言来解释模型和参数的经济含义</li>
-<li>把数学符号和公式都采用 Latex 格式来写，以保证输出美观</li>
-<li>行内公式采用 <code>$f=x$</code> 格式，单行公式采用 <code>$$f=x$$</code> 格式</li>
-<li>所有括号都用半角模式，中英文混排注意加空格</li>
-<li>不要添加任何表情符号</li>
-<li>按 ‘## 1. xxx’，‘### 1.1 xxx’，‘#### xxx’(不编号) 的格式来分 Section, Subsection, Subsubsection</li>
-<li>参考文献格式：
-<ul>
-<li>xxx, xxx, xxx. (<strong>2023</strong>). xxx. <em>Journal of xxx</em>, 1(1), 1-10. <code>[Link](https://doi.org/{DOI}), [-PDF-](http://sci-hub.ren/{DOI}), [Google](&lt;https://scholar.google.com/scholar?q={Title of the Paper}&gt;).</code></li>
-</ul></li>
-<li>注意：每次生成答案时，都在首行按如下格式添加 label，以便我追问时定位：‘mylabel-01’，‘mylabel-02’，……</li>
+<li><p><strong>Remote work increases productivity among employees with caregiving responsibilities.</strong><br>
+👉 远程办公为照顾家庭的员工提供更大的时间灵活性，从而提升他们的工作效率。</p></li>
+<li><p><strong>The effect of remote work on productivity is moderated by prior digital literacy.</strong><br>
+👉 掌握数字工具的员工可能比“技术新手”更能适应远程办公，从而实现更高效率。</p></li>
+<li><p><strong>Long-term remote work leads to a decline in team-level innovation output.</strong><br>
+👉 缺乏面对面的互动可能削弱团队之间的创意碰撞和合作氛围。</p></li>
 </ol>
-<p><strong>Prompt 3</strong>:</p>
-<p>连续输出，中间无需停顿</p>
-<p><strong>Prompt 4</strong>:</p>
-<p>详细介绍一下 4.4 模型四：部分线性函数系数面板模型（PLFC）中的模型设定和估计方法</p>
-<p><strong>Prompt 5</strong>:</p>
-<p>补充一个 Subsection，添加如下内容： - 为没有任何非参数估计基础的读者解释一下样条基函数（Sieve Estimation） - 再补充一个 subsection，解释一下边际效应的置信区间是如何计算的</p>
-</div>
-</div>
+<hr>
+</section>
+<section id="你可以如何用这些假设" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="你可以如何用这些假设"><span class="header-section-number">8.3.2</span> 你可以如何用这些假设？</h3>
+<p>这些假设虽然未经实证检验，但它们具备三个特征：</p>
+<ul>
+<li><strong>有可测变量</strong>：如 caregiving status、digital literacy、innovation output。</li>
+<li><strong>有机制逻辑</strong>：不是“表面相关”，而是有潜在因果路径。</li>
+<li><strong>可转为模型设计</strong>：每条都可以发展为回归模型中的交互项或中介变量框架。</li>
+</ul>
+<p>你可以基于它们设计问卷、调用现有数据集（如 American Time Use Survey 或 CPS）、搭建量化模型等。</p>
+<hr>
+</section>
+<section id="提问小技巧" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="提问小技巧"><span class="header-section-number">8.3.3</span> 提问小技巧：</h3>
+<ul>
+<li><strong>提供更多上下文</strong>：描述数据集包含哪些变量，研究场景是什么。</li>
+<li><strong>控制输出风格</strong>：加上一句 “Generate hypotheses in a bullet point format, and explain briefly the reasoning for each.” 会更清晰。</li>
+<li><strong>鼓励多轮对话</strong>：可以先让模型列出研究方向，再针对其中一个细化。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="使用提示词时的几点注意" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="使用提示词时的几点注意"><span class="header-section-number">8.4</span> 4. 使用提示词时的几点注意</h2>
+<ul>
+<li><strong>不要太空泛</strong>：不要直接说“给我一个假设”，要加上数据/背景/变量等信息。</li>
+<li><strong>可以迭代式提问</strong>：先让模型列出多个方向，再逐一展开。</li>
+<li><strong>加上语料/表格更好</strong>：模型“有料”才“出活”。</li>
+<li><strong>不要迷信 AI 输出</strong>：它的答案是“启发性”而非“定论”。</li>
+</ul>
+<hr>
+</section>
+<section id="原始论文与学习资料" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="原始论文与学习资料"><span class="header-section-number">8.5</span> 5. 原始论文与学习资料</h2>
+<ul>
+<li><p><strong>Ludwig, J., &amp; Mullainathan, S. (2024).</strong><br>
+<em>Machine Learning as a Tool for Hypothesis Generation.</em><br>
+The Quarterly Journal of Economics, 139(2), 751–827.<br>
+🔗 <a href="https://doi.org/10.1093/qje/qjad055">论文主页（QJE）</a><br>
+📄 <a href="https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/3/1161/files/2024/02/QJE-machine-learning-for-hypothesis-generation-202461-8f8c19422434d44d.pdf">PDF 下载</a></p></li>
+<li><p><strong>Batista, R., &amp; Ross, J. (2024).</strong><br>
+<em>Words that Work: Using Language to Generate Hypotheses.</em><br>
+SSRN Working Paper, July 01, 2024.<br>
+🔗 <a href="https://ssrn.com/abstract=4926398">SSRN 页面</a></p></li>
+</ul>
 
 
 </section>
@@ -907,13 +874,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="简介">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">简介</span></span>
+      <a href="../body/05_00_read_paper_with_AI.html" class="pagination-link" aria-label="使用 AI 撰写论文推介">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../body/00_py_with_AI_pic.html" class="pagination-link" aria-label="Ansome Python + AI">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ansome Python + AI</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../body/AI_research_design_Erdem_2025.html" class="pagination-link" aria-label="借助 AI 做研究设计">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">借助 AI 做研究设计</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

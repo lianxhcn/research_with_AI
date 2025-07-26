@@ -186,6 +186,13 @@ arlionn@163.com
 
 ---
 
+## 数据分析
+
+- Generative AI for Economic Research, [Applications of LLMs](https://genaiforecon.org/subs/data.html)
+
+
+---
+
 ## 4. 博士生如何规划 AI 时代的学习曲线？
 
 ### 阶段一（0-6 个月）：AI + 编程基础

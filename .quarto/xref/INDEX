@@ -205,5 +205,29 @@
   },
   "body/references.md": {
     "references.html": "63971c53"
+  },
+  "body/01_install_Python_Anaconda.ipynb": {
+    "01_install_Python_Anaconda.html": "ec1e2d26"
+  },
+  "body/02_install_FAQs.ipynb": {
+    "02_install_FAQs.html": "b8571dc4"
+  },
+  "body/03_markdown_marp.md": {
+    "03_markdown_marp.html": "255bbc59"
+  },
+  "body/05_00_read_paper_with_AI.ipynb": {
+    "05_00_read_paper_with_AI.html": "5a31e6e9"
+  },
+  "body/06_AI_ideas_brainstorming.ipynb": {
+    "06_AI_ideas_brainstorming.html": "e60d709d"
+  },
+  "body/AI_research_design_Erdem_2025.ipynb": {
+    "AI_research_design_Erdem_2025.html": "ea8606f9"
+  },
+  "examples/regenernate_figure_with_AI.ipynb": {
+    "regenernate_figure_with_AI.html": "53ff9448"
+  },
+  "examples/split_mdfile/split-topic-files.ipynb": {
+    "split-topic-files.html": "7bf261a3"
   }
 }
