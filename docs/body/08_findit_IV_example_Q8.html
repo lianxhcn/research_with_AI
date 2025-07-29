@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; 的回答：工具变量合理性分析 – Empirical Research with AI</title>
+<title>12&nbsp; 工具变量合理性分析 – Empirical Research with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/08_findit_IV_example.html"><strong>寻找IV</strong></a></li><li class="breadcrumb-item"><a href="../body/08_findit_IV_example_Q8.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">的回答：工具变量合理性分析</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/08_findit_IV_example.html"><strong>寻找IV</strong></a></li><li class="breadcrumb-item"><a href="../body/08_findit_IV_example_Q8.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">工具变量合理性分析</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -293,7 +293,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../body/08_findit_IV_example_Q8.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">的回答：工具变量合理性分析</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">工具变量合理性分析</span></span></a>
   </div>
 </li>
       </ul>
@@ -394,33 +394,33 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#工具变量合理性分析" id="toc-工具变量合理性分析" class="nav-link active" data-scroll-target="#工具变量合理性分析"><span class="header-section-number">12.1</span> 工具变量合理性分析</a>
+  <li><a href="#三个分析要点" id="toc-三个分析要点" class="nav-link active" data-scroll-target="#三个分析要点"><span class="header-section-number">12.1</span> 三个分析要点</a>
   <ul class="collapse">
   <li><a href="#外生性分析exogeneity" id="toc-外生性分析exogeneity" class="nav-link" data-scroll-target="#外生性分析exogeneity"><span class="header-section-number">12.1.1</span> 外生性分析（Exogeneity）</a></li>
   <li><a href="#相关性分析relevance" id="toc-相关性分析relevance" class="nav-link" data-scroll-target="#相关性分析relevance"><span class="header-section-number">12.1.2</span> 相关性分析（Relevance）</a></li>
   <li><a href="#排他性分析exclusion-restriction" id="toc-排他性分析exclusion-restriction" class="nav-link" data-scroll-target="#排他性分析exclusion-restriction"><span class="header-section-number">12.1.3</span> 排他性分析（Exclusion Restriction）</a></li>
   </ul></li>
-  <li><a href="#排他性可能受到破坏的三种潜在渠道分析" id="toc-排他性可能受到破坏的三种潜在渠道分析" class="nav-link" data-scroll-target="#排他性可能受到破坏的三种潜在渠道分析"><span class="header-section-number">12.2</span> 排他性可能受到破坏的三种潜在渠道分析</a>
+  <li><a href="#不满足排他性的三种潜在渠道" id="toc-不满足排他性的三种潜在渠道" class="nav-link" data-scroll-target="#不满足排他性的三种潜在渠道"><span class="header-section-number">12.2</span> 不满足排他性的三种潜在渠道</a>
   <ul class="collapse">
   <li><a href="#w1基础设施投资infrastructure-investment" id="toc-w1基础设施投资infrastructure-investment" class="nav-link" data-scroll-target="#w1基础设施投资infrastructure-investment"><span class="header-section-number">12.2.1</span> W1：基础设施投资（Infrastructure Investment）</a></li>
   <li><a href="#w2政府干预government-intervention" id="toc-w2政府干预government-intervention" class="nav-link" data-scroll-target="#w2政府干预government-intervention"><span class="header-section-number">12.2.2</span> W2：政府干预（Government Intervention）</a></li>
   <li><a href="#w3融资约束financing-constraints" id="toc-w3融资约束financing-constraints" class="nav-link" data-scroll-target="#w3融资约束financing-constraints"><span class="header-section-number">12.2.3</span> W3：融资约束（Financing Constraints）</a></li>
   </ul></li>
-  <li><a href="#如何在模型中关闭这些潜在渠道" id="toc-如何在模型中关闭这些潜在渠道" class="nav-link" data-scroll-target="#如何在模型中关闭这些潜在渠道"><span class="header-section-number">12.3</span> 如何在模型中关闭这些潜在渠道？</a>
+  <li><a href="#如何关闭这些潜在渠道" id="toc-如何关闭这些潜在渠道" class="nav-link" data-scroll-target="#如何关闭这些潜在渠道"><span class="header-section-number">12.3</span> 如何关闭这些潜在渠道？</a>
   <ul class="collapse">
   <li><a href="#推荐控制变量精简后的三选方案" id="toc-推荐控制变量精简后的三选方案" class="nav-link" data-scroll-target="#推荐控制变量精简后的三选方案"><span class="header-section-number">12.3.1</span> 推荐控制变量（精简后的三选方案）：</a></li>
+  <li><a href="#图示因果路径与控制变量" id="toc-图示因果路径与控制变量" class="nav-link" data-scroll-target="#图示因果路径与控制变量"><span class="header-section-number">12.3.2</span> 图示（因果路径与控制变量）</a></li>
   </ul></li>
-  <li><a href="#图示因果路径与控制变量" id="toc-图示因果路径与控制变量" class="nav-link" data-scroll-target="#图示因果路径与控制变量"><span class="header-section-number">12.4</span> 图示（因果路径与控制变量）</a></li>
-  <li><a href="#小结与实施建议" id="toc-小结与实施建议" class="nav-link" data-scroll-target="#小结与实施建议"><span class="header-section-number">12.5</span> 小结与实施建议</a></li>
+  <li><a href="#小结与实施建议" id="toc-小结与实施建议" class="nav-link" data-scroll-target="#小结与实施建议"><span class="header-section-number">12.4</span> 小结与实施建议</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/08_findit_IV_example.html"><strong>寻找IV</strong></a></li><li class="breadcrumb-item"><a href="../body/08_findit_IV_example_Q8.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">的回答：工具变量合理性分析</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/08_findit_IV_example.html"><strong>寻找IV</strong></a></li><li class="breadcrumb-item"><a href="../body/08_findit_IV_example_Q8.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">工具变量合理性分析</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">的回答：工具变量合理性分析</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">工具变量合理性分析</span></h1>
 </div>
 
 
@@ -439,8 +439,8 @@ window.Quarto = {
 
 <p>在上一章中 (<a href="08_findit_IV_example.html">如何借助 AI 寻找工具变量？</a>)，我介绍了一个例子，AI 推荐了「地方政府财政赤字率」和「地方债务水平」作为工具变量。</p>
 <p>在使用这两个变量之前，我们需要对它们作为工具变量的合理性进行分析。以下是 AI 对这两个工具变量的外生性、相关性和排他性三个维度的分析，以及可能存在的后门路径。</p>
-<section id="工具变量合理性分析" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="工具变量合理性分析"><span class="header-section-number">12.1</span> 工具变量合理性分析</h2>
+<section id="三个分析要点" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="三个分析要点"><span class="header-section-number">12.1</span> 三个分析要点</h2>
 <section id="外生性分析exogeneity" class="level3" data-number="12.1.1">
 <h3 data-number="12.1.1" class="anchored" data-anchor-id="外生性分析exogeneity"><span class="header-section-number">12.1.1</span> 外生性分析（Exogeneity）</h3>
 <p>地方政府财政赤字率与债务水平主要取决于：</p>
@@ -466,8 +466,8 @@ window.Quarto = {
 然而，这一假设可能存在潜在问题，特别是财政赤字率或债务水平可能会通过其他渠道直接影响企业供应链的波动性（长鞭效应）。这些潜在渠道需被明确识别和控制，以满足工具变量的排他性。</p>
 </section>
 </section>
-<section id="排他性可能受到破坏的三种潜在渠道分析" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="排他性可能受到破坏的三种潜在渠道分析"><span class="header-section-number">12.2</span> 排他性可能受到破坏的三种潜在渠道分析</h2>
+<section id="不满足排他性的三种潜在渠道" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="不满足排他性的三种潜在渠道"><span class="header-section-number">12.2</span> 不满足排他性的三种潜在渠道</h2>
 <p>下面详细分析三个最重要的可能渠道（<span class="math inline">\(W_1, W_2, W_3\)</span>）。财政压力（赤字或债务）可能通过以下三个潜在渠道 (<span class="math inline">\(W\)</span>) 直接或间接影响企业供应链稳定性：</p>
 <section id="w1基础设施投资infrastructure-investment" class="level3" data-number="12.2.1">
 <h3 data-number="12.2.1" class="anchored" data-anchor-id="w1基础设施投资infrastructure-investment"><span class="header-section-number">12.2.1</span> W1：基础设施投资（Infrastructure Investment）</h3>
@@ -518,8 +518,8 @@ window.Quarto = {
 </ul>
 </section>
 </section>
-<section id="如何在模型中关闭这些潜在渠道" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="如何在模型中关闭这些潜在渠道"><span class="header-section-number">12.3</span> 如何在模型中关闭这些潜在渠道？</h2>
+<section id="如何关闭这些潜在渠道" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="如何关闭这些潜在渠道"><span class="header-section-number">12.3</span> 如何关闭这些潜在渠道？</h2>
 <p>为满足 IV 的排他性假设，应在实证模型中明确控制上述三个变量，以关闭财政赤字率或债务水平对企业长鞭效应的潜在直接影响路径。</p>
 <section id="推荐控制变量精简后的三选方案" class="level3" data-number="12.3.1">
 <h3 data-number="12.3.1" class="anchored" data-anchor-id="推荐控制变量精简后的三选方案"><span class="header-section-number">12.3.1</span> 推荐控制变量（精简后的三选方案）：</h3>
@@ -555,9 +555,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-</section>
-<section id="图示因果路径与控制变量" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="图示因果路径与控制变量"><span class="header-section-number">12.4</span> 图示（因果路径与控制变量）</h2>
+<section id="图示因果路径与控制变量" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="图示因果路径与控制变量"><span class="header-section-number">12.3.2</span> 图示（因果路径与控制变量）</h3>
 <p>通过 DAG 图进一步明确因果链条及潜在的后门路径：</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```mermaid</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">graph LR</span></span>
@@ -586,8 +585,9 @@ window.Quarto = {
 </ul>
 <p>通过在回归模型中同时控制 W1、W2、W3 三个变量，可以有效关闭上述后门路径，从而满足排他性要求。</p>
 </section>
-<section id="小结与实施建议" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="小结与实施建议"><span class="header-section-number">12.5</span> 小结与实施建议</h2>
+</section>
+<section id="小结与实施建议" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="小结与实施建议"><span class="header-section-number">12.4</span> 小结与实施建议</h2>
 <p>工具变量整体评价：</p>
 <table class="caption-top table">
 <thead>
