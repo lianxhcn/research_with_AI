@@ -165,7 +165,7 @@
     "href": "body/01_use_Junpyter_Notebook.html#运行-python-代码",
     "title": "4  Jupyter Notebook 的使用",
     "section": "4.2 运行 Python 代码",
-    "text": "4.2 运行 Python 代码\n我们先演示一下如何在 VScode 中编写 Python 代码：\n\n点击 File → New File …，选择 Jupyter Notebook .ipynb，填入文件名，即可新建一个 Jupyter Notebook。\n点击 + Code 按钮，添加一个代码单元格，输入 Python 代码，然后点击运行按钮 (或按 Shift + Enter) 执行代码。\n\n\n\n点击查看原始 .ipynb 文件\n\n由于 Jupyter Notebook 对 Python 的支持一直非常好，因此在 Jupyter Notebook 中编写和运行 Python 代码非常顺畅。比如，你可以运行或修改上图中的代码：\n\n# 绘制一幅简单的函数图\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(-10, 10, 200)\ny = x ** 2\n\nplt.figure(figsize=(3, 2.5))\nplt.plot(x, y)\nplt.title(\"y = x^2\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.grid(True)\nplt.show()",
+    "text": "4.2 运行 Python 代码\n我们先演示一下如何在 VScode 中编写 Python 代码：\n\n点击 File → New File …，选择 Jupyter Notebook .ipynb，填入文件名，即可新建一个 Jupyter Notebook。\n点击 + Code 按钮，添加一个代码单元格，输入 Python 代码，然后点击运行按钮 (或按 Shift + Enter) 执行代码。\n\n\n\ngithub - 原始 .ipynb 文件，version 2\n\n由于 Jupyter Notebook 对 Python 的支持一直非常好，因此在 Jupyter Notebook 中编写和运行 Python 代码非常顺畅。比如，你可以运行或修改上图中的代码：\n\n# 绘制一幅简单的函数图\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(-10, 10, 200)\ny = x ** 2\n\nplt.figure(figsize=(3, 2.5))\nplt.plot(x, y)\nplt.title(\"y = x^2\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.grid(True)\nplt.show()",
     "crumbs": [
       "**简介**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
