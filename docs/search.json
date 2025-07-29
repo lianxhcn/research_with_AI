@@ -6,7 +6,7 @@
     "section": "",
     "text": "0.1 关于这本书\n这本书是在准备 连享会系列公开课 中的「AI时代如何做实证研究？」专题时编写的讲义。\n书中介绍了 AI 工具如何提升实证研究的效率，如何帮助我们更好地思考和解决问题。书中还介绍了 ChatGPT, 豆包, Github Copilot 等工具的使用，以及 Markdown、Github 和 Jupyter Notebook 的协同工作方式。\n当然，此处介绍的内容只是 GenAI 的一些非常基础的应用，有关 GenAI 的更深入、更系统的介绍，将在 2025 年 9 月 13, 14, 20 日开设的 GenAI 专题课程中讲授，详情参见：",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>简介</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>前言</span>"
     ]
   },
   {
@@ -16,7 +16,7 @@
     "section": "",
     "text": "生成式人工智能专题：社会科学研究的革新工具\n\n嘉宾：杨阳 (香港浸会大学)\n时间：2025 年 9 月 13, 14, 20 日 (共三天)\n方式：线上直播 + 30 天回放",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>简介</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>前言</span>"
     ]
   },
   {
@@ -26,7 +26,7 @@
     "section": "0.2 如何使用本书？",
     "text": "0.2 如何使用本书？\n这本书是使用 VScode 编辑器 + Quarto 插件编写，进而通过 Github pages 发布的。详情参见 Quarto books。 \n\n你可以 Fork 本书的 github 仓库，然后你的电脑上演练书中的例子。\n你需要做一些基本的配置，参见 安装和环境配置\n书稿中还有不少错漏之处，还请不吝指出：arlionn@163.com。",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>简介</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>前言</span>"
     ]
   },
   {
@@ -36,7 +36,7 @@
     "section": "0.3 如何找到我？",
     "text": "0.3 如何找到我？\n我最近也在小红书注册了账号 连玉君 (ID: 95085566173)，大家可以在那里留言和讨论。\n\n\n主页 | 课程 | 视频 | 推文 | 资料",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>简介</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>前言</span>"
     ]
   },
   {
@@ -46,7 +46,7 @@
     "section": "",
     "text": "2.1 理念",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>简介：AI 带来了什么？</span>"
     ]
   },
@@ -57,7 +57,7 @@
     "section": "",
     "text": "自然语言编程 vs. 传统编程\n\n\n「自然语言编程」与 Python、C++ 等传统编程本质上都是向计算机发出指令，要求其执行特定操作\n区别在于：\n\n传统编程语言（如 Python、C++）有严格的语法和结构\n自然语言编程则用人类语言（如中文、英文）描述操作\n\n\n\n思维方式与沟通能力\n\n\n初学时，自然语言编程似乎更简单\n真正发挥其潜力，关键在于思维方式和沟通方式（如何提问）\n学习曲线很陡峭：\n\n知识广度：你要知道很多东西以及他们的关联，才能提出好的问题\n知识深度：基本概念、核心理论、核心算法\n逻辑思维：界定问题、拆解问题、追问（横向 v.s. 纵向）\n语言表达：简洁、准确、清晰\n\n\n\n最核心的理念转变\n\n\n提示词 = 自然语言的”代码”\n写好提示词，就像写好 Python/C++ 代码一样重要\n许多高校已开设「提示词工程」课程，「Prompt 工程师」将成为热门职业\n\n\n推荐学习资料\n\n\nPrompt Engineering Guide\n吴恩达老师的 ChatGPT Prompt Engineering for Developers",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>简介：AI 带来了什么？</span>"
     ]
   },
@@ -68,7 +68,7 @@
     "section": "2.2 提示词",
     "text": "2.2 提示词\n\nTips\n\n\n先粗后细 e.g. 生成讲义 v.s 先细后粗\n顺藤摸瓜-迁移 e.g. 各种抽样方法\n虚构角色 e.g. 你是一个资深的英文经济学期刊的编辑 → 推文\n\n\n收集整理自己的提示词\n\n\nChatGPT Prompting Cheat Sheet\nThe Complete ChatGPT Cheat Sheet 2025!\nPrompt工作手册 - 方法篇",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>简介：AI 带来了什么？</span>"
     ]
   },
@@ -79,7 +79,7 @@
     "section": "2.3 我的使用经验",
     "text": "2.3 我的使用经验\n\n我常用的提示词：https://github.com/arlionn/UseChatGPT\n论文推介：\n\n使用 AI 撰写论文推介\n案例：AI 助我读论文之 Wing et al. (2024)\n\n借助 AI 找 IV\n\n帮我找 20 个 IV → 详情\n寻找 IV 的提示词如何写？\n\n学计量：使用 AI 解读 Tobit 模型",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>简介：AI 带来了什么？</span>"
     ]
   },
@@ -90,7 +90,7 @@
     "section": "",
     "text": "3.1 安装 Anaconda\n对于初学者来讲，建议安装 Anaconda 套装。它是一个开源的 Python 发行版，集成了 Python 解释器、包管理器 Conda 和许多常用的科学计算和数据分析库（如 NumPy、Pandas、Matplotlib 等）。\n虽然 Anaconda 自带的编辑器 Jupyter Notebook 很好用，但如果你平时经常用 VScode 写东西，建议安装 VScode 作为编辑器。VScode 支持多种编程语言，可以安装各种插件来增强功能。对于编写 Python 代码而言，仅需安装 python 和 jupyter 插件就可以满足基本需求。\n网上有不少关于 Anaconda 和 VScode 的安装和配置的教程，如：\n根据我的使用经验，基本步骤总结如下：\n下面，我详细说明每个步骤的操作。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python：安装和环境配置</span>"
     ]
   },
@@ -101,7 +101,7 @@
     "section": "",
     "text": "提示\n\n\n\n对于多数用户，只需看 Step 1-2 即可。\n\n\n\n下载 Anaconda（建议注册一个账号，若不注册，可以点击 Skip）。\n安装 Anaconda。安装 Anaconda 最重要的事情：\n\nSelect Installation Type 页面，建议选择 Just Me，然后点击 Next。\nChoose Install Location 页面，建议使用默认路径 C:\\Users\\用户名\\Anaconda3 作为 Anaconda 的安装路径，这样可以避免一些潜在的权限和路径问题。然而， 如果你的用户名中包含中文字符或空格，建议选择「自定义路径」，并选择一个英文路径，如 C:\\myProgram\\Anaconda3。\nAdvanced Installation Options 页面，确保同时勾选如下两个选项：\n\n[√] Add Anaconda to my PATH environment variable\n[√] Register Anaconda as my default Python 3.x\n\n\n详情参见：VSCode 与 Anaconda安装配置\n\n安装完成后，打开 Anaconda Navigator（在开始菜单或应用程序中找到它）。\n在 Anaconda Navigator 中，你可以创建和管理虚拟环境、安装包、启动 Jupyter Notebook 等。\n安装完成后，打开 Anaconda Prompt（命令行界面），输入以下命令检查安装是否成功：\nconda --version\n如果显示版本号，则表示安装成功。\n在 Anaconda Prompt 中输入以下命令更新 Conda 到最新版本：\nconda update conda\n创建一个新的虚拟环境（可选）：如果你想在一个独立的环境中工作，比如，你要同时使用 Python 3.8 和 Python 3.12，以便完成不同的项目，你可以创建一个新的虚拟环境。输入以下命令创建一个名为 myenv38 的虚拟环境，并安装 Python 3.8：\nconda create --name myenv38 python=3.8\n同理，如果你想使用 Python 3.12，你可以创建一个名为 myenv312 的虚拟环境，并安装 Python 3.12：\nconda create --name myenv312 python=3.12\n接下来，你可以激活特定的虚拟环境，比如 myenv38，输入以下命令：\nconda activate myenv38\n此时，若执行 canda list 命令，你会看到当前环境中安装的所有包和版本信息；而执行 canda install Stargazer, v = 2.1.1，则会在当前环境中安装 Stargazer 包的 2.1.1 版本。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python：安装和环境配置</span>"
     ]
   },
@@ -112,7 +112,7 @@
     "section": "3.2 安装 VScode 及插件",
     "text": "3.2 安装 VScode 及插件\n\n\n\n\n\n\nVScode 及插件的安装和使用\n\n\n\n\n王胜文, 2023, VScode编辑器：安装、使用与常用快捷键\n初虹, 2022, Markdown-LaTeX：经管人的VSCode配置大全.\n连玉君, 2024, VScode 插件：安装、配置和使用.\n连玉君, 2024, VScode：实用 Markdown 插件推荐.\n连玉君, 2024, 从基础到 AI 助手：Python 用户最爱的 VScode 插件清单\n\n\n\nVisual Studio Code (VS Code) 是微软推出的轻量但功能强大的源代码编辑器，基于 Electron 开发，支持 Windows、Linux 和 macOS 操作系统。VScode 免费开源且功能强大，VScode 写代码支持各种流行的编程语言，包括 C++、Java 等，使用熟练之后，基本不会再使用其他的编辑器。最重要的是，VScode 平台上有大量的插件，极大地扩展了其功能。\n\n下载 VScode (请酌情选择适合你操作系统的版本)。\n安装 VScode（双击下载的安装包，按照提示完成安装）。\n安装完成后，打开 VScode。\n在 VScode 中，安装插件以扩展 VScode 的性能，比如 Python、Jupyter 等。\n\n\n3.2.1 VScode 插件\n插件安装方法：点击图中的 四个小方块 图标，在搜索框中填入插件名称，点击 Install 即可。\n详情参见 VScode 插件：安装、配置和使用\n\n为了能在 VScode 中借助 Jupyter Notebook 中同时运行 Python 和 Stata 代码，我们需要安装 python, Jupyter, nbstata, Copilot 等插件，具体说明如下。\n\n3.2.1.1 Python 和 Jupyter 插件\n为了能够在 VScode 中使用 Jupyter Notebook 运行 Python 代码，并借助 AI 提升工作效率，你需要安装以下插件：\n\nPython (必装，作者：Microsoft)：运行 Python 代码\nJupyter (必装，作者：Microsoft)：用于编辑和运行 Jupyter Notebook 文件\nPylance (推荐，作者：Microsoft)：代码补全和智能提示等功能\nGitHub Copilot (建议安装，作者为：Github)：AI 编程助手\n\n收费：首月免费，后续每月 $10.0，支持国内发行的 Visa 或 Master 信用卡付款。\n建议同时安装 Github Copilot Chat 插件，提供更好的交互体验。\n\n\n\n\n\n\n\n\n有关编程助手的说明\n\n\n\n\n安装编程助手前，请确保能顺畅上网。\n建议预先申请一个 GitHub 账号，使用 Copilot 时，可以用 GitHub 账号进行关联和登录。\n建议选定一个编程助手，不同同时使用多个助手，以免造成冲突。如果已经安装了多个编程助手，可以在 VScode 的插件管理界面中，点击已安装的插件旁的齿轮按钮，选择 unable (暂停使用) 或 Uninstall (卸载)。\n我个人使用 Copilot，觉得效果还不错。也有人说 Codeium 也不错 (Copilot 的替代品，Free，目前已经更名为 Windsurf Plugin)，它在 VScode 中的安装量比 Copilot 还要多。Cline (作者：Cline，Free) 是最近新出的，我没有尝试，无法评判。\n\n\n\nVScode 插件市场提供了诸多 Python 相关的插件，可以酌情安装，详见：VScode：实用 Python 插件清单。\n比如，我装了如下插件 - Data Wrangler (可选)：表格呈现效果很美观\n\n\n3.2.1.2 Markdown 插件\nVScode 支持 Markdown 语法，可以用来编写文档、笔记等。安装 Markdown 插件可以增强 VScode 对 Markdown 的支持，比如预览、语法高亮、制作幻灯片等。多数情况下，安装如下三个插件就可以满足需求：\n\nMarkdown All in One\nMarkdown Preview Enhanced\nMarp (制作幻灯片)\n\n若想较为全面的了解 Markdown 类插件，可参阅 VScode：实用 Markdown 插件推荐。\n你也可以点击 VScode 左边栏中的 四个小方块 图标，在搜索框中输入 markdown，酌情安装其他插件。\n\n\n3.2.1.3 Stata 插件\n在 VScode 的扩展搜索框中搜索 stata，安装如下插件：\n\nStata Enhanced (作者：Kyle Barron)：语法高亮支持；\nstataRun (作者：Yeaoh Media Inc)：用于建立 VScode 和 Stata 的后台关联。\n\n要顺利运行 Stata 代码，还需要安装 nbstata 包，下文将详细介绍。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python：安装和环境配置</span>"
     ]
   },
@@ -123,7 +123,7 @@
     "section": "3.3 配置 Stata 环境：nbstata 插件",
     "text": "3.3 配置 Stata 环境：nbstata 插件\n我们可以在 VScode 中安装 nbstata 插件，以运行 Stata 代码。它会将 Stata 的输出结果显示在 VScode 的输出面板中，类似于 Jupyter Notebook 的效果。\n最重要的是，配合我们前文提到的编程助手 (如 Copilot 或 Codeium)，可以大大提升 Stata 编程的效率。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python：安装和环境配置</span>"
     ]
   },
@@ -134,7 +134,7 @@
     "section": "3.4 安装和配置 nbstata：在 VS Code 中运行 Stata 代码",
     "text": "3.4 安装和配置 nbstata：在 VS Code 中运行 Stata 代码\n为了在 VS Code 中的 .ipynb 文档中直接运行 Stata 代码，我们可以借助 nbstata 插件。下面介绍如何在已有 Python + Jupyter 环境基础上完成配置。\n\n\n\n\n\n\n前提条件：你已经完成以下配置\n\n\n\n\n安装 Anaconda 套装；\n安装 VS Code 编辑器；\n安装 Python 插件与 Jupyter 插件；\n可以在 VS Code 中正常运行 .ipynb 文件。\n\n\n\n需要注意的是，nbstata 仅适用于 Stata 17+ 及以上版本 (配置了 pystata)。\n\n3.4.1 配置步骤\n首先，打开 VS Code 的终端 (快捷键：Ctrl + ~ (ESC 键下方)；或者依次点击 VScode 顶部菜单 Terminal → New Terminal)，输入以下命令：\npip install nbstata\n接下来按如下格式运行命令，语法规则为 (方括号表示选项)：\npython -m nbstata.install [--sys-prefix] [--prefix PREFIX] [--conf-file]\n其中，\n\n--sys-prefix 指定安装的环境，例如 virtualenv (虚拟环境) 或 conda env (Conda 环境)。\n--prefix PREFIX 指定安装路径。\n--conf-file 将创建一个配置文件。\n\n如果不需要更改安装的环境或路径，推荐使用以下指令安装：\npython -m nbstata.install --conf-file\n该指令将生成一个配置文件，便于我们后续修改配置。运行成功后，提示信息如下：\nC:\\Users\\Administrator\\.config\\nbstata\\nbstata.conf\n你可以到此文件夹下，用 VScode 打开 nbstata.conf 文件，查看或修改配置。我的配置如下：\n[nbstata]\nstata_dir = D:\\stata17\nedition = mp\nsplash = False\ngraph_format = png\ngraph_width = 7.5in\ngraph_height = 5.0in\necho = None\nmissing = .\nbrowse_auto_height = True\n如果你目前还无法在 .ipynb 文件中运行 Stata 代码，可以尝试按如下方式修改 nbstata.conf 文件：\n\n在 Stata 命令窗口中输入 sysdir 命令，结果中第一行显示的就是 Stata 的安装路径：\n. sysdir\n  STATA:  D:\\stata17\\\n复制 D:\\stata17\\，填入 nbstata.conf 文件的 stata_dir 字段中 (有时需要把反斜杠 \\ 改成斜杠 /)。\n进入 D:\\stata17\\ 目录可以查看 Stata 的版本类型，如 StataMP-64.exe、StataSE-64.exe 或 StataIC-64.exe。根据你的 Stata 版本，对照修改 nbstata.conf 文件中 edition 字段的值为 mp、se 或 ic。\n\n\n\n\n\n\n\n测试\n\n\n\n\n打开或新建一个 .ipynb 文件；\n点击 + Codes 按钮，创建一个新的代码单元格，输入 display 2 + 2。\n按快捷键 Shift + Enter 或点击单元格左上角的 Run 按钮，若输出 4，说明配置成功。\n\n\n\n\n\n3.4.2 说明\n\nNote：安装过程中遇到问题，可以将错误代码，以及你当前的 Python 和 Stata 安装信息发送给豆包或 ChatGPT，它会引导你排除问题。\n此处提供 ChatGPT 对话 - nbstata 安装讲义 供各位参考。\n\n如需更新 nbstata，只需在 VS Code 终端中执行以下命令：\npip install --upgrade nbstata\n有关 nbstata 的更多信息和使用方法，请参见：\n\nnbstata 文档，以及 nbstata User Guide\nJupyter + Stata 配置方法，第 4 小节。\n黄晨晨, 2023, Jupyter Notebook 与 Stata 交互：nbstata\n\n\n\n\n\n\n\n后续\n\n\n\n\n安装过程中可能会遇到各种小挫折，参见 Python 安装常见问题。\n完成上述环境配置后，就可以使用 Jupyter Notebook 编写代码了，参见 Jupyter Notebook 的使用。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Python：安装和环境配置</span>"
     ]
   },
@@ -145,7 +145,7 @@
     "section": "",
     "text": "4.1 简介\n顾名思义，Jupyter Notebook 是一个文本编辑器。它类似于 Stata 的 Do 文件 (.do)；或 R 语言中 RStudio 的 RMarkdown 文件 (.rmd)。Jupyter Notebook 的特征更接近于 RMardown，它提供了一个交互式的计算环境，允许你在一个文档中编写和运行代码、可视化数据、撰写文本和公式等。\n简言之，你可以把你的分析目的 (文本块)，分析过程 (代码块)，分析结果 (表格或图形) 都整合到一个文档中，形成一个完整的分析报告。如果安装了编程助手 (如 Copilot)，还可以在编写代码时获得智能提示、自动补全和根据提示词自动编写代码和修改文字的功能。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
     ]
   },
@@ -156,7 +156,7 @@
     "section": "",
     "text": "说明\n\n\n\n\n这里介绍的 Jupyter Notebook 是指在 VScode 中使用的 Jupyter Notebook，而不是 Anaconda 自带的 Jupyter Notebook。VScode 中的 Jupyter Notebook 更加灵活和强大，支持多种编程语言和插件。\n阅读本章之前，请务必按照 Python：安装和环境配置 完成环境配置。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
     ]
   },
@@ -167,7 +167,7 @@
     "section": "4.2 运行 Python 代码",
     "text": "4.2 运行 Python 代码\n我们先演示一下如何在 VScode 中编写 Python 代码：\n\n点击 File → New File …，选择 Jupyter Notebook .ipynb，填入文件名，即可新建一个 Jupyter Notebook。\n点击 + Code 按钮，添加一个代码单元格，输入 Python 代码，然后点击运行按钮 (或按 Shift + Enter) 执行代码。\n\n\n\ngithub - 原始 .ipynb 文件，version 2\n\n由于 Jupyter Notebook 对 Python 的支持一直非常好，因此在 Jupyter Notebook 中编写和运行 Python 代码非常顺畅。比如，你可以运行或修改上图中的代码：\n\n# 绘制一幅简单的函数图\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(-10, 10, 200)\ny = x ** 2\n\nplt.figure(figsize=(3, 2.5))\nplt.plot(x, y)\nplt.title(\"y = x^2\")\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.grid(True)\nplt.show()",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
     ]
   },
@@ -178,7 +178,7 @@
     "section": "4.3 运行 Stata 代码",
     "text": "4.3 运行 Stata 代码\n多数情况下，你能在 dofile 或 Stata 命令窗口中运行的代码，都可以在 Jupyter Notebook 中运行。以下是一个简单的 Stata 代码示例，比如：\n\ndis \"nbstata is so NB\"\n\nnbstata is so NB\n\n\n再看一个更完整的例子：使用 Stata 自带的 sysuse auto 数据集，绘制汽车价格与重量的散点图，并把图形保存到当前工作路径下。\n\ncd \"D:/temp\"  // 设置工作目录，酌情修改或忽略此行\n\n// 安装绘图模板\nnet install scheme_scientific.pkg, from(http://fmwww.bc.edu/RePEc/bocode/s)\nset scheme scientific\n\nsysuse \"auto.dta\", clear\n\nlist price weight mpg in 1/3, clean \n\nscatter price weight\ngraph export \"scatter_price_weight.png\", replace width(700)\n\nD:\\temp\nchecking scheme_scientific consistency and verifying not already installed...\nall files already exist and are up to date.\n(1978 automobile data)\n\n       price   weight   mpg  \n  1.   4,099    2,930    22  \n  2.   4,749    3,350    17  \n  3.   3,799    2,640    22  \nfile scatter_price_weight.png written in PNG format\n\n\n\n\n\n\n\n\n\n\n4.3.1 魔法命令\n有少数 Stata 命令是无法在 Jupyter Notebook 中直接使用的，比如 browse, doedit, set graph_width 等。这些命令通常都涉及到文件的读写和图形的显示，而不是简单地在结果窗中打印文字和数字结果。\n不过，我们可以借助 nbstata 的魔法命令来实现多数功能。\nnbstata 目前支持以下魔法指令，详情参见 nbstata 文档，以及 nbstata User Guide。\n\n\n\n命令\n描述\n\n\n\n\n%browse\n查看数据集\n\n\n%head\n查看前 5 (或 N) 行\n\n\n%tail\n查看最后 5 (或 N) 行\n\n\n%frbrowse\n查看数据框\n\n\n%frhead\n查看前 5 (或 N) 个数据框\n\n\n%frtail\n查看最后 5 (或 N) 个数据框\n\n\n%locals\n列出暂元和它们的值\n\n\n%delimit\n打印当前分隔符\n\n\n%help\n显示 Stata 帮助\n\n\n%set\n设置单个配置选项\n\n\n%%set\n设置多个配置选项\n\n\n%status\n显示 Stata 或配置状态\n\n\n%%echo\n显示命令回显\n\n\n%%noecho\n不显示命令回显\n\n\n%%quietly\n静默所有单元输出，包括图表\n\n\n\n我设置的图片默认尺寸比较大，如需调整，可以使用 nbstata 的 魔法命令 设置图片尺寸。\n需要注意的是，魔法命令需要以 % 或 %% 开够，且只有放在代码块的第一行才会被识别为魔法命令。因此，我通常会让魔法命令独占一行：\n\n%set graph_width = 5.0in   // 将图形宽度设置为 5.0 英寸\n\ngraph size was (7.0in, 5.0in), is now (5.0in, 5.0in).\n\n\n\n%set graph_height = 4.0in  // 将图形高度设置为 4.0 英寸\n\ngraph size was (5.0in, 5.0in), is now (5.0in, 4.0in).\n\n\n执行完上述两行命令后，再绘制的图形就会按照指定的宽度和高度显示了：\n\nscatter price weight\n\n\n\n\n\n\n\n\n再看几个有趣的例子：\n\n%status 可以显示当前 Stata 的版本和配置状态。\n%head 可以查看数据集的前 5 行，或者指定行数。我猜是借用了 Python 中的 head() 函数。\n\n\n%status\n\n    System information\n      Python version         3.12.7\n      Stata version          Stata 17.0 (MP)\n      Stata library path     D:\\stata17\\mp-64.dll\n      Stata initialized      True\n      sfi initialized        True\n\n    Settings\n      graphic display        True\n      graphic size           width = 5.0in, height = 4.0in\n      graphic format         png\n\n      echo                   None\n      missing                .\n      browse_auto_height     True\n      config file path       C:\\Users\\Administrator\\.config\\nbstata\\nbstata.conf\n\n\n\n%head price weight mpg make foreign\n\n\n\n\n\n\n\n\nprice\nweight\nmpg\nmake\nforeign\n\n\n\n\n1\n4,099\n2,930\n22\nAMC Concord\nDomestic\n\n\n2\n4,749\n3,350\n17\nAMC Pacer\nDomestic\n\n\n3\n3,799\n2,640\n22\nAMC Spirit\nDomestic\n\n\n4\n4,816\n3,250\n20\nBuick Century\nDomestic\n\n\n5\n7,827\n4,080\n15\nBuick Electra\nDomestic",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
     ]
   },
@@ -189,7 +189,7 @@
     "section": "4.4 项目结构文档",
     "text": "4.4 项目结构文档\n下面，我会从项目的角度，介绍如何建立一个规范的项目文件结构，以便于管理和组织你的代码、数据和文档。养成良好的项目管理习惯对于后续处理大型项目很有帮助。\n首先，我们会新建一个文件夹，然后在该文件夹下按需创建几个子文件夹，用于分类存储 Data, Codes 和输出结果。最后，我们会在根目录下或 Codes 文件夹下创建 Jupyter Notebook 文件，编写代码并运行。\n\n4.4.1 新建项目文件夹\n\n本地新建一个文件夹，如 D:/FinData/Proj_Maotai\n(推荐) 在该文件夹下新建如下几个子文件夹，用于分类存放文件\n\n[./data]：存放 .csv、.xlsx 等数据文件\n[./doc]：存放说明文档、报告等文件\n[./codes]：存放代码文件，包括自编函数、模块等\n[./output]：存放输出文件，包括图表、结果等\n此外，建议在该文件夹下新建一个 README.md 文件，对项目进行说明 (如项目背景、目标、数据来源、程序的执行顺序和方法等)。\n\n\n\n\n\n4.4.2 新建 Jupyter Notebook 文件 (.ipynb)\n\n打开 VScode，依次点击 文件 -&gt; 打开文件夹，选择 D:/FinData/Proj_Maotai 文件夹。\n右击该文件夹，选择 New File (亦可直接点击下图中的 New File 图标)，新建一个文件，名称为 data_clean.ipynb。注意：一定要以 .ipynb 结尾，否则无法用 Jupyter Notebook 打开，也无法添加 Python 代码块。\n\n你也可以使用命令行方式新建一个 .ipynb 文件：按快捷键 Ctrl+Shift+P &gt;&gt; 输入或选择 Create: New Jupyter Notebook 会打开一个名为 Untitled-1.ipynb 的文件，输入内容后另存到目标文件夹即可 (可以重命名，如 data_clean.ipynb)。\n\n\n完成上述设定后，VScode 的文件目录结构如下：\n# 目录结构\nD:/FinData/Proj_Maotai\n├── codes\n├── data\n├── doc\n├── output\n├── README.md\n└── data_clean.ipynb\n\n\n\n\n\n\n自动创建项目文档结构\n\n\n\n如果你有多个项目需要建立，或者需要在多个项目中使用相同的文件结构，可以借助 AI 工具自动创建项目文档。本章附录中提供了一个示例提示词，供你参考。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
     ]
   },
@@ -200,7 +200,7 @@
     "section": "4.5 使用 Jupyter Notebook",
     "text": "4.5 使用 Jupyter Notebook\nStep 1：选择解释器。初次打开 data_clean.ipynb 文件时，可能需要按下图方式设定 Python 解释器，以便随后用 python.exe 来运行新增的代码块。\n\n如果你没有看到该按钮，可以按快捷键 Ctrl + Shift + P，输入或选择 Python: Select Interpreter，然后选择你安装的 Python 解释器。\n若要运行 Stata 代码，可以选择 Stata (nbstata) 解释器。\n\n\nStep 2：添加 Markdown 文本块。点击上图中的 + Markdown 按钮，添加一个 Markdown 文本块。可以用 Markdown 语法撰写文档说明。\n\n预览：点击图中的 √ 或按快捷键 Esc；\n编辑：在预览 双击鼠标 区可重新计入编辑模式。\n\n\nStep 3a： 让 AI 自动生成代码 (可选)：如果你已经在 VScode 中安装了插件 Github Copilot，可以点击图中的 Generate 按钮，输入提示词 (比如，生成随机数 x~N(0,1)，N=100，绘制直方图+密度函数图, 英文标题)，敲回车，或点击下图中的右箭头，Copilot 会自动生成代码。注意：代码块右下角有时会显示为 Ini，表示没有指定该代码快的类型，可以点击选择合适的类型或解释器。\n\n\nStep 3b： 自行添加代码块。点击上图中的 + Code 按钮，添加一个代码块。可以在代码块中输入 Python 代码。\n\n运行代码块：点击上图中的 ▶ 按钮，或按快捷键 Ctrl + Enter；\n\n\nStep 4： 修改和调试代码。你可以酌情修改代码。\n\n若出现大量警告信息或程序无法运行，可以选中全部代码或被标注了红色波浪线代码，点击下图中的黄色星星按钮，选择 Fix using copilot，多数情况下都能自动修复。\n若需现有代码进行优化，可以选中代码后，点击黄色星星，选择 Modify using copilot，然后输入提示词。\n\n\n\n4.5.1 界面和主要功能\n在上文中，为了突出重点，我没有让 VScode 编辑器全屏。事实上，全屏后，你会发现 Jupyter Notebook 提供了一组功能强大的工具栏和菜单栏，帮助你更好地编写和运行代码。下面是 Jupyter Notebook 的主要界面元素：\n\n多数菜单的功能都是比较直观的，下面我简单介绍几个常用的功能：\n\nView data：查看数据和概要信息。注意：需要安装 Data Wrangler 插件才具有此功能。\n...：最右侧的三个点，点击后可以选择 Export，将当前 Notebook 导出为 PDF、HTML、Markdown 等格式；还有预览 (Preview) 等功能 (快捷键 Esc)。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
     ]
   },
@@ -211,7 +211,7 @@
     "section": "4.6 在文档间复制 cell",
     "text": "4.6 在文档间复制 cell\n\n4.6.1 单个 cell 的复制和粘贴\n在 Jupyter Notebook 中，你可以通过以下方式在不同的 Notebook 文档之间复制 cell：\n\n打开源 Notebook 文档，选中要复制的 cell。\n使用快捷键 Ctrl+C 复制选中的 cell；亦可单击三个点图标，选择 Copy Cell。\n打开目标 Notebook 文档，将光标定位到要粘贴的位置。\n使用快捷键 Ctrl+V 粘贴 cell；亦可单击三个点图标，选择 Paste Cell。\n\n\n\n4.6.2 多个 cell 的复制和粘贴\n\n在 VS Code 的资源管理器（Explorer）中，分别打开需要操作的两个 Notebook 文件（如 A.ipynb 和 B.ipynb）。\n\n如需分屏显示，可拖动标签，将两个文档左右排列，方便拖拽和对比操作。\n\n在源 Notebook（如 A.ipynb）中，按住 Ctrl（Mac 下为 Command）逐个点击左侧 cell 区域，可多选不连续的 cell；或先点击一个 cell，再按住 Shift 点击另一个 cell，选择一段连续的 cell。\n\n多选后，cell 区域会高亮显示，表示已被选中。\n\n按 Ctrl+C（Command+C）或右键点击选中区域，选择“Copy Cell”。\n切换到目标 Notebook（如 B.ipynb），点击你希望插入的位置。\n按 Ctrl+V（Command+V）或右键选择 “Paste Cell”，即可将所有选中 cell 批量粘贴到目标位置。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
     ]
   },
@@ -222,7 +222,7 @@
     "section": "4.7 导出和文档转换",
     "text": "4.7 导出和文档转换\n在 VScode 中，你可以将 Jupyter Notebook 导出为多种格式，包括 HTML、PDF 和 Markdown。你可以在菜单栏中选择 文件 -&gt; 导出为，然后选择你想要的格式。当然，还需要安装一些额外的工具来支持这些导出功能，主要包括 Pandoc 和 TeX Live。\n\n4.7.1 安装 Pandoc（用于文档格式转换）\nJupyter 和 Quarto 在导出 Markdown、Word、PDF 时都会调用 Pandoc。\n\n推荐安装方式（适用于 Anaconda 用户）：\nconda install -c conda-forge pandoc\n或者前往官网下载安装包（Windows/macOS/Linux 均支持）： https://pandoc.org/install\n安装完成后，你可以在终端中输入以下命令测试是否成功：\npandoc --version\n\n\n\n4.7.2 安装 TeX Live（用于导出 PDF）\nJupyter 和 Quarto 的 PDF 导出依赖 LaTeX 引擎，如 pdflatex 或 xelatex。推荐安装完整版本的 TeX Live。\n\nWindows 用户请访问官网下载器： https://tug.org/texlive/windows.html\n安装过程中可选择 “完整版” 或 “Typical full installation”；\n安装完成后，务必重启 VS Code 和终端；\n然后在终端中测试：\npdflatex --version\n\n\n\n4.7.3 如何打开终端？\n很多初学者不清楚“在终端中输入命令”具体指什么。你可以按以下方式打开终端：\n\n方式一（推荐）： 在 VS Code 中按下快捷键 Ctrl + ~（就是数字 1 左侧的波浪线），即可打开内置终端。\n方式二： 从系统菜单中打开：\n\nWindows：点击开始 → 输入 cmd 或 Anaconda Prompt 或 PowerShell；\nmacOS：打开 Launchpad → 搜索「终端（Terminal）」；\nLinux：按下 Ctrl + Alt + T 打开终端窗口。\n\n\n终端窗口中，你可以输入如 conda install、pandoc --version 等命令，按下回车运行。\n\n\n4.7.4 安装完成后即可使用以下方式导出 PDF\n\n在 VS Code 中点击右上角「导出（Export）」按钮；\n或在终端中运行：\njupyter nbconvert your_notebook.ipynb --to pdf\n或使用 Quarto（如果你已安装）：\nquarto render your_notebook.ipynb --to pdf\n\n完成上述安装和设定后，即可顺利将 Notebook 文档导出为 PDF、HTML、Word 等多种格式，满足教学、写作和发布的常见需求。\n\n\n4.7.5 高阶用法：使用 Quarto 导出漂亮 PDF 或制作电子书网站\n如果你希望导出的文档更美观、格式更统一，或者希望将多个 Jupyter Notebook 或 Markdown 文档整合成一个电子书（book）或教学网站（website），可以考虑使用 Quarto。详情参见 连玉君：Quarto Book，以及采用该教程编写的 讲义。\nQuarto 是 RStudio 团队开发的下一代科学与技术出版平台，同时支持 .ipynb、.qmd、.md 文件的混合编写和发布。常见功能包括：\n\n一键导出 排版美观的 PDF 文档（支持标题、目录、脚注、交叉引用、引用文献等）；\n创建结构化的电子书（Quarto Book），适合撰写讲义、教程和学术教材；\n部署交互式教学网站（Quarto Website），可发布为静态网页托管在 GitHub Pages 上。\n\n\n4.7.5.1 示例命令：\n将 .ipynb 或 .qmd 导出为 PDF：\nquarto render your_notebook.ipynb --to pdf\n将多个文档组织为电子书结构（在 _quarto.yml 中设置章节）：\nquarto render\n\n\n4.7.5.2 安装方式：\n\n可从官网下载安装：https://quarto.org/download\n安装完成后，在终端中测试：\nquarto --version\n\nQuarto 完全兼容你现有的 VS Code 工作流，安装 Quarto 插件后即可直接在 VS Code 中预览、渲染和发布。对于希望构建专业文档的用户，Quarto 是目前最值得推荐的方案。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
     ]
   },
@@ -233,7 +233,7 @@
     "section": "4.8 附录",
     "text": "4.8 附录\n\n4.8.1 借助 AI 工具自动创建项目文档 (备选)\n\nChatGPT 对话过程\n\n如果觉得手动创建文件夹麻烦，可以借助 ChatGPT 等 AI 工具，自动创建项目文档。下面是我编写的一个示例提示词 (你只需要指定目标文件夹路径即可，即使这个文件夹不存在也没有关系)：\n\n\n\n\n\n\n提示词：自动项目文档目录\n\n\n\n请帮我在 Windows 系统上为一个数据分析项目生成标准的项目结构。 项目的根目录是 D:/FinData/Proj_Maotai，请在该路径下创建以下结构：\nD:/FinData/Proj_Maotai\n├── codes             # 用于存放脚本代码\n├── data              # 原始数据或处理后的数据\n├── doc               # 项目文档与说明资料\n├── output            # 图表、模型结果、分析报告等输出文件\n├── README.md         # 项目说明文件，简要介绍项目目的与结构\n├── 01_data_clean.ipynb       # 数据清洗与预处理\n├── 02_EDA.ipynb              # 探索性数据分析\n└── 03_regression.ipynb       # 回归分析与建模\n请提供 Python 代码，以便我在写 Jupyter Notebook 中运行。 请确保必要的 .ipynb 文件和 README.md 都被自动生成。如果文件已存在，请保留原文件不覆盖。 你可以默认这些 .ipynb 文件为空白，也可以加一两行注释。\n\n\n经过测试，ChatGPT 和 豆包生成的代码都可以一次性顺利执行：\n\nChatGPT 对话过程\n豆包对话过程\n\n\n\n4.8.2 采用插件创建项目模板\n除了上述方法，你也可以在 VScode 中搜索 Project Templates，安装对应的插件来创建项目模板。安装完成后，点击左侧的 Project Templates 图标，选择 Create New Project，然后选择你需要的模板即可。\n\n该插件提供了多种项目模板，包括数据分析、机器学习、Web 开发等，可以酌情选择。\n该插件也支持自定义模板，具体操作请参考插件的说明文档。\n\n不过，如果项目不是很复杂，建议还是手动创建项目文件夹，这样更灵活，也更容易管理。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Jupyter Notebook 的使用</span>"
     ]
   },
@@ -244,7 +244,7 @@
     "section": "",
     "text": "5.1 安装了 Anaconda 还需要安装 Python 3.13 吗？\n答：不需要！ 而且，强烈反对。Anaconda 是一个完整的 Python 科学计算发行版，安装时会自动集成 Python 解释器和常用扩展包 (如 NumPy、Pandas 等)，并通过 Conda 环境管理器提供灵活的版本控制。\n若额外安装官网 Python，可能引发以下问题：\n建议通过 Conda 统一管理 Python 环境，既能自由切换不同版本（如 conda create -n py312 python=3.12），又能确保依赖隔离和生态兼容性，避免因混合安装导致的技术债。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Python 安装常见问题</span>"
     ]
   },
@@ -255,7 +255,7 @@
     "section": "",
     "text": "版本混乱：系统环境变量可能优先指向非 Anaconda 的 Python，导致命令行调用错误的解释器版本；\n\n依赖冲突：Conda 和 pip 混合管理包时，依赖项版本容易冲突（例如 TensorFlow 或 PyTorch 的兼容性问题）；\n\n环境隔离失效：全局安装的 Python 可能干扰 Conda 创建的独立环境，破坏项目隔离性；\n\n维护困难：需手动协调多个 Python 实例的更新与兼容性，增加运维复杂度。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Python 安装常见问题</span>"
     ]
   },
@@ -266,7 +266,7 @@
     "section": "5.2 安装 Anaconda 时需要注意什么？",
     "text": "5.2 安装 Anaconda 时需要注意什么？\n\nChoose Install Location 页面，建议使用默认路径 C:\\Users\\用户名\\Anaconda3 作为 Anaconda 的安装路径，这样可以避免一些潜在的权限和路径问题。注意： 如果你的用户名中包含中文字符或空格，建议选择「自定义路径」，并选择一个英文路径，例如 C:\\PromgramFile\\Anaconda3。\nAdvanced Installation Options 页面，确保同时勾选如下两个选项：\n\n[√] Add Anaconda to my PATH environment variable\n[√] Register Anaconda as my default Python 3.x\n\n\n详情参见：VSCode与Anaconda安装配置",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Python 安装常见问题</span>"
     ]
   },
@@ -277,7 +277,7 @@
     "section": "5.3 默认解释器的路径",
     "text": "5.3 默认解释器的路径\n问题描述：每次在 VScode 的 Jupyter 中运行代码时，都会弹出一个窗口询问选择解释器的路径。\n\n原因 1：VScode 设置问题：VScode 在运行 Jupyter Notebook 时需要指定 Python 解释器的路径，如果没有设置默认解释器，就会弹出这个窗口。 environment variable`，导致 VScode 无法找到 Python 解释器的路径。\n\n解决方法：在 VScode 中，按下 Ctrl + Shift + P，输入Python: Select Interpreter\\，选择你想要的 Python 解释器路径即可。\n\n原因 2：Anaconda 安装时的配置有问题。\n在安装 Anaconda 时，在 Advanced Installation Options 页面，你可能没有勾选 Add Anaconda to my PATH environment variable，导致 VScode 无法找到 Python 解释器的路径。\n\n解决方案：将 Anaconda 的安装路径添加到系统的环境变量中。具体步骤如下：\n\n在 Windows 中，右键点击 “此电脑”，选择 “属性”。\n依次点击 高级系统设置 &gt;&gt; 环境变量\n在 “系统变量” 中找到 Path，点击 “编辑”。\n点击 “新建”，添加 Anaconda 的安装路径，例如 C:\\Users\\用户名\\Anaconda3 和 C:\\Users\\用户名\\Anaconda3\\Scripts。\n点击“确定”，保存设置。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Python 安装常见问题</span>"
     ]
   },
@@ -288,7 +288,7 @@
     "section": "5.4 pip install 在哪里执行？",
     "text": "5.4 pip install 在哪里执行？\n答：pip install pkg_name 通常在命令行界面中执行。最方便的方法就是在 VScode 的集成终端/控制台 (terminal) 中执行。详见下一个问题。\n\nVScode 控制台快捷打开方式：\n\nWindows：按下 Ctrl + ~ 键 (~ 在 Esc 键下方)。\nMac：按下 Command + Shift + ~ 键。\n\n\n除此之外，你也可以在计算机操作系统的命令行界面中执行：\n\nWindows 系统：按下 Win + R 键，输入 cmd，然后按下 Enter 键。\nMac 系统：按下 Command + Space 键，输入 Terminal，然后按下 Enter 键。\nVSCode 中：按下 Ctrl + Shift + P，输入 Terminal: Create New Terminal，然后按下 Enter 键。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Python 安装常见问题</span>"
     ]
   },
@@ -299,7 +299,7 @@
     "section": "5.5 如何打开 VScode 的控制台 (terminal)？",
     "text": "5.5 如何打开 VScode 的控制台 (terminal)？\n答：VScode 的 terminal 是一个集成的命令行界面，允许用户在 VScode 编辑器中直接执行命令行操作。它支持多种 Shell，如 PowerShell、Bash 和 Command Prompt 等。用户可以在 terminal 中运行 Python 脚本、安装包、管理版本控制等操作，而无需切换到外部命令行窗口。\n\n开启方法：\n\n在 VScode 中，按下 Ctrl + Shift + P，输入 Terminal: Create New Terminal，然后按下 Enter 键。\n更快捷的方式：\n\nWindows：按下 Ctrl + ~ 键（~ 在 Esc 键下方）。\nMac：按下 Command + Shift + ~ 键。\n\n\n用途：\n\n执行命令行操作，如安装 Python 包（pip install pkg_name）、运行脚本等。\n运行 Git 命令进行版本控制：\n\ngit clone：克隆远程仓库到本地。\ngit add：将更改添加到暂存区。\ngit commit：提交更改到本地仓库。\ngit push：将本地提交推送到远程仓库。\n\n管理虚拟环境和依赖项。\n调试和测试代码。\n查看系统信息和环境变量等。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Python 安装常见问题</span>"
     ]
   },
@@ -310,7 +310,7 @@
     "section": "5.6 Conda install 与 pip install 有何差别？",
     "text": "5.6 Conda install 与 pip install 有何差别？\n相似点：都是 Python 的包管理工具；都能安装 Python 库和包，并自动处理依赖关系。\n主要区别：\n\n包来源不同：\n\nConda：主要从 Anaconda 官方仓库（例如 Anaconda Cloud）安装包，并且可以安装 Python 之外的其他工具和库（例如 R 语言的库）。它支持更广泛的语言和工具。\npip：从 Python 官方包索引（PyPI）安装 Python 包，通常只用于 Python 相关的包。\n\n虚拟环境管理：\n\nConda：不仅可以管理 Python 包，还可以管理虚拟环境。在 Conda 环境中，你可以控制整个环境的配置，包括 Python 版本和依赖的库。\npip：仅管理 Python 包，不负责环境的管理。虽然 virtualenv 或 venv 可以配合 pip 使用来管理虚拟环境，但这需要额外的配置。\n\n依赖解决：\n\nConda：在安装包时，Conda 会自动解决依赖冲突，确保所有包和环境的兼容性。\npip：通常会安装指定的包，但不总是自动解决复杂的依赖关系。如果发生依赖冲突，pip 可能不会提醒用户。\n\n适用场景：\n\nConda：适用于需要管理多个工具和语言环境（如 Python、R）的情况，尤其在数据科学、机器学习等领域中，Conda 更加常用。\npip：适用于单纯的 Python 项目，尤其是当你不需要其他语言支持时，pip 更简便。\n\n\n\n总结\n\nAnaconda 是一个包含 Conda 的大套件，提供了用于数据分析和科学计算的工具。\nConda 是 Anaconda 的包和环境管理工具，可以管理 Python 以及其他语言的包。\npip 是 Python 的官方包管理工具，通常用于管理 Python 包，适用于纯 Python 项目。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Python 安装常见问题</span>"
     ]
   },
@@ -321,7 +321,7 @@
     "section": "5.7 Conda 和 Anaconda 有何关系？",
     "text": "5.7 Conda 和 Anaconda 有何关系？\nAnaconda 是一个开源的 Python 发行版，旨在简化 Python 和 R 编程语言中数据科学、机器学习和科学计算的使用。Anaconda 提供了包括 Python 和 R 语言在内的各种开源库以及管理和部署环境所需的工具。\nConda 是 Anaconda 的一个组件，它是一个包管理器和环境管理器。Conda 负责安装、更新、卸载包和管理虚拟环境。实际上，Conda 不仅仅可以用来管理 Python 包，还可以管理其他语言（例如 R 和 Ruby）的包。\n总结：Anaconda 是一个包含 Conda 的完整发行版，Conda 是其中的包管理工具。\n\nConda 的用途\n\n包管理：Conda 用于安装、升级和卸载 Python 包以及其他语言的包。它能够管理并解决依赖问题，确保你安装的包兼容且稳定。\n环境管理：Conda 允许创建和管理虚拟环境。通过虚拟环境，你可以在同一台机器上管理多个不同版本的 Python 和包，而不会发生冲突。例如，你可以为一个项目使用 Python 3.7，为另一个项目使用 Python 3.9，并且确保每个项目有独立的依赖。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Python 安装常见问题</span>"
     ]
   },
@@ -332,7 +332,7 @@
     "section": "",
     "text": "6.1 何谓 Markdown？\nMarkdown 是一种轻量级的标记语言，允许你使用易读易写的纯文本格式编写文档，然后转换成结构化的 HTML, PDF, Word 等多种格式的文档。Markdown 语法简单易学，适合用来撰写笔记、文档、幻灯片等。\n大家在网上看到的很多博客文章，程序说明文档，甚至是在线书籍 (Python for Data Analysis, 3E)，都是用 Markdown 写的。",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Markdown</span>"
     ]
   },
@@ -343,7 +343,7 @@
     "section": "6.2 语法速览",
     "text": "6.2 语法速览\n\n\n\n\n\n\nFigure 6.1: Markdown 语法对照\n\n\n\n你可以在如下网站按部就班地学习 Markdown 的基本用法，大概五分钟后你就可以掌握常用 Markdown 语法规则了：\n\nhttps://www.markdowntutorial.com/zh-cn",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Markdown</span>"
     ]
   },
@@ -354,7 +354,7 @@
     "section": "6.3 Markdown 基本语法",
     "text": "6.3 Markdown 基本语法\n\nSource: markdownguide.org/cheat-sheet/\n\n这份 Markdown 备忘单介绍了常用的 Markdown 语法。为了便于您快速了解基本的语法规则，这里略去了很多细节信息，详情参见：基础语法 和 扩展语法。\n以下是 John Gruber 原始设计文档中列出的基本元素，所有 Markdown 应用程序都支持这些元素。\n\n\n\n\n\n\n\n元素\nMarkdown 语法\n\n\n\n\n标题\n# 一级标题## 二级标题### 三级标题\n\n\n粗体\n**粗体文本**\n\n\n斜体\n*斜体文本*\n\n\n引用块\n&gt; 引用内容\n\n\n有序列表\n1. 第一项2. 第二项3. 第三项\n\n\n无序列表\n- 第一项  -  第一条- 第二项- 第三项\n\n\n代码高亮显示\n`代码` (`xtreg` → xtreg)\n\n\n水平线\n---\n\n\n链接\n[连享会主页](https://www.lianxh.cn)\n\n\n图片\n![图片标题](/Fig/image.jpg) 或 ![](图片网址)\n\n\n\n\n6.3.1 表格\n| 命令    | 范例                 |\n| :------ | :------------------- |\n| xtreg   | `xtreg y x, fe`      |\n| reghdfe | `reghdfe y x, a(id)` |\n\n\n\n命令\n范例\n\n\n\n\nxtreg\nxtreg y x, fe\n\n\nreghdfe\nreghdfe y x, a(id)\n\n\n\n\n\n6.3.2 数学公式\n\n单行数学公式用 $$ 符号包围起来；\n行内数学公式用 $ 符号包围起来；\n包围符号内侧不要有空格，否则在有些 Markdown 编辑器中无法正常显示公式\n\n正确：$y = f(x)$\n错误：$ y = f(x) $ 或 $y = f(x) $\n\n有关 LaTeX 数学公式的语法和工具，参见：\n\nMarkdown常用LaTex数学公式\n神器-数学公式识别工具-mathpix\n\n\n模型设定为：\n\n$$y_{it} = \\alpha_i + x_{it}\\beta + u_{it}$$\n\n其中，$y_{it}$ 为被解释变量，$\\alpha_i$ 为个体效应。\n模型设定为：\n\\[y_{it} = \\alpha_i + x_{it}\\beta + u_{it}\\]\n其中，\\(y_{it}\\) 为被解释变量，\\(\\alpha_i\\) 为个体效应。\n\n\n6.3.3 代码块\n```python\nimport pandas as pd\n\ndf = pd.DataFrame({\n    'A': [1, 2, 3],\n    'B': [4, 5, 6]\n})\n```\n\n```stata\nsysuse \"auto.dta\", clear\nregress mpg weight\ndisplay \"Results: \" 2 + 3\n```\n渲染效果：\nimport pandas as pd\n\ndf = pd.DataFrame({\n    'A': [1, 2, 3],\n    'B': [4, 5, 6]\n})\nsysuse \"auto.dta\", clear\nregress mpg weight\ndisplay \"Results: \" 2 + 3\n\n\n6.3.4 扩展阅读\n\n初虹, 2024, 让「记录」变得简单：Markdown使用详解, 连享会 No.1456.\n初虹, 2021, 学术论文写作新武器：Markdown-上篇, 连享会 No.603.\n初虹, 2021, 学术论文写作新武器：Markdown-下篇, 连享会 No.604.\n初虹, 2021, 学术论文写作新武器：Markdown-中篇, 连享会 No.605.\n连玉君, 2024, VScode插件：安装、配置和使用, 连享会 No.1490.\n连玉君, 2024, VScode：实用 Markdown 插件推荐, 连享会 No.1390.",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Markdown</span>"
     ]
   },
@@ -365,7 +365,7 @@
     "section": "6.4 Marp 幻灯片",
     "text": "6.4 Marp 幻灯片\n在 VScode 中安装 Marp 插件后，你可以使用 Markdown 语法来创建幻灯片。使用 Marp 最大的好处是你可以专注于内容，而不必担心幻灯片的格式和样式。Marp 会自动将你的 Markdown 文档转换为美观的幻灯片。\n\n\n6.4.1 安装\n1. VScode 编辑器\n2. Marp 插件 - 在 VScode 中打开扩展市场，搜索 Marp for VS Code，点击安装。\n3. 如需使用 PDF 导出功能，还需要安装 Marp CLI： - 打开终端 (TERMINAL)：在 VScode 中，点击左侧活动栏的终端图标，或使用快捷键 Ctrl + ~（反引号）打开终端。 - 在终端中运行以下命令安装 Marp CLI： bash      npm install -g @marp-team/marp-cli\n扩展阅读：\n\n连玉君, 2024, VScode插件：安装、配置和使用, 连享会 No.1490.\n连玉君, 2024, VScode：实用 Markdown 插件推荐, 连享会 No.1390.\n\n\n\n6.4.2 模版 1：最基本的设定\n以下是一个简单的 Marp 幻灯片模板，你只需要新建一个 .md 文件，输入如下内容，然后在 VScode 中打开该文件即可：\n---\nmarp: true\n---\n\n# 幻灯片标题\n\n---\n\n## 第一页幻灯片\n\n- xxx\n- xxx\n\n---\n\n## 第二页幻灯片\n\n- xxx\n- xxx\n\n\n6.4.3 模版 2：更多的设定\n该模板的主要功能包括：\n\n幻灯片的标题、作者、页码、脚注\n幻灯片的字号\n标题的颜色和页面背景颜色\n\n---\nmarp: true\nsize: 16:9      # 宽版：4:3\npaginate: true  # 显示页码\nfooter: '脚注文本或 [xxx](URL)'\n---\n\n&lt;style&gt;\n/*一级标题局中*/\nsection.lead h1 {\n  text-align: center; /*其他参数：left, right*/\n}\nsection {\n  font-size: 22px;      /* 正文字号 */\n}\nh1 {\n  color: blackyellow;   /* 标题的颜色 */\n  /*font-size: 28px; */ /* 标题的字号, 其它标题也可以这样修改 */\n}\nh2 {\n  color: green;\n}\nh3 {\n  color: darkblue;\n}\n\n/* 右下角添加页码 */\nsection::after {\n  content: attr(data-marpit-pagination) '/' attr(data-marpit-pagination-total); \n}\nheader,\nfooter {\n  position: absolute;\n  left: 50px;\n  right: 50px;\n  height: 25px;\n}\n&lt;/style&gt;\n\n&lt;!--顶部文字--&gt;\n[lianxh.cn](https://www.lianxh.cn/news/46917f1076104.html) \n\n&lt;br&gt;\n\n&lt;!--封面图片--&gt;\n![bg right:50% w:400 brightness:. sepia:50%](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20220722114227.png) \n\n&lt;!--幻灯片标题--&gt;\n# Marp 参数设置\n\n&lt;br&gt;\n&lt;br&gt;\n\n&lt;!--作者信息--&gt;\n[连玉君](https://www.lianxh.cn) (中山大学)\narlionn@163.com\n\n&lt;br&gt;\n---\n&lt;!-- backgroundColor: #FFFFF9 --&gt;\n## 第一页幻灯片\n\n- 背景是淡黄色的，可以根据需要修改颜色\n\n---\n&lt;!-- backgroundColor:white --&gt;\n## 第二页幻灯片\n\n- 背景是纯白色\n- 下面的图片在右侧，占页面 60% 的宽度\n\n![bg right:60% w:800](图片网址)\n详情参见：\n\n宋森安, 2021, 用Markdown制作幻灯片-五分钟学会Marp（上篇）, 连享会 No.656.\n宋森安, 2021, 用Markdown制作幻灯片-五分钟学会Marp（下篇）, 连享会 No.657.\n连玉君, 2022, Marp幻灯片模板：用Markdown快速写幻灯片, 连享会 No.1059.",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Markdown</span>"
     ]
   },
@@ -376,7 +376,7 @@
     "section": "6.5 用 Markdown 做简历",
     "text": "6.5 用 Markdown 做简历\nMarkdown 也可以用来制作简历。参见：\n\nlapis-cv.bingyan.net，github\nresume.todev.cc/，github",
     "crumbs": [
-      "**简介**",
+      "**环境配置**",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Markdown</span>"
     ]
   },

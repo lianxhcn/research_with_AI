@@ -29,7 +29,7 @@ book:
 
     - index.qmd
 
-    - part: "**简介**"
+    - part: "**环境配置**"
       chapters: 
         - body/00_intro.ipynb
         - body/01_install_Python_Anaconda.ipynb
