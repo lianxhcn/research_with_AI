@@ -375,7 +375,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#配置步骤" id="toc-配置步骤" class="nav-link" data-scroll-target="#配置步骤"><span class="header-section-number">3.4.1</span> 配置步骤</a></li>
   <li><a href="#说明" id="toc-说明" class="nav-link" data-scroll-target="#说明"><span class="header-section-number">3.4.2</span> 说明</a></li>
-  <li><a href="#配置-jupyter-内核" id="toc-配置-jupyter-内核" class="nav-link" data-scroll-target="#配置-jupyter-内核"><span class="header-section-number">3.4.3</span> 配置 Jupyter 内核</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -481,24 +480,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="安装-vscode-及插件" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="安装-vscode-及插件"><span class="header-section-number">3.2</span> 安装 VScode 及插件</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+VScode 及插件的安装和使用
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>王胜文, 2023, <a href="https://www.lianxh.cn/details/1174.html">VScode编辑器：安装、使用与常用快捷键</a></li>
+<li>初虹, 2022, <a href="https://www.lianxh.cn/details/1004.html">Markdown-LaTeX：经管人的VSCode配置大全</a>.</li>
+<li>连玉君, 2024, <a href="https://www.lianxh.cn/details/1490.html">VScode 插件：安装、配置和使用</a>.</li>
+<li>连玉君, 2024, <a href="https://www.lianxh.cn/details/1390.html">VScode：实用 Markdown 插件推荐</a>.</li>
+<li>连玉君, 2024, <a href="https://www.lianxh.cn/details/1489.html">从基础到 AI 助手：Python 用户最爱的 VScode 插件清单</a></li>
+</ul>
+</div>
+</div>
 <p>Visual Studio Code (VS Code) 是微软推出的轻量但功能强大的源代码编辑器，基于 Electron 开发，支持 Windows、Linux 和 macOS 操作系统。VScode 免费开源且功能强大，VScode 写代码支持各种流行的编程语言，包括 C++、Java 等，使用熟练之后，基本不会再使用其他的编辑器。最重要的是，VScode 平台上有大量的插件，极大地扩展了其功能。</p>
 <ol type="1">
 <li><a href="https://code.visualstudio.com/Download">下载 VScode</a> (请酌情选择适合你操作系统的版本)。</li>
 <li>安装 VScode（双击下载的安装包，按照提示完成安装）。</li>
 <li>安装完成后，打开 VScode。</li>
-<li>在 VScode 中，<a href="https://www.lianxh.cn/details/1490.html">安装各种插件</a> 以扩展 VScode 的性能，比如 Python、Jupyter 等。</li>
+<li>在 VScode 中，安装插件以扩展 VScode 的性能，比如 Python、Jupyter 等。</li>
 </ol>
-<p>有关 VScode 的安装和使用详情，参见：</p>
-<ul>
-<li>初虹, 2022, <a href="https://www.lianxh.cn/details/1004.html">Markdown-LaTeX：经管人的VSCode配置大全</a>.</li>
-<li>连玉君, 2024, <a href="https://www.lianxh.cn/details/1490.html">VScode插件：安装、配置和使用</a>.</li>
-</ul>
 <section id="vscode-插件" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="vscode-插件"><span class="header-section-number">3.2.1</span> VScode 插件</h3>
-<ul>
-<li>如果你不了解 VScode，可以先读一下 <a href="https://www.lianxh.cn/details/1174.html">VScode编辑器</a>。</li>
-<li>安装插件很容易：点击图中的 <code>四个小方块</code> 图标，在搜索框中填入插件名称，点击 <code>Install</code> 即可。详情参见 <a href="https://www.lianxh.cn/details/1490.html">VScode 插件：安装、配置和使用</a></li>
-</ul>
+<p><strong>插件安装方法</strong>：点击图中的 <code>四个小方块</code> 图标，在搜索框中填入插件名称，点击 <code>Install</code> 即可。</p>
+<p>详情参见 <a href="https://www.lianxh.cn/details/1490.html">VScode 插件：安装、配置和使用</a></p>
 <p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250516181811.png" class="img-fluid"></p>
 <p>为了能在 VScode 中借助 Jupyter Notebook 中同时运行 Python 和 Stata 代码，我们需要安装 <code>python</code>, <code>Jupyter</code>, <code>nbstata</code>, <code>Copilot</code> 等插件，具体说明如下。</p>
 <section id="python-和-jupyter-插件" class="level4" data-number="3.2.1.1">
@@ -507,8 +518,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Python</strong> (必装，作者：Microsoft)：运行 Python 代码</li>
 <li><strong>Jupyter</strong> (必装，作者：Microsoft)：用于编辑和运行 Jupyter Notebook 文件</li>
-<li>Pylance (推荐，作者：Microsoft)：代码补全和智能提示等功能</li>
-<li>GitHub Copilot (建议安装，作者为：Github)：AI 编程助手
+<li><strong>Pylance</strong> (推荐，作者：Microsoft)：代码补全和智能提示等功能</li>
+<li><strong>GitHub Copilot</strong> (建议安装，作者为：Github)：AI 编程助手
 <ul>
 <li>收费：首月免费，后续每月 $10.0，支持国内发行的 Visa 或 Master 信用卡付款。</li>
 <li>建议同时安装 <code>Github Copilot Chat</code> 插件，提供更好的交互体验。</li>
@@ -645,117 +656,12 @@ browse_auto_height = True</code></pre>
 </blockquote>
 <p>如需更新 nbstata，只需在 VS Code 终端中执行以下命令：</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> nbstata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>有关 nbstata 的更多信息和使用方法，请参见如下文旦：</p>
+<p>有关 nbstata 的更多信息和使用方法，请参见：</p>
 <ul>
 <li><a href="https://hugetim.github.io/nbstata/">nbstata 文档</a>，以及 <a href="https://hugetim.github.io/nbstata/user_guide.html">nbstata User Guide</a></li>
 <li><a href="https://industry.pengxianzhe.org/posts/jupyter-stata/#sec-vscode">Jupyter + Stata 配置方法</a>，第 4 小节。</li>
 <li>黄晨晨, 2023, <a href="https://www.lianxh.cn/details/1309.html">Jupyter Notebook 与 Stata 交互：nbstata</a></li>
 </ul>
-</section>
-<section id="配置-jupyter-内核" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="配置-jupyter-内核"><span class="header-section-number">3.4.3</span> 配置 Jupyter 内核</h3>
-<section id="安装内核" class="level4" data-number="3.4.3.1">
-<h4 data-number="3.4.3.1" class="anchored" data-anchor-id="安装内核"><span class="header-section-number">3.4.3.1</span> 安装内核</h4>
-<p>下载安装 <code>nbstata</code> 软件包：</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install nbstata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>用 nbstata 软件包向 jupyer 中安装 nbstata 内核：</p>
-<pre><code>`python -m nbstata.install`</code></pre>
-<p>如果以后要更新，直接 upgrade：</p>
-<pre><code>`pip install nbstata --upgrade`</code></pre>
-<p>而且<strong>不</strong>需要再重新&nbsp;<code>python -m nbstata.install</code></p>
-</section>
-<section id="设置内核" class="level4" data-number="3.4.3.2">
-<h4 data-number="3.4.3.2" class="anchored" data-anchor-id="设置内核"><span class="header-section-number">3.4.3.2</span> 2.3.2&nbsp;设置内核</h4>
-<p>接下来，你需要手动修改一张配置文件。 在你 C 盘的用户名文件夹底下找到&nbsp;<code>.config\nbstata\nbstata.conf</code>&nbsp;文件。 假设你的 Windows 用户名叫做&nbsp;<code>xiaoming</code>，那么这个路径就是&nbsp;<code>C:\Users\xiaoming\.config\nbstata\</code>找到后打开， （随便用什么软件打开，简朴到 Windows 自带的记事本可以，花哨到 Neovim 也可以） 根据你自己的情况修改这些值：（这张表<strong>别用手机看</strong>）</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>变量名</th>
-<th>解释</th>
-<th>怎么填</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>stata_dir</code></td>
-<td>你的 Stata安装的文件夹在哪</td>
-<td>从Windows资源管理器地址栏复制就可以</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>—</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr class="odd">
-<td><code>edition</code></td>
-<td>Stata 有三套版本你装的是哪一版</td>
-<td><code>be</code> <code>se</code> <code>mp</code> 三选一</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>splash</code></td>
-<td>要不要在 Jupyter 的输出当中也显示启动报告</td>
-<td><code>True</code>&nbsp;或&nbsp;<code>False</code></td>
-<td>Stata 在启动时通常在输出窗口报告软件当前版本、功能状态、购买凭证等</td>
-</tr>
-<tr class="odd">
-<td><code>graph_format</code></td>
-<td>Stata 输出图表时存为什么格式</td>
-<td>四选一 ⇓⇓<code>png</code> <code>pdf</code> <code>svg</code> <code>pystata``pystata</code>&nbsp;的意思是和 pystata 的设置保持一致</td>
-<td>虽然你现在可能不知道什么是 pystata（我也不知道）但以后可能用得上</td>
-</tr>
-<tr class="even">
-<td><code>graph_width``graph_height</code></td>
-<td>生成图表的横向尺寸生成图表的纵向尺寸</td>
-<td>如果不写单位，就默认是&nbsp;<code>in</code>（inches 英寸）单位还可以写<code>cm</code>（厘米）<code>px</code>（逻辑像素）</td>
-<td>只要你填了有（填的有）数字，Stata 代码的&nbsp;<code>xsize</code>&nbsp;和&nbsp;<code>ysize</code>&nbsp;数值就被覆盖，不起作用如果不想覆盖它们，就填&nbsp;<code>default</code></td>
-</tr>
-<tr class="odd">
-<td><code>echo</code></td>
-<td>想必你知道用 Jupyter 跑 Python 没有回声那 Jupyter 里的 Stata 怎么办</td>
-<td>三选一 ⇓⇓<code>True</code> 一切命令都有回声<code>False</code> cell 仅一行命令时不回声；其他 cell 有回声<code>None</code> 完全没有回声</td>
-<td>想必你已经知道 Stata 有个对用户很友好的默认设定，就是会在输出窗口先显示你给的输入，再显示给你的输出这个功能被叫作「回声」</td>
-</tr>
-<tr class="even">
-<td><code>missing</code></td>
-<td>缺失值用什么表示</td>
-<td>字符串本身即可如果要和 Pandas 保持一致，就填&nbsp;<code>pandas</code></td>
-<td>原则上不建议修改，默认的<code>.</code>&nbsp;就是 Stata 唯一接受的形式</td>
-</tr>
-</tbody>
-</table>
-<p>以我自己的为例，最终效果大概会像这样：</p>
-<pre><code>[nbstata]
-stata_dir = D:/Program Files/Stata18
-edition = mp
-splash = False
-graph_format = png
-graph_width = 5.5in
-graph_height = 4in
-echo = False
-missing = .</code></pre>
-<p>——莫忘了 Ctrl + S 保存。</p>
-<div id="8b89993f" class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span><span class="bu">set</span> graph_width <span class="op">=</span> <span class="fl">8.0</span><span class="er">in</span>   <span class="op">//</span> 将图形宽度设置为 <span class="fl">5.0</span> 英寸</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="42bdefee" class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span><span class="bu">set</span> graph_height <span class="op">=</span> <span class="fl">6.0</span><span class="er">in</span>  <span class="op">//</span> 将图形高度设置为 <span class="fl">3.0</span> 英寸</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="3570e65d" class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> scheme scientific</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sysuse <span class="st">"auto.dta"</span>, clear</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span> price weight mpg <span class="kw">in</span> <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, clean </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>scatter price weight</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -768,13 +674,12 @@ missing = .</code></pre>
 <div class="callout-body-container callout-body">
 <ul>
 <li>安装过程中可能会遇到各种小挫折，参见 <a href="02_install_FAQs.html">Python 安装常见问题</a>。</li>
-<li>完成上述环境配置后，就可以使用 Jupyter Notebook 编写代码了，详情：<a href="01_02_Junpyter_Notebook.html">Jupyter Notebook 的使用</a>。</li>
+<li>完成上述环境配置后，就可以使用 Jupyter Notebook 编写代码了，参见 <a href="01_02_Junpyter_Notebook.html">Jupyter Notebook 的使用</a>。</li>
 </ul>
 
 
 </div>
 </div>
-</section>
 </section>
 </section>
 
