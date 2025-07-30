@@ -370,11 +370,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#vscode-插件" id="toc-vscode-插件" class="nav-link" data-scroll-target="#vscode-插件"><span class="header-section-number">3.2.1</span> VScode 插件</a></li>
   </ul></li>
-  <li><a href="#配置-stata-环境nbstata-插件" id="toc-配置-stata-环境nbstata-插件" class="nav-link" data-scroll-target="#配置-stata-环境nbstata-插件"><span class="header-section-number">3.3</span> 配置 Stata 环境：nbstata 插件</a></li>
-  <li><a href="#配置-stata-环境nbstata" id="toc-配置-stata-环境nbstata" class="nav-link" data-scroll-target="#配置-stata-环境nbstata"><span class="header-section-number">3.4</span> 配置 Stata 环境：nbstata</a>
+  <li><a href="#配置-stata-环境nbstata" id="toc-配置-stata-环境nbstata" class="nav-link" data-scroll-target="#配置-stata-环境nbstata"><span class="header-section-number">3.3</span> 配置 Stata 环境：nbstata</a>
   <ul class="collapse">
-  <li><a href="#配置步骤" id="toc-配置步骤" class="nav-link" data-scroll-target="#配置步骤"><span class="header-section-number">3.4.1</span> 配置步骤</a></li>
-  <li><a href="#说明" id="toc-说明" class="nav-link" data-scroll-target="#说明"><span class="header-section-number">3.4.2</span> 说明</a></li>
+  <li><a href="#配置步骤" id="toc-配置步骤" class="nav-link" data-scroll-target="#配置步骤"><span class="header-section-number">3.3.1</span> 配置步骤</a></li>
+  <li><a href="#说明" id="toc-说明" class="nav-link" data-scroll-target="#说明"><span class="header-section-number">3.3.2</span> 说明</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -568,13 +567,8 @@ VScode 及插件的安装和使用
 </section>
 </section>
 </section>
-<section id="配置-stata-环境nbstata-插件" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="配置-stata-环境nbstata-插件"><span class="header-section-number">3.3</span> 配置 Stata 环境：nbstata 插件</h2>
-<p>我们可以在 VScode 中安装 <a href="https://hugetim.github.io/nbstata/">nbstata</a> 插件，以运行 Stata 代码。它会将 Stata 的输出结果显示在 VScode 的输出面板中，类似于 Jupyter Notebook 的效果。</p>
-<p>最重要的是，配合我们前文提到的编程助手 (如 <code>Copilot</code> 或 <code>Codeium</code>)，可以大大提升 Stata 编程的效率。</p>
-</section>
-<section id="配置-stata-环境nbstata" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="配置-stata-环境nbstata"><span class="header-section-number">3.4</span> 配置 Stata 环境：nbstata</h2>
+<section id="配置-stata-环境nbstata" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="配置-stata-环境nbstata"><span class="header-section-number">3.3</span> 配置 Stata 环境：nbstata</h2>
 <p>为了在 VS Code 中的 <code>.ipynb</code> 文档中直接运行 Stata 代码，我们可以借助 <a href="https://hugetim.github.io/nbstata/">nbstata</a> 扩展包 (注意：<code>nbstata</code> 是 Python 包，不是 VScode 插件)。下面介绍如何在已有 Python + Jupyter 环境基础上完成配置。</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -595,8 +589,8 @@ VScode 及插件的安装和使用
 </div>
 </div>
 <p>需要注意的是，<code>nbstata</code> 仅适用于 Stata 17+ 及以上版本 (配置了 <code>pystata</code>)。</p>
-<section id="配置步骤" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="配置步骤"><span class="header-section-number">3.4.1</span> 配置步骤</h3>
+<section id="配置步骤" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="配置步骤"><span class="header-section-number">3.3.1</span> 配置步骤</h3>
 <p>首先，打开 VS Code 的终端 (快捷键：<code>Ctrl + ~</code> (ESC 键下方)；或者依次点击 VScode 顶部菜单 <strong>Terminal</strong> → <strong>New Terminal</strong>)，输入以下命令：</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install nbstata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>接下来按如下格式运行命令，语法规则为 (方括号表示选项)：</p>
@@ -648,8 +642,8 @@ browse_auto_height = True</code></pre>
 </div>
 </div>
 </section>
-<section id="说明" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="说明"><span class="header-section-number">3.4.2</span> 说明</h3>
+<section id="说明" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="说明"><span class="header-section-number">3.3.2</span> 说明</h3>
 <blockquote class="blockquote">
 <p>Note：安装过程中遇到问题，可以将错误代码，以及你当前的 Python 和 Stata 安装信息发送给豆包或 ChatGPT，它会引导你排除问题。<br>
 此处提供 <a href="https://chatgpt.com/share/688903dd-6580-8005-9efd-10186fdda11c">ChatGPT 对话 - nbstata 安装讲义</a> 供各位参考。</p>
