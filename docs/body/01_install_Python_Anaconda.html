@@ -371,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#vscode-插件" id="toc-vscode-插件" class="nav-link" data-scroll-target="#vscode-插件"><span class="header-section-number">3.2.1</span> VScode 插件</a></li>
   </ul></li>
   <li><a href="#配置-stata-环境nbstata-插件" id="toc-配置-stata-环境nbstata-插件" class="nav-link" data-scroll-target="#配置-stata-环境nbstata-插件"><span class="header-section-number">3.3</span> 配置 Stata 环境：nbstata 插件</a></li>
-  <li><a href="#安装和配置-nbstata在-vs-code-中运行-stata-代码" id="toc-安装和配置-nbstata在-vs-code-中运行-stata-代码" class="nav-link" data-scroll-target="#安装和配置-nbstata在-vs-code-中运行-stata-代码"><span class="header-section-number">3.4</span> 安装和配置 nbstata：在 VS Code 中运行 Stata 代码</a>
+  <li><a href="#配置-stata-环境nbstata" id="toc-配置-stata-环境nbstata" class="nav-link" data-scroll-target="#配置-stata-环境nbstata"><span class="header-section-number">3.4</span> 配置 Stata 环境：nbstata</a>
   <ul class="collapse">
   <li><a href="#配置步骤" id="toc-配置步骤" class="nav-link" data-scroll-target="#配置步骤"><span class="header-section-number">3.4.1</span> 配置步骤</a></li>
   <li><a href="#说明" id="toc-说明" class="nav-link" data-scroll-target="#说明"><span class="header-section-number">3.4.2</span> 说明</a></li>
@@ -573,9 +573,9 @@ VScode 及插件的安装和使用
 <p>我们可以在 VScode 中安装 <a href="https://hugetim.github.io/nbstata/">nbstata</a> 插件，以运行 Stata 代码。它会将 Stata 的输出结果显示在 VScode 的输出面板中，类似于 Jupyter Notebook 的效果。</p>
 <p>最重要的是，配合我们前文提到的编程助手 (如 <code>Copilot</code> 或 <code>Codeium</code>)，可以大大提升 Stata 编程的效率。</p>
 </section>
-<section id="安装和配置-nbstata在-vs-code-中运行-stata-代码" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="安装和配置-nbstata在-vs-code-中运行-stata-代码"><span class="header-section-number">3.4</span> 安装和配置 nbstata：在 VS Code 中运行 Stata 代码</h2>
-<p>为了在 VS Code 中的 <code>.ipynb</code> 文档中直接运行 Stata 代码，我们可以借助 <a href="https://hugetim.github.io/nbstata/">nbstata</a> 插件。下面介绍如何在已有 Python + Jupyter 环境基础上完成配置。</p>
+<section id="配置-stata-环境nbstata" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="配置-stata-环境nbstata"><span class="header-section-number">3.4</span> 配置 Stata 环境：nbstata</h2>
+<p>为了在 VS Code 中的 <code>.ipynb</code> 文档中直接运行 Stata 代码，我们可以借助 <a href="https://hugetim.github.io/nbstata/">nbstata</a> 扩展包 (注意：<code>nbstata</code> 是 Python 包，不是 VScode 插件)。下面介绍如何在已有 Python + Jupyter 环境基础上完成配置。</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -656,7 +656,7 @@ browse_auto_height = True</code></pre>
 </blockquote>
 <p>如需更新 nbstata，只需在 VS Code 终端中执行以下命令：</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> nbstata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>有关 nbstata 的更多信息和使用方法，请参见：</p>
+<p>有关 nbstata 的更多信息和使用方法，参见：</p>
 <ul>
 <li><a href="https://hugetim.github.io/nbstata/">nbstata 文档</a>，以及 <a href="https://hugetim.github.io/nbstata/user_guide.html">nbstata User Guide</a></li>
 <li><a href="https://industry.pengxianzhe.org/posts/jupyter-stata/#sec-vscode">Jupyter + Stata 配置方法</a>，第 4 小节。</li>
