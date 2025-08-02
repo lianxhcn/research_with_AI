@@ -373,7 +373,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#配置-stata-环境nbstata" id="toc-配置-stata-环境nbstata" class="nav-link" data-scroll-target="#配置-stata-环境nbstata"><span class="header-section-number">3.3</span> 配置 Stata 环境：nbstata</a>
   <ul class="collapse">
   <li><a href="#配置步骤" id="toc-配置步骤" class="nav-link" data-scroll-target="#配置步骤"><span class="header-section-number">3.3.1</span> 配置步骤</a></li>
-  <li><a href="#说明" id="toc-说明" class="nav-link" data-scroll-target="#说明"><span class="header-section-number">3.3.2</span> 说明</a></li>
+  <li><a href="#补充说明" id="toc-补充说明" class="nav-link" data-scroll-target="#补充说明"><span class="header-section-number">3.3.2</span> 补充说明</a></li>
+  <li><a href="#nbstata-扩展信息" id="toc-nbstata-扩展信息" class="nav-link" data-scroll-target="#nbstata-扩展信息"><span class="header-section-number">3.3.3</span> nbstata 扩展信息</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -596,10 +597,9 @@ VScode 及插件的安装和使用
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>安装 Anaconda 套装；</li>
-<li>安装 VS Code 编辑器；</li>
-<li>安装 Python 插件与 Jupyter 插件；</li>
-<li>可以在 VS Code 中正常运行 <code>.ipynb</code> 文件。</li>
+<li>已经安装 Anaconda 套装；</li>
+<li>已经安装 VS Code 编辑器；并在插件市场安装了 <code>Python</code> 和 <code>Jupyter</code> 插件；</li>
+<li>可以在 VS Code 中新建 <code>.ipynb</code> 文件并执行代码块中的 Python 代码。</li>
 </ul>
 </div>
 </div>
@@ -628,7 +628,7 @@ VScode 及插件的安装和使用
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> nbstata.install <span class="at">--conf-file</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>该指令将生成一个配置文件，便于我们后续修改配置。运行成功后，提示信息如下：</p>
-<pre class="dos"><code>C:\Users\Administrator\.config\nbstata\nbstata.conf</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>C:\Users\Administrator\.config\nbstata\nbstata.conf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>你可以到此文件夹下，用 VScode 打开 <code>nbstata.conf</code> 文件，查看或修改配置。我的配置如下：</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>[nbstata]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>stata_dir <span class="op">=</span> D:\stata17</span>
@@ -666,11 +666,12 @@ VScode 及插件的安装和使用
 </div>
 </div>
 </section>
-<section id="说明" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="说明"><span class="header-section-number">3.3.2</span> 说明</h3>
+<section id="补充说明" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="补充说明"><span class="header-section-number">3.3.2</span> 补充说明</h3>
 <blockquote class="blockquote">
 <p>Note：安装过程中遇到问题，可以将错误代码，以及你当前的 Python 和 Stata 安装信息发送给豆包或 ChatGPT，它会引导你排除问题。我的 <a href="https://chatgpt.com/share/688903dd-6580-8005-9efd-10186fdda11c">ChatGPT 对话 - nbstata 安装讲义</a> 供各位参考。</p>
 </blockquote>
+<p>如下步骤都是<strong>可选的</strong>，主要是为了方便后续的配置和使用。</p>
 <section id="更新-nbstata" class="level4" data-number="3.3.2.1">
 <h4 data-number="3.3.2.1" class="anchored" data-anchor-id="更新-nbstata"><span class="header-section-number">3.3.2.1</span> 更新 nbstata</h4>
 <p>如需更新 nbstata，只需在 VS Code 终端中执行以下命令：</p>
@@ -688,8 +689,9 @@ VScode 及插件的安装和使用
 </ul>
 <p>详情参见 <a href="https://hugetim.github.io/nbstata/user_guide.html">nbstata User Guide</a>。</p>
 </section>
-<section id="nbstata-扩展信息" class="level4" data-number="3.3.2.3">
-<h4 data-number="3.3.2.3" class="anchored" data-anchor-id="nbstata-扩展信息"><span class="header-section-number">3.3.2.3</span> nbstata 扩展信息</h4>
+</section>
+<section id="nbstata-扩展信息" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="nbstata-扩展信息"><span class="header-section-number">3.3.3</span> nbstata 扩展信息</h3>
 <p>有关 nbstata 的更多信息和使用方法，参见：</p>
 <ul>
 <li><a href="https://hugetim.github.io/nbstata/">nbstata 文档</a>，以及 <a href="https://hugetim.github.io/nbstata/user_guide.html">nbstata User Guide</a></li>
@@ -715,7 +717,6 @@ VScode 及插件的安装和使用
 
 </div>
 </div>
-</section>
 </section>
 </section>
 
