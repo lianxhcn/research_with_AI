@@ -335,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#安装-anaconda-时需要注意什么" id="toc-安装-anaconda-时需要注意什么" class="nav-link" data-scroll-target="#安装-anaconda-时需要注意什么"><span class="header-section-number">5.2</span> 安装 Anaconda 时需要注意什么？</a></li>
   <li><a href="#默认解释器的路径" id="toc-默认解释器的路径" class="nav-link" data-scroll-target="#默认解释器的路径"><span class="header-section-number">5.3</span> 默认解释器的路径</a></li>
   <li><a href="#pip-install-在哪里执行" id="toc-pip-install-在哪里执行" class="nav-link" data-scroll-target="#pip-install-在哪里执行"><span class="header-section-number">5.4</span> pip install 在哪里执行？</a></li>
-  <li><a href="#如何打开-vscode-的控制台-terminal" id="toc-如何打开-vscode-的控制台-terminal" class="nav-link" data-scroll-target="#如何打开-vscode-的控制台-terminal"><span class="header-section-number">5.5</span> 如何打开 VScode 的控制台 (terminal)？</a></li>
+  <li><a href="#如何打开-vscode-的终端控制台-terminal" id="toc-如何打开-vscode-的终端控制台-terminal" class="nav-link" data-scroll-target="#如何打开-vscode-的终端控制台-terminal"><span class="header-section-number">5.5</span> 如何打开 VScode 的终端/控制台 (terminal)？</a></li>
   <li><a href="#conda-install-与-pip-install-有何差别" id="toc-conda-install-与-pip-install-有何差别" class="nav-link" data-scroll-target="#conda-install-与-pip-install-有何差别"><span class="header-section-number">5.6</span> Conda install 与 pip install 有何差别？</a></li>
   <li><a href="#conda-和-anaconda-有何关系" id="toc-conda-和-anaconda-有何关系" class="nav-link" data-scroll-target="#conda-和-anaconda-有何关系"><span class="header-section-number">5.7</span> Conda 和 Anaconda 有何关系？</a></li>
   </ul>
@@ -429,17 +429,25 @@ ul.task-list li input[type="checkbox"] {
 <li>VSCode 中：按下 <code>Ctrl + Shift + P</code>，输入 <code>Terminal: Create New Terminal</code>，然后按下 <code>Enter</code> 键。</li>
 </ul>
 </section>
-<section id="如何打开-vscode-的控制台-terminal" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="如何打开-vscode-的控制台-terminal"><span class="header-section-number">5.5</span> 如何打开 VScode 的控制台 (terminal)？</h2>
+<section id="如何打开-vscode-的终端控制台-terminal" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="如何打开-vscode-的终端控制台-terminal"><span class="header-section-number">5.5</span> 如何打开 VScode 的终端/控制台 (terminal)？</h2>
 <p>答：VScode 的 terminal 是一个集成的命令行界面，允许用户在 VScode 编辑器中直接执行命令行操作。它支持多种 Shell，如 PowerShell、Bash 和 Command Prompt 等。用户可以在 terminal 中运行 Python 脚本、安装包、管理版本控制等操作，而无需切换到外部命令行窗口。</p>
 <p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250513225516.png" class="img-fluid" width="600"></p>
 <p><strong>开启方法：</strong></p>
 <ul>
-<li>在 VScode 中，按下 <code>Ctrl + Shift + P</code>，输入 <code>Terminal: Create New Terminal</code>，然后按下 <code>Enter</code> 键。</li>
-<li>更快捷的方式：
+<li><strong>方法一：</strong> 使用快捷键。
 <ul>
-<li>Windows：按下 <code>Ctrl + ~</code> 键（<code>~</code> 在 <code>Esc</code> 键下方）。</li>
-<li>Mac：按下 <code>Command + Shift + ~</code> 键。</li>
+<li>Windows 系统：在 VScode 中按下 <code>Ctrl + ~</code> 键（<code>~</code> 在 <code>Esc</code> 键下方）。</li>
+<li>Mac 系统：按下 <code>Command + Shift + ~</code> 键。</li>
+</ul></li>
+<li><strong>方法二：</strong> 使用 VScode 命令面板。
+<ul>
+<li>在 VScode 中，按下 <code>Ctrl + Shift + P</code>，输入 <code>Terminal: Create New Terminal</code>，然后按下 <code>Enter</code> 键。</li>
+</ul></li>
+<li><strong>方法三：</strong> 使用 Windows 命令行。
+<ul>
+<li>在 Windows 系统中，按下 <code>Win + R</code> 键，输入 <code>cmd</code>，然后按下 <code>Enter</code> 键，打开命令提示符窗口。</li>
+<li>举例：输入 <code>pip install pkg_name</code> 来安装 Python 包。</li>
 </ul></li>
 </ul>
 <p><strong>用途：</strong></p>

@@ -426,9 +426,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>根据我的使用经验，基本步骤总结如下：</p>
 <ol type="1">
-<li><strong>安装 Anaconda</strong>。注意勾选 <code>Add Anaconda to my PATH environment variable</code> 和 <code>Register Anaconda as my default Python 3.x</code> 选项。</li>
-<li><strong>安装 VScode</strong>。随后安装 <code>Python</code>, <code>Jupyter</code>, <code>Pylance</code>, <code>gitHub Copilot</code> (或 <code>codeium</code>, 现在更名为 <code>windsurf Plugin</code>), <code>Data Wrangler</code> 插件。</li>
-<li><strong>新建项目文件夹</strong>。打开 VScode，新建一个文件夹，其下新建 <strong>data</strong>, <strong>code</strong>, <strong>output</strong> 等子文件夹，便于分类存放文档。</li>
+<li><strong>安装 Anaconda</strong> 软件 (3.1 小节)。注意勾选 <code>Add Anaconda to my PATH environment variable</code> 和 <code>Register Anaconda as my default Python 3.x</code> 选项。</li>
+<li><strong>安装 VScode</strong> 软件 (3.2 小节)。
+<ul>
+<li>打开 <strong>VScode</strong> 软件，安装 VScode 插件：<code>Python</code>, <code>Jupyter</code>, <code>Pylance</code>, <code>gitHub Copilot</code> (或 <code>codeium</code>, 现在更名为 <code>windsurf Plugin</code>) 等。</li>
+</ul></li>
+<li><strong>新建项目文件夹</strong> (可选)。打开 VScode，新建一个文件夹，其下新建 <strong>data</strong>, <strong>code</strong>, <strong>output</strong> 等子文件夹，便于分类存放文档。</li>
 <li><strong>新建 Jupyter Notebook 文件</strong>。在主文件夹下新建 <code>xxx.ipynb</code> 文件，就可以开始编写代码了。</li>
 </ol>
 <p>下面，我详细说明每个步骤的操作。</p>
@@ -461,12 +464,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20250513210628.png" class="img-fluid"></p></li>
 <li><p>详情参见：<a href="https://blog.csdn.net/weixin_43679228/article/details/147256251">VSCode 与 Anaconda安装配置</a></p></li>
 </ul></li>
-<li><p>安装完成后，打开 Anaconda Navigator（在开始菜单或应用程序中找到它）。</p></li>
-<li><p>在 Anaconda Navigator 中，你可以创建和管理虚拟环境、安装包、启动 Jupyter Notebook 等。</p></li>
 <li><p>安装完成后，打开 Anaconda Prompt（命令行界面），输入以下命令检查安装是否成功：</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>如果显示版本号，则表示安装成功。</p></li>
-<li><p>在 Anaconda Prompt 中输入以下命令更新 Conda 到最新版本：</p>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+可选步骤
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>安装完成后，打开 Anaconda Navigator (在开始菜单或应用程序中找到它)。在 Anaconda Prompt 中输入以下命令更新 Conda 到最新版本：</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>创建一个新的虚拟环境（<strong>可选</strong>）：如果你想在一个独立的环境中工作，比如，你要同时使用 Python 3.8 和 Python 3.12，以便完成不同的项目，你可以创建一个新的虚拟环境。输入以下命令创建一个名为 <code>myenv38</code> 的虚拟环境，并安装 Python 3.8：</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> myenv38 python=3.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -476,6 +489,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate myenv38</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>此时，若执行 <code>canda list</code> 命令，你会看到当前环境中安装的所有包和版本信息；而执行 <code>canda install Stargazer, v = 2.1.1</code>，则会在当前环境中安装 <code>Stargazer</code> 包的 2.1.1 版本。</p></li>
 </ol>
+</div>
+</div>
 </section>
 <section id="安装-vscode-及插件" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="安装-vscode-及插件"><span class="header-section-number">3.2</span> 安装 VScode 及插件</h2>
@@ -588,39 +603,48 @@ VScode 及插件的安装和使用
 </ul>
 </div>
 </div>
-<p>需要注意的是，<code>nbstata</code> 仅适用于 Stata 17+ 及以上版本 (配置了 <code>pystata</code>)。</p>
+<p>需要注意的是，<code>nbstata</code> 仅适用于 Stata 17+ 及以上版本 (配置了 <code>pystata</code>)，且 Stata 的安装路径中不包含中文字符和空格 (在 Stata 中输入 <code>sysdir</code> 可以查看你的 Stata 安装路径)。</p>
 <section id="配置步骤" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="配置步骤"><span class="header-section-number">3.3.1</span> 配置步骤</h3>
-<p>首先，打开 VS Code 的终端 (快捷键：<code>Ctrl + ~</code> (ESC 键下方)；或者依次点击 VScode 顶部菜单 <strong>Terminal</strong> → <strong>New Terminal</strong>)，输入以下命令：</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install nbstata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>接下来按如下格式运行命令，语法规则为 (方括号表示选项)：</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m nbstata.install [<span class="op">--</span>sys<span class="op">-</span>prefix] [<span class="op">--</span>prefix PREFIX] [<span class="op">--</span>conf<span class="op">-</span><span class="bu">file</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>其中，</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+注意
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><code>--sys-prefix</code> 指定安装的环境，例如 virtualenv (虚拟环境) 或 conda env (Conda 环境)。</li>
-<li><code>--prefix PREFIX</code> 指定安装路径。</li>
-<li><code>--conf-file</code> 将创建一个配置文件。</li>
+<li>下面的配置步骤需要在 VS Code 的终端中完成，而不是在 Jupyter Notebook 中。</li>
+<li>打开 VS Code 的终端的方式参见 <a href="02_install_FAQs.html">5. Python 安装常见问题</a> → <code>5.5 小节</code>。</li>
+<li>如果按下面的方法无法配置成功，可以参阅 <a href="https://hugetim.github.io/nbstata/user_guide.html">nbstata User Guide</a> 和 <a href="https://industry.pengxianzhe.org/posts/jupyter-stata/#sec-vscode">Jupyter + Stata 配置方法</a>，第 4 小节。也可以打开 <a href="https://www.douban.com/group/topic/297885930/">豆包</a>，把你的错误代码截图和粘贴给它，多数情况下你都能在它的引导下完成配置。</li>
 </ul>
-<p>如果不需要更改安装的环境或路径，<strong>推荐使用以下指令安装</strong>：</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m nbstata.install <span class="op">--</span>conf<span class="op">-</span><span class="bu">file</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>首先，打开 VS Code 的<strong>终端</strong> (快捷键：<code>Ctrl + ~</code> (ESC 键下方)；或者依次点击 VScode 顶部菜单 <strong>Terminal</strong> → <strong>New Terminal</strong>)，依次执行以下命令：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install nbstata</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> nbstata.install <span class="at">--conf-file</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>该指令将生成一个配置文件，便于我们后续修改配置。运行成功后，提示信息如下：</p>
 <pre class="plaintext"><code>C:\Users\Administrator\.config\nbstata\nbstata.conf</code></pre>
 <p>你可以到此文件夹下，用 VScode 打开 <code>nbstata.conf</code> 文件，查看或修改配置。我的配置如下：</p>
-<pre class="plaintext"><code>[nbstata]
-stata_dir = D:\stata17
-edition = mp
-splash = False
-graph_format = png
-graph_width = 7.5in
-graph_height = 5.0in
-echo = None
-missing = .
-browse_auto_height = True</code></pre>
-<p>如果你目前还无法在 <code>.ipynb</code> 文件中运行 Stata 代码，可以尝试按如下方式修改 <code>nbstata.conf</code> 文件：</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>[nbstata]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>stata_dir <span class="op">=</span> D:\stata17</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>edition <span class="op">=</span> mp</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>splash <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>graph_format <span class="op">=</span> png</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>graph_width <span class="op">=</span> <span class="fl">7.5</span><span class="er">in</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>graph_height <span class="op">=</span> <span class="fl">5.0</span><span class="er">in</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>echo <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>missing <span class="op">=</span> .</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>browse_auto_height <span class="op">=</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>完成上述配置后，<code>nbstata</code> 就可以在 VS Code 的 <code>.ipynb</code> 文件中运行 Stata 代码了 (参见下方的 <strong>测试</strong> 提示框)。如果受阻，可以尝试按如下方式修改 <code>nbstata.conf</code> 文件：</p>
 <ul>
 <li><p>在 Stata 命令窗口中输入 <code>sysdir</code> 命令，结果中第一行显示的就是 Stata 的安装路径：</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>. <span class="ot">sysdir</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">STATA</span>:  D:\stata17\</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>. <span class="ot">sysdir</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">STATA</span>:  D:\stata17\</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>复制 <code>D:\stata17\</code>，填入 <code>nbstata.conf</code> 文件的 <code>stata_dir</code> 字段中 (有时需要把反斜杠 <code>\</code> 改成斜杠 <code>/</code>)。</p></li>
 <li><p>进入 <code>D:\stata17\</code> 目录可以查看 Stata 的版本类型，如 <code>StataMP-64.exe</code>、<code>StataSE-64.exe</code> 或 <code>StataIC-64.exe</code>。根据你的 Stata 版本，对照修改 <code>nbstata.conf</code> 文件中 <code>edition</code> 字段的值为 <code>mp</code>、<code>se</code> 或 <code>ic</code>。</p></li>
 </ul>
@@ -636,9 +660,30 @@ browse_auto_height = True</code></pre>
 <div class="callout-body-container callout-body">
 <ul>
 <li>打开或新建一个 <code>.ipynb</code> 文件；</li>
-<li>点击 <code>+ Codes</code> 按钮，创建一个新的代码单元格，输入 <code>display 2 + 2</code>。</li>
+<li>点击 <code>+ Codes</code> 按钮，创建一个新的代码单元格，指定 Kernel 为 <strong>Stata (nbstata)</strong>，输入 <code>display 2 + 2</code>。</li>
 <li>按快捷键 <code>Shift + Enter</code> 或点击单元格左上角的 <code>Run</code> 按钮，若输出 <code>4</code>，说明配置成功。</li>
 </ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+说明：<code>python -m nbstata.install</code> 的完整语法
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>安装时，如果需要更改安装环境或安装路径，可以按如下语法规则编写命令 (方括号表示选项)：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m nbstata.install [<span class="op">--</span>sys<span class="op">-</span>prefix] [<span class="op">--</span>prefix PREFIX] [<span class="op">--</span>conf<span class="op">-</span><span class="bu">file</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>其中，</p>
+<ul>
+<li><code>--sys-prefix</code> 指定安装的环境，例如 virtualenv (虚拟环境) 或 conda env (Conda 环境)。</li>
+<li><code>--prefix PREFIX</code> 指定安装路径。</li>
+<li><code>--conf-file</code> 将创建一个配置文件。</li>
+</ul>
+<p>详情参见 <a href="https://hugetim.github.io/nbstata/user_guide.html">nbstata User Guide</a>。</p>
 </div>
 </div>
 </section>
@@ -649,7 +694,7 @@ browse_auto_height = True</code></pre>
 此处提供 <a href="https://chatgpt.com/share/688903dd-6580-8005-9efd-10186fdda11c">ChatGPT 对话 - nbstata 安装讲义</a> 供各位参考。</p>
 </blockquote>
 <p>如需更新 nbstata，只需在 VS Code 终端中执行以下命令：</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> nbstata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> nbstata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>有关 nbstata 的更多信息和使用方法，参见：</p>
 <ul>
 <li><a href="https://hugetim.github.io/nbstata/">nbstata 文档</a>，以及 <a href="https://hugetim.github.io/nbstata/user_guide.html">nbstata User Guide</a></li>
