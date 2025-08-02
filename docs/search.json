@@ -405,155 +405,155 @@
   {
     "objectID": "body/05_01_example_Wing-2024.html",
     "href": "body/05_01_example_Wing-2024.html",
-    "title": "8  案例：AI 助我读论文之 Wing et al. (2024)",
+    "title": "8  案例：AI 解读 Wing (2024)",
     "section": "",
     "text": "8.1 泛聊并形成大纲\n本章以 Wing et al. (2024) 的论文为例，介绍如何使用 AI 工具来解读论文。\n与 ChatGPT 的对话过程：点击查看。\n此前，我也用豆包帮我读过这篇论文，参见 豆包对话过程。\n我把 Wing et al. (2024) 的论文上传到 ChatGPT，并编写了如下提示词：\nChatGPT 的回答简明扼要，基本上抓住了这篇论文的要点。让我有点惊喜的是，它居然还贴心地列了一个表格，把文中提到的五种方法对应的 Stata 和 R 实现命令也总结好了。\n我担心自己遗漏重要内容，便追问：\nChatGPT 认为需要再补充三个要点：\n虽然我对这个结构比较满意，但我担心 AI 写东西太过教条，或者过于简略。于是，我设定了读者的角色、他们的知识背景，并征询 AI 对篇幅的看法。\n看到这个提纲后，我意识到，我这篇推介应该重点强调「实操建议」，这是读者最关心的内容。为此，我编写了如下提示词：\nAI 对提纲你进行了调整，并给出了一个更为详细的结构 (详情参见原始对话)，受限于篇幅，这里进列出它的提供的总结：",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 助我读论文之 Wing et al. (2024)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 解读 Wing (2024)</span>"
     ]
   },
   {
     "objectID": "body/05_01_example_Wing-2024.html#泛聊并形成大纲",
     "href": "body/05_01_example_Wing-2024.html#泛聊并形成大纲",
-    "title": "8  案例：AI 助我读论文之 Wing et al. (2024)",
+    "title": "8  案例：AI 解读 Wing (2024)",
     "section": "8.2 总结：建议的论文推介结构（共 6 节）",
     "text": "提示词 1：泛聊\n\n\n\n#论文解读：\n&gt; Wing, C., Yozwiak, M., Hollingsworth, A., Freedman, S., & Simon, K. (2024). Designing Difference-in-Difference Studies with Staggered Treatment Adoption: Key Concepts and Practical Guidelines.  \nAnnual Review of Public Health, 45(1), 485–505.  \n[Link](https://doi.org/10.1146/annurev-publhealth-061022-050825).\n我想写一篇论文推介，介绍这篇论文。\n你帮我列个提纲。包括如下要点：\n\n论文的核心观点和主要结论是什么？\n文中介绍了哪些主要方法 (参见 Table 1)？\n作者提供了哪些实操建议？参见 Section 5\n\n\n\n\n\n\n\n\n\n\n回复 1：ChatGPT 首轮回答\n\n\n\n## 1. 论文的核心观点与主要结论\n\n核心问题：传统 DID 在处理“分期处理”（staggered adoption）时会面临严重的混淆偏误（confounding），尤其是在存在时间异质性处理效应的情况下。\n关键结论：\n\n两大核心理念：\n\n复杂 DID = 简单 2×2 DID 的加权平均，理解这一点有助于解析 TWFE 存在哪些“坏的比较”；\n干净的控制组（clean controls）设计是避免偏误的关键。\n\nTWFE 估计量存在混杂：它不仅包括“treated vs untreated”，还包括“late vs early”这种有偏比较；\n推荐使用的新方法（如 stacked DID 和 Callaway & Sant’Anna 方法）能更清楚地识别组 × 时间的异质性效应，并给出更可信的平均处理效应。\n\n\n## 2. 文中介绍的主要方法（Table 1）\n\n\n\n\n\n\n\n\n\n\n方法\n软件支持\n输出内容\n优点\n注意事项\n\n\n\n\nStacked DID\nSTATA/R 通用实现\n加总或 event study 图\n保证干净控制组；结构直观\n权重不透明；标准误需聚类\n\n\nCallaway & Sant’Anna (2021)\ndid (R), csdid (Stata)\n所有 ATT(a, t)，可自定义加权\n明确估计每个 group × time 效应\n稍复杂；推荐用包\n\n\nGardner (2022)\nDid2s (R)\n加总效应或 event study\n利用未处理组构建双重残差\n加权等权，需理解设计\n\n\nSun & Abraham (2020)\neventstudyinteract\nevent study 图\n区分 group × period 的处理异质性\n无法处理时间变化协变量\n\n\nWooldridge (2022)\n回归可实现\nATT(a, t)，加总 ATT\n可以纳入时间变协变量\n无专门包\n\n\nde Chaisemartin & D’Haultfoeuille (2020)\ndid_multiplegt\n单一加总效应\n利用“状态切换”识别处理效应\n假设较强，解释为首次变化效应\n\n\n\n## 3. 作者提供的实操建议（Section 5）\n作者提出了 6 条实用建议，帮助研究者在实际操作中避免偏误和提升估计质量：\n\n明确定义研究问题：是否目标是估计长期效应？平均效应？还是事件时间上的动态路径？\n数据准备中避免混淆比较：识别每个组的处理时间，排除已经处理过的“污染对照组”。\n慎用 TWFE 回归：除非确认处理效应恒定，否则应避免直接使用。\n优先使用 event-study 构建组 × 时间 ATT：推荐 Callaway & Sant’Anna 或 stacked DID 实现。\n合理使用协变量调整：特别是时间不变协变量，可用于强化并行趋势假设。\n图形化展示 ATT 路径和 pre-trend 检验：通过 event-study 图来验证 no anticipation 和 common trends 假设。\n\n\n如需将其撰写为一篇推文文章或教学讲义，我可以按结构扩写每节内容，并添加图例说明和代码演示。是否继续？\n\n\n\n\n\n\n\n\n\n提示词 2：补充内容\n\n\n\n除了我提供的三个要点，你认为这篇论文推介海英包含哪些要点？\n\n\n\n\n\n\n\n\n\n回复 2：ChatGPT 补充回答\n\n\n\n很好的问题。在你已指定的三个要点基础上（核心观点、主要方法、实操建议），为了使这篇论文推介更系统、完整、适合教学与学术传播用途，我建议增加以下 3 个要点，一共构成 6 个板块的完整推介结构：\n\n## 4. 样例设计与图形直观解释（Section 2）\n\n推荐加入理由：作者构造了一个关于磺胺药物（sulfa drugs）分期推出的模拟案例，并通过图形展示了不同组别（早期、中期、晚期、未处理）在 mortality 变化上的差异。 ……\n\n\n## 5. 异质性与 TWFE 偏误的来源与后果（Section 3.5）\n\n推荐加入理由：该部分系统总结了 TWFE 偏误的数学机制（由 Goodman-Bacon 提出），是该领域的核心争议之一。 ……\n\n\n## 6. 软件与实操实现建议（Section 4.3, Table 1）\n\n推荐加入理由：Table 1 对当前主流 DID 实现方法做了清晰对比，有利于读者选择合适的工具。 ……\n建议用途：可以补充一个附录，提供 R 和 Stata 用户分别应如何使用这些方法（如 csdid、did_multiplegt、eventstudyinteract 等）。\n\n\n\n8.2 总结：建议的论文推介结构（共 6 节）\n\n论文核心观点与主要贡献（What and Why）\n主流估计方法与适用情境（Table 1）\n作者的实操建议与方法选择（Section 5）\n教学案例与图形展示（sulfa drugs 模拟实验）\nTWFE 的偏误与异质性陷阱（Goodman-Bacon decomposition）\n软件工具与实证操作建议（含软件包、命令、标准误估计等）\n\n\n\n\n\n\n\n\n\n\n\n提示词 3：细化提纲\n\n\n\n如果想写一篇适合初学者，主要是博士生和青年老师，他们的理论基础有些薄弱，希望能能通过通俗的语言，简明扼要的数学公式了解文中提到的各种方法的要点、适用场景和结果的解释方法。\n我应该如何安排这篇论文的结构和篇幅，每个部分大概多少字？\n\n\n\n\n\n\n\n\n回复 3：ChatGPT 列出的细化提纲\n\n\n\n非常好的设问。\n我建议这篇文章安排为如下 7 个部分，总篇幅建议控制在 8000–10,000 字左右（中文字符），既适合长推文，也便于改写为课程讲义或公众号文章。\n\n## 拟定结构与篇幅建议\n\n\n\n\n\n\n\n\n\n序号\n模块标题\n内容要点\n建议字数\n\n\n\n\n1\n导言：分期处理的 DID 为什么值得关注？\n- 现实案例（如政策滚动式推出）- TWFE 的流行与质疑- 本文阅读指南与学习目标\n600–800\n\n\n2\n直觉解释：DID 的本质与“分期处理”的陷阱\n- 用简单例子解释 2×2 DID 的逻辑- Goodman-Bacon decomposition 的直觉化说明（配图）- “坏的比较”如何引入偏误\n1000–1500\n\n\n3\n最常用的几种估计方法：思想、公式与适用场景\n- 逐一介绍以下方法： a. TWFE（回顾） b. Stacked DID c. Callaway & Sant’Anna (csdid) d. Sun & Abraham e. Gardner (did2s) f. de Chaisemartin & D’Haultfoeuille- 每种方法配一句话直觉、一组简要公式、一个适用场景\n3000–3500\n\n\n4\n一个教学例子：sulfa drugs 与死亡率（图 + 模拟）\n- 作者构建的模拟示例介绍- 图 1 与图 2 解读：每组死亡率的变化逻辑；哪些 DID 比较是有偏的\n800–1000\n\n\n5\n推荐的分析策略：设计、估计与解释的 checklist\n- Section 5 的总结- 6 条建议的通俗表达与应用建议- 表格呈现每条建议与推荐方法\n800–1000\n\n\n6\n结果解读技巧：估计量、ATT、Event Study 的含义\n- 估计的 ATT 是哪个？- 如何理解组 × 时间的动态路径？- 如何做稳健性分析（pre-trend）？\n600–800\n\n\n7\n附录：软件实现对照表与入门路径推荐\n- R 与 Stata 的软件包对应- 推荐教程、代码仓库（如作者的 GitHub）- 延伸阅读（几篇核心综述文献）\n600–800\n\n\n\n……\n如你愿意，我可基于该结构逐一撰写每一节，并配合教学/推文风格的 markdown 文稿。是否开始撰写第一节？或者是否要我提供一个样板段落？\n\n\n\n\n\n\n\n\n\n提示词 4：局部修正\n\n\n\n这篇推文的主要目的是给读者提供一些实操建议，因此，各个 section 的内容尽量循序渐进，确保各个模型的介绍与 Section 5 中的实操建议能有机衔接，让读者看完这篇推介后能上手应用到自己的论文中。\n\n\n\n\n\n\n\n\n\n回复 5：ChatGPT 进一步细化写作提纲\n\n\n\n非常好，我已理解你的目标：这篇推文不仅是综述，更是实践指南，要让初学者「看得懂、用得上、写得进论文」。基于这个要求，我对之前的结构做了进一步优化，以实现 从直觉启发 → 方法入门 → 模拟案例 → 实操建议 的自然过渡，并确保每个方法介绍最终都能在 Section 5 实操建议中找到落地应用。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 助我读论文之 Wing et al. (2024)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 解读 Wing (2024)</span>"
     ]
   },
   {
     "objectID": "body/05_01_example_Wing-2024.html#总结建议的论文推介结构共-6-节",
     "href": "body/05_01_example_Wing-2024.html#总结建议的论文推介结构共-6-节",
-    "title": "8  案例：AI 助我读论文之 Wing et al. (2024)",
+    "title": "8  案例：AI 解读 Wing (2024)",
     "section": "",
     "text": "论文核心观点与主要贡献（What and Why）\n主流估计方法与适用情境（Table 1）\n作者的实操建议与方法选择（Section 5）\n教学案例与图形展示（sulfa drugs 模拟实验）\nTWFE 的偏误与异质性陷阱（Goodman-Bacon decomposition）\n软件工具与实证操作建议（含软件包、命令、标准误估计等）",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 助我读论文之 Wing et al. (2024)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 解读 Wing (2024)</span>"
     ]
   },
   {
     "objectID": "body/05_01_example_Wing-2024.html#撰写论文推介正文",
     "href": "body/05_01_example_Wing-2024.html#撰写论文推介正文",
-    "title": "8  案例：AI 助我读论文之 Wing et al. (2024)",
+    "title": "8  案例：AI 解读 Wing (2024)",
     "section": "8.3 撰写论文推介正文",
     "text": "8.3 撰写论文推介正文\n接下来的工作就很简单了：按照上面的提纲，逐步撰写每个部分的内容。\n此时，建议明确说明对正文的撰写要求。比如，是否需要使用教学风格的语言，是否需要配合图表，是否需要提供代码示例等。\n下面是我经过长时间打磨形成的一个比较稳定的提示词：\n\n\n\n\n\n\n提示词 6：撰写正文\n\n\n\n按照 {优化后的推文结构（强调“实操衔接”）} 的结构来写，每个 section 输出一次。\n字数严格按照计划执行，不要缩减。\n格式要求：\n\n按照 ## 1. sec_title; ### 1.1 sub_sec_title 的方式编号 ；每个 section 添加一个标签 {lab-sec#}，便于后续修改时定位\n语言风格：中文讲义，20 年从教的老教授的风格，语言平和，准确，有力\n不要使用任何表情符号\n重要文献和链接务必在文中 提供超链接，文末提供完整的引文信息\n引文信息尽量使用如下格式，如果 PDF 链接无法获取，可以留空或删除 [-PDF-]() 部分的信息 引文信息采用 APA 格式，附加 [Link](), [PDF](), [Google](), [github]() 信息。即： Authors. ({Year}). {title_of_paper}, 45(1), 485–505. [Link](https://doi.org/{DOI}), [PDF](http://sci-hub.ren/{DOI}), [Google](&lt;{title_of_paper}&gt;), [github-replication](https://github.com/{ID}/{rep_name})\n\n文中的例子最好具体化，并保持全文一致，逐步推进和扩展。\n\n\n\n细心的读者可能会注意到，我在提示词的第一行，用比较严肃的语气写到「字数严格按照计划执行，不要缩减。」。这是因为，有些 AI 工具经常会「偷工减料」。虽然到目前我还没有完全搞清楚背后的原因，但大体上应该有如下可能：由于内存的限制，多数 AI 工具只能记住最近的 1-2 个对话的内容；此外，也有可能某些参数的设定，使之倾向于提供较为简洁的回答。为了避免这种情况，我在提示词中明确要求它严格按照计划的字数来输出结果。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 助我读论文之 Wing et al. (2024)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 解读 Wing (2024)</span>"
     ]
   },
   {
     "objectID": "body/05_01_example_Wing-2024.html#最终文稿",
     "href": "body/05_01_example_Wing-2024.html#最终文稿",
-    "title": "8  案例：AI 助我读论文之 Wing et al. (2024)",
+    "title": "8  案例：AI 解读 Wing (2024)",
     "section": "8.4 最终文稿",
     "text": "8.4 最终文稿\nChatGPT 输出的 Section 1 的内容基本符合我的要求。然后他开始输出 Section 2 的内容，并询问我是否需要继续输出。我给出了如下提示词，然后陪儿子去楼下散步 (回来后就可以收割所有输出结果了)。\n\n\n\n\n\n\n提示词 6：连续输出\n\n\n\n继续输出所有 sections，无需停顿\n\n\n\n👉 点击查看 最终成稿。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 助我读论文之 Wing et al. (2024)</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>案例：AI 解读 Wing (2024)</span>"
     ]
   },
   {
     "objectID": "body/05_02_Wing-2024.html",
     "href": "body/05_02_Wing-2024.html",
-    "title": "9  Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？",
+    "title": "9  Wing (2024) 输出效果{#lab-wing-2024}",
     "section": "",
     "text": "9.1 写在前面：为什么你可能用错了 DID？\nDifference-in-Differences（DID）是因果推断中最常用的工具之一，尤其在政策评估和公共卫生研究中几乎成了“标配”。许多论文，特别是关于地方政策变更（如最低工资调整、医保扩张、补贴计划）等主题，都会自然而然地落入“分期处理”（staggered adoption）的情境：有些地区早一点实施，有些则晚一点，甚至永远不实施。\n在这种设定下，研究者往往直接将 TWFE（two-way fixed effects，双向固定效应）模型套入数据，便得出了所谓的“平均处理效应”。然而，这种做法隐藏着一个深层次的统计陷阱——即使你满足了并行趋势假设（common trends），即使你严格控制了协变量，也很可能得出了错误的估计。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing (2024) 输出效果{#lab-wing-2024}</span>"
     ]
   },
   {
     "objectID": "body/05_02_Wing-2024.html#lab-sec1",
     "href": "body/05_02_Wing-2024.html#lab-sec1",
-    "title": "9  Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？",
+    "title": "9  Wing (2024) 输出效果{#lab-wing-2024}",
     "section": "",
     "text": "9.1.1 一个看似无害的例子\n设想如下的情境：某项公共卫生政策（例如提供免费疫苗）在三个州分批推行：\n\nA 州在 2018 年推行；\nB 州在 2020 年推行；\nC 州从未推行。\n\n你收集了 2016–2022 年的各州健康数据，然后运行如下 TWFE 回归模型：\n\\[\nY_{it} = \\alpha_i + \\lambda_t + \\beta D_{it} + \\varepsilon_{it}\n\\]\n结果显示 $ = -3.7$，你欣喜地认为该政策平均每年使死亡率下降了 3.7。问题是：这个估计是否真的可信？它真的等于我们关心的因果效应（Average Treatment Effect on the Treated, ATT）吗？\n很可能不是。事实上，近期的研究清晰地表明：当政策是“错峰推出”的，而且处理效应在时间上具有异质性（即效应在不同时间点不同），TWFE 给出的估计可能是方向错误的加权平均值，甚至完全偏离真实效应。\n\n\n9.1.2 来自最新研究的警示\nWing 等人（2024）在《Annual Review of Public Health》中发表的重要综述文章，专门讨论了这一问题。他们指出：在存在异质效应与分期处理的情境下，TWFE 估计量往往混杂了“坏的比较”（bad comparisons），尤其是晚处理组与早处理组之间的比较，由于这些“对照组”其实已经接受了处理，导致估计量偏误难以察觉。\n他们以模拟实验为例，展示了 TWFE 可能产生方向相反的估计结果——即明明政策是有效的，却因为使用了“错误的对照组”，得出了“政策增加死亡率”的结论。\n我们必须认识到：传统 DID 方法的便利性背后，隐藏的是对研究设计粗心大意的风险。\n\n\n9.1.3 这篇推文能帮你解决什么问题？\n本推文旨在以通俗的方式向博士生与青年教师解释：\n\n为什么传统 DID 方法可能失效；\n如何理解 staggered DID 中的估计陷阱；\n如何选择合适的方法来估计分期处理的因果效应；\n如何将这些方法应用到你自己的论文中。\n\n我们会用一个贯穿始终的公共卫生政策模拟例子，图文并茂地解释各种方法的核心思想、数学表达与结果含义，确保你在理解的基础上，能操作、能解释、能写入你的论文。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing (2024) 输出效果{#lab-wing-2024}</span>"
     ]
   },
   {
     "objectID": "body/05_02_Wing-2024.html#lab-sec2",
     "href": "body/05_02_Wing-2024.html#lab-sec2",
-    "title": "9  Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？",
+    "title": "9  Wing (2024) 输出效果{#lab-wing-2024}",
     "section": "9.2 最基础的 2×2 DID：你还记得它的含义吗？",
     "text": "9.2 最基础的 2×2 DID：你还记得它的含义吗？\n在深入介绍 staggered DID 之前，我们有必要回顾最基础的 Difference-in-Differences（DID）设计。许多方法的出发点，都是对这个简单 2×2 DID 框架的延展与修正。理解这一框架不仅能帮助我们把握估计量的本质，也能明确识别分期处理下的偏误源头。\n\n9.2.1 什么是 2×2 DID？\n最简单的 DID 设计包含两个组、两个时间点：\n\n一组是“处理组”（treatment group），另一组是“对照组”（control group）；\n两个时间点：$t=0$（处理前），$t=1$（处理后）；\n只有处理组在 $t=1$ 之后接受了处理，对照组始终未被处理。\n\n我们关心的因果效应是：在 $t=1$ 时，处理组相对于它自己在 $t=0$ 的变化，减去对照组在 $t=1$ 相对于 $t=0$ 的变化。\n这个思路可以写作一个标准的 DID 估计量：\n\\[\n\\widehat{\\text{DID}} = (Y_{T,1} - Y_{T,0}) - (Y_{C,1} - Y_{C,0})\n\\]\n其中：\n\n$Y_{T,t}$ 表示处理组在时间 $t$ 的平均结果；\n$Y_{C,t}$ 表示对照组在时间 $t$ 的平均结果。\n\n若我们将该估计量视为一个回归模型，它可以形式化为：\n\\[\nY_{it} = \\alpha + \\delta \\cdot \\text{Post}_t + \\gamma \\cdot \\text{Treat}_i + \\beta \\cdot (\\text{Treat}_i \\times \\text{Post}_t) + \\varepsilon_{it}\n\\]\n其中，$$ 就是我们要估计的因果效应（ATT）。\n\n\n9.2.2 倍分法成立的两个关键假设\nDID 的识别依赖于两个关键但强约束的假设：\n\n9.2.2.1 （1）并行趋势假设（Common Trends）\n即如果没有接受处理，处理组和对照组的结果变量在时间上的变化趋势应该是一致的。\n形式化地说：\n\\[\nE[Y_{T,1}(0) - Y_{T,0}(0)] = E[Y_{C,1}(0) - Y_{C,0}(0)]\n\\]\n这个假设无法直接检验，因为我们无法观察所有单位的“未处理状态下的潜在结果”。但我们可以通过检查处理前的趋势是否一致（“pre-trends”）来佐证其合理性。\n\n\n9.2.2.2 （2）无预期行为（No Anticipation）\n处理组不会因为“预期”将来会接受处理而提前调整行为。\n形式化地写为：\n\\[\nE[Y_{T,0}(1) - Y_{T,0}(0)] = 0\n\\]\n换句话说，处理的影响只能在实际处理开始之后才出现。\n\n\n\n9.2.3 例子：疫苗政策对死亡率的影响\n我们沿用 Wing 等人（2024）的模拟例子：设想一种疫苗政策只在 A 州推出，其它州未推出。\n\n年份 $t=0$（2019）：A、B 两州都未实施政策；\n年份 $t=1$（2020）：A 州开始实施，B 州未实施；\n我们观察到 A 州死亡率下降了 10，B 州下降了 2；\n那么 DID 估计值为：$(-10) - (-2) = -8$。\n\n这意味着，政策可能将死亡率额外降低了 8。\n\n\n9.2.4 是后续方法的出发点？\nWing 等人提出的核心观点是：复杂的 staggered DID，可以看作是众多 2×2 DID 子实验的加权平均。只有真正理解了 2×2 DID 的估计逻辑，才能意识到在何种条件下这些子实验会给出可靠的估计，在何种条件下却引入了偏误。\n在接下来的章节中，我们将看到，当各个单位的处理时间不同（staggered adoption），处理效应随时间变化（treatment heterogeneity），且我们又将所有单位一起放入 TWFE 模型中分析时，这个估计量已不再是上面那种简单 DID 的平均，而可能被“坏的子比较”严重扭曲。\n因此，重温 2×2 DID 的基本逻辑，就是理解分期处理挑战的起点。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing (2024) 输出效果{#lab-wing-2024}</span>"
     ]
   },
   {
     "objectID": "body/05_02_Wing-2024.html#lab-sec3",
     "href": "body/05_02_Wing-2024.html#lab-sec3",
-    "title": "9  Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？",
+    "title": "9  Wing (2024) 输出效果{#lab-wing-2024}",
     "section": "9.3 分期处理的挑战：当处理时间不同步时，会发生什么？",
     "text": "9.3 分期处理的挑战：当处理时间不同步时，会发生什么？\n上一节我们介绍了标准的 2×2 DID 框架，它建立在“单一处理时间”“统一比较结构”的理想设定上。但现实中，政策往往以错峰方式（staggered adoption）在不同单位中推广。这类设定在文献中极其常见，例如：\n\n最低工资在不同州的分批调整；\n医疗补贴政策在不同县的滚动推出；\n城市限购、限行政策在各地陆续上马。\n\n这种设定使得我们面对的，不再是 2 组 × 2 时间点的比较，而是多个处理组、多个时间点、多个处理路径交织在一起。\n\n9.3.1 TWFE 在这种情境下是如何工作的？\n研究者往往使用如下的 TWFE 模型进行估计：\n\\[\nY_{it} = \\alpha_i + \\lambda_t + \\beta D_{it} + \\varepsilon_{it}\n\\]\n其中，$D_{it}$ 表示个体 $i$ 在时间 $t$ 是否接受了处理。\n这种做法有两个表面上的优势：\n\n控制了单位固定效应 $_i$ 和时间固定效应 $_t$；\n所有组和所有时期的数据都被用上，提升了估计效率。\n\n但问题也正在于此：并非所有被用上的比较，都是有效的因果识别来源。\n\n\n9.3.2 Goodman-Bacon decomposition：将复杂 DID 拆解为 2×2 子实验\nGoodman-Bacon（2021）的突破性研究表明，TWFE 模型中估计量 $$ 实际上是多个 2×2 DID 子估计的加权平均。每一个子 DID 来自两个组在某一时间窗口内的比较。\n比如，设有三个处理时间：\n\nA 州：2018；\nB 州：2020；\nC 州：未处理。\n\nTWFE 模型包含的子比较包括：\n\nA 州 vs. C 州（t=2017–2019）；\nB 州 vs. C 州（t=2019–2021）；\nA 州 vs. B 州（t=2019–2021）；\nB 州 vs. A 州（t=2017–2019）……\n\n其中 3 和 4 是最危险的，它们将已经处理过的组当作“对照组”，可能严重违反了并行趋势假设和未处理状态的可识别性。\n这些子估计被 Goodman-Bacon 分为三类：\n\ntreated vs. untreated；\nearly treated vs. late treated；\nlate treated vs. early treated（最容易出偏误的一类）。\n\n每个子估计都被赋予一个权重，构成最终的 TWFE 估计。\n\n\n9.3.3 示例图解：sulfa drugs 实验（来自 Wing 等人）\nWing 等人构造了一个模拟实验：假设磺胺药物分别在三个时点推广到三个州组（早、中、晚），还有一个州组从未获得该药物。在图 2 中，他们展示了每一种 2×2 比较的估计值与权重。\n其中，“1940 vs. 1930”这种 late vs. early 比较给出的估计结果是正的，而真实效应是负的，说明这是典型的偏误方向翻转。\n更糟的是，这类比较可能被赋予高达 18% 的权重，极大地污染了整体估计量。\n\n\n9.3.4 什么时候偏误会严重？\n偏误的严重程度取决于两个因素：\n\n处理效应是否随时间变化（event-time heterogeneity）；\n“坏的比较”的权重有多大。\n\n只要处理效应不是恒定的（实际上几乎从不恒定），且“坏的比较”在样本中占据一定比例，TWFE 就可能产生严重偏误，甚至估计方向完全错误。\n这正是为什么 Goodman-Bacon decomposition 成为现代 DID 方法中不可绕过的基础工具。\n\n\n9.3.5 一个警示性的结论\nTWFE 在 staggered DID 情境下不是“无害的平均”，而是“危险的混合物”。\n正如 Wing 等人指出的那样：“如果我们不能明确理解哪些子比较被包含在估计中，就不能断言我们的估计结果具有因果含义。”\n这一观察直接推动了后续方法的发展，如 stacked DID、Callaway & Sant’Anna 等方法，目的就是控制或剔除这些“坏的比较”。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing (2024) 输出效果{#lab-wing-2024}</span>"
     ]
   },
   {
     "objectID": "body/05_02_Wing-2024.html#lab-sec4",
     "href": "body/05_02_Wing-2024.html#lab-sec4",
-    "title": "9  Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？",
+    "title": "9  Wing (2024) 输出效果{#lab-wing-2024}",
     "section": "9.4 五种实用方法一图总览：你可以怎么做？",
     "text": "9.4 五种实用方法一图总览：你可以怎么做？\n面对 staggered DID 的复杂结构与 TWFE 的偏误问题，近年来方法学文献提出了多种新的解决方案。这些方法各有侧重，但都建立在如下共识基础上：\n\n“我们必须控制或规避掉那些由处理过单位构成的对照组。”\n\n\n9.4.1 方法概览表（简化）\n以下是 5 种主流方法的直观对比：\n\n\n\n\n\n\n\n\n\n\n\n方法名称\n是否使用回归？\n估计结果形式\n是否输出组 × 时间 ATT？\n控制组设定\n推荐软件\n\n\n\n\nTWFE\n是\n单一 $$\n否\n所有单位\n所有软件\n\n\nStacked DID\n是\nevent-study 图\n是（自动加总）\n干净对照组\n手工回归 / stackedev\n\n\nCallaway & Sant’Anna\n否\nATT(a,t) 列表\n是（可加总）\n可选未处理 / 延迟处理\ndid (R), csdid (Stata)\n\n\nSun & Abraham\n是\nevent-study 图\n是\n最近处理组\neventstudyinteract\n\n\nGardner (did2s)\n是\nATT 或图\n是\n所有未处理单位\ndid2s\n\n\n\n\n\n9.4.2 一图看懂逻辑差异\n我们可以用一张结构图来解释这些方法的核心逻辑差异（此处建议在讲义中插入图表）：\n\nTWFE：使用所有比较（包括坏的）；\nStacked DID：仅使用“干净”的 2×2 子实验，拼接构成估计；\nCallaway & Sant’Anna：精确估计每个组 × 时间效应；\nSun & Abraham：对 event-time 效应进行交互建模；\nGardner：先做回归残差去噪，再估计效应。\n\n\n\n9.4.3 方法选择的三个基本维度\n选择方法时，应重点考虑以下三个问题：\n\n你的处理效应是否异质？\n你是否希望估计动态路径（event-study）？\n你是否能接受对照组被限定为“未来将处理”的单位？\n\n在后续章节中，我们将逐一介绍这些方法的原理、估计公式、应用条件，并与 Wing 等人的实操建议一一对应。\n好的，继续输出 Section 5 至 Section 8 的内容。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing (2024) 输出效果{#lab-wing-2024}</span>"
     ]
   },
   {
     "objectID": "body/05_02_Wing-2024.html#lab-sec5",
     "href": "body/05_02_Wing-2024.html#lab-sec5",
-    "title": "9  Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？",
+    "title": "9  Wing (2024) 输出效果{#lab-wing-2024}",
     "section": "9.5 方法逐个讲",
     "text": "9.5 方法逐个讲\n以下是对五种主要方法的逐一介绍。每种方法包括基本思想、数学表达、适用情境、结果解释方式，并明确与 Section 6 的实操建议的对应关系。\n\n9.5.1 5.1 TWFE（Two-Way Fixed Effects）\n基本思想：最常见的做法，将所有单位、所有时间点的处理状态编码为一个 0/1 变量，在回归中加入单位固定效应与时间固定效应。\n模型形式：\n\\[\nY_{it} = \\alpha_i + \\lambda_t + \\beta D_{it} + \\varepsilon_{it}\n\\]\n其中 $$ 被解释为平均处理效应。\n适用场景：\n\n所有单位几乎同时接受处理；\n处理效应不随时间变化；\n没有严重的预期效应或政策滞后反应。\n\n结果解释：\n当上述条件被破坏时，$$ 可能是多个子比较的有偏加权平均，甚至方向错误。\n对应建议（Section 6）：\n\n不推荐在 staggered adoption 情境下单独使用 TWFE；\n可用 TWFE 作基准估计，但需搭配 Bacon 分解或敏感性分析。\n\n\n\n9.5.2 5.2 Stacked DID（Cengiz et al. 2019）\n基本思想：\n将每一个“政策推出”的处理组及其对应的干净控制组视为一个独立的 2×2 实验，进行事件研究式建模，再将所有子实验合并为一个 stacked 数据集，在其上进行统一回归。\n事件时间定义：\n\\[\ne = t - A_s,\\quad \\text{即实际时间减去政策首次实施年份}\n\\]\n回归模型：\n\\[\nY_{ised} = \\sum_{k \\neq -1} \\beta_k \\cdot D_{sd} \\cdot \\mathbb{1}[e = k] + \\alpha_{sd} + \\lambda_{ed} + \\varepsilon_{ised}\n\\]\n适用场景：\n\n多次政策推出（如多个州分批推出政策）；\n可构造干净对照组（未处理或延迟处理）；\n关注动态效应路径。\n\n结果解释：\n$_k$ 表示事件时间为 $k$ 的平均处理效应（如政策实施后第 $k$ 年的效应）。\n对应建议（Section 6）：\n\n强烈推荐在 staggered DID 中使用；\n注意选择合理的事件窗口（如 -2 到 +4 年）；\n推荐搭配平衡样本设计，确保每个 $k$ 都有足够样本。\n\n\n\n9.5.3 5.3 Callaway & Sant’Anna（2021）\n基本思想：\n将每一个组（单位）的处理时间作为组别指标，直接估计各组在各时间的 ATT，然后加权汇总，形成总体效应。\n核心量：ATT(a, t)\n表示处理组在第 $a$ 年接受处理，在第 $t$ 年观测时的平均处理效应。\n加权方式：\n\\[\n\\delta_q = \\sum_a \\text{Pr}(A_s = a) \\cdot \\text{ATT}(a, a + q)\n\\]\n其中 $q$ 为事件时间，$a$ 为组的处理时间。\n适用场景：\n\n有多个处理时间；\n明确关心各组的异质性与动态路径；\n对结果解释要求细致。\n\n结果解释：\n可视化输出一系列 $(a, t)$ 或加总后展示 $_q$（如 event-study 图）。\n对应建议（Section 6）：\n\n推荐作为主方法之一；\n可用 csdid 命令（Stata）或 did（R）实现；\n可配合 covariates 做 IPW 加权。\n\n\n\n9.5.4 5.4 Sun & Abraham（2020）\n基本思想：\n使用回归框架，将不同处理时间组与 event time 进行交互，构建 saturated event study 模型，避免组别混杂。\n模型核心：\n\\[\nY_{it} = \\sum_{g,e} \\delta_{g,e} \\cdot \\mathbb{1}[G_i = g] \\cdot \\mathbb{1}[t - g = e] + \\alpha_i + \\lambda_t + \\varepsilon_{it}\n\\]\n其中 $G_i$ 是单位 $i$ 的处理时间，$e$ 是事件时间。\n适用场景：\n\n想使用 OLS 框架；\n希望得到处理组特异的动态路径；\n数据处理时间结构相对密集。\n\n结果解释：\n每个 $_{g,e}$ 表示第 $g$ 组在事件时间 $e$ 下的效应，结果较为细致。\n对应建议（Section 6）：\n\n推荐作为对照方法；\n可使用 eventstudyinteract 命令（Stata）实现；\n注意回归中 reference period 设置。\n\n\n\n9.5.5 5.5 Gardner & Wooldridge：Two-stage DID（did2s）\n基本思想：\n第一阶段仅使用未处理单位估计单位和时间固定效应；第二阶段估计处理效应。\n估计框架：\n\n第一步：残差提取；\n第二步：回归残差对处理变量，估计处理效应。\n\n适用场景：\n\n样本较小、担心 overfitting；\n希望用经典 OLS 工具获得稳健性与精度。\n\n结果解释：\n输出单一 $$ 或 event study 系数，但具有较强理论基础和可解释性。\n对应建议（Section 6）：\n\n适合与 stacked DID / csdid 结果交叉验证；\n推荐 did2s 包（R）实现。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing (2024) 输出效果{#lab-wing-2024}</span>"
     ]
   },
   {
     "objectID": "body/05_02_Wing-2024.html#lab-sec6",
     "href": "body/05_02_Wing-2024.html#lab-sec6",
-    "title": "9  Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？",
+    "title": "9  Wing (2024) 输出效果{#lab-wing-2024}",
     "section": "9.6 作者推荐的六条实操建议",
     "text": "9.6 作者推荐的六条实操建议\nWing 等人以公共卫生领域的经验为基础，总结出六条关键实操建议。这些建议适用于任何采用 staggered DID 的研究，尤其适合政策干预类论文。\n\nS1. 明确定义研究问题（What do you want?）\n\n\n是估计整体效应，还是某个子群体的效应？\n是估计短期效应，还是长期路径？\n\n要点： 不同目标对应不同加权策略与估计方法。\n\nS2. 避免污染的对照组\n\n\n不要将已被处理的单位作为对照；\n只使用“干净对照组”（未处理或延迟处理的单位）；\n推荐方法：stacked DID, csdid。\n\n\nS3. 谨慎使用 TWFE，尤其在存在异质效应时\n\n\nTWFE 的估计结果需要 Bacon 分解解释；\n若你无法判断哪些子比较构成估计量，就不要直接使用 TWFE。\n\n\nS4. 优先使用 group × time ATT 方法\n\n\n推荐使用 Callaway & Sant’Anna, stacked DID；\n输出 ATT(a, t) 能让你判断哪一类单位在何时受到影响；\n有助于理解政策异质性与动态反应。\n\n\nS5. 如果估计 dynamic effects，请使用事件时间框架\n\n\n明确区分 event time（相对政策开始的时间）与 calendar time；\n使用事件时间窗口（如 -2 到 +4）做图或估计；\n推荐配图展示。\n\n\nS6. 保留原始图表与诊断分析\n\n\n附带展示 pre-trends 检验图；\n展示不同方法下的估计结果对比图；\n强调稳健性与诊断，而非单一显著性。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing (2024) 输出效果{#lab-wing-2024}</span>"
     ]
   },
   {
     "objectID": "body/05_02_Wing-2024.html#lab-sec7",
     "href": "body/05_02_Wing-2024.html#lab-sec7",
-    "title": "9  Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？",
+    "title": "9  Wing (2024) 输出效果{#lab-wing-2024}",
     "section": "9.7 你的论文中该如何选择？三种典型应用场景推荐",
     "text": "9.7 你的论文中该如何选择？三种典型应用场景推荐\n为了将方法与实操建议真正用到论文中，我们以三类常见论文结构为例，推荐可操作的分析策略。\n\n9.7.1 应用场景一：一次性处理，时间清晰\n\n比如：全国统一施行某项补贴政策，2020 年一月生效。\n\n建议方法：\n\n可使用 2×2 DID 或 TWFE；\n若关注动态效应，推荐 event study + csdid；\n对照组为“从未处理”单位。\n\n\n\n9.7.2 应用场景二：错峰处理，政策在不同地区逐步推出\n\n比如：医保扩张政策 2018–2021 年间在各州陆续施行。\n\n建议方法：\n\n不使用 TWFE；\n使用 stacked DID（平衡事件窗口）；\n对照组为未来处理或从未处理组；\n搭配图形展示与敏感性分析。\n\n\n\n9.7.3 应用场景三：关注异质性反应或动态路径\n\n比如：某补贴政策对不同收入群体影响可能不同，且效应随时间演化。\n\n建议方法：\n\n使用 Callaway & Sant’Anna；\n输出 ATT(a, t)，聚焦群体与时间异质性；\n可扩展为组内回归、分层事件研究。",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing (2024) 输出效果{#lab-wing-2024}</span>"
     ]
   },
   {
     "objectID": "body/05_02_Wing-2024.html#lab-sec8",
     "href": "body/05_02_Wing-2024.html#lab-sec8",
-    "title": "9  Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？",
+    "title": "9  Wing (2024) 输出效果{#lab-wing-2024}",
     "section": "9.8 附录：常用命令、图形模板与推荐资料",
     "text": "9.8 附录：常用命令、图形模板与推荐资料\n以下是建议你实际操作时参考的命令、工具与学习资料。\nStata 命令对照表\n\n\n\n\n\n\n\n\n方法\n命令\n说明\n\n\n\n\nTWFE\nxtreg y d i.time, fe\n不推荐用于 staggered DID\n\n\nBacon 分解\nbacondecomp\n拆解 TWFE 中的子比较\n\n\ncsdid\ncsdid y time id gvar\n官方推荐，功能强大\n\n\nstacked DID\n手动 reshape + event-study\n需要写循环或使用 stackedev 包\n\n\nSun & Abraham\neventstudyinteract\n事件时间交互建模\n\n\ndid2s\nR 包 did2s\n两阶段 OLS 建模，精确稳健\n\n\n\n推荐资料\n\nWing et al. (2024) 官方 replication repo：GitHub\nCallaway & Sant’Anna R 教程：R package documentation\ncsdid 官方指南（Stata）：PDF",
     "crumbs": [
       "**论文解读**",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing et al. (2024) 论文推介：如何正确使用 Difference-in-Differences 方法？</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wing (2024) 输出效果{#lab-wing-2024}</span>"
     ]
   },
   {
