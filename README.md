@@ -2,7 +2,10 @@
 
 ## 关于这本书
 
-这本书是在准备 [连享会系列公开课](https://www.lianxh.cn/open2025.html) 中的「AI时代如何做实证研究？」专题时编写的讲义。
+这本书是在准备 [连享会系列公开课](https://www.lianxh.cn/open2025.html) 中的「AI 时代如何做实证研究？」专题时编写的讲义。
+
+- [公开课视频回放 - B 站](https://www.bilibili.com/video/BV1z3htzqEjK/?vd_source=c65d9ae0f7daba4ea32ee8c6122a4435)，2 hours.
+- [Github 仓库](https://github.com/lianxhcn/research_with_AI)
 
 书中介绍了 AI 工具如何提升实证研究的效率，如何帮助我们更好地思考和解决问题。书中还介绍了 ChatGPT, 豆包, Github Copilot 等工具的使用，以及 Markdown、Github 和 Jupyter Notebook 的协同工作方式。
 

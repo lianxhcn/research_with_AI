@@ -1,13 +1,10 @@
 # 借助 AI 写代码
 
 - 主要工具
-  - [ChatGPT](https://chat.openai.com/)
-  - [Copilot](https://github.com/github/copilot)
-  - [Codeium](https://www.codeium.com/)
-  - [Tabnine](https://www.tabnine.com/)
-
-
-
+- [ChatGPT](https://chat.openai.com/)：由 OpenAI 开发的聊天机器人，支持代码生成、调试和问题解答。
+- [Copilot](https://github.com/github/copilot)：GitHub 推出的 AI 编程助手，能在主流编辑器中实时补全和建议代码。
+- [Codeium](https://www.codeium.com/)：免费 AI 代码补全工具，支持多种语言和编辑器，提升开发效率。
+- [Tabnine](https://www.tabnine.com/)：基于 AI 的代码补全插件，兼容多种编程语言和开发环境。
 
 ## AI 通用工具
 
@@ -27,10 +24,15 @@ Note: 这些都是 VScode 中的插件。([VScode 插件安装方法](https://ww
   - Codeium: 代码补全工具，支持多种编程语言。
 
 ## 其他工具
-  - [Replit](https://replit.com/)
-  - [Kite](https://www.kite.com/)
-  - [Codex](https://openai.com/research/codex)
-  - [Codeium](https://www.codeium.com/)
-  - [CodeWhisperer](https://aws.amazon.com/codewhisperer/)
-  - [PolyCoder](https://polycoder.ai/)
-  - [CodeGen](https://arxiv.org/abs/2203.13488)
+- [Replit](https://replit.com/)：在线编程平台，支持多种语言，适合协作和快速原型开发。
+- [Kite](https://www.kite.com/)：AI 驱动的代码补全工具，支持主流编辑器，提升编程效率。
+- [Codex](https://openai.com/research/codex)：由 OpenAI 开发的代码生成模型，可理解自然语言并生成代码。
+- [Codeium](https://www.codeium.com/)：免费 AI 代码补全工具，支持多种语言和编辑器。
+- [CodeWhisperer](https://aws.amazon.com/codewhisperer/)：AWS 推出的 AI 编程助手，支持云服务集成和代码建议。
+- [PolyCoder](https://polycoder.ai/)：开源代码生成模型，专注于 C 语言代码生成。
+- [CodeGen](https://arxiv.org/abs/2203.13488)：由 Salesforce 研究团队开发的代码生成模型，支持多种编程语言。
+
+## 参考资料
+
+- [24 Best ChatGPT Alternatives (February 2025)](https://explodingtopics.com/blog/chatgpt-alternatives)
+- 陈庭伟, 2025, [2025年学术研究中的15大最佳AI工具](https://www.lianxh.cn/details/1578.html)
