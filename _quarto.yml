@@ -33,7 +33,7 @@ book:
       chapters: 
         - body/00_intro.ipynb
         - body/01_install_Python_Anaconda.ipynb
-        - body/01_use_Junpyter_Notebook.ipynb
+        - body/01_use_Jupyter_Notebook.ipynb
         - body/02_install_FAQs.ipynb
         - body/03_markdown_marp.md
 
