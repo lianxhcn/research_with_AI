@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -338,6 +372,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#如何打开-vscode-的终端控制台-terminal" id="toc-如何打开-vscode-的终端控制台-terminal" class="nav-link" data-scroll-target="#如何打开-vscode-的终端控制台-terminal"><span class="header-section-number">5.5</span> 如何打开 VScode 的终端/控制台 (terminal)？</a></li>
   <li><a href="#conda-install-与-pip-install-有何差别" id="toc-conda-install-与-pip-install-有何差别" class="nav-link" data-scroll-target="#conda-install-与-pip-install-有何差别"><span class="header-section-number">5.6</span> Conda install 与 pip install 有何差别？</a></li>
   <li><a href="#conda-和-anaconda-有何关系" id="toc-conda-和-anaconda-有何关系" class="nav-link" data-scroll-target="#conda-和-anaconda-有何关系"><span class="header-section-number">5.7</span> Conda 和 Anaconda 有何关系？</a></li>
+  <li><a href="#虚拟环境" id="toc-虚拟环境" class="nav-link" data-scroll-target="#虚拟环境"><span class="header-section-number">5.8</span> 虚拟环境</a></li>
   </ul>
 </nav>
     </div>
@@ -511,6 +546,19 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>包管理</strong>：Conda 用于安装、升级和卸载 Python 包以及其他语言的包。它能够管理并解决依赖问题，确保你安装的包兼容且稳定。</li>
 <li><strong>环境管理</strong>：Conda 允许创建和管理虚拟环境。通过虚拟环境，你可以在同一台机器上管理多个不同版本的 Python 和包，而不会发生冲突。例如，你可以为一个项目使用 Python 3.7，为另一个项目使用 Python 3.9，并且确保每个项目有独立的依赖。</li>
 </ul></li>
+</ul>
+</section>
+<section id="虚拟环境" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="虚拟环境"><span class="header-section-number">5.8</span> 虚拟环境</h2>
+<p><strong>什么是虚拟环境？</strong> 虚拟环境是一个自包含的目录，用于存放特定项目所需的所有依赖包。通过使用虚拟环境，你可以避免不同项目之间的依赖冲突，并且可以在同一台机器上同时运行多个项目，而不必担心它们之间的相互影响。 虚拟环境的主要作用包括： - <strong>隔离依赖</strong>：每个虚拟环境都有自己的独立包和依赖，不会与系统的全局包冲突。 - <strong>版本控制</strong>：可以为不同项目创建不同的虚拟环境，使用不同的包版本。 - <strong>简化部署</strong>：虚拟环境可以轻松地复制和共享，使得项目部署更加简单和一致。</p>
+<p><strong>如何创建和管理虚拟环境？</strong> - 使用 Conda 创建虚拟环境： <code>bash   conda create -n env_stata python=3.12</code> 这将创建一个名为 <code>env_stata</code> 的虚拟环境，并安装 Python 3.12。 - 激活虚拟环境： <code>bash   conda activate env_stata</code> 随后，你可以在该环境中安装所需的包，例如： <code>bash   conda install nbstata</code></p>
+<ul>
+<li><p>退出虚拟环境：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>删除虚拟环境：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">-n</span> env_stata <span class="at">--all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>列出所有虚拟环境：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 
 
