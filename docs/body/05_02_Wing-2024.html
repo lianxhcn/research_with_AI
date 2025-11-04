@@ -389,11 +389,11 @@ window.Quarto = {
   </ul></li>
   <li><a href="#lab-sec5" id="toc-lab-sec5" class="nav-link" data-scroll-target="#lab-sec5"><span class="header-section-number">9.5</span> 方法逐个讲</a>
   <ul class="collapse">
-  <li><a href="#twfetwo-way-fixed-effects" id="toc-twfetwo-way-fixed-effects" class="nav-link" data-scroll-target="#twfetwo-way-fixed-effects"><span class="header-section-number">9.5.1</span> 5.1 TWFE（Two-Way Fixed Effects）</a></li>
-  <li><a href="#stacked-didcengiz-et-al.-2019" id="toc-stacked-didcengiz-et-al.-2019" class="nav-link" data-scroll-target="#stacked-didcengiz-et-al.-2019"><span class="header-section-number">9.5.2</span> 5.2 Stacked DID（Cengiz et al.&nbsp;2019）</a></li>
-  <li><a href="#callaway-santanna2021" id="toc-callaway-santanna2021" class="nav-link" data-scroll-target="#callaway-santanna2021"><span class="header-section-number">9.5.3</span> 5.3 Callaway &amp; Sant’Anna（2021）</a></li>
-  <li><a href="#sun-abraham2020" id="toc-sun-abraham2020" class="nav-link" data-scroll-target="#sun-abraham2020"><span class="header-section-number">9.5.4</span> 5.4 Sun &amp; Abraham（2020）</a></li>
-  <li><a href="#gardner-wooldridgetwo-stage-diddid2s" id="toc-gardner-wooldridgetwo-stage-diddid2s" class="nav-link" data-scroll-target="#gardner-wooldridgetwo-stage-diddid2s"><span class="header-section-number">9.5.5</span> 5.5 Gardner &amp; Wooldridge：Two-stage DID（did2s）</a></li>
+  <li><a href="#twfetwo-way-fixed-effects" id="toc-twfetwo-way-fixed-effects" class="nav-link" data-scroll-target="#twfetwo-way-fixed-effects"><span class="header-section-number">9.5.1</span> TWFE（Two-Way Fixed Effects）</a></li>
+  <li><a href="#stacked-didcengiz-et-al.-2019" id="toc-stacked-didcengiz-et-al.-2019" class="nav-link" data-scroll-target="#stacked-didcengiz-et-al.-2019"><span class="header-section-number">9.5.2</span> Stacked DID（Cengiz et al.&nbsp;2019）</a></li>
+  <li><a href="#callaway-santanna2021" id="toc-callaway-santanna2021" class="nav-link" data-scroll-target="#callaway-santanna2021"><span class="header-section-number">9.5.3</span> Callaway &amp; Sant’Anna（2021）</a></li>
+  <li><a href="#sun-abraham2020" id="toc-sun-abraham2020" class="nav-link" data-scroll-target="#sun-abraham2020"><span class="header-section-number">9.5.4</span> Sun &amp; Abraham（2020）</a></li>
+  <li><a href="#gardner-wooldridgetwo-stage-diddid2s" id="toc-gardner-wooldridgetwo-stage-diddid2s" class="nav-link" data-scroll-target="#gardner-wooldridgetwo-stage-diddid2s"><span class="header-section-number">9.5.5</span> Gardner &amp; Wooldridge：Two-stage DID（did2s）</a></li>
   </ul></li>
   <li><a href="#lab-sec6" id="toc-lab-sec6" class="nav-link" data-scroll-target="#lab-sec6"><span class="header-section-number">9.6</span> 作者推荐的六条实操建议</a></li>
   <li><a href="#lab-sec7" id="toc-lab-sec7" class="nav-link" data-scroll-target="#lab-sec7"><span class="header-section-number">9.7</span> 你的论文中该如何选择？三种典型应用场景推荐</a>
@@ -452,7 +452,7 @@ ChatGPT 对话：<a href="https://chatgpt.com/share/6883cbb0-f6e8-8005-98b7-b8e1
 <p><span class="math display">\[
 Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
 \]</span></p>
-<p>结果显示 $ = -3.7$，你欣喜地认为该政策平均每年使死亡率下降了 3.7。问题是：这个估计是否真的可信？它真的等于我们关心的因果效应（Average Treatment Effect on the Treated, ATT）吗？</p>
+<p>结果显示 <span class="math inline">\(\hat{\beta} = -3.7\)</span>，你欣喜地认为该政策平均每年使死亡率下降了 3.7。问题是：这个估计是否真的可信？它真的等于我们关心的因果效应（Average Treatment Effect on the Treated, ATT）吗？</p>
 <p>很可能不是。事实上，近期的研究清晰地表明：当政策是“错峰推出”的，而且处理效应在时间上具有异质性（即效应在不同时间点不同），TWFE 给出的估计可能是<strong>方向错误的加权平均值</strong>，甚至完全偏离真实效应。</p>
 </section>
 <section id="来自最新研究的警示" class="level3" data-number="9.1.2">
@@ -481,24 +481,24 @@ Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
 <p>最简单的 DID 设计包含两个组、两个时间点：</p>
 <ul>
 <li>一组是“处理组”（treatment group），另一组是“对照组”（control group）；</li>
-<li>两个时间点：$t=0$（处理前），$t=1$（处理后）；</li>
-<li>只有处理组在 $t=1$ 之后接受了处理，对照组始终未被处理。</li>
+<li>两个时间点：<span class="math inline">\(t=0\)</span>（处理前），<span class="math inline">\(t=1\)</span>（处理后）；</li>
+<li>只有处理组在 <span class="math inline">\(t=1\)</span> 之后接受了处理，对照组始终未被处理。</li>
 </ul>
-<p>我们关心的因果效应是：在 $t=1$ 时，处理组相对于它自己在 $t=0$ 的变化，减去对照组在 $t=1$ 相对于 $t=0$ 的变化。</p>
+<p>我们关心的因果效应是：在 <span class="math inline">\(t=1\)</span> 时，处理组相对于它自己在 <span class="math inline">\(t=0\)</span> 的变化，减去对照组在 <span class="math inline">\(t=1\)</span> 相对于 <span class="math inline">\(t=0\)</span> 的变化。</p>
 <p>这个思路可以写作一个标准的 DID 估计量：</p>
 <p><span class="math display">\[
 \widehat{\text{DID}} = (Y_{T,1} - Y_{T,0}) - (Y_{C,1} - Y_{C,0})
 \]</span></p>
 <p>其中：</p>
 <ul>
-<li>$Y_{T,t}$ 表示处理组在时间 $t$ 的平均结果；</li>
-<li>$Y_{C,t}$ 表示对照组在时间 $t$ 的平均结果。</li>
+<li><span class="math inline">\(Y_{T,t}\)</span> 表示处理组在时间 <span class="math inline">\(t\)</span> 的平均结果；</li>
+<li><span class="math inline">\(Y_{C,t}\)</span> 表示对照组在时间 <span class="math inline">\(t\)</span> 的平均结果。</li>
 </ul>
 <p>若我们将该估计量视为一个回归模型，它可以形式化为：</p>
 <p><span class="math display">\[
 Y_{it} = \alpha + \delta \cdot \text{Post}_t + \gamma \cdot \text{Treat}_i + \beta \cdot (\text{Treat}_i \times \text{Post}_t) + \varepsilon_{it}
 \]</span></p>
-<p>其中，$$ 就是我们要估计的因果效应（ATT）。</p>
+<p>其中，<span class="math inline">\(\beta\)</span> 就是我们要估计的因果效应（ATT）。</p>
 </section>
 <section id="倍分法成立的两个关键假设" class="level3" data-number="9.2.2">
 <h3 data-number="9.2.2" class="anchored" data-anchor-id="倍分法成立的两个关键假设"><span class="header-section-number">9.2.2</span> 倍分法成立的两个关键假设</h3>
@@ -526,10 +526,10 @@ E[Y_{T,0}(1) - Y_{T,0}(0)] = 0
 <h3 data-number="9.2.3" class="anchored" data-anchor-id="例子疫苗政策对死亡率的影响"><span class="header-section-number">9.2.3</span> 例子：疫苗政策对死亡率的影响</h3>
 <p>我们沿用 Wing 等人（2024）的模拟例子：设想一种疫苗政策只在 A 州推出，其它州未推出。</p>
 <ul>
-<li>年份 $t=0$（2019）：A、B 两州都未实施政策；</li>
-<li>年份 $t=1$（2020）：A 州开始实施，B 州未实施；</li>
+<li>年份 <span class="math inline">\(t=0\)</span>（2019）：A、B 两州都未实施政策；</li>
+<li>年份 <span class="math inline">\(t=1\)</span>（2020）：A 州开始实施，B 州未实施；</li>
 <li>我们观察到 A 州死亡率下降了 10，B 州下降了 2；</li>
-<li>那么 DID 估计值为：$(-10) - (-2) = -8$。</li>
+<li>那么 DID 估计值为：<span class="math inline">\((-10) - (-2) = -8\)</span>。</li>
 </ul>
 <p>这意味着，政策可能将死亡率额外降低了 8。</p>
 </section>
@@ -555,17 +555,17 @@ E[Y_{T,0}(1) - Y_{T,0}(0)] = 0
 <p><span class="math display">\[
 Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
 \]</span></p>
-<p>其中，$D_{it}$ 表示个体 $i$ 在时间 $t$ 是否接受了处理。</p>
+<p>其中，<span class="math inline">\(D_{it}\)</span> 表示个体 <span class="math inline">\(i\)</span> 在时间 <span class="math inline">\(t\)</span> 是否接受了处理。</p>
 <p>这种做法有两个表面上的优势：</p>
 <ul>
-<li>控制了单位固定效应 $_i$ 和时间固定效应 $_t$；</li>
+<li>控制了单位固定效应 <span class="math inline">\(\alpha_i\)</span> 和时间固定效应 <span class="math inline">\(\lambda_t\)</span>；</li>
 <li>所有组和所有时期的数据都被用上，提升了估计效率。</li>
 </ul>
 <p>但问题也正在于此：<strong>并非所有被用上的比较，都是有效的因果识别来源</strong>。</p>
 </section>
 <section id="goodman-bacon-decomposition将复杂-did-拆解为-22-子实验" class="level3" data-number="9.3.2">
 <h3 data-number="9.3.2" class="anchored" data-anchor-id="goodman-bacon-decomposition将复杂-did-拆解为-22-子实验"><span class="header-section-number">9.3.2</span> Goodman-Bacon decomposition：将复杂 DID 拆解为 2×2 子实验</h3>
-<p>Goodman-Bacon（2021）的突破性研究表明，TWFE 模型中估计量 $$ 实际上是多个 2×2 DID 子估计的加权平均。每一个子 DID 来自两个组在某一时间窗口内的比较。</p>
+<p>Goodman-Bacon（2021）的突破性研究表明，TWFE 模型中估计量 <span class="math inline">\(\hat{\beta}\)</span> 实际上是多个 2×2 DID 子估计的加权平均。每一个子 DID 来自两个组在某一时间窗口内的比较。</p>
 <p>比如，设有三个处理时间：</p>
 <ul>
 <li>A 州：2018；</li>
@@ -643,7 +643,7 @@ Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
 <tr class="odd">
 <td>TWFE</td>
 <td>是</td>
-<td>单一 $$</td>
+<td>单一 <span class="math inline">\(\hat{\beta}\)</span></td>
 <td>否</td>
 <td>所有单位</td>
 <td>所有软件</td>
@@ -710,13 +710,13 @@ Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
 <h2 data-number="9.5" class="anchored" data-anchor-id="lab-sec5"><span class="header-section-number">9.5</span> 方法逐个讲</h2>
 <p>以下是对五种主要方法的逐一介绍。每种方法包括基本思想、数学表达、适用情境、结果解释方式，并明确与 Section 6 的实操建议的对应关系。</p>
 <section id="twfetwo-way-fixed-effects" class="level3" data-number="9.5.1">
-<h3 data-number="9.5.1" class="anchored" data-anchor-id="twfetwo-way-fixed-effects"><span class="header-section-number">9.5.1</span> 5.1 TWFE（Two-Way Fixed Effects）</h3>
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="twfetwo-way-fixed-effects"><span class="header-section-number">9.5.1</span> TWFE（Two-Way Fixed Effects）</h3>
 <p><strong>基本思想</strong>：最常见的做法，将所有单位、所有时间点的处理状态编码为一个 0/1 变量，在回归中加入单位固定效应与时间固定效应。</p>
 <p><strong>模型形式</strong>：</p>
 <p><span class="math display">\[
 Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
 \]</span></p>
-<p>其中 $$ 被解释为平均处理效应。</p>
+<p>其中 <span class="math inline">\(\beta\)</span> 被解释为平均处理效应。</p>
 <p><strong>适用场景</strong>：</p>
 <ul>
 <li>所有单位几乎同时接受处理；</li>
@@ -724,7 +724,7 @@ Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
 <li>没有严重的预期效应或政策滞后反应。</li>
 </ul>
 <p><strong>结果解释</strong>：</p>
-<p>当上述条件被破坏时，$$ 可能是多个子比较的有偏加权平均，甚至方向错误。</p>
+<p>当上述条件被破坏时，<span class="math inline">\(\hat{\beta}\)</span> 可能是多个子比较的有偏加权平均，甚至方向错误。</p>
 <p><strong>对应建议（Section 6）</strong>：</p>
 <ul>
 <li>不推荐在 staggered adoption 情境下单独使用 TWFE；</li>
@@ -732,7 +732,7 @@ Y_{it} = \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it}
 </ul>
 </section>
 <section id="stacked-didcengiz-et-al.-2019" class="level3" data-number="9.5.2">
-<h3 data-number="9.5.2" class="anchored" data-anchor-id="stacked-didcengiz-et-al.-2019"><span class="header-section-number">9.5.2</span> 5.2 Stacked DID（Cengiz et al.&nbsp;2019）</h3>
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="stacked-didcengiz-et-al.-2019"><span class="header-section-number">9.5.2</span> Stacked DID（Cengiz et al.&nbsp;2019）</h3>
 <p><strong>基本思想</strong>：</p>
 <p>将每一个“政策推出”的处理组及其对应的干净控制组视为一个独立的 2×2 实验，进行事件研究式建模，再将所有子实验合并为一个 stacked 数据集，在其上进行统一回归。</p>
 <p><strong>事件时间定义</strong>：</p>
@@ -750,25 +750,25 @@ Y_{ised} = \sum_{k \neq -1} \beta_k \cdot D_{sd} \cdot \mathbb{1}[e = k] + \alph
 <li>关注动态效应路径。</li>
 </ul>
 <p><strong>结果解释</strong>：</p>
-<p>$_k$ 表示事件时间为 $k$ 的平均处理效应（如政策实施后第 $k$ 年的效应）。</p>
+<p><span class="math inline">\(\beta_k\)</span> 表示事件时间为 <span class="math inline">\(k\)</span> 的平均处理效应（如政策实施后第 <span class="math inline">\(k\)</span> 年的效应）。</p>
 <p><strong>对应建议（Section 6）</strong>：</p>
 <ul>
 <li>强烈推荐在 staggered DID 中使用；</li>
 <li>注意选择合理的事件窗口（如 -2 到 +4 年）；</li>
-<li>推荐搭配平衡样本设计，确保每个 $k$ 都有足够样本。</li>
+<li>推荐搭配平衡样本设计，确保每个 <span class="math inline">\(k\)</span> 都有足够样本。</li>
 </ul>
 </section>
 <section id="callaway-santanna2021" class="level3" data-number="9.5.3">
-<h3 data-number="9.5.3" class="anchored" data-anchor-id="callaway-santanna2021"><span class="header-section-number">9.5.3</span> 5.3 Callaway &amp; Sant’Anna（2021）</h3>
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="callaway-santanna2021"><span class="header-section-number">9.5.3</span> Callaway &amp; Sant’Anna（2021）</h3>
 <p><strong>基本思想</strong>：</p>
 <p>将每一个组（单位）的处理时间作为组别指标，直接估计各组在各时间的 ATT，然后加权汇总，形成总体效应。</p>
 <p><strong>核心量：ATT(a, t)</strong></p>
-<p>表示处理组在第 $a$ 年接受处理，在第 $t$ 年观测时的平均处理效应。</p>
+<p>表示处理组在第 <span class="math inline">\(a\)</span> 年接受处理，在第 <span class="math inline">\(t\)</span> 年观测时的平均处理效应。</p>
 <p><strong>加权方式</strong>：</p>
 <p><span class="math display">\[
 \delta_q = \sum_a \text{Pr}(A_s = a) \cdot \text{ATT}(a, a + q)
 \]</span></p>
-<p>其中 $q$ 为事件时间，$a$ 为组的处理时间。</p>
+<p>其中 <span class="math inline">\(q\)</span> 为事件时间，<span class="math inline">\(a\)</span> 为组的处理时间。</p>
 <p><strong>适用场景</strong>：</p>
 <ul>
 <li>有多个处理时间；</li>
@@ -776,7 +776,7 @@ Y_{ised} = \sum_{k \neq -1} \beta_k \cdot D_{sd} \cdot \mathbb{1}[e = k] + \alph
 <li>对结果解释要求细致。</li>
 </ul>
 <p><strong>结果解释</strong>：</p>
-<p>可视化输出一系列 $(a, t)$ 或加总后展示 $_q$（如 event-study 图）。</p>
+<p>可视化输出一系列 <span class="math inline">\(\text{ATT}(a, t)\)</span> 或加总后展示 <span class="math inline">\(\delta_q\)</span>（如 event-study 图）。</p>
 <p><strong>对应建议（Section 6）</strong>：</p>
 <ul>
 <li>推荐作为主方法之一；</li>
@@ -785,14 +785,14 @@ Y_{ised} = \sum_{k \neq -1} \beta_k \cdot D_{sd} \cdot \mathbb{1}[e = k] + \alph
 </ul>
 </section>
 <section id="sun-abraham2020" class="level3" data-number="9.5.4">
-<h3 data-number="9.5.4" class="anchored" data-anchor-id="sun-abraham2020"><span class="header-section-number">9.5.4</span> 5.4 Sun &amp; Abraham（2020）</h3>
+<h3 data-number="9.5.4" class="anchored" data-anchor-id="sun-abraham2020"><span class="header-section-number">9.5.4</span> Sun &amp; Abraham（2020）</h3>
 <p><strong>基本思想</strong>：</p>
 <p>使用回归框架，将不同处理时间组与 event time 进行交互，构建 saturated event study 模型，避免组别混杂。</p>
 <p><strong>模型核心</strong>：</p>
 <p><span class="math display">\[
 Y_{it} = \sum_{g,e} \delta_{g,e} \cdot \mathbb{1}[G_i = g] \cdot \mathbb{1}[t - g = e] + \alpha_i + \lambda_t + \varepsilon_{it}
 \]</span></p>
-<p>其中 $G_i$ 是单位 $i$ 的处理时间，$e$ 是事件时间。</p>
+<p>其中 <span class="math inline">\(G_i\)</span> 是单位 <span class="math inline">\(i\)</span> 的处理时间，<span class="math inline">\(e\)</span> 是事件时间。</p>
 <p><strong>适用场景</strong>：</p>
 <ul>
 <li>想使用 OLS 框架；</li>
@@ -800,7 +800,7 @@ Y_{it} = \sum_{g,e} \delta_{g,e} \cdot \mathbb{1}[G_i = g] \cdot \mathbb{1}[t - 
 <li>数据处理时间结构相对密集。</li>
 </ul>
 <p><strong>结果解释</strong>：</p>
-<p>每个 $_{g,e}$ 表示第 $g$ 组在事件时间 $e$ 下的效应，结果较为细致。</p>
+<p>每个 <span class="math inline">\(\delta_{g,e}\)</span> 表示第 <span class="math inline">\(g\)</span> 组在事件时间 <span class="math inline">\(e\)</span> 下的效应，结果较为细致。</p>
 <p><strong>对应建议（Section 6）</strong>：</p>
 <ul>
 <li>推荐作为对照方法；</li>
@@ -809,7 +809,7 @@ Y_{it} = \sum_{g,e} \delta_{g,e} \cdot \mathbb{1}[G_i = g] \cdot \mathbb{1}[t - 
 </ul>
 </section>
 <section id="gardner-wooldridgetwo-stage-diddid2s" class="level3" data-number="9.5.5">
-<h3 data-number="9.5.5" class="anchored" data-anchor-id="gardner-wooldridgetwo-stage-diddid2s"><span class="header-section-number">9.5.5</span> 5.5 Gardner &amp; Wooldridge：Two-stage DID（did2s）</h3>
+<h3 data-number="9.5.5" class="anchored" data-anchor-id="gardner-wooldridgetwo-stage-diddid2s"><span class="header-section-number">9.5.5</span> Gardner &amp; Wooldridge：Two-stage DID（did2s）</h3>
 <p><strong>基本思想</strong>：</p>
 <p>第一阶段仅使用未处理单位估计单位和时间固定效应；第二阶段估计处理效应。</p>
 <p><strong>估计框架</strong>：</p>
@@ -823,7 +823,7 @@ Y_{it} = \sum_{g,e} \delta_{g,e} \cdot \mathbb{1}[G_i = g] \cdot \mathbb{1}[t - 
 <li>希望用经典 OLS 工具获得稳健性与精度。</li>
 </ul>
 <p><strong>结果解释</strong>：</p>
-<p>输出单一 $$ 或 event study 系数，但具有较强理论基础和可解释性。</p>
+<p>输出单一 <span class="math inline">\(\hat{\beta}\)</span> 或 event study 系数，但具有较强理论基础和可解释性。</p>
 <p><strong>对应建议（Section 6）</strong>：</p>
 <ul>
 <li>适合与 stacked DID / csdid 结果交叉验证；</li>
