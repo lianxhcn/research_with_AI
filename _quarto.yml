@@ -58,6 +58,12 @@ book:
     - part: "**学计量**"
       chapters: 
         - examples/learn_Tobit_model.ipynb
+        - body/10_01_learn_heckman.ipynb
+        - body/10_02_learn_heckman_blog.md
+
+    - part: "**修改论文**"
+      chapters: 
+        - body/09_referee_comments.ipynb
 
     - part: "**数据分析**"
       chapters: 

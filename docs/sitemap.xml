@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/index.html</loc>
-    <lastmod>2025-11-03T10:38:06.423Z</lastmod>
+    <lastmod>2026-01-18T17:11:54.044Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/00_intro.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/01_install_Python_Anaconda.html</loc>
-    <lastmod>2025-10-10T09:16:24.452Z</lastmod>
+    <lastmod>2026-01-18T17:20:27.649Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/01_use_Jupyter_Notebook.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/05_00_read_paper_with_AI.html</loc>
-    <lastmod>2025-07-26T10:30:26.801Z</lastmod>
+    <lastmod>2026-01-18T15:44:20.562Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/05_01_example_Wing-2024.html</loc>
@@ -46,11 +46,23 @@
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/body/08_findit_IV_example_Q8.html</loc>
-    <lastmod>2025-07-29T20:20:07.602Z</lastmod>
+    <lastmod>2026-01-18T17:43:54.235Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/examples/learn_Tobit_model.html</loc>
     <lastmod>2025-07-29T13:03:00.119Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/10_01_learn_heckman.html</loc>
+    <lastmod>2026-01-18T17:18:34.229Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/10_02_learn_heckman_blog.html</loc>
+    <lastmod>2026-01-18T17:45:57.150Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lianxhcn.github.io/research_with_AI/body/09_referee_comments.html</loc>
+    <lastmod>2026-01-18T17:34:46.728Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/examples/CSMAR/00_intro.html</loc>
@@ -62,7 +74,7 @@
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/examples/web_dangdang_book/case_Dangdang_book.html</loc>
-    <lastmod>2025-07-29T20:23:17.507Z</lastmod>
+    <lastmod>2026-01-18T17:40:36.393Z</lastmod>
   </url>
   <url>
     <loc>https://lianxhcn.github.io/research_with_AI/examples/regenernate_figure_with_AI.html</loc>

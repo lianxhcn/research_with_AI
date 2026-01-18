@@ -247,5 +247,14 @@
   },
   "body/01_use_Jupyter_Notebook.ipynb": {
     "01_use_Jupyter_Notebook.html": "950da987"
+  },
+  "body/10_01_learn_heckman.ipynb": {
+    "10_01_learn_heckman.html": "27862366"
+  },
+  "body/10_02_learn_heckman_blog.md": {
+    "10_02_learn_heckman_blog.html": "0fd44dc7"
+  },
+  "body/09_referee_comments.ipynb": {
+    "09_referee_comments.html": "961de4e7"
   }
 }

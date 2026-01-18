@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; 使用 AI 撰写论文推介 – Empirical Research with AI</title>
+<title>14&nbsp; 学习 Heckman 模型 – Empirical Research with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../body/05_01_example_Wing-2024.html" rel="next">
-<link href="../body/03_markdown_marp.html" rel="prev">
+<link href="../body/10_02_learn_heckman_blog.html" rel="next">
+<link href="../examples/learn_Tobit_model.html" rel="prev">
 <link href="../images/book-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><strong>学计量</strong></a></li><li class="breadcrumb-item"><a href="../body/10_01_learn_heckman.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">学习 Heckman 模型</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -177,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/05_00_read_paper_with_AI.html" class="sidebar-item-text sidebar-link active">
+  <a href="../body/05_00_read_paper_with_AI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></span></a>
   </div>
 </li>
@@ -252,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../body/10_01_learn_heckman.html" class="sidebar-item-text sidebar-link">
+  <a href="../body/10_01_learn_heckman.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">学习 Heckman 模型</span></span></a>
   </div>
 </li>
@@ -360,28 +360,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#钓鱼流程如何撰写提示词" id="toc-钓鱼流程如何撰写提示词" class="nav-link active" data-scroll-target="#钓鱼流程如何撰写提示词"><span class="header-section-number">7.1</span> 钓鱼流程：如何撰写提示词？</a>
-  <ul class="collapse">
-  <li><a href="#泛聊" id="toc-泛聊" class="nav-link" data-scroll-target="#泛聊"><span class="header-section-number">7.1.1</span> 泛聊</a></li>
-  <li><a href="#形成提纲" id="toc-形成提纲" class="nav-link" data-scroll-target="#形成提纲"><span class="header-section-number">7.1.2</span> 形成提纲</a></li>
-  <li><a href="#输出文档" id="toc-输出文档" class="nav-link" data-scroll-target="#输出文档"><span class="header-section-number">7.1.3</span> 输出文档</a></li>
-  </ul></li>
-  <li><a href="#一些实例" id="toc-一些实例" class="nav-link" data-scroll-target="#一些实例"><span class="header-section-number">7.2</span> 一些实例</a>
-  <ul class="collapse">
-  <li><a href="#实例wing-et-al.-2024-论文推介" id="toc-实例wing-et-al.-2024-论文推介" class="nav-link" data-scroll-target="#实例wing-et-al.-2024-论文推介"><span class="header-section-number">7.2.1</span> 实例：Wing et al.&nbsp;(2024) 论文推介</a></li>
-  <li><a href="#ai-伴读理论文献" id="toc-ai-伴读理论文献" class="nav-link" data-scroll-target="#ai-伴读理论文献"><span class="header-section-number">7.2.2</span> AI 伴读理论文献</a></li>
-  <li><a href="#causal-copilot自动化因果推断" id="toc-causal-copilot自动化因果推断" class="nav-link" data-scroll-target="#causal-copilot自动化因果推断"><span class="header-section-number">7.2.3</span> Causal-Copilot：自动化因果推断</a></li>
-  <li><a href="#博文解读概率匹配与-kelly-策略-python-代码" id="toc-博文解读概率匹配与-kelly-策略-python-代码" class="nav-link" data-scroll-target="#博文解读概率匹配与-kelly-策略-python-代码"><span class="header-section-number">7.2.4</span> 博文解读：概率匹配与 Kelly 策略-Python 代码</a></li>
-  </ul></li>
+  <li><a href="#实例管理学领域的-heckman-模型学习" id="toc-实例管理学领域的-heckman-模型学习" class="nav-link active" data-scroll-target="#实例管理学领域的-heckman-模型学习"><span class="header-section-number">14.1</span> 实例：管理学领域的 Heckman 模型学习</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><strong>论文解读</strong></a></li><li class="breadcrumb-item"><a href="../body/05_00_read_paper_with_AI.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/learn_Tobit_model.html"><strong>学计量</strong></a></li><li class="breadcrumb-item"><a href="../body/10_01_learn_heckman.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">学习 Heckman 模型</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">使用 AI 撰写论文推介</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">学习 Heckman 模型</span></h1>
 </div>
 
 
@@ -398,212 +386,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>对于初学者而言，精读 Top Journal 的论文，并参考作者提供的数据和代码进行复现是一个非常有效的学习方法。在此过程中，我们可以使用 VScode + Jupyter Notebook 来记录复现过程。虽然 AI 可以大幅提高复现和写作效率，但需要调教有方 (给出清晰的提示词)。</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-基本步骤
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>选择 AI 工具</strong>：可以使用 ChatGPT、DeepSeek、豆包等工具。也可以同时使用多个工具，互为补充。</li>
-<li><strong>上传论文 PDF 和相关资料</strong>：将论文 PDF 文件贴入 AI 助手对话框。如果你已经写了一些读书笔记，或搜索到了与论文相关的博文、Slides，评论等，也可以一并发给 AI。</li>
-<li><strong>撰写提示词</strong>：根据目标读者和内容要求，撰写清晰的提示词，指导 AI 工具生成内容。</li>
-<li><strong>生成内容</strong>：使用 AI 工具生成论文推介内容。</li>
-<li><strong>编辑和润色</strong>：对 AI 生成的内容进行编辑和润色，确保符合中文表述习惯和格式要求。</li>
-</ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-我最常用的一些提示词
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>样本选择偏误是内生性问题的一个重要来源。然而，在实际应用中，我们经常意识不到样本选择偏误的存在，导致估计结果存在严重偏误。</p>
+<p>学习 Heckman 模型并非易事。按照多数教科书的编排，通常先要学习 Tobit 模型，还要了解最大似然估计 (MLE) 的原理，然后才能理解 Heckman 模型的两步估计法 (2SLS) 和 MLE 方法。这一系列内容对初学者来说难度较大，容易望而却步。</p>
+<p>从实际应用的角度来看，即使是最好的教科书也往往注重理论推导，而忽视了有关该模型适用场景、变量选择和结果解释等实务问题的讨论。</p>
+<p>借助 AI，我们可以更高效地学习 Heckman 模型。这种方式非常有弹性，也能体现「因材施教」的特点。由于每个人的基础不同，研究的领域也不同，因此学习需求也会有所差异。我们可以通过不断地追问 AI，来满足个性化的学习需求。</p>
+<section id="实例管理学领域的-heckman-模型学习" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="实例管理学领域的-heckman-模型学习"><span class="header-section-number">14.1</span> 实例：管理学领域的 Heckman 模型学习</h2>
+<p>我最近读到一篇综述文章：<a href="https://doi.org/10.2139/ssrn.4105207">Bendig</a> and Hoke (<a href="https://doi.org/10.2139/ssrn.4105207">2022</a>)，题为「Correcting Selection Bias in Innovation and Entrepreneurship Research: A Practical Guide to Applying the Heckman Two-Stage Estimation」。这篇文章系统地介绍了 Heckman 模型在管理学领域的应用，列示了几十篇使用该模型的论文，并绘制了一张流程图，呈现 Heckman 选择模型的实操步骤。</p>
+<p>我撰写了如下提示词，要求 ChatGPT 帮我写一篇推文，内容主要基于这篇论文的观点和实操建议。</p>
+<p>我预先把本地存储的两份提示词文件上传给 Claude，分别是：</p>
 <ol type="1">
 <li>读论文-论文推介：<a href="https://github.com/lianxhcn/myprompt/blob/main/body/empirical-paper-keynotes-Prompt.md">empirical-paper-keynotes-Prompt.md</a></li>
 <li>规定参考文献格式：<a href="https://github.com/lianxhcn/myprompt/blob/main/body/myAPA-reference-format.md">reference-format-Prompt.md</a></li>
-<li>外审意见：<a href="https://github.com/lianxhcn/myprompt/blob/main/body/referee-comments.md">refree-comments.md</a></li>
 </ol>
-<p><strong>Note</strong>:</p>
-<ul>
-<li>点击提示词页面右上角 <code>Raw</code> 按钮，可以复制纯文本内容，方便粘贴到 AI 工具中使用。</li>
-<li>你也可以 <a href="https://github.com/lianxhcn/myprompt/fork">Fork</a> 我的仓库，将提示词保存到自己的账号下，方便后续使用和修改。</li>
-<li>建议：你可以在 github 上建一个个人的仓库，把自己与 AI 交互过程中生成的提示词和内容保存下来，方便后续查阅和使用。
-<ul>
-<li>一轮很长的对话完成后，你可以让 AI 帮你总结对话中使用的提示词，方便下次使用。</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<section id="钓鱼流程如何撰写提示词" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="钓鱼流程如何撰写提示词"><span class="header-section-number">7.1</span> 钓鱼流程：如何撰写提示词？</h2>
-<p>我通常是先和 AI 泛聊，了解论文的核心内容和贡献，然后再形成提纲，最后以 Section 为单位进行输出。每个环节都可能进行多轮讨论，这是一个我和 AI 彼此启发，深入思考的过程。</p>
-<section id="泛聊" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="泛聊"><span class="header-section-number">7.1.1</span> 泛聊</h3>
-<p>先使用比较开放的提示词，看看 AI 能否抓住这篇论文的要点，比如，你可以从如下问题清单中挑选一个或多个提问：</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-提示词：泛聊
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>请简要介绍这篇论文的核心观点和主要结论。</li>
-<li>这篇论文的主要贡献是什么？</li>
-<li>简要说明文中理论模型的设定思路和假设条件。<br>
-</li>
-<li>文中介绍了哪些主要方法？请简要说明。</li>
-<li>该文的提出的方法适用于哪些类型的研究问题？</li>
-<li>论文中有哪些重要的数学公式？请解释它们的含义。</li>
-<li>作者提供了哪些实操建议？请简要说明。</li>
-</ul>
-</div>
-</div>
-<p>通过上述对话，你可以大致了解这篇论文的核心内容和贡献。此时，可以快速阅读一下原文，确认一下 AI 的回答是否准确。如果 AI 的回答存在严重偏差，可以考虑变换提问方式，或者更换 AI 工具。</p>
-</section>
-<section id="形成提纲" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="形成提纲"><span class="header-section-number">7.1.2</span> 形成提纲</h3>
-<p>待上述讨论完成后，先不要急着输出推文内容，而是让 AI 工具先给出一个提纲。然后根据提纲讨论完善后，再进行详细撰写。</p>
-<p>在撰写提纲的过程中，你需要首先明确一些基本要求，使 AI 能够准确把握你的侧重点，并据此生成符合你预期的内容结构。你可以从以下几个方面进行说明：</p>
-<ul>
-<li><strong>推文目的</strong>：例如，是为了帮助读者快速理解论文的核心观点，还是为了深入探讨某一研究问题的理论与实证方法；</li>
-<li><strong>目标读者</strong>：例如，经济学或计量经济学领域的博士生、青年教师，或是具有基础的高年级本科生；</li>
-<li><strong>设定作者角色</strong>：你可以让 AI 扮演某个角色来撰写这篇推介，比如 “经济学博士生”、“计量经济学讲师” 等，这有助于它酌情调用语料，确保输出结果的语言风格符合角色身份。</li>
-<li><strong>论文的重点和难点</strong>：例如，是否需要重点介绍理论模型的设定思路、实证方法的创新之处，或是数据处理的细节等；或者强调这篇推文注重实操性，理论分析和模型设定部分都是为了 <strong>Section 5. Stata 实操</strong> 的内容服务。</li>
-<li><strong>语言风格</strong>：例如，采用中文推文风格（可参考 <a href="https://www.lianxh.cn">https://www.lianxh.cn</a> 的风格），注重表达简洁、结构清晰；或采用中文讲义风格，强调语言朴实、术语准确，适合教学或研究资料使用。</li>
-</ul>
-<p>我经常使用的提示词如下：</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-提示词：
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>我想写一篇论文推介，介绍我传给你的 PDF 论文。具体要求如下：</p>
-<ol type="1">
-<li>目标读者：经济学、计量经济学领域的研究人员和学生。
-<ul>
-<li>希望能够让他们快速了解这篇论文的核心内容和贡献。<br>
-</li>
-<li>对于一些复杂的数学公式，可以用比较通俗的语言进行解释。</li>
-<li>必要时，可以提供 1-2 个简化版的例子加以说明。</li>
-</ul></li>
-<li>需要介绍论文的主要内容、研究方法、数据来源和主要结论。<br>
-如果需要插入原文中的图形或表格，请告知我图表编号和插入位置，我会手动添加。</li>
-<li>需要包含关键公式和代码的解读。</li>
-<li>需要提供参考文献列表。</li>
-</ol>
-<p>你先帮我列一个提纲，我们讨论完善后再进行详细撰写。</p>
-</div>
-</div>
-<p>通常，第一轮生成的提纲都比较粗糙，你可以根据实际需要进行调整和细化。你可以让 AI 提供多个版本的提纲，也可以针对某个 Section 提出细化要求。以下是一些常用的提示词：</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-提示词：优化提纲
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>再来一个版本</li>
-<li>再来一个着重介绍 {论文思路/实证方法/因果识别策略} 的版本</li>
-<li>{Section 2：理论分析} 部分的提纲太单薄，建议分成 3 个小节，先概述理论分析思路，再介绍模型设定，最后讨论假设条件。</li>
-<li>{Section 3} 需要增加对数据来源和关键变量界定的介绍</li>
-<li>{Section 3：研究设计} 部分需要细化对因果识别策略的讨论</li>
-<li>增加一个小节：参考文献。采用 APA 格式，列出文中提到的所有参考文献。</li>
-<li>请为每个 Section 添加 label，如 <code>{label-1}</code>，方便我后续追问和整理</li>
-<li>我希望推文能够同时兼顾初学者和有经验的研究人员，具有一定的层次性。请据此调整写作提纲；并设定每个部分的字数范围。</li>
-</ul>
-</div>
-</div>
-<p>提示词中的 <code>{}</code> 部分可以替换为你需要强调的内容。如果没有具体的编号，你也可以从 AI 的答案中截取一些文字写成 <code>'text'</code> 或 <code>{text}</code> 的格式，它会据此定位到对应的 Section。</p>
-</section>
-<section id="输出文档" class="level3" data-number="7.1.3">
-<h3 data-number="7.1.3" class="anchored" data-anchor-id="输出文档"><span class="header-section-number">7.1.3</span> 输出文档</h3>
-<p>一旦推文的提纲确定下来，就可以开始输出文档了。以下是一些小技巧：</p>
-<ol type="1">
-<li><p>建议分多次输出。论文推介和解读的篇幅通常在 2000 字以上，每次输出一个 Section，酌情修改和提出新的要求。符合要求后，再让 AI 按照这个风格继续输出后续内容。这是因为多数 AI 工具都有单次输出的字数限制，通常在 2000-3000 字左右。如果让它一次性输出全文，它会精简或删除部分内容，以确保输出不超过字数限制。 分多次输出还有一个好处：你可以多花点时间修改 Section 1 的内容，确保它符合你的要求 (这本质上是训练 AI 的过程)。然后再让 AI 按照这个风格继续输出后续内容 (它在这方面的学习能力很强)。这样可以避免一次性输出的内容不符合预期，导致需要大幅修改。</p></li>
-<li><p>输出的内容尽量采用 Markdown 格式，方便后续编辑和排版。你可以要求 AI 使用 Markdown 语法输出标题、列表、代码块等格式。</p></li>
-<li><p>正式输出前，可以使用提示词 <code>Prompt: 请为每个输出添加 label，方便我后续整理</code>。这样 AI 工具会在每个 Section 前添加一个 label，比如 <code>{#Sec-1}</code>，<code>{#Sec-2}</code> 等，方便后续修改时引用。</p></li>
-<li><p>可以使用提示词 <code>Prompt: 请酌情标注需要插入原文图表的地方，并给出图形建议</code>。随后，你可以使用 SniPaste 等软件从原文中截图后插入推文。</p></li>
-<li><p>可以要求 AI 使用 <code>$$</code> 符号包裹数学公式，方便后续在 Markdown 中渲染；并使用提示词 <code>请勿添加任何表情符号</code>，避免 AI 在输出中添加表情符号。</p></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-提示词：撰写正文
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>按照最后一个版本的提纲，撰写正文，每个 section 输出一次。<br>
-字数严格按照计划执行，不要缩减。</p>
-<p>格式要求：</p>
-<ol type="1">
-<li>格式：Markdown 格式</li>
-<li>按照 ## 1. sec_title; ### 1.1 sub_sec_title 的方式编号 ；每个 section 添加一个标签 {lab-sec#}，便于后续修改时定位</li>
-<li>语言风格：中文讲义，20 年从教的老教授的风格，语言平和，准确，有力。可以参照 https://www.lianxh.cn 推文的风格。</li>
-<li>不要使用任何表情符号</li>
-<li>重要文献和链接务必在文中 提供超链接，文末提供完整的引文信息</li>
-<li>引文信息尽量使用如下格式，如果 PDF 链接无法获取，可以留空或删除 <code>[-PDF-]()</code> 部分的信息 引文信息采用 APA 格式，附加 <code>[Link](), [PDF](), [Google](), [github]()</code> 信息。即： Authors. ({Year}). {title_of_paper}, 45(1), 485–505. <code>[Link](https://doi.org/{DOI}), [PDF](http://sci-hub.ren/{DOI}), [Google](&lt;{title_of_paper}&gt;), [github-replication](https://github.com/{ID}/{rep_name})</code><br>
-</li>
-<li>文中的例子最好具体化，并保持全文一致，逐步推进和扩展。</li>
-</ol>
-</div>
-</div>
-</section>
-</section>
-<section id="一些实例" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="一些实例"><span class="header-section-number">7.2</span> 一些实例</h2>
-<p>最近半年，我使用 AI 工具撰写了 50 多篇论文推介和博客推文。下面举一些例子。</p>
-<section id="实例wing-et-al.-2024-论文推介" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="实例wing-et-al.-2024-论文推介"><span class="header-section-number">7.2.1</span> 实例：Wing et al.&nbsp;(2024) 论文推介</h3>
-<p>Wing, C., Yozwiak, M., Hollingsworth, A., Freedman, S., &amp; Simon, K. (2024). Designing Difference-in-Difference Studies with Staggered Treatment Adoption: Key Concepts and Practical Guidelines. <strong>Annual Review of Public Health</strong>, 45(1), 485–505. <a href="https://doi.org/10.1146/annurev-publhealth-061022-050825">Link</a>, <a href="https://www.annualreviews.org/docserver/fulltext/publhealth/45/1/annurev-publhealth-061022-050825.pdf?expires=1752678753&amp;id=id&amp;accname=guest&amp;checksum=345B1C3C23D23EC0D6A9B385A91F2513">PDF</a>, <a href="https://scholar.google.com/scholar?q=Designing%20Difference-in-Difference%20Studies%20with%20Staggered%20Treatment%20Adoption:%20Key%20Concepts%20and%20Practical%20Guidelines">Google</a>, <a href="https://github.com/hollina/arph-did-example">github-replication</a></p>
-<p>这篇论文介绍了五种常用的渐进 DID 的估计方法，作者还在 GitHub 上提供了相关的代码和数据。我采用上文介绍的提示词方法与豆包聊了 20 分钟，最终形成了推文的初稿 (满意度：80%)。</p>
-<ul>
-<li><a href="https://chatgpt.com/share/6883cbb0-f6e8-8005-98b7-b8e1692b9332">ChatGPT 对话过程</a></li>
-<li><a href="https://www.doubao.com/thread/w8e524bfc59a644e2">豆包对话过程</a>)</li>
-</ul>
-<p>有关这篇推介的具体生成过程，参见 <a href="./05_02_Wing-2024.html">案例：AI 助我读论文之 Wing et al.&nbsp;(2024)</a>。</p>
-</section>
-<section id="ai-伴读理论文献" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="ai-伴读理论文献"><span class="header-section-number">7.2.2</span> AI 伴读理论文献</h3>
-<ul>
-<li><p>连玉君, 2025, <a href="https://www.lianxh.cn/details/1571.html">如何借助 AI 工具来伴读一篇理论类的论文？</a>.</p>
-<ul>
-<li><p><a href="https://chatgpt.com/c/67f8b6cc-9da4-8005-b78d-4c3c03693de0">ChatGPT提示词 1：伴读一篇理论类的论文</a></p></li>
-<li><p><a href="https://chatgpt.com/share/680a3b68-c180-8005-a2f6-00172b13126f">ChatGPT提示词 2：RD调整成本函数</a></p></li>
-</ul></li>
-</ul>
-</section>
-<section id="causal-copilot自动化因果推断" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="causal-copilot自动化因果推断"><span class="header-section-number">7.2.3</span> Causal-Copilot：自动化因果推断</h3>
-<p>我看到了一个很有意思的 AI 助手：<a href="https://causalcopilot.com/">Causal-Copilot</a>。它可以帮助用户自动化因果推断的过程，提供了很多实用的功能和工具。</p>
-<blockquote class="blockquote">
-<p>连小白, 2025, <a href="https://www.lianxh.cn/details/1643.html">自动化因果推断助手：Causal-Copilot 简介</a>. (<a href="https://chatgpt.com/share/686c70ed-70d0-8005-bf02-972e9b2b11e8">ChatGPT 对话</a>)</p>
-</blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -614,107 +409,24 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 1:</p>
-</blockquote>
-<p>我想根据如下资料 ({text-01}) 写一篇推文。我的读者主要是经管类的博士生和青年老师，他们的主要工作做实证研究。</p>
-<ol type="1">
-<li>你觉得这篇推文的主要卖点应该是什么？</li>
-<li>推文的思路和结构应该是什么样的？</li>
-</ol>
-<hr>
-<p>’’’&lt;-text-01-&gt;</p>
-<p>#–Causal-Copilot–</p>
-<p>介绍原理，然后使用 <a href="https://causalcopilot.com/">https://causalcopilot.com/</a> 来做一些测试。</p>
+<p>写一篇推文，主要观点、内容和实操建议来自如下论文：</p>
+<p>Bendig, D., &amp; Hoke, J. (2022). Correcting Selection Bias in Innovation and Entrepreneurship Research: A Practical Guide to Applying the Heckman Two-Stage Estimation. SSRN Electronic Journal. <a href="https://doi.org/10.2139/ssrn.4105207">Link</a>, <a href="https://download.ssrn.com/22/05/12/ssrn_id4105207_code5233967.pdf">-PDF-</a>.</p>
 <ul>
-<li>github: <a href="https://github.com/Lancelot39/Causal-Copilot" class="uri">https://github.com/Lancelot39/Causal-Copilot</a></li>
-<li><a href="https://www.youtube.com/watch?si=3DTT2AlEIcAf-T_E&amp;v=U9-b0ZqqM24&amp;feature=youtu.be">demo-vedio: Causal-Copilot Demo: Tabular Data</a></li>
-<li><a href="https://huggingface.co/Causal-Copilot">Sample Dataset</a></li>
+<li>列示了管理学中使用该模型的几十篇论文的具体做法</li>
+<li>绘制了一张流程图，呈现 Heckman 选择模型的实操步骤</li>
 </ul>
-<p>Wang, X., Zhou, K., Wu, W., Singh, H. S., Nan, F., Jin, S., Philip, A., Patnaik, S., Zhu, H., Singh, S., Prashant, P., Shen, Q., &amp; Huang, B. (2025). Causal-Copilot: An Autonomous Causal Analysis Agent (Version 2). arXiv. <a href="https://doi.org/10.48550/arXiv.2504.13263">Link</a> (rep), <a href="https://arxiv.org/pdf/2504.13263.pdf">PDF</a>, <a href="https://scholar.google.com/scholar?q=Causal-Copilot:%20An%20Autonomous%20Causal%20Analysis%20Agent%20(Version%202)">Google</a>. <a href="https://arxiv.org/src/2504.13263">TeX Source</a><br>
-’’’</p>
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 2:</p>
-</blockquote>
-<p>帮我规划一个写作提纲。</p>
-<ol type="1">
-<li>语言朴实，注重为论据提供细节</li>
-<li>不要任何表情符号。全文按照 ## 1. title ### 1.1 sub_title 的结构来编号</li>
-<li>注重实操性。我的读者希望看完推文后能上手操作，实现自己的需求。</li>
-</ol>
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 3:</p>
-</blockquote>
-<p>好。 1. 我希望你提供的推文可以按 section 输出，确保每个 section 都有充实的内容。 2. 每个 section 可以先用一段话概括这个 section 针对的问题是什么？要点是什么。然后再开始展开说明。 3. 段落性文字和 items 格式的文本占比 为 2:1 以上，也就说，不要过度使用 items 方式来写推文，总感觉干巴巴的。</p>
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 4:</p>
-</blockquote>
-<p>好</p>
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 5:</p>
-</blockquote>
-<p>将整篇推文汇总成 Markdown 教学文稿。不要删减，只需要把现有答案合并起来，稍作调整即可。</p>
-</div>
-</div>
-</section>
-<section id="博文解读概率匹配与-kelly-策略-python-代码" class="level3" data-number="7.2.4">
-<h3 data-number="7.2.4" class="anchored" data-anchor-id="博文解读概率匹配与-kelly-策略-python-代码"><span class="header-section-number">7.2.4</span> 博文解读：概率匹配与 Kelly 策略-Python 代码</h3>
-<blockquote class="blockquote">
-<p><a href="https://chatgpt.com/c/684a20e7-19cc-8005-b1ca-8eb20d29afed">ChatGPT 对话过程</a></p>
-</blockquote>
-<p>我看到了一篇很有意思的 Blog：<a href="https://reasonabledeviations.com/2022/01/10/probability-matching-kelly/">Probability matching and Kelly betting</a>。作者介绍了概率匹配和 Kelly 策略的故事，提醒我们现实决策和自然演化中的“理性”，远不是单一的最大化期望值。更广义的理性关注风险、分布、长期增长以及群体的生存。</p>
-<p>里面有很多我不太理解的新概念，作者并未给出详细的解释。同时，我还想了解如何用 Python 代码实现这些概念。于是我将这篇 Blog 的内容和我的问题提供给了 ChatGPT，并与它进行了讨论。最终，我让它帮我输出了一篇 5000 字的推文 (<a href="https://github.com/arlionn/lianxhta/blob/main/sample/B817-Probability-Matching-and-Kelly-Criterion.md">初稿</a>)。</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-提示词
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 1:</p>
-</blockquote>
-<p>帮我解读一些这篇文章的核心观点： https://reasonabledeviations.com/2022/01/10/probability-matching-kelly/</p>
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 2:</p>
-</blockquote>
-<p>这个在研究中有何用？在哪些领域，这里提到的概念很重要？</p>
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 3:</p>
-</blockquote>
-<p>详细介绍一下 Kelly 策略</p>
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 4:</p>
-</blockquote>
-<p>目的：python 实现代码</p>
-<p>帮我设计一组 Python 代码，以便与 https://reasonabledeviations.com/2022/01/10/probability-matching-kelly/ 文中介绍的内容相配合。我想写一篇中文推文，把你给我的 Python 代码与这篇文章的内容结合起来，增加趣味性，也便于读者理解。</p>
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 5:</p>
-</blockquote>
-<p>用户使用这些函数时，能否自行调节参数，甚至进行动态互动演示？</p>
-<blockquote class="blockquote">
-<p><strong>Prompt</strong> 6:</p>
-</blockquote>
-<p>能否把上述讨论内容整合成一篇完整的推文。主内容包括：</p>
-<p>https://reasonabledeviations.com/2022/01/10/probability-matching-kelly/ 的中文翻译 (可以适当意译，以符合中文表述习惯)；</p>
-<ol type="1">
-<li>在合适的位置嵌入 Python 代码和解释性文字。</li>
-<li>预留图片插入位置，我随后运行完代码后插入图片。</li>
-<li>其它你认为必要的扩充。</li>
-</ol>
+<p>我前期已经发布过推文，</p>
 <ul>
-<li>字数：中文字符不少于 10000 字</li>
-<li>输出：直接连续输出，可以分多次输出</li>
-<li>格式：不要添加表情符号；章节顺序编号：## 1. xxx; ### 2.1 xxx</li>
+<li>牛坤在, 2021, <a href="https://www.lianxh.cn/details/688.html">xtheckmanfe：面板Heckman模型的固定效应估计</a>.</li>
+<li>秦利宾, 2020, <a href="https://www.lianxh.cn/details/153.html">Heckman 模型：你用对了吗？</a>.</li>
+<li>章青慈, 2022, <a href="https://www.lianxh.cn/details/1082.html">Stata：广义Heckman两步法-gtsheckman</a>.</li>
 </ul>
+<p>因此，目前这篇推文的主要目的是实用，要点包括： 1. 实证分析中常见的问题、误区和陷阱有哪些？ 2. 作者建议的实操指南有哪些？尤其是作者绘制的那张流程图，呈现 Heckman 选择模型的实操步骤</p>
+<p>推文字数不少于中文 5000 汉字。</p>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1142,13 +854,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../body/03_markdown_marp.html" class="pagination-link" aria-label="Markdown">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Markdown</span></span>
+      <a href="../examples/learn_Tobit_model.html" class="pagination-link" aria-label="使用 AI 解读 Tobit 模型">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">使用 AI 解读 Tobit 模型</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../body/05_01_example_Wing-2024.html" class="pagination-link" aria-label="案例：AI 解读 Wing (2024)">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">案例：AI 解读 Wing (2024)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../body/10_02_learn_heckman_blog.html" class="pagination-link" aria-label="Heckman 选择模型实操指南">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Heckman 选择模型实操指南</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

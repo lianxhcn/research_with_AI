@@ -11,7 +11,7 @@ section.lead h1 {
   text-align: center; /*其他参数：left, right*/
 }
 section {
-  font-size: 22px;      /* 正文字号 */
+  font-size: 36px;      /* 正文字号 */
 }
 h1 {
   color: blackyellow;   /* 标题的颜色 */
@@ -51,13 +51,16 @@ footer {
 
 <!--幻灯片标题-->
 
-#### 连享会 · Open 2025
+
+
+# Empirical Research with AI
+
+<br>
+&#x1F34F; 课件：  
 
 <https://lianxhcn.github.io/research_with_AI>
 
 <br>
-
-# Empirical Research with AI
 
 <br>
 
@@ -67,14 +70,14 @@ arlionn@163.com
 
 <br>
 
-&#x1F34F; 课件：[www.lianxh.cn](https://www.lianxh.cn) &rarr; **[公开课]**
-
-
---- - --
+---
 
 -   AI 时代：实证研究模式如何变化？
 -   AI 工具如何提升实证研究的效率？
 -   AI 工具如何帮助我们更好地思考和解决问题？
+  
+---
+
 -   实例：
     -   如何用 AI 工具发现好的 IV？
     -   如何用 AI 理解复杂的计量文献？
@@ -145,11 +148,12 @@ arlionn@163.com
 
 --- - --
 
-## 过去的学习中心是什么？
+## 过去:学习的重心是什么？
 
 - **经典理论与范式**：微观、宏观、计量三大支柱；
 - **数学与统计工具**：线性代数、概率论、数理统计、计量经济学；
-- **主流软件技能**：Stata、R、Matlab、SAS；
+- **主流软件技能**：Stata、R、Matlab、SAS ……
+  
 - **文献阅读与论文写作能力**：跟踪一条 literature line，围绕它选题、建模、实证。
 
 
@@ -160,12 +164,14 @@ arlionn@163.com
 
 - **从「单点技能」转向「跨界整合」**
   - 整合数据、模型、算法、文献，并用 AI 协助迁移
+  
 - **理论与数据的互动方向反转**
   - 从「理论先行 → 实证验证」向「数据先感知 → 模型解释」过渡
 - **工具从模型核心转向问题核心**
   - 研究工具 = 解决问题的桥梁，而非目的本身
   - 从「写代码」转向「写提示词」：重点不是命令语法，而是能否清晰表达问题、设计流程、定位输出
   - 工具： [ChatGPT](https://chat.openai.com/)、[Causal.Claims](https://www.causal.claims/)、[DeepSeek](https://www.deepseek.com/)、[PaperQA](https://github.com/rocketlaunchr/paperqa)
+  - 工具：agents 
 
 
 ---
@@ -268,7 +274,52 @@ arlionn@163.com
 
 - 应用实例：[连玉君 - Empirical Research with AI](https://lianxhcn.github.io/research_with_AI/)
 
+---
+
+## 大模型的各种应用
+
+> [Google 学术 - LLM and Applications](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Survey++Large+Language+Models+for&btnG=)
+
+![w:800](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20251104143353.png)
+
+
+---
+
+## 大模型在金融领域的应用
+
+Nie, Y., Kong, Y., Dong, X., Mulvey, J. M., Poor, H. V., Wen, Q., & Zohren, S. (2024). A Survey of Large Language Models for Financial Applications: Progress, Prospects and Challenges (Version 1). arXiv. [Link](https://doi.org/10.48550/arXiv.2406.11903) (rep), [PDF](https://arxiv.org/pdf/2406.11903.pdf), [Google](<https://scholar.google.com/scholar?q=A Survey of Large Language Models for Financial Applications: Progress, Prospects and Challenges (Version 1)>).
+
+![w:800](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/LLM-Finance-survey-01.png)
+
+---
+
+## FinMem: LLM 交易代理
+
+Yu, Y., Li, H., Chen, Z., Jiang, Y., Li, Y., Suchow, J. W., Zhang, D., & Khashanah, K. (2025). FinMem: A Performance-Enhanced LLM Trading Agent With Layered Memory and Character Design. IEEE Transactions on Big Data, 1–18. [Link](https://doi.org/10.1109/TBDATA.2025.3593370), [PDF](https://ojs.aaai.org/index.php/AAAI-SS/article/download/31290/33450/35346), [Google](<https://scholar.google.com/scholar?q=FinMem: A Performance-Enhanced LLM Trading Agent With Layered Memory and Character Design>).
+
 --- 
+
+## 多模态
+
+![20251104144139](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20251104144139.png)
+
+---
+
+## 多模态 JF
+
+> Borgschulte, M., Guenzel, M., Liu, C., & Malmendier, U. (2025). CEO Stress, Aging, and Death. The Journal of Finance. Portico. [Link](https://doi.org/10.1111/jofi.13497) (rep), [PDF](https://repec.iza.org/dp16366.pdf), [Google](<https://scholar.google.com/scholar?q=CEO Stress, Aging, and Death. The Journal of Finance>).
+
+![w:700](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20251104144309.png)
+
+--- 
+
+## 多模态 信息披露
+
+> Boulland, R., Bourveau, T., & Breuer, M. (2025). Company Websites: A New Measure of Disclosure. Journal of Accounting Research. Portico. [Link](https://doi.org/10.1111/1475-679X.70007), [PDF](https://file-lianxh.oss-cn-shenzhen.aliyuncs.com/Refs/2025-08-Yang/JAR-BOULLAND-Company-Websites.pdf), [Google](<https://scholar.google.com/scholar?q=Company Websites: A New Measure of Disclosure. Journal of Accounting Research>).
+
+![w:800](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/20251104150825.png)
+
+---
 
 <center>
 

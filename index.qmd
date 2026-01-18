@@ -9,21 +9,14 @@ author: "连玉君"
 
 ## 关于这本书
 
-这本书是在准备 [连享会系列公开课](https://www.lianxh.cn/open2025.html) 中的「AI时代如何做实证研究？」专题时编写的讲义。
+这本书是我在准备 [连享会系列公开课](https://www.lianxh.cn/open2025.html) 中的「AI时代如何做实证研究？」专题时编写的讲义。
 
-- [github 仓库](https://github.com/lianxhcn/research_with_AI)  
-- [B 站：直播视频](https://www.bilibili.com/video/BV1z3htzqEjK/?vd_source=c65d9ae0f7daba4ea32ee8c6122a4435) (2 hours)
+-   [github 仓库](https://github.com/lianxhcn/research_with_AI)\
+-   [B 站：直播视频](https://www.bilibili.com/video/BV1z3htzqEjK/?vd_source=c65d9ae0f7daba4ea32ee8c6122a4435) (2 hours)
 
 书中介绍了 AI 工具如何提升实证研究的效率，如何帮助我们更好地思考和解决问题。书中还介绍了 ChatGPT, 豆包, Github Copilot 等工具的使用，以及 Markdown、Github 和 Jupyter Notebook 的协同工作方式。
 
-当然，此处介绍的内容只是 GenAI 的一些非常基础的应用，大家如果有好的使用经验，可以发邮件给我：<arlionn@163.com>，或在本书的 Github 仓库中提交 [issues](https://github.com/lianxhcn/research_with_AI/issues)。
-
-另外，连享会最近推出的文本分析课程也会讲授 AI 的使用方法：
-
-> 连享会专题课：[文本分析专题](https://www.lianxh.cn/Text.html)
-> - **嘉宾**：陈婷 (香港浸会大学)
-> - **时间**： 2025 年 11.22, 11.29, 12.6 日 (三个周六)
-
+当然，此处介绍的内容只是 GenAI 的一些非常基础的应用，大家如果有好的使用经验，可以发邮件给我：[arlionn\@163.com](mailto:arlionn@163.com){.email}，或在本书的 Github 仓库中提交 [issues](https://github.com/lianxhcn/research_with_AI/issues)。
 
 ## 如何使用本书？
 
